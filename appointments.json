@@ -10,7 +10,7 @@
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
-        "Appointment Time": "12/27/2024 11:00:00 AM - 11:15:00 AM",
+        "Appointment Time": "12/27/2024 10:45:00 AM - 11:00:00 AM",
         "Service": "Reset/Violation Reset",
         "Client": "ZAMORA, FRANK(Greeley, CO)",
         "Phone": "720-953-9826",
@@ -28,12 +28,21 @@
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
-        "Appointment Time": "12/27/2024 11:30:00 AM - 12:00:00 PM",
+        "Appointment Time": "12/27/2024 11:00:00 AM - 11:30:00 AM",
+        "Service": "Daily Monitoring FC100",
+        "Client": "Tow, Alexander(Greeley, CO)",
+        "Phone": "970-804-7263",
+        "Vehicle": "2006 Chevrolet Equinox KEY",
+        "Firmware": "v7.11 C (Camera)"
+    },
+    {
+        "Location": "LSCO - Evans - Interlock Go",
+        "Appointment Time": "12/27/2024 11:15:00 AM - 11:45:00 AM",
         "Service": "De-Install Fee",
         "Client": "Lee, Brian(Johnstown, CO)",
         "Phone": "720-320-5699",
         "Vehicle": "2023 Hyundai Venue- Key Start",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": ""
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
