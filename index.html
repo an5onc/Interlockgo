@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Appointments</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Appointment Time</th>
+                <th>Service</th>
+                <th>Client</th>
+                <th>Phone</th>
+                <th>Vehicle</th>
+                <th>Firmware</th>
+            </tr>
+        </thead>
+        <tbody id="appointment-data">
+        </tbody>
+    </table>
+    <script>
+        fetch('appointments.json')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('appointment-data');
+                data.forEach(appointment => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${appointment.Location}</td>
+                        <td>${appointment["Appointment Time"]}</td>
+                        <td>${appointment.Service}</td>
+                        <td>${appointment.Client}</td>
+                        <td>${appointment.Phone}</td>
+                        <td>${appointment.Vehicle}</td>
+                        <td>${appointment.Firmware}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error loading data:', error));
+    </script>
+</body>
+</html>
