@@ -43,6 +43,18 @@ td {
     color: #555;
 }
 
+/* Completed Appointments Styling */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Optional: Styling for Entire Completed Rows */
+.completed-row {
+    background-color: #e0e0e0; /* Light gray background */
+    color: #777; /* Darker gray text */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     table {
@@ -52,4 +64,25 @@ td {
     th, td {
         padding: 8px;
     }
+}
+
+/* Optional: Legend Styling */
+#legend {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    font-size: 14px;
+}
+
+#legend span {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#legend .completed {
+    text-decoration: line-through;
+    color: gray;
 }

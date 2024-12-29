@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments</title>
     <link rel="stylesheet" href="index.css"> <!-- Link to external CSS file -->
+    <style>
+        /* Optional: Define a CSS class for completed appointments */
+        .completed {
+            text-decoration: line-through;
+            color: gray; /* Optional: Change text color for better visibility */
+        }
+    </style>
 </head>
 <body>
     <h1>Appointments</h1>
@@ -30,15 +37,43 @@
                 const tbody = document.getElementById('appointment-data');
                 data.forEach(appointment => {
                     const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${appointment.Location}</td>
-                        <td>${appointment["Appointment Time"]}</td>
-                        <td>${appointment.Service}</td>
-                        <td>${appointment.Client}</td>
-                        <td>${appointment.Phone}</td>
-                        <td>${appointment.Vehicle}</td>
-                        <td>${appointment.Firmware}</td>
-                    `;
+                    
+                    // Apply the 'completed' class if the appointment is completed
+                    const appointmentTimeCell = document.createElement('td');
+                    appointmentTimeCell.textContent = appointment["Appointment Time"];
+                    if (appointment.Completed) {
+                        appointmentTimeCell.classList.add('completed');
+                    }
+                    
+                    // Populate other cells
+                    const locationCell = document.createElement('td');
+                    locationCell.textContent = appointment.Location;
+                    
+                    const serviceCell = document.createElement('td');
+                    serviceCell.textContent = appointment.Service;
+                    
+                    const clientCell = document.createElement('td');
+                    clientCell.textContent = appointment.Client;
+                    
+                    const phoneCell = document.createElement('td');
+                    phoneCell.textContent = appointment.Phone;
+                    
+                    const vehicleCell = document.createElement('td');
+                    vehicleCell.textContent = appointment.Vehicle;
+                    
+                    const firmwareCell = document.createElement('td');
+                    firmwareCell.textContent = appointment.Firmware;
+                    
+                    // Append cells to the row
+                    row.appendChild(locationCell);
+                    row.appendChild(appointmentTimeCell);
+                    row.appendChild(serviceCell);
+                    row.appendChild(clientCell);
+                    row.appendChild(phoneCell);
+                    row.appendChild(vehicleCell);
+                    row.appendChild(firmwareCell);
+                    
+                    // Append the row to the table body
                     tbody.appendChild(row);
                 });
             })
