@@ -6,7 +6,8 @@
         "Client": "Daniel",
         "Phone": "***-***-9502",
         "Vehicle": "2005 Ford Mustang-Key",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -15,7 +16,8 @@
         "Client": "Omar",
         "Phone": "***-***-0175",
         "Vehicle": "2000 Chevrolet Silverado",
-        "Firmware": "111"
+        "Firmware": "111",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -24,7 +26,8 @@
         "Client": "Joseph",
         "Phone": "***-***-1429",
         "Vehicle": "2005 Buick LaCrosse",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -33,7 +36,8 @@
         "Client": "Alfonso",
         "Phone": "***-***-0204",
         "Vehicle": "2011 Toyota Venza",
-        "Firmware": "v713rc37"
+        "Firmware": "v713rc37",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -42,7 +46,8 @@
         "Client": "Miguelangel",
         "Phone": "***-***-8094",
         "Vehicle": "2005 Nissan Altima",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -51,7 +56,8 @@
         "Client": "Juan",
         "Phone": "***-***-8458",
         "Vehicle": "2008 GMC Sierra",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -60,7 +66,8 @@
         "Client": "Carrie",
         "Phone": "***-***-8732",
         "Vehicle": "2020 Hyundai Kona",
-        "Firmware": "111"
+        "Firmware": "111",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -69,7 +76,8 @@
         "Client": "Juan",
         "Phone": "***-***-9011",
         "Vehicle": "1998 GMC Sierra",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -78,7 +86,8 @@
         "Client": "Ryan",
         "Phone": "***-***-1168",
         "Vehicle": "2000 Dodge Stratus",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -87,7 +96,8 @@
         "Client": "Jose Alberto",
         "Phone": "***-***-0390",
         "Vehicle": "2011 Volkswagen Jetta",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -96,7 +106,8 @@
         "Client": "Epifanio M",
         "Phone": "***-***-3612",
         "Vehicle": "2008 Ford F150",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     },
     {
         "Location": "LSCO - Evans - Interlock Go",
@@ -105,6 +116,7 @@
         "Client": "Brian",
         "Phone": "***-***-4160",
         "Vehicle": "1999 Ford Taurus",
-        "Firmware": "v7.11 C (Camera)"
+        "Firmware": "v7.11 C (Camera)",
+        "Completed": false
     }
 ]
