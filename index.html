@@ -1,83 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
-    <link rel="stylesheet" href="index.css"> <!-- Link to external CSS file -->
-    <style>
-        /* Optional: Define a CSS class for completed appointments */
-        .completed {
-            text-decoration: line-through;
-            color: gray; /* Optional: Change text color for better visibility */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Appointments</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    <h1>Appointments</h1>
-    <table>
-        <thead>
+  <!-- Navigation Bar (Optional) -->
+  <nav class="navbar">
+    <div class="navbar__brand">My Interlock Appointments</div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Your Appointments Dashboard</h1>
+    <p>Stay on top of every Lifesafer or Guardian appointment—quick and easy.</p>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="container">
+    <!-- Legend (Optional) -->
+    <div id="legend">
+      <span>Normal Appointment</span>
+      <span class="completed">Completed Appointment</span>
+    </div>
+
+    <!-- Table Section -->
+    <section class="appointments-section">
+      <h2>Appointments</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
             <tr>
-                <th>Location</th>
-                <th>Appointment Time</th>
-                <th>Service</th>
-                <th>Client</th>
-                <th>Phone</th>
-                <th>Vehicle</th>
-                <th>Firmware</th>
+              <th>Location</th>
+              <th>Appointment Time</th>
+              <th>Service</th>
+              <th>Client</th>
+              <th>Phone</th>
+              <th>Vehicle</th>
+              <th>Firmware</th>
             </tr>
-        </thead>
-        <tbody id="appointment-data">
-        </tbody>
-    </table>
-    <script>
-        fetch('appointments.json')
-            .then(response => response.json())
-            .then(data => {
-                const tbody = document.getElementById('appointment-data');
-                data.forEach(appointment => {
-                    const row = document.createElement('tr');
-                    
-                    // Apply the 'completed' class if the appointment is completed
-                    const appointmentTimeCell = document.createElement('td');
-                    appointmentTimeCell.textContent = appointment["Appointment Time"];
-                    if (appointment.Completed) {
-                        appointmentTimeCell.classList.add('completed');
-                    }
-                    
-                    // Populate other cells
-                    const locationCell = document.createElement('td');
-                    locationCell.textContent = appointment.Location;
-                    
-                    const serviceCell = document.createElement('td');
-                    serviceCell.textContent = appointment.Service;
-                    
-                    const clientCell = document.createElement('td');
-                    clientCell.textContent = appointment.Client;
-                    
-                    const phoneCell = document.createElement('td');
-                    phoneCell.textContent = appointment.Phone;
-                    
-                    const vehicleCell = document.createElement('td');
-                    vehicleCell.textContent = appointment.Vehicle;
-                    
-                    const firmwareCell = document.createElement('td');
-                    firmwareCell.textContent = appointment.Firmware;
-                    
-                    // Append cells to the row
-                    row.appendChild(locationCell);
-                    row.appendChild(appointmentTimeCell);
-                    row.appendChild(serviceCell);
-                    row.appendChild(clientCell);
-                    row.appendChild(phoneCell);
-                    row.appendChild(vehicleCell);
-                    row.appendChild(firmwareCell);
-                    
-                    // Append the row to the table body
-                    tbody.appendChild(row);
-                });
-            })
-            .catch(error => console.error('Error loading data:', error));
-    </script>
+          </thead>
+          <tbody id="appointment-data">
+            <!-- Rows populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Optional) -->
+  <footer class="footer">
+    <p>© 2024 InterlockGoNOCO. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Fetch & Render Appointments JSON -->
+  <script>
+    fetch('appointments.json')
+      .then(response => response.json())
+      .then(data => {
+        // If you ever store both Lifesafer & Guardian in a single file,
+        // you'll have data = { lifesafer: [...], guardian: [...] }.
+        // For now, if it's just an array, proceed as is.
+
+        // If data is an array (old approach):
+        const appointments = Array.isArray(data) ? data : [];
+
+        // If you have combined data, do something like:
+        // const appointments = data.lifesafer.concat(data.guardian);
+
+        const tbody = document.getElementById('appointment-data');
+        appointments.forEach(appointment => {
+          const row = document.createElement('tr');
+
+          // Check if appointment is completed
+          if (appointment.Completed) {
+            row.classList.add('completed-row');
+          }
+
+          // Create cells
+          const locationCell = document.createElement('td');
+          locationCell.textContent = appointment.Location;
+
+          const timeCell = document.createElement('td');
+          timeCell.textContent = appointment["Appointment Time"];
+
+          const serviceCell = document.createElement('td');
+          serviceCell.textContent = appointment.Service;
+
+          const clientCell = document.createElement('td');
+          clientCell.textContent = appointment.Client;
+
+          const phoneCell = document.createElement('td');
+          phoneCell.textContent = appointment.Phone;
+
+          const vehicleCell = document.createElement('td');
+          vehicleCell.textContent = appointment.Vehicle;
+
+          const firmwareCell = document.createElement('td');
+          firmwareCell.textContent = appointment.Firmware;
+
+          // Apply "completed" class to the time cell specifically if completed
+          if (appointment.Completed) {
+            timeCell.classList.add('completed');
+          }
+
+          // Append cells to the row
+          row.appendChild(locationCell);
+          row.appendChild(timeCell);
+          row.appendChild(serviceCell);
+          row.appendChild(clientCell);
+          row.appendChild(phoneCell);
+          row.appendChild(vehicleCell);
+          row.appendChild(firmwareCell);
+
+          // Append the row to the table body
+          tbody.appendChild(row);
+        });
+      })
+      .catch(error => console.error('Error loading data:', error));
+  </script>
 </body>
 </html>
