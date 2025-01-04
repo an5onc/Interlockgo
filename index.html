@@ -58,7 +58,7 @@
 
   <!-- Fetch & Render Appointments JSON -->
   <script>
-    fetch('appointments.json')
+    fetch('./appointments.json')
       .then(response => response.json())
       .then(data => {
         // If you ever store both Lifesafer & Guardian in a single file,
