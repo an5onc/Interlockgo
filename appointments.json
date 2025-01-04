@@ -24,7 +24,7 @@
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/04/2025 10:00:00 AM - 10:30:00 AM",
             "Service": "Daily Monitoring FC100",
-            "Client": "JILL SUSANNE",
+            "Client": "JILL",
             "Phone": "***-***-4006",
             "Vehicle": "2007 Kia Sorento",
             "Firmware": "111",
@@ -34,7 +34,7 @@
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/04/2025 10:00:00 AM - 10:30:00 AM",
             "Service": "Daily Monitoring FC100",
-            "Client": "JEREMIAS HILCIAS",
+            "Client": "JEREMIAS",
             "Phone": "***-***-8145",
             "Vehicle": "2018 Hyundai Tucson- Key Start",
             "Firmware": "v7.11 C (Camera)",
@@ -54,7 +54,7 @@
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/04/2025 10:30:00 AM - 11:00:00 AM",
             "Service": "Daily Monitoring FC100",
-            "Client": "JEREMIAS HILCIAS",
+            "Client": "JEREMIAS",
             "Phone": "***-***-8145",
             "Vehicle": "2018 Hyundai Tucson- Key Start",
             "Firmware": "v7.11 C (Camera)",
@@ -88,17 +88,27 @@
             "Phone": "***-***-6482",
             "Vehicle": "2004 Chrysler PT CRUISER",
             "Firmware": "v7.11 C (Camera)",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/04/2025 12:00:00 PM - 12:15:00 PM",
+            "Service": "Interlock Exchange",
+            "Client": "EMMANUEL",
+            "Phone": "***-***-8586",
+            "Vehicle": "2012 Ford F150",
+            "Firmware": "v7.11 C (Camera)",
             "Completed": false
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/04/2025 12:30:00 PM - 01:00:00 PM",
+            "Appointment Time": "01/04/2025 12:15:00 PM - 12:45:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "DYANGO",
             "Phone": "***-***-8524",
             "Vehicle": "2012 Nissan Ultima - PUSH",
             "Firmware": "v7.11 C (Camera)",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": [
