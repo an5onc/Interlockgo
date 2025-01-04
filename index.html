@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Appointments</title>
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <!-- Navigation Bar (Optional) -->
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="navbar__brand">LSCO - Evans - Interlockgo</div>
   </nav>
@@ -21,10 +21,10 @@
 
   <!-- Main Content Wrapper -->
   <main class="container">
-    <!-- Legend (Optional) -->
+    <!-- Legend -->
     <div id="legend">
-      <span>Normal Appointment</span>
-      <span class="completed">Completed Appointment</span>
+      <button>Normal Appointment</button>
+      <button class="completed">Completed Appointment</button>
     </div>
 
     <!-- Table Section -->
@@ -51,7 +51,7 @@
     </section>
   </main>
 
-  <!-- Footer (Optional) -->
+  <!-- Footer -->
   <footer class="footer">
     <p>© 2024 InterlockGoNOCO. All Rights Reserved.</p>
   </footer>
@@ -61,21 +61,14 @@
     fetch('./appointments.json')
       .then(response => response.json())
       .then(data => {
-        // If you ever store both Lifesafer & Guardian in a single file,
-        // you'll have data = { lifesafer: [...], guardian: [...] }.
-        // For now, if it's just an array, proceed as is.
-
-        // If data is an array (old approach):
-        const appointments = Array.isArray(data) ? data : [];
-
-        // If you have combined data, do something like:
-        // const appointments = data.lifesafer.concat(data.guardian);
+        // Combine Lifesafer and Guardian arrays
+        const appointments = data.lifesafer.concat(data.guardian);
 
         const tbody = document.getElementById('appointment-data');
         appointments.forEach(appointment => {
           const row = document.createElement('tr');
 
-          // Check if appointment is completed
+          // Mark completed appointments
           if (appointment.Completed) {
             row.classList.add('completed-row');
           }
@@ -102,7 +95,7 @@
           const firmwareCell = document.createElement('td');
           firmwareCell.textContent = appointment.Firmware;
 
-          // Apply "completed" class to the time cell specifically if completed
+          // Apply "completed" class to the time cell if completed
           if (appointment.Completed) {
             timeCell.classList.add('completed');
           }
