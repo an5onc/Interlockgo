@@ -28,7 +28,7 @@
             "Phone": "***-***-4006",
             "Vehicle": "2007 Kia Sorento",
             "Firmware": "111",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -48,17 +48,37 @@
             "Phone": "***-***-2081",
             "Vehicle": "2006 Jeep CHEROKEE KEY",
             "Firmware": "v7.11 C (Camera)",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/04/2025 11:00:00 AM - 11:15:00 AM",
+            "Appointment Time": "01/04/2025 10:30:00 AM - 11:00:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "JEREMIAS HILCIAS",
+            "Phone": "***-***-8145",
+            "Vehicle": "2018 Hyundai Tucson- Key Start",
+            "Firmware": "v7.11 C (Camera)",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/04/2025 10:45:00 AM - 11:00:00 AM",
             "Service": "Reset/Violation Reset",
             "Client": "OMAR",
             "Phone": "***-***-0175",
             "Vehicle": "2000 Chevrolet Silverado",
             "Firmware": "111",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/04/2025 11:00:00 AM - 11:30:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "David",
+            "Phone": "***-***-9449",
+            "Vehicle": "2005 Ford Ranger",
+            "Firmware": "v7.11 C (Camera)",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -67,16 +87,6 @@
             "Client": "RICARDA",
             "Phone": "***-***-6482",
             "Vehicle": "2004 Chrysler PT CRUISER",
-            "Firmware": "v7.11 C (Camera)",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/04/2025 12:00:00 PM - 12:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "David",
-            "Phone": "***-***-9449",
-            "Vehicle": "2005 Ford Ranger",
             "Firmware": "v7.11 C (Camera)",
             "Completed": false
         },
@@ -104,16 +114,6 @@
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "01/04/2025 09:30:00 AM - 09:45:00 AM",
-            "Service": "Interlock Exchange",
-            "Client": "ISABEL",
-            "Phone": "***-***-9827",
-            "Vehicle": "2018 Nissan MAXIMA PUSH",
-            "Firmware": "111",
-            "Completed": false
-        },
-        {
-            "Location": "GIS(CO) Evans - Interlock Go (7244)",
             "Appointment Time": "01/04/2025 09:30:00 AM - 10:00:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "ISABEL",
@@ -130,7 +130,7 @@
             "Phone": "***-***-4441",
             "Vehicle": "2023 Nissan Versa Psh",
             "Firmware": "111",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
