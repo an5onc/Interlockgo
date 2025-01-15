@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Appointments</title>
-  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
@@ -27,7 +26,7 @@
       <button class="completed">Completed Appointment</button>
     </div>
 
-    <!-- Table Section -->
+    <!-- Lifesafer Table -->
     <section class="appointments-section">
       <h2>Lifesafer Appointments</h2>
       <div class="table-responsive">
@@ -43,7 +42,30 @@
               <th>Firmware</th>
             </tr>
           </thead>
-          <tbody id="appointment-data">
+          <tbody id="lifesafer-data">
+            <!-- Rows populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Guardian Table -->
+    <section class="appointments-section">
+      <h2>Guardian Appointments</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Appointment Time</th>
+              <th>Service</th>
+              <th>Client</th>
+              <th>Phone</th>
+              <th>Vehicle</th>
+              <th>Firmware</th>
+            </tr>
+          </thead>
+          <tbody id="guardian-data">
             <!-- Rows populated by JavaScript -->
           </tbody>
         </table>
@@ -61,11 +83,11 @@
     fetch('./appointments.json')
       .then(response => response.json())
       .then(data => {
-        // Combine Lifesafer and Guardian arrays
-        const appointments = data.lifesafer.concat(data.guardian);
+        // Lifesafer appointments
+        const lifesaferAppointments = data.lifesafer;
+        const lifesaferTableBody = document.getElementById('lifesafer-data');
 
-        const tbody = document.getElementById('appointment-data');
-        appointments.forEach(appointment => {
+        lifesaferAppointments.forEach(appointment => {
           const row = document.createElement('tr');
 
           // Mark completed appointments
@@ -95,7 +117,7 @@
           const firmwareCell = document.createElement('td');
           firmwareCell.textContent = appointment.Firmware;
 
-          // Apply "completed" class to the time cell if completed
+          // Apply "completed" class if completed
           if (appointment.Completed) {
             timeCell.classList.add('completed');
           }
@@ -109,8 +131,60 @@
           row.appendChild(vehicleCell);
           row.appendChild(firmwareCell);
 
-          // Append the row to the table body
-          tbody.appendChild(row);
+          // Add row to Lifesafer table
+          lifesaferTableBody.appendChild(row);
+        });
+
+        // Guardian appointments
+        const guardianAppointments = data.guardian;
+        const guardianTableBody = document.getElementById('guardian-data');
+
+        guardianAppointments.forEach(appointment => {
+          const row = document.createElement('tr');
+
+          // Mark completed appointments
+          if (appointment.Completed) {
+            row.classList.add('completed-row');
+          }
+
+          // Create cells
+          const locationCell = document.createElement('td');
+          locationCell.textContent = appointment.Location;
+
+          const timeCell = document.createElement('td');
+          timeCell.textContent = appointment["Appointment Time"];
+
+          const serviceCell = document.createElement('td');
+          serviceCell.textContent = appointment.Service;
+
+          const clientCell = document.createElement('td');
+          clientCell.textContent = appointment.Client;
+
+          const phoneCell = document.createElement('td');
+          phoneCell.textContent = appointment.Phone;
+
+          const vehicleCell = document.createElement('td');
+          vehicleCell.textContent = appointment.Vehicle;
+
+          const firmwareCell = document.createElement('td');
+          firmwareCell.textContent = appointment.Firmware;
+
+          // Apply "completed" class if completed
+          if (appointment.Completed) {
+            timeCell.classList.add('completed');
+          }
+
+          // Append cells to the row
+          row.appendChild(locationCell);
+          row.appendChild(timeCell);
+          row.appendChild(serviceCell);
+          row.appendChild(clientCell);
+          row.appendChild(phoneCell);
+          row.appendChild(vehicleCell);
+          row.appendChild(firmwareCell);
+
+          // Add row to Guardian table
+          guardianTableBody.appendChild(row);
         });
       })
       .catch(error => console.error('Error loading data:', error));
