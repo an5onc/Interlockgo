@@ -2,16 +2,6 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/17/2025 08:30:00 AM - 08:45:00 AM",
-            "Service": "Reset/Violation Reset",
-            "Client": "SCOTT",
-            "Phone": "***-***-8459",
-            "Vehicle": "2016 Subaru Outback",
-            "Firmware": "v7.11 C (Camera)",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/17/2025 09:15:00 AM - 09:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "JUAN",
@@ -42,23 +32,33 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/17/2025 11:15:00 AM - 12:45:00 PM",
+            "Service": "Install Fee",
+            "Client": "Martin",
+            "Phone": "***-***-6884",
+            "Vehicle": "2017 Chrysler 300 S",
+            "Firmware": "v7.11 C (Camera)",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/17/2025 12:00:00 PM - 02:00:00 PM",
             "Service": "Install Fee",
             "Client": "Martin",
             "Phone": "***-***-6884",
             "Vehicle": "2017 Chrysler 300 S",
-            "Firmware": "",
+            "Firmware": "v7.11 C (Camera)",
             "Completed": false
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/17/2025 02:00:00 PM - 02:30:00 PM",
+            "Appointment Time": "01/17/2025 01:45:00 PM - 02:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "BROCK",
             "Phone": "***-***-8082",
             "Vehicle": "2011 Ford Escape",
             "Firmware": "111",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -68,15 +68,35 @@
             "Phone": "***-***-7557",
             "Vehicle": "2007 Chevrolet Silverado",
             "Firmware": "v7.11 C (Camera)",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/17/2025 02:45:00 PM - 03:15:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "FRANK",
+            "Phone": "***-***-9826",
+            "Vehicle": "2011 Buick regal",
+            "Firmware": "v7.11 C (Camera)",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/17/2025 03:00:00 PM - 03:30:00 PM",
             "Service": "Daily Monitoring FC100",
-            "Client": "FRANK",
-            "Phone": "***-***-9826",
-            "Vehicle": "2011 Buick regal",
+            "Client": "CHRISTOPHER",
+            "Phone": "***-***-9853",
+            "Vehicle": "2011 Ford Fusion",
+            "Firmware": "111",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/17/2025 03:30:00 PM - 04:00:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "MARIA",
+            "Phone": "***-***-9650",
+            "Vehicle": "2008 Cadillac STS",
             "Firmware": "v7.11 C (Camera)",
             "Completed": false
         },
@@ -88,7 +108,7 @@
             "Phone": "***-***-9650",
             "Vehicle": "2008 Cadillac STS",
             "Firmware": "v7.11 C (Camera)",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -108,7 +128,7 @@
             "Phone": "***-***-9619",
             "Vehicle": "2002 Jeep Grand Cherokee Key",
             "Firmware": "v7.11 C (Camera)",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -118,7 +138,7 @@
             "Phone": "***-***-0355",
             "Vehicle": "2005 Honda Pilot - Key",
             "Firmware": "v7.11 C (Camera)",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -129,16 +149,6 @@
             "Vehicle": "2000 Jeep Grand Cherokee",
             "Firmware": "",
             "Completed": true
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/17/2025 04:30:00 PM - 05:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "CHRISTOPHER",
-            "Phone": "***-***-9853",
-            "Vehicle": "2011 Ford Fusion",
-            "Firmware": "111",
-            "Completed": false
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
