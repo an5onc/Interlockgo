@@ -38,7 +38,6 @@
               <th>Appointment Time</th>
               <th>Service</th>
               <th>Client</th>
-              <th>Phone</th>
               <th>Vehicle</th>
               <th>Firmware</th>
             </tr>
@@ -61,7 +60,6 @@
               <th>Appointment Time</th>
               <th>Service</th>
               <th>Client</th>
-              <th>Phone</th>
               <th>Vehicle</th>
               <th>Firmware</th>
             </tr>
@@ -109,9 +107,6 @@
           const clientCell = document.createElement('td');
           clientCell.textContent = appointment.Client;
 
-          const phoneCell = document.createElement('td');
-          phoneCell.textContent = appointment.Phone;
-
           const vehicleCell = document.createElement('td');
           vehicleCell.textContent = appointment.Vehicle;
 
@@ -128,7 +123,6 @@
           row.appendChild(timeCell);
           row.appendChild(serviceCell);
           row.appendChild(clientCell);
-          row.appendChild(phoneCell);
           row.appendChild(vehicleCell);
           row.appendChild(firmwareCell);
 
@@ -161,9 +155,6 @@
           const clientCell = document.createElement('td');
           clientCell.textContent = appointment.Client;
 
-          const phoneCell = document.createElement('td');
-          phoneCell.textContent = appointment.Phone;
-
           const vehicleCell = document.createElement('td');
           vehicleCell.textContent = appointment.Vehicle;
 
@@ -180,7 +171,6 @@
           row.appendChild(timeCell);
           row.appendChild(serviceCell);
           row.appendChild(clientCell);
-          row.appendChild(phoneCell);
           row.appendChild(vehicleCell);
           row.appendChild(firmwareCell);
 
