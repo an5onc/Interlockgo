@@ -6,7 +6,7 @@
             "Service": "Daily Monitoring FC100",
             "Client": "ARRONA",
             "Vehicle": "2007 Cadillac SRX",
-            "Firmware": "v7.11 C (Camera)",
+            "Firmware": "Legacy",
             "Completed": false
         },
         {
@@ -15,7 +15,7 @@
             "Service": "Daily Monitoring FC100",
             "Client": "MENDOZA",
             "Vehicle": "2009 Dodge Ram 1500",
-            "Firmware": "v7.11 C (Camera)",
+            "Firmware": "Legacy",
             "Completed": true
         },
         {
@@ -24,7 +24,7 @@
             "Service": "Daily Monitoring FC100",
             "Client": "ALARID",
             "Vehicle": "2018 Toyota tacoma PUSH",
-            "Firmware": "v7.11 C (Camera)",
+            "Firmware": "Legacy",
             "Completed": true
         },
         {
@@ -33,7 +33,7 @@
             "Service": "Install Fee",
             "Client": "Panzo",
             "Vehicle": "2005 Ford F150",
-            "Firmware": "v7.11 C (Camera)",
+            "Firmware": "Legacy",
             "Completed": true
         },
         {
@@ -42,7 +42,7 @@
             "Service": "Daily Monitoring FC100",
             "Client": "BANGERT",
             "Vehicle": "2021 Buick Encore",
-            "Firmware": "111",
+            "Firmware": "L250",
             "Completed": true
         },
         {
@@ -51,7 +51,7 @@
             "Service": "Daily Monitoring FC100",
             "Client": "HERRERA",
             "Vehicle": "2012 Nissan Ultima - PUSH",
-            "Firmware": "v7.11 C (Camera)",
+            "Firmware": "Legacy",
             "Completed": true
         },
         {
@@ -60,7 +60,7 @@
             "Service": "Interlock Exchange",
             "Client": "HERRERA",
             "Vehicle": "2012 Nissan Ultima - PUSH",
-            "Firmware": "v7.11 C (Camera)",
+            "Firmware": "Legacy",
             "Completed": true
         }
     ],
