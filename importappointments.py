@@ -4,6 +4,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
+import subprocess
 
 def scrape_appointments(username, password):
     """
@@ -90,7 +91,15 @@ def scrape_appointments(username, password):
         driver.quit()
     
     return rows
-
+def git_push():
+    try:
+        subprocess.run(["git", "add", "appointments.json"], check=True)
+        subprocess.run(["git", "commit", "-m", "Auto-update appointments"], check=True)
+        subprocess.run(["git", "push"], check=True)
+        print("Changes pushed to repository.")
+    except subprocess.CalledProcessError as e:
+        print("Error in Git operations:", e)
+        
 def main():
     # Grab all environment variables
     LIFESAFER_USERNAME = os.getenv('LIFESAFER_USERNAME')
@@ -126,6 +135,8 @@ def main():
     
     print("Updated appointments.json")
     print(json.dumps(combined_data, indent=4))
+
+    git_push()
 
 if __name__ == "__main__":
     main()
