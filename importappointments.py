@@ -1,9 +1,10 @@
 import os
 import json
 import logging
-from datetime import datetime
 import subprocess
 import shutil
+from datetime import datetime
+import time  # Needed for scheduling loop
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -13,6 +14,7 @@ from bs4 import BeautifulSoup
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 def scrape_appointments(username, password):
     """
@@ -103,13 +105,14 @@ def scrape_appointments(username, password):
     
     return rows
 
+
 def git_push():
     """
     Stages, commits, and pushes changes to the Git repository.
     Checks for staged changes before committing.
     """
     try:
-        # Use shutil.which to find the full path for git
+        # Find full path to git
         git_path = shutil.which("git")
         if not git_path:
             logging.error("Git is not installed or not found in PATH.")
@@ -137,6 +140,7 @@ def git_push():
     except subprocess.CalledProcessError as e:
         logging.error("Error in Git operations:", exc_info=True)
 
+
 def main():
     # Retrieve credentials from environment variables
     LIFESAFER_USERNAME = os.getenv('LIFESAFER_USERNAME')
@@ -156,7 +160,7 @@ def main():
     logging.info("Scraping Guardian appointments...")
     guardian_data = scrape_appointments(GUARDIAN_USERNAME, GUARDIAN_PASSWORD)
     
-    # Combine the data into a single JSON structure
+    # Combine the data into one JSON structure
     combined_data = {
         "lifesafer": lifesafer_data,
         "guardian": guardian_data
@@ -171,11 +175,40 @@ def main():
     except IOError as e:
         logging.error(f"Failed to write to {output_path}", exc_info=True)
     
-    # Optionally, print the data for debugging:
+    # Optionally, print the data for debugging
     logging.debug(json.dumps(combined_data, indent=4))
     
     # Push changes to Git
     git_push()
 
+
+def schedule_jobs():
+    """
+    Schedules the main() function to run at 8am, noon, 4pm, and 10pm every day.
+    Note: The computer (or at least this script) must be running continuously for the scheduler to work.
+    """
+    try:
+        import schedule  # Ensure you have installed schedule via pip
+    except ImportError:
+        logging.error("The 'schedule' module is not installed. Install it with 'pip install schedule'")
+        return
+    
+    # Schedule main() to run at specified times
+    schedule.every().day.at("08:00").do(main)
+    schedule.every().day.at("12:00").do(main)
+    schedule.every().day.at("16:00").do(main)
+    schedule.every().day.at("22:00").do(main)
+    
+    logging.info("Scheduled jobs set for 08:00, 12:00, 16:00, and 22:00 daily.")
+    while True:
+        schedule.run_pending()
+        time.sleep(60)  # Check every 60 seconds
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    # If the script is called with "schedule" as an argument, run the scheduler.
+    if len(sys.argv) > 1 and sys.argv[1].lower() == "schedule":
+        schedule_jobs()
+    else:
+        main()
