@@ -5,7 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Appointments</title>
   <link rel="stylesheet" href="index.css" />
-  <script defer src="https://app.fastbots.ai/embed.js" data-bot-id="cm61w6sm807khs5k3hdwd3838"></script>
+  <!-- Chatbot Styles -->
+  <style>
+    /* Chatbot container styles */
+    #chat-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #f9f9f9;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      font-family: Arial, sans-serif;
+      z-index: 1000;
+    }
+    #chat-header {
+      background: #007BFF;
+      color: #fff;
+      padding: 10px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    #chat-body {
+      padding: 10px;
+      height: 200px;
+      overflow-y: auto;
+    }
+    .chat-message {
+      margin-bottom: 10px;
+    }
+    .user-message {
+      text-align: right;
+      color: blue;
+    }
+    .bot-message {
+      text-align: left;
+      color: green;
+    }
+    #chat-input {
+      width: calc(100% - 20px);
+      margin: 10px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -76,6 +121,13 @@
   <footer class="footer">
     <p>© 2024 InterlockGoNOCO. All Rights Reserved.</p>
   </footer>
+
+  <!-- Chatbot Container -->
+  <div id="chat-container">
+    <div id="chat-header">Chatbot</div>
+    <div id="chat-body"></div>
+    <input type="text" id="chat-input" placeholder="Type your message...">
+  </div>
 
   <!-- Fetch & Render Appointments JSON -->
   <script>
@@ -179,6 +231,52 @@
         });
       })
       .catch(error => console.error('Error loading data:', error));
+  </script>
+
+  <!-- Chatbot Script -->
+  <script>
+    const chatBody = document.getElementById('chat-body');
+    const chatInput = document.getElementById('chat-input');
+
+    // Function to append messages to the chat window
+    function appendMessage(message, sender) {
+      const messageElem = document.createElement('div');
+      messageElem.className = 'chat-message ' + (sender === 'user' ? 'user-message' : 'bot-message');
+      messageElem.textContent = message;
+      chatBody.appendChild(messageElem);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // Simple rule-based response logic
+    function botResponse(userMessage) {
+      let response = "I'm sorry, I didn't understand that.";
+      const lowerMessage = userMessage.toLowerCase();
+
+      if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+        response = 'Hi Anson, how can I help you today?';
+      } else if (lowerMessage.includes('help')) {
+        response = 'Sure, what do you need help with?';
+      } else if (lowerMessage.includes('interlocknoco')) {
+        response = 'InterlockNoCo is your go-to place for all things interlock!';
+      }
+      // Add more response rules as needed
+      return response;
+    }
+
+    // Listen for the Enter key to send messages
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+        const userMessage = chatInput.value.trim();
+        appendMessage(userMessage, 'user');
+        chatInput.value = '';
+
+        // Simulate a short delay for the bot's reply
+        setTimeout(() => {
+          const response = botResponse(userMessage);
+          appendMessage(response, 'bot');
+        }, 500);
+      }
+    });
   </script>
 </body>
 </html>
