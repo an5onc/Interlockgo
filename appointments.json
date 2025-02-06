@@ -3,12 +3,21 @@
     "guardian": [
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "02/05/2025 09:00:00 AM",
+            "Appointment Time": "02/05/2025 02:30:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "Baumann",
             "Vehicle": "2013 Buick Verano",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "GIS(CO) Evans - Interlock Go (7244)",
+            "Appointment Time": "02/05/2025 03:00:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Boyd",
+            "Vehicle": "2019 Toyota Highlander",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
@@ -17,16 +26,7 @@
             "Client": "TRUJILLO",
             "Vehicle": "2011 Audi A5 Quattro",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "02/05/2025 05:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "Boyd",
-            "Vehicle": "2019 Toyota Highlander",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
