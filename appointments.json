@@ -48,29 +48,29 @@
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/21/2025 12:30:00 PM",
-            "Service": "Interlock Exchange",
+            "Service": "Daily Monitoring FC100",
             "Client": "OLEARY",
             "Vehicle": "2011 Ford Focus",
             "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/21/2025 01:00:00 PM",
+            "Appointment Time": "02/21/2025 12:45:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "SCHONDEL",
+            "Vehicle": "2003 Honda Pilot",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/21/2025 01:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "SEEVERS",
             "Vehicle": "1997 Honda ACCORD",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/21/2025 01:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "SCHONDEL",
-            "Vehicle": "2003 Honda Pilot",
-            "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
