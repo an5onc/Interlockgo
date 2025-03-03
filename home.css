@@ -233,3 +233,58 @@
       margin-bottom: 20px;
     }
   }
+  /* CTA Dropdown Container */
+.cta-dropdown-container {
+  position: relative;
+  display: inline-block; /* Keep the button + phone number together */
+  margin-top: 20px;      /* Adjust spacing as desired */
+}
+
+/* Main “Call Now” button styling */
+.cta-button {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #45A049;
+}
+
+/* The hidden phone number element */
+.phone-number {
+  display: none;             /* Hidden by default */
+  position: absolute;
+  top: 100%;                 /* Appear below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 8px;           /* Some space between button & phone number */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;       /* Prevent line breaks in phone number */
+}
+
+/* Phone number link inside the dropdown */
+.phone-number a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.phone-number a:hover {
+  text-decoration: underline;
+}
+
+/* Reveal the phone number on hover */
+.cta-dropdown-container:hover .phone-number {
+  display: block;
+}
