@@ -1,0 +1,152 @@
+/* Global Reset and Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+  }
+  
+  /* Welcome Section */
+  .welcome-section {
+    background: linear-gradient(to right, #1b345d, #2a3b67);
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .welcome-section .welcome-text {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .welcome-section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Chat Toggle (Floating Image of Lilly) */
+  .chat-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .chat-toggle img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+  }
+  
+  .chat-toggle img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Chat Container */
+  .chat-container {
+    position: fixed;
+    bottom: 100px; /* just above the toggle button */
+    right: 20px;
+    width: 300px;
+    max-width: 90vw; /* so it scales on smaller screens */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+  }
+  
+  .hidden {
+    display: none; /* toggled by JavaScript */
+  }
+  
+  .chat-header {
+    background: #76bc21;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 1px solid #5da213;
+  }
+  
+  .chat-body {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    max-height: 300px; /* set a max-height for scrolling */
+    background-color: #fafafa;
+  }
+  
+  /* Messages */
+  .chat-message {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    line-height: 1.4;
+    max-width: 80%;
+    clear: both;
+  }
+  
+  .user-message {
+    background-color: #2a3b67;
+    color: #fff;
+    margin-left: auto;
+    text-align: right;
+  }
+  
+  .bot-message {
+    background-color: #e6e6e6;
+    color: #333;
+  }
+  
+  /* Chat Input */
+  .chat-input {
+    border: none;
+    border-top: 1px solid #ccc;
+    padding: 0.8rem;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  /* Scrollbar Styling (optional) */
+  .chat-body::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .chat-body::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .chat-toggle img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .chat-container {
+      bottom: 80px;
+      right: 10px;
+      width: 250px;
+    }
+  }
