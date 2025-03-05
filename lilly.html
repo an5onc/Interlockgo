@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chat with Lilly</title>
 
-  <!-- Google Fonts (Optional) -->
+  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet"
   />
 
-  <!-- Link to external CSS -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="lilly.css" />
 </head>
 <body>
@@ -28,18 +28,94 @@
     </div>
   </header>
 
-  <!-- Main Content (Optional if you want other content on the page) -->
-  <main>
-    <!-- You can add more site content here if needed -->
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- About / Explanation Section -->
+    <section class="info-section">
+      <h2>Why Choose Our Services?</h2>
+      <p>
+        We specialize in providing top-notch ignition interlock solutions to help 
+        you stay compliant and safe on the road. Whether you're new to interlock 
+        devices or looking to switch providers, our experienced team is here to 
+        guide you every step of the way.
+      </p>
+      <ul>
+        <li><strong>Certified Technicians</strong> – Our staff is fully trained and certified, ensuring a smooth installation.</li>
+        <li><strong>24/7 Support</strong> – We’re here for you whenever you need assistance.</li>
+        <li><strong>Flexible Plans</strong> – Choose from various device and payment options to fit your needs.</li>
+      </ul>
+    </section>
+
+    <!-- Services / Features Section -->
+    <section class="features-section">
+      <div class="feature">
+        <img src="images/installation.png" alt="Installation Icon" />
+        <h3>Seamless Installation</h3>
+        <p>
+          Our technicians handle everything quickly and professionally, 
+          minimizing any downtime.
+        </p>
+      </div>
+      <div class="feature">
+        <img src="images/maintenance.png" alt="Maintenance Icon" />
+        <h3>Easy Maintenance</h3>
+        <p>
+          Our devices are user-friendly with straightforward maintenance 
+          and calibration schedules.
+        </p>
+      </div>
+      <div class="feature">
+        <img src="images/support.png" alt="Support Icon" />
+        <h3>Reliable Support</h3>
+        <p>
+          Have questions? Lilly is here to answer them, or you can contact 
+          our support team for more help.
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial">
+        <p>
+          “Quick, friendly and on time. Informative with all that you have to learn and helpful too. 
+           Would recommend if you have to get an interlock device!”
+        </p>
+        <span>– Tyler S.</span>
+      </div>
+      <div class="testimonial">
+        <p>
+          “DEFINITELY go here if you’re looking for hassle-free, friendly, professional service. 
+          I had my Lifesafer calibrated at other locations in the area and ran into issues 
+          with them being unprofessional. I’m so glad I finally found this location in Evans 
+          because Anson has made this process one thousand times easier for me. 
+          I live in Loveland and this service was worth the 30 minute drive for me.”
+        </p>
+        <span>– Caitlin D.</span>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+      <h2>Ready to Get Started?</h2>
+      <p>
+        Contact us today, or ask Lilly any questions you may have. 
+        We’re here to help you regain your driving privileges safely 
+        and efficiently.
+      </p>
+      <a href="contact.html" class="cta-button">Contact Us</a>
+    </section>
+
   </main>
 
-  <!-- Floating Chatbot Toggle (Lilly's image) -->
-  <!-- Clicking this will show/hide the chatbot container -->
+  <!-- Floating Chatbot Toggle (Lilly’s image) -->
   <div class="chat-toggle" id="chat-toggle">
-    <img src="images/lilly.jpeg" alt="Lilly" title="Ask Lilly"/>
+    <img src="images/lilly.jpeg" alt="Lilly" title="Chat with Lilly"/>
   </div>
 
-  <!-- Chatbot Container (Hidden by default, toggled via JavaScript) -->
+  <!-- Chatbot Container -->
   <div id="chat-container" class="chat-container hidden">
     <div class="chat-header">Chat with Lilly</div>
     <div id="chat-body" class="chat-body"></div>
@@ -51,8 +127,13 @@
     />
   </div>
 
-  <!-- Link to external JavaScript -->
+  <!-- JavaScript -->
   <script src="lilly.js"></script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="index.html">HOME</a>
+  </footer>
 
 </body>
 </html>
