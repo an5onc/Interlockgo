@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat with Lilly</title>
+
+  <!-- Google Fonts (Optional) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="lilly.css" />
+</head>
+<body>
+
+  <!-- Page Header / Intro Section -->
+  <header class="welcome-section">
+    <div class="welcome-text">
+      <h1>Meet Lilly</h1>
+      <p>
+        Lilly is our friendly, educational chatbot here to answer your questions 
+        about interlock devices, services, and more. Simply click the chat icon 
+        and start chatting!
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content (Optional if you want other content on the page) -->
+  <main>
+    <!-- You can add more site content here if needed -->
+  </main>
+
+  <!-- Floating Chatbot Toggle (Lilly's image) -->
+  <!-- Clicking this will show/hide the chatbot container -->
+  <div class="chat-toggle" id="chat-toggle">
+    <img src="images/lilly.jpeg" alt="Lilly" title="Ask Lilly"/>
+  </div>
+
+  <!-- Chatbot Container (Hidden by default, toggled via JavaScript) -->
+  <div id="chat-container" class="chat-container hidden">
+    <div class="chat-header">Chat with Lilly</div>
+    <div id="chat-body" class="chat-body"></div>
+    <input
+      type="text"
+      id="chat-input"
+      class="chat-input"
+      placeholder="Type your message..."
+    />
+  </div>
+
+  <!-- Link to external JavaScript -->
+  <script src="lilly.js"></script>
+
+</body>
+</html>
