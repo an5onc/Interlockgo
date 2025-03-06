@@ -156,12 +156,29 @@
   
   /* ----------------- Footer ----------------- */
   .footer {
-    text-align: center;
-    font-size: 0.9rem;
-    padding: 15px;
-    background-color: #444;
-    color: #fff;
-  }
+    background-color: #1b345d;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px; /* So it’s spaced from main content */
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s, background-color 0.3s;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
   
   /* ----------------- Responsive Media Queries ----------------- */
   @media (max-width: 768px) {
