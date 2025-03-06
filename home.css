@@ -62,7 +62,7 @@ body {
 
 /* 3. Navigation Menu */
 nav {
-  background: linear-gradient(to right, #1b345d, #2a3b67);
+  background: linear-gradient(to right, #1b345d, #1b345d);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
