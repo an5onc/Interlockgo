@@ -201,9 +201,9 @@
   
   .feature {
     flex: 1 1 calc(33% - 1rem);
-    background-color: #fff;
+    background-color: #ededed;
     border-radius: 8px;
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   }
