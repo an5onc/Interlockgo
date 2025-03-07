@@ -34,16 +34,7 @@
             "Client": "YBARRA",
             "Vehicle": "2011 Jeep Cherokee PUSH",
             "Firmware": "Legacy",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "03/07/2025 10:30:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "LECHUGA",
-            "Vehicle": "2003 Nissan 350Z",
-            "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -87,6 +78,15 @@
             "Service": "Daily Monitoring FC100",
             "Client": "DELEON",
             "Vehicle": "2008 Cadillac Escalade",
+            "Firmware": "Legacy",
+            "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "03/07/2025 03:00:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "LECHUGA",
+            "Vehicle": "2003 Nissan 350Z",
             "Firmware": "Legacy",
             "Completed": false
         },
