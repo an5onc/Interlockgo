@@ -1,0 +1,46 @@
+[
+    {
+      "keywords": ["hello", "hi", "hey"],
+      "response": "Hello there! How can I help you today?"
+    },
+    {
+      "keywords": ["help", "assist"],
+      "response": "Sure, let me know what you need assistance with."
+    },
+    {
+      "keywords": ["interlocknoco", "interlock noco", "interlock go"],
+      "response": "InterlockNoCo is your go-to place for all things interlock!"
+    },
+    {
+      "keywords": ["abort", "abort light"],
+      "response": "An ABORT means the breath wasn’t strong or steady enough, or the camera couldn’t see the device. Relax, reposition, and try again."
+    },
+    {
+      "keywords": ["lockout", "permanent lockout", "temporary lockout"],
+      "response": "A LOCKOUT means multiple fails or missed service. You’ll need to wait it out or call for an override if it’s permanent."
+    },
+    {
+      "keywords": ["fail test", "failed test", "fail light"],
+      "response": "A FAIL means alcohol was detected. Rinse with water, wait 5 minutes, and avoid using mouthwash or anything with alcohol before testing."
+    },
+    {
+      "keywords": ["camera abort", "camera not working", "target not found"],
+      "response": "Make sure the handset is 18–24 inches from the camera and the target sticker is fully visible. Wave it gently if needed."
+    },
+    {
+      "keywords": ["service light", "service appointment", "due for service"],
+      "response": "The SERVICE light means you’re due for your appointment. Call ahead if you need to reschedule to avoid early recall or lockout."
+    },
+    {
+      "keywords": ["retest", "random test"],
+      "response": "If you’re asked for a retest while driving, pull over safely. You have a few minutes to take it before a violation gets recorded."
+    },
+    {
+      "keywords": ["how to blow", "how do i blow", "test instructions"],
+      "response": "Blow steadily while humming “DO” or “DAA.” You’ll hear a tone if you’re doing it right. Keep it smooth, not too soft or too hard."
+    },
+    {
+      "keywords": ["mouthwash", "meds", "medicine"],
+      "response": "Some products like mouthwash or cold meds contain alcohol and can trigger a FAIL. Wait 5–15 mins after use before testing."
+    }
+  ]
