@@ -1,15 +1,27 @@
 [
     {
       "keywords": ["hello", "hi", "hey"],
-      "response": "Hello there! How can I help you today?"
+      "response": "Hello there! Please type in a keyword or phrase that best describes the reason for your visit today."
     },
     {
       "keywords": ["help", "assist"],
       "response": "Sure, let me know what you need assistance with."
     },
     {
-      "keywords": ["interlocknoco", "interlock noco", "interlock go"],
-      "response": "InterlockNoCo is your go-to place for all things interlock!"
+      "keywords": ["thank you", "thanks"],
+      "response": "You're welcome! If you have any more questions, feel free to ask."
+    },
+    {
+      "keywords": ["goodbye", "bye"],
+      "response": "Goodbye! Have a great day!"
+    },
+    {
+      "keywords": ["test light", "test mode", "test"],
+      "response": "The TEST light means it’s time to test. Blow into the device when prompted."
+    },
+    {
+      "keywords": ["violation", "violation light"],
+      "response": "A VIOLATION means you missed a test or failed one. Call your provider for help."
     },
     {
       "keywords": ["abort", "abort light"],

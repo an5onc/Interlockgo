@@ -22,7 +22,7 @@ function appendMessage(message, sender) {
 
 // Fetch phrases from JSON file
 function loadBotPhrases() {
-  fetch('./phrases.json')
+  fetch('./lillyphrases.json')
     .then(response => response.json())
     .then(data => {
       botPhrases = data;
