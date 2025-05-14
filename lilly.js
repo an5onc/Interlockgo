@@ -40,7 +40,7 @@ function loadChatLog() {
 
 // Fetch phrases from JSON file
 function loadBotPhrases() {
-  fetch('./lillyphrases.json')
+  fetch('./lillyphrases.json?cacheBust=' + Date.now())
     .then(response => response.json())
     .then(data => {
       botPhrases = data;
