@@ -56,15 +56,6 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "05/14/2025 02:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "SIEVERS",
-            "Vehicle": "1997 Honda ACCORD",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "05/14/2025 03:00:00 PM",
             "Service": "Reset/Violation Reset",
             "Client": "CHAVES NAVARRO",
