@@ -54,5 +54,33 @@
     {
       "keywords": ["mouthwash", "meds", "medicine"],
       "response": "Some products like mouthwash or cold meds contain alcohol and can trigger a FAIL. Wait 5–15 mins after use before testing."
+    },
+    {
+      "keywords": ["reinstate license", "license recovery", "get my license back", "early reinstatement"],
+      "response": "To check if you're eligible for early reinstatement, contact the Colorado DMV at 303-205-5613 or visit their site. You'll also need an interlock installed."
+    },
+    {
+        "keywords": ["sr-22", "sr22", "insurance certificate"],
+        "response": "You'll need to request an SR-22 certificate from your insurance company to begin the license reinstatement process."
+    },
+    {
+        "keywords": ["forms", "dr2598", "dr2870", "dr2058", "reinstatement application", "alcohol certification", "affidavit"],
+        "response": "You'll need to complete forms DR2598, DR2870, and DR2058. These are available at Colorado.gov and must be submitted to the DMV."
+    },
+    {
+        "keywords": ["install interlock", "schedule installation", "lifesafer", "device install"],
+        "response": "Call LifeSafer at 855-527-1597 to schedule your installation. Ask about discounts while you're on the line!"
+    },
+    {
+        "keywords": ["fee", "payment", "$95", "cost"],
+        "response": "Once your forms are ready, bring them and the $95 fee to the Colorado Department of Revenue."
+    },
+    {
+        "keywords": ["alcohol treatment", "alcohol class", "proof of enrollment", "required classes"],
+        "response": "Depending on your case, you may need to complete alcohol treatment classes and provide proof of enrollment."
+    },
+    {
+        "keywords": ["suspension", "30 day", "can I drive", "temporary license"],
+        "response": "You cannot drive during your 30-day suspension period. Violating this can seriously delay your reinstatement."
     }
   ]

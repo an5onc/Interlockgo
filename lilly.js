@@ -5,8 +5,9 @@ const chatInput = document.getElementById('chat-input');
 const chatToggle = document.getElementById('chat-toggle');
 
 let botPhrases = [];
+let chatLog = []; // Chat history array
 
-// Toggle the chatbot visibility
+// Toggle chatbot visibility
 chatToggle.addEventListener('click', () => {
   chatContainer.classList.toggle('hidden');
 });
@@ -18,6 +19,23 @@ function appendMessage(message, sender) {
   messageElem.textContent = message;
   chatBody.appendChild(messageElem);
   chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Save chatLog to localStorage
+function saveChatLog() {
+  localStorage.setItem('chatLog', JSON.stringify(chatLog));
+}
+
+// Load chatLog from localStorage
+function loadChatLog() {
+  const storedLog = localStorage.getItem('chatLog');
+  if (storedLog) {
+    chatLog = JSON.parse(storedLog);
+    chatLog.forEach(entry => {
+      appendMessage(entry.user, 'user');
+      appendMessage(entry.bot, 'bot');
+    });
+  }
 }
 
 // Fetch phrases from JSON file
@@ -53,9 +71,14 @@ chatInput.addEventListener('keypress', function(e) {
     setTimeout(() => {
       const response = botResponse(userMessage);
       appendMessage(response, 'bot');
+
+      // Log it and save
+      chatLog.push({ user: userMessage, bot: response });
+      saveChatLog();
     }, 500);
   }
 });
 
-// Load phrases on startup
+// On page load
 loadBotPhrases();
+loadChatLog();
