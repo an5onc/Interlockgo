@@ -82,5 +82,9 @@
     {
         "keywords": ["suspension", "30 day", "can I drive", "temporary license"],
         "response": "You cannot drive during your 30-day suspension period. Violating this can seriously delay your reinstatement."
+    },
+    {
+      "keywords": ["Lola"],
+      "response": "Hi Robyn, have a great day today. Take charge and make it a good one! Tell Kevin, Alyssa, and Derek I said hello!"
     }
   ]
