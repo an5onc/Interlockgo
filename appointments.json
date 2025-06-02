@@ -2,12 +2,12 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "06/02/2025 09:00:00 AM",
+            "Appointment Time": "06/02/2025 08:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "Bengtson-Hanselin",
             "Vehicle": "2012 Ford Edge",
             "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -25,16 +25,7 @@
             "Client": "DELEON",
             "Vehicle": "2008 Cadillac Escalade",
             "Firmware": "Legacy",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "06/02/2025 09:30:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "PECKHAM",
-            "Vehicle": "2011 Ford Escape",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -42,6 +33,15 @@
             "Service": "Daily Monitoring FC100",
             "Client": "LARA",
             "Vehicle": "1998 Ford Ranger",
+            "Firmware": "Legacy",
+            "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "06/02/2025 01:00:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "GONZALES",
+            "Vehicle": "2015 Nissan altima-push start",
             "Firmware": "Legacy",
             "Completed": false
         },
@@ -60,15 +60,6 @@
             "Service": "Daily Monitoring FC100",
             "Client": "Martinez",
             "Vehicle": "2016 Dodge Ram 1500 key",
-            "Firmware": "Legacy",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "06/02/2025 04:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "Garcia",
-            "Vehicle": "2018 Audi A4 -PushButton",
             "Firmware": "Legacy",
             "Completed": false
         },
@@ -99,16 +90,7 @@
             "Client": "KILLOUGH",
             "Vehicle": "2014 Chevrolet silverado key",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "06/02/2025 10:00:00 AM",
-            "Service": "Install Fee",
-            "Client": "CARDENAS",
-            "Vehicle": "2004 Chevrolet Impala",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
@@ -125,6 +107,15 @@
             "Service": "Install Fee",
             "Client": "JAY",
             "Vehicle": "1997 GMC Sierra- Key Start",
+            "Firmware": "L250",
+            "Completed": false
+        },
+        {
+            "Location": "GIS(CO) Evans - Interlock Go (7244)",
+            "Appointment Time": "06/02/2025 02:00:00 PM",
+            "Service": "Install Fee",
+            "Client": "CARDENAS",
+            "Vehicle": "2004 Chevrolet Impala",
             "Firmware": "L250",
             "Completed": false
         }
