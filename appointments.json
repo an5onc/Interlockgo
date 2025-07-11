@@ -2,12 +2,30 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "07/11/2025 10:15:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Tow",
+            "Vehicle": "2006 Chevrolet Equinox KEY",
+            "Firmware": "Legacy",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "07/11/2025 10:45:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "PENA",
+            "Vehicle": "2012 Toyota Corolla",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "07/11/2025 11:00:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "YAZZIE",
             "Vehicle": "2017 Nissan Titan",
             "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -126,7 +144,7 @@
             "Client": "PALACIOS",
             "Vehicle": "2018 Nissan MAXIMA PUSH",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
