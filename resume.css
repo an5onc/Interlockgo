@@ -83,4 +83,15 @@
     .hero{ padding:48px 16px; }
     .hero h1{ font-size:2rem; }
   }
+
+  .hero__photo {
+    width: 160px;     /* keeps it nice and compact */
+    height: 160px;    /* same as width → square */
+    object-fit: cover; /* crops neatly */
+    border-radius: 50%; /* makes it circular */
+    border: 3px solid #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    margin-bottom: 16px;
+  }
+  
   
