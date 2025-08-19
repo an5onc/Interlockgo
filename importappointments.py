@@ -1,4 +1,4 @@
-import os
+import os, sys
 import json
 import logging
 import subprocess
@@ -11,6 +11,63 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+from typing import Optional
+
+try:
+    from dotenv import load_dotenv  # pip install python-dotenv
+except Exception:
+    load_dotenv = None
+
+def get_env(name: str) -> Optional[str]:
+    """
+    Resolve env var from:
+      1) process env
+      2) .env via python-dotenv (if installed and .env exists)
+      3) Windows registry (User and System Environment) so `setx` works without reopening shell
+    """
+    # 1) process env
+    val = os.getenv(name)
+    if val:
+        return val
+
+    # 2) .env
+    if load_dotenv is not None and os.path.exists(".env"):
+        load_dotenv(override=False)
+        val = os.getenv(name)
+        if val:
+            return val
+
+    # 3) Windows registry (no effect on non-Windows)
+    if os.name == "nt":
+        try:
+            import winreg
+            # User env
+            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Environment") as k:
+                try:
+                    v, _ = winreg.QueryValueEx(k, name)
+                    if v:
+                        return v
+                except FileNotFoundError:
+                    pass
+            # System env
+            with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE,
+                                r"SYSTEM\CurrentControlSet\Control\Session Manager\Environment") as k:
+                try:
+                    v, _ = winreg.QueryValueEx(k, name)
+                    if v:
+                        return v
+                except FileNotFoundError:
+                    pass
+        except Exception:
+            # don't crash if winreg unavailable or access denied
+            pass
+
+    return None
+
+def require_creds(*names: str):
+    missing = [n for n in names if not get_env(n)]
+    if missing:
+        raise ValueError(f"Missing required credentials: {', '.join(missing)}")
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -142,11 +199,14 @@ def git_push():
 
 
 def main():
-    # Retrieve credentials from environment variables
-    LIFESAFER_USERNAME = os.getenv('LIFESAFER_USERNAME')
-    LIFESAFER_PASSWORD = os.getenv('LIFESAFER_PASSWORD')
-    GUARDIAN_USERNAME = os.getenv('GUARDIAN_USERNAME')
-    GUARDIAN_PASSWORD = os.getenv('GUARDIAN_PASSWORD')
+    # Resolve credentials robustly
+    LIFESAFER_USERNAME = get_env('LIFESAFER_USERNAME')
+    LIFESAFER_PASSWORD = get_env('LIFESAFER_PASSWORD')
+    GUARDIAN_USERNAME  = get_env('GUARDIAN_USERNAME')
+    GUARDIAN_PASSWORD  = get_env('GUARDIAN_PASSWORD')
+
+    require_creds('LIFESAFER_USERNAME','LIFESAFER_PASSWORD','GUARDIAN_USERNAME','GUARDIAN_PASSWORD')
+
     
     # Ensure all credentials are set
     if not all([LIFESAFER_USERNAME, LIFESAFER_PASSWORD, GUARDIAN_USERNAME, GUARDIAN_PASSWORD]):
