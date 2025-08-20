@@ -4,14 +4,14 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root{
-  --brand: #1b345d;
-  --accent: #28a745;
+  --brand: #4a5d7a;
+  --accent: #e2ffe9;
   --text: #333;
   --bg: #f3f3f3;
 
-  --blue: #0f63ff;
-  --gray: #6e6e6e;
-  --red:  #ff3945;
+  --blue: #c0d6ff;
+  --gray: #f1f1f1;
+  --red:  #ffcdd0;
 }
 
 body{
@@ -35,45 +35,45 @@ body{
 }
 .hero-overlay h1{
   font-family: 'Poppins', sans-serif;
-  font-size: 3rem; color: #fff; margin-bottom: 10px; letter-spacing: 1.5px;
+  font-size: 3rem; color: #ffffff; margin-bottom: 10px; letter-spacing: 1.5px;
 }
-.hero-overlay p{ font-size: 1.2rem; color: #f1f1f1; margin-bottom: 20px; }
+.hero-overlay p{ font-size: 1.2rem; color: #f7f4f4; margin-bottom: 20px; }
 
 /* Shared CTA button */
 .cta-button{
   display:inline-block;
-  background-color: var(--accent);
-  color:#fff; padding:12px 24px; border-radius:4px;
+  color: var(--bg);
+  color:#f5f3f3; padding:12px 24px; border-radius:4px;
   font-weight:600; text-decoration:none;
   transition: background-color .3s ease;
 }
-.cta-button:hover{ background-color:#218c3b; }
+.cta-button:hover{ color: var(--bg) }
 
 /* =========================
    3) Navigation (with dropdown)
    ========================= */
 nav{
-  background: linear-gradient(to right, var(--brand), var(--brand));
+  background: linear-gradient(to right, var(--bg), var(--bg));
   box-shadow: 0 4px 6px rgba(0,0,0,.1);
   margin-bottom: 20px;
 }
-nav ul{ display:flex; list-style:none; justify-content:center; align-items:center; width:100%; }
+nav ul{ display:flex; list-style:none; justify-content:left; align-items:left; width:100%; }
 nav li{ position:relative; }
 nav a{
-  display:block; padding:12px 20px; color:#fff;
+  display:block; padding:12px 20px; color:#000000;
   text-decoration:none; font-weight:600; transition: background .3s, color .3s;
 }
-nav a:hover{ background: var(--accent); color:#fff; border-radius:4px; }
+nav a:hover{ background: var(--gray); color:#fff; border-radius:4px; }
 
 /* Dropdown */
 nav ul ul{
-  position:absolute; top:100%; left:0; background: var(--accent);
+  position:absolute; top:100%; left:0; background: var(--bg);
   display:none; min-width:180px; box-shadow:0 2px 6px rgba(0,0,0,.2);
   border-radius:4px; padding:10px 0; z-index:1000;
 }
 nav ul ul li{ width:100%; }
 nav ul ul a{ color: var(--brand); padding:10px 20px; }
-nav ul ul a:hover{ background-color: var(--brand); color:#fff; }
+nav ul ul a:hover{ background-color: var(--brand); color:#ffffff; }
 nav li:hover > ul{ display:block; }
 
 /* =========================
@@ -167,10 +167,10 @@ html { scroll-behavior: smooth; }
 .cta-dropdown-container{ position:relative; display:inline-block; margin-top:20px; }
 .phone-number{
   display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%);
-  background-color: var(--accent); color:#fff; padding:8px 16px; border-radius:4px; margin-top:8px;
+  background-color: var(--gray); color:#fff; padding:8px 16px; border-radius:4px; margin-top:8px;
   box-shadow:0 2px 5px rgba(0,0,0,.2); white-space:nowrap;
 }
-.phone-number a{ color:#fff; text-decoration:none; font-weight:bold; }
+.phone-number a{ color:#161616; text-decoration:none; font-weight:bold; }
 .phone-number a:hover{ text-decoration:underline; }
 .cta-dropdown-container:hover .phone-number{ display:block; }
 
@@ -251,8 +251,8 @@ html { scroll-behavior: smooth; }
 
 /* tones */
 .tone-light{ background:#f3f3f3; color:#111; border-color:#e6e6e6; }
-.tone-blue { background:var(--blue); color:#fff; border-color:var(--blue); --seam: rgba(255,255,255,.25); }
-.tone-gray { background:var(--gray); color:#fff; border-color:var(--gray); --seam: rgba(255,255,255,.25); }
+.tone-blue { background:var(--blue); color:#0e0d0d; border-color:var(--blue); --seam: rgba(255,255,255,.25); }
+.tone-gray { background:var(--gray); color:#0c0c0c; border-color:var(--gray); --seam: rgba(255,255,255,.25); }
 .tone-red  { background:var(--red);  color:#121212; border-color:var(--red); }
 
 /* partner/logo */
