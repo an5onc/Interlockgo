@@ -1,0 +1,57 @@
+/* Reset + base */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+:root{
+  --bg:#fff; --text:#111; --brand:#0b6efd; --muted:#666;
+}
+
+/* Typography */
+body {
+  font-family: "Open Sans", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+/* Links */
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Navigation (shared) */
+nav { position: sticky; top: 0; background:#fff; z-index: 100; }
+nav ul { list-style: none; margin: 0; padding: 0 16px; display: flex; gap: 16px; align-items: center; }
+nav li { position: relative; }
+nav li ul { position: absolute; left: 0; top: 100%; background:#fff; padding: 8px 0; display: none; box-shadow: 0 6px 20px rgba(0,0,0,.08);}
+nav li:hover ul { display: block; }
+nav a { display:block; padding: 10px 12px; }
+
+/* Footer */
+.footer { padding: 40px 16px; background:#f7f7f9; border-top:1px solid #e9e9ef; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; gap: 16px; align-items: center; }
+.footer-meta { color: var(--muted); font-size: 14px; }
+.backtop { display:inline-flex; gap:8px; align-items:center; }
+
+/* Reveal utility */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Call button (sitewide) */
+.call-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  pointer-events: auto;
+}
+.call-button img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+}
+@media (max-width: 640px){
+  .footer { padding: 28px 12px; }
+  nav ul { padding: 0 12px; gap: 10px; }
+}
