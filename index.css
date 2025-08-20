@@ -1,0 +1,56 @@
+/* Hero */
+.hero-section{
+  position: relative;
+  min-height: 60vh;
+  background: url("images/your-hero.jpg") center/cover no-repeat fixed;
+}
+.hero-overlay{
+  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
+  min-height: inherit;
+}
+.hero{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  color:#fff;
+}
+.hero h1 { font-family: "Poppins", sans-serif; font-weight: 600; margin: 0 0 6px; font-size: clamp(28px, 6vw, 48px); }
+.hero p { margin: 0 0 16px; font-size: clamp(14px, 2.4vw, 18px); }
+
+/* CTA dropdown */
+.cta-dropdown-container { position: relative; display:inline-block; }
+.cta-button { display:inline-block; padding:10px 16px; background:#0b6efd; color:#fff; border-radius:8px; }
+.cta-dropdown-container:hover .phone-number { opacity:1; transform:translateY(0); pointer-events:auto; }
+.phone-number{ position:absolute; top:100%; left:0; background:#fff; color:#111; padding:8px 12px; border-radius:8px;
+  box-shadow:0 6px 18px rgba(0,0,0,.15); opacity:0; transform:translateY(6px); transition:.2s; pointer-events:none; }
+
+/* Why InterlockGo sticky stack */
+.whyilg{ padding:4rem 0; width:100%; scroll-snap-type:y proximity; --pin:80px; }
+.whyilg-title{ text-align:center; margin: 0 0 16px; }
+.whyilg-stack{
+  position: relative;
+  height: calc(var(--cards, 4) * 100svh);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 640px){ .whyilg-stack{ padding: 0 12px; } }
+
+.whyilg-card{
+  position: sticky; top: var(--pin);
+  min-height: calc(100svh - 120px);
+  background:#fff; border-radius: 16px; padding: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,var(--elev, .06));
+  transform: scale(var(--scale, .985));
+  transition: transform .2s ease, box-shadow .2s ease;
+  display:grid; gap: 10px; align-content:start;
+}
+.whyilg-index{ font-weight:600; color:#0b6efd; }
+.whyilg-head{ display:flex; align-items:center; gap:10px; }
+.whyilg-ico{ width:32px; height:32px; color:#0b6efd; }
+.whyilg-logo{ width:100%; max-width:520px; height:auto; display:block; margin: 8px auto 0; }
+
+.tone-light{ background:#f8fafc; }
+.tone-blue{ background:#f0f6ff; }
+.tone-gray{ background:#f6f7f9; }
+.tone-red{ background:#fff5f5; }

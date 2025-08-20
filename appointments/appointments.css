@@ -1,0 +1,142 @@
+/* ========== Base / Theme ========== */
+:root{
+  --bg:#f7f7f9; --panel:#fff; --text:#111; --muted:#667085;
+  --brand:#0b6efd; --brand-ink:#0a58ca; --border:#e9e9ef;
+  --good:#16a34a; --bad:#b91c1c; --warn:#d97706;
+}
+
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+/* ========== Page Shell ========== */
+.appointments-wrapper{
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+.appointments-header{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:flex-end; justify-content:space-between;
+  margin-bottom:14px;
+}
+.appointments-header h1{font-size:20px;margin:0}
+.appointments-meta{color:var(--muted);font-size:13px}
+
+/* ========== Card Container (optional) ========== */
+.appointments-card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+
+/* ========== Table ========== */
+.table{
+  width:100%;
+  border-collapse:collapse;
+  background:var(--panel);
+}
+.table thead th{
+  position: sticky; top: 0; z-index: 1;
+  background:#fafbff;
+  color:#344054;
+  font-weight:600;
+  text-align:left;
+  font-size:13px;
+  padding:10px 12px;
+  border-bottom:1px solid var(--border);
+}
+.table tbody td{
+  padding:10px 12px;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+  font-size:14px;
+}
+.table tbody tr:nth-child(odd){ background:#fcfcfd; }
+.table tbody tr:hover{ background:#f4f7ff; }
+
+/* Completed row appearance (from your scraper) */
+.table tbody tr.completed td{
+  color:#8b8f99;
+  text-decoration: line-through;
+}
+
+/* Source badge */
+.src-badge{
+  font-weight:600;
+  color:#fff;
+  background:var(--brand);
+  padding:4px 8px;
+  border-radius:999px;
+  display:inline-block;
+  font-size:12px;
+}
+.src-badge.lifesafer{ background: var(--brand); }
+.src-badge.guardian{ background: #6f42c1; }
+
+/* Firmware tag */
+.tag{
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:600;
+  border:1px solid var(--border);
+  color:#344054;
+  background:#fff;
+}
+.tag.l250{ color:#0f766e; border-color:#d1fae5; background:#ecfdf5; }
+.tag.legacy{ color:#b45309; border-color:#fde68a; background:#fffbeb; }
+
+/* Yes/No pill */
+.pill{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 10px; border-radius:999px; font-weight:600; font-size:12px;
+}
+.pill.good{ background:#eafff1; color:#0f8a3b; }
+.pill.bad{ background:#ffefef; color:#b42318; }
+
+/* ========== Toolbar (optional filters/search) ========== */
+.toolbar{
+  display:flex; gap:10px; flex-wrap:wrap; margin:0 0 12px;
+}
+.input, .select{
+  height:36px; padding:0 10px; border-radius:8px;
+  border:1px solid var(--border); background:#fff; color:var(--text);
+}
+.button{
+  height:36px; padding:0 12px; border-radius:8px;
+  background:var(--brand); color:#fff; border:0; cursor:pointer;
+}
+.button:hover{ background:var(--brand-ink); }
+
+/* ========== Responsive (stack on small screens) ========== */
+@media (max-width: 760px){
+  .appointments-wrapper{ padding:0 12px; }
+  .table thead{ display:none; }
+  .table, .table tbody, .table tr, .table td{ display:block; width:100%; }
+  .table tbody tr{ margin:0 0 12px; background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .table tbody td{
+    border:0;
+    border-bottom:1px solid var(--border);
+    padding:10px 14px;
+  }
+  .table tbody td:last-child{ border-bottom:0; }
+  /* Create label before each cell using data-label attr in HTML (see note below) */
+  .table tbody td::before{
+    content: attr(data-label);
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:2px;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+}
+
+/* ========== Print ========== */
+@media print{
+  body{ background:#fff; }
+  .appointments-wrapper{ margin:0; padding:0; }
+  .appointments-card{ box-shadow:none; border:0 }
+  .table thead th{ position:static; background:#fff; }
+}
