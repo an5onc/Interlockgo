@@ -1,8 +1,8 @@
 /* Hero */
 .hero-section{
   position: relative;
-  min-height: 60vh;
-  background: url("images/your-hero.jpg") center/cover no-repeat fixed;
+  min-height: 100vh;
+  background: url("images/Interlockgo.jpeg") center/cover no-repeat fixed;
 }
 .hero-overlay{
   background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
@@ -27,12 +27,12 @@
 /* Why InterlockGo sticky stack */
 .whyilg{ padding:4rem 0; width:100%; scroll-snap-type:y proximity; --pin:80px; }
 .whyilg-title{ text-align:center; margin: 0 0 16px; }
-.whyilg-stack{
+.whyilg-stack {
   position: relative;
-  height: calc(var(--cards, 4) * 100svh);
-  max-width: 1200px;
+  height: calc(var(--cards, 4) * 100svh); /* one viewport per card */
+  max-width: clamp(720px, 92vw, 1600px);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(12px, 3vw, 32px);
 }
 @media (max-width: 640px){ .whyilg-stack{ padding: 0 12px; } }
 
@@ -48,7 +48,14 @@
 .whyilg-index{ font-weight:600; color:#0b6efd; }
 .whyilg-head{ display:flex; align-items:center; gap:10px; }
 .whyilg-ico{ width:32px; height:32px; color:#0b6efd; }
-.whyilg-logo{ width:100%; max-width:520px; height:auto; display:block; margin: 8px auto 0; }
+.whyilg-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: clamp(320px, 60%, 720px);
+  object-fit: contain;
+}
 
 .tone-light{ background:#f8fafc; }
 .tone-blue{ background:#f0f6ff; }
