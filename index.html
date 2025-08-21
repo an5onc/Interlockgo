@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- === META ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>InterlockGo – Evans</title>
+  <title>InterlockGo • Evans, CO</title>
+  <meta name="description" content="InterlockGo NOCO — Same-day installs, clean wiring, certified Lifesafer & Guardian provider in Evans, CO." />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- === FONTS =========================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="images/Interlockgo.jpeg" imagesizes="100vw">
 
-  <!-- CSS (cache-busted) -->
+  <!-- === STYLESHEETS ===================================================== -->
   <link href="base.css?v=2025-08-19-1" rel="stylesheet" />
   <link href="index.css?v=2025-08-19-1" rel="stylesheet" />
 
@@ -20,39 +23,25 @@
   <!-- If JS fails/blocked, keep cards visible -->
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-
 <body id="top">
 
-  <!-- Hero Section with Parallax -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet" />
-  <header class="relative bg-cover bg-center h-screen" style="background-image: url('images/Interlockgo.jpeg');">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 py-32 text-white">
-      <h1 class="text-5xl font-bold mb-4">Interlock Go Evans</h1>
-      <p class="text-lg mb-6">Your Trusted Interlock Device Specialists</p>
-      <div class="cta-dropdown-container">
-        <!-- The main “Call Now” button -->
-        <a href="#" class="cta-button">Call Now</a>
-        <!-- Hidden phone number that appears on hover -->
-        <div class="phone-number">
-          <a href="tel:970-515-5740">970-515-5740</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
+  <!-- =====================================================================
+       NAVIGATION (matches base.css nav styles + hover/glow)
+       =================================================================== -->
   <nav>
     <ul>
-      <li><a href="resume/">My Resume</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="appointments/">Appointments</a></li>
-      <li><a href="hours/" >Shop hours</a></li>
-      <li><a href="javascript:void(0)">Equipment</a>
+      <li><a href="hours/">Shop hours</a></li>
+      <li>
+        <a href="javascript:void(0)">Equipment</a>
         <ul>
           <li><a href="lifesafer/">Lifesafer</a></li>
           <li><a href="guardian/">Guardian</a></li>
         </ul>
       </li>
-      <li><a href="javascript:void(0)">Support</a>
+      <li>
+        <a href="javascript:void(0)">Support</a>
         <ul>
           <li><a href="forms/">Forms</a></li>
         </ul>
@@ -61,170 +50,204 @@
     </ul>
   </nav>
 
-   <!-- Why InterlockGo (sticky stack) -->
-<section class="whyilg" id="why">
-  <h2 class="whyilg-title">WHY INTERLOCKGO??</h2>
+  <!-- =====================================================================
+       HERO (dark overlay, red accent CTA with dropdown phone)
+       =================================================================== -->
+  <header class="hero-section">
+    <div class="hero-overlay">
+      <div class="hero">
+        <h1>Interlock Go Evans</h1>
+        <p>Your Trusted Interlock Device Specialists</p>
 
-  <div class="whyilg-stack" style="--cards: 4">
-    <!-- 01 -->
-    <article class="whyilg-card tone-light reveal">
-      <div class="whyilg-index">01</div>
-      <div class="whyilg-head">
-        <span class="whyilg-ico" aria-hidden="true">
-          <!-- shield-check -->
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
-            <path d="M9 12l2 2 4-4"></path>
-          </svg>
-        </span>
-        <h3>FAST. POWERFUL. SECURE.</h3>
-      </div>
-      <p>Same-day installs, clean wiring, and verified </p>
-        <p>calibrations.</p>
-
-      <img src="images/interlockgologo.png" alt="Interlockgo" class="whyilg-logo">
-    </article>
-
-    <!-- 02 -->
-    <article class="whyilg-card tone-blue reveal">
-      <div class="whyilg-index">02</div>
-      <div class="whyilg-head">
-        <span class="whyilg-ico" aria-hidden="true">
-          <!-- award badge -->
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="5"></circle>
-            <path d="M8.5 13L7 22l5-3 5 3-1.5-9"></path>
-          </svg>
-        </span>
-        <h3>LIFESAFER CERTIFIED</h3>
-      </div>
-      <p>Authorized Lifesafer provider. </p>
-      <img src="images/LifeSafer_image.png" alt="LifeSafer" class="whyilg-logo">
-    </article>
-
-    <!-- 03 -->
-    <article class="whyilg-card tone-gray reveal">
-      <div class="whyilg-index">03</div>
-      <div class="whyilg-head">
-        <span class="whyilg-ico" aria-hidden="true">
-          <!-- shield-keyhole -->
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
-            <circle cx="12" cy="13" r="2"></circle>
-            <path d="M12 15v3"></path>
-          </svg>
-        </span>
-        <h3>GUARDIAN CERTIFIED</h3>
-      </div>
-      <p>Authorized Guardian provider. </p>
-      <img src="images/guardianV2.png" alt="Guardian" class="whyilg-logo">
-    </article>
-
-    <!-- 04 -->
-    <article class="whyilg-card tone-red reveal">
-      <div class="whyilg-index">04</div>
-      <div class="whyilg-head">
-        <span class="whyilg-ico" aria-hidden="true">
-          <!-- file-check (notarized document) -->
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z"></path>
-            <polyline points="14 2 14 9 21 9"></polyline>
-            <path d="M9 14l2 2 4-4"></path>
-          </svg>
-        </span>
-
-        <h3>NOTARY PUBLIC</h3>
-      </div>
-      <p>Need your Interlock Affidavit notarized?</p>
-      <p>We got you.</p>
-      <img src="images/notarylogo.png" alt="Interlockgo" class="whyilg-logo">
-    </article>
-  </div>
-</section>
-
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <a href="#top" class="backtop" aria-label="Back to top">
-        <span class="backtop-ico" aria-hidden="true">
-          <!-- Circle Up Arrow -->
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-           <circle cx="12" cy="12" r="10"></circle>
-           <path d="M12 16V8"></path>
-            <path d="M8 12l4-4 4 4"></path>
-          </svg>
-        </span>
-        Back to Top
-        </a>
-        <a href="tel:970-515-5740" class="call-button">
-          <img src="images/smileyface.png" alt="Call InterlockGo" class="whyilg-logo">
-        </a>
-       <div class="footer-meta">
-           © 2025 InterlockGo NOCO • Evans, CO
+        <div class="cta-dropdown-container">
+          <!-- Main CTA -->
+          <a href="tel:970-515-5740" class="cta-button" aria-label="Call InterlockGo">Call Now</a>
+          <!-- Hover phone dropdown (still accessible on click for mobile) -->
+          <div class="phone-number">
+            <a href="tel:970-515-5740">970-515-5740</a>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </header>
 
+  <!-- =====================================================================
+       WHY INTERLOCKGO (Sticky “peek” stack — 4 cards)
+       =================================================================== -->
+  <section class="whyilg" id="why">
+    <h2 class="whyilg-title">WHY INTERLOCKGO??</h2>
+
+    <!-- Keep this --cards value in sync with actual card count -->
+    <div class="whyilg-stack" style="--cards: 4">
+      <!-- 01 -->
+      <article class="whyilg-card tone-light reveal">
+        <div class="whyilg-index">01</div>
+
+        <div class="whyilg-head">
+          <span class="whyilg-ico" aria-hidden="true">
+            <!-- shield-check -->
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </span>
+          <h3>FAST. POWERFUL. SECURE.</h3>
+        </div>
+
+        <p>Same-day installs, clean wiring, and verified</p>
+        <p>calibrations.</p>
+
+        <img src="images/interlockgologo.png" alt="InterlockGo logo" class="whyilg-logo">
+      </article>
+
+      <!-- 02 -->
+      <article class="whyilg-card tone-blue reveal">
+        <div class="whyilg-index">02</div>
+
+        <div class="whyilg-head">
+          <span class="whyilg-ico" aria-hidden="true">
+            <!-- award badge -->
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="5"></circle>
+              <path d="M8.5 13L7 22l5-3 5 3-1.5-9"></path>
+            </svg>
+          </span>
+          <h3>LIFESAFER CERTIFIED</h3>
+        </div>
+
+        <p>Authorized Lifesafer provider.</p>
+        <img src="images/LifeSafer_image.png" alt="LifeSafer logo" class="whyilg-logo">
+      </article>
+
+      <!-- 03 -->
+      <article class="whyilg-card tone-gray reveal">
+        <div class="whyilg-index">03</div>
+
+        <div class="whyilg-head">
+          <span class="whyilg-ico" aria-hidden="true">
+            <!-- shield-keyhole -->
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
+              <circle cx="12" cy="13" r="2"></circle>
+              <path d="M12 15v3"></path>
+            </svg>
+          </span>
+          <h3>GUARDIAN CERTIFIED</h3>
+        </div>
+
+        <p>Authorized Guardian provider.</p>
+        <img src="images/guardianV2.png" alt="Guardian logo" class="whyilg-logo">
+      </article>
+
+      <!-- 04 -->
+      <article class="whyilg-card tone-red reveal">
+        <div class="whyilg-index">04</div>
+
+        <div class="whyilg-head">
+          <span class="whyilg-ico" aria-hidden="true">
+            <!-- file-check (notarized document) -->
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z"></path>
+              <polyline points="14 2 14 9 21 9"></polyline>
+              <path d="M9 14l2 2 4-4"></path>
+            </svg>
+          </span>
+          <h3>NOTARY PUBLIC</h3>
+        </div>
+
+        <p>Need your Interlock Affidavit notarized?</p>
+        <p>We got you.</p>
+        <img src="images/notarylogo.png" alt="Notary logo" class="whyilg-logo">
+      </article>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       FOOTER + CALL FLOAT
+       =================================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#top" class="backtop" aria-label="Back to top">
+        <span class="backtop-ico" aria-hidden="true">
+          <!-- Simple up arrow (SVG removed for brevity) -->
+          ▲
+        </span>
+        Back to Top
+      </a>
+
+      <!-- Floating call button (uses base.css styles) -->
+      <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
+        <img src="images/smileyface.png" alt="Call InterlockGo">
+      </a>
+
+      <div class="footer-meta">© 2025 InterlockGo NOCO • Evans, CO</div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       SCRIPTS — Reveal-on-scroll + sticky elevation/scale
+       (kept lightweight; matches our CSS variables)
+       =================================================================== -->
   <script>
-  (() => {
-    const els = document.querySelectorAll('.reveal');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach(el => el.classList.add('visible'));
-      return;
-    }
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target); // animate once
-        }
-      });
-    }, { threshold: 0.35 });
-    els.forEach(el => io.observe(el));
-  })();
+    // Reveal on scroll (gracefully degrades if unsupported)
+    (() => {
+      const els = document.querySelectorAll('.reveal');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target); // animate once
+          }
+        });
+      }, { threshold: 0.35 });
+      els.forEach(el => io.observe(el));
+    })();
   </script>
+
   <script>
-(() => {
-  const cards = Array.from(document.querySelectorAll('.whyilg-card'));
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !cards.length) return;
+    // Sticky stack elevation/scale update
+    (() => {
+      const cards = Array.from(document.querySelectorAll('.whyilg-card'));
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !cards.length) return;
 
-  // match your sticky math: top:80px; min-height: calc(100svh - 120px)
-  let topOffset = 80;
-  function viewportHeight() { return window.innerHeight || document.documentElement.clientHeight; }
-  function sectionHeight() { return Math.max(viewportHeight() - 120, 1); }
+      // match CSS math: top: var(--pin); min-height: calc(100svh - 120px)
+      const topOffset = 80;
+      const sectionHeight = () => Math.max((window.innerHeight || document.documentElement.clientHeight) - 120, 1);
 
-  let ticking = false;
-  function update() {
-    const h = sectionHeight();
-    cards.forEach(card => {
-      const r = card.getBoundingClientRect();
-      // progress: 0 (just entering) -> 1 (pinned at top)
-      let p = 1 - ((r.top - topOffset) / h);
-      p = Math.max(0, Math.min(1, p));
+      let ticking = false;
+      function update() {
+        const h = sectionHeight();
+        cards.forEach(card => {
+          const r = card.getBoundingClientRect();
+          // progress: 0 (just entering) -> 1 (pinned at top)
+          let p = 1 - ((r.top - topOffset) / h);
+          p = Math.max(0, Math.min(1, p));
 
-      const scale = 0.985 + p * 0.015;   // 0.985 → 1.000
-      const elev  = 0.06  + p * 0.10;    // shadow alpha
-      card.style.setProperty('--scale', scale.toFixed(3));
-      card.style.setProperty('--elev',  elev.toFixed(3));
-    });
-    ticking = false;
-  }
+          const scale = 0.985 + p * 0.015;   // 0.985 → 1.000
+          const elev  = 0.06  + p * 0.10;    // shadow alpha
+          card.style.setProperty('--scale', scale.toFixed(3));
+          card.style.setProperty('--elev',  elev.toFixed(3));
+        });
+        ticking = false;
+      }
 
-  function onScroll() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-  }
+      function onScroll() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', () => requestAnimationFrame(update), { passive: true });
-  update();
-})();
-</script>
-
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', () => requestAnimationFrame(update), { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>
