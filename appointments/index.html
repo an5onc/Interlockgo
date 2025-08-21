@@ -2,36 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Appointments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>InterlockGo • Appointments</title>
+  <meta name="description" content="Live dashboard of Lifesafer and Guardian appointments — InterlockGo Evans, CO." />
+
+  <!-- Global + Page CSS -->
   <link href="../base.css?v=2025-08-19-1" rel="stylesheet" />
-  <link href="appointments.css?v=2025-08-19-1" rel="stylesheet" />
+  <link href="appointments.css?v=2025-08-21-2" rel="stylesheet" />
+
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="navbar__brand">LSCO - Evans - Interlockgo</div>
+<body id="top">
+
+  <!-- NAV (shared) -->
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../appointments/">Appointments</a></li>
+      <li><a href="../hours/">Shop hours</a></li>
+      <li>
+        <a href="javascript:void(0)">Equipment</a>
+        <ul>
+          <li><a href="../lifesafer/">Lifesafer</a></li>
+          <li><a href="../guardian/">Guardian</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:void(0)">Support</a>
+        <ul>
+          <li><a href="../forms/">Forms</a></li>
+        </ul>
+      </li>
+      <li><a href="../lilly/">Ask Lilly</a></li>
+    </ul>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Appointments Dashboard</h1>
-    <p>Stay on top of every Lifesafer or Guardian appointment—quick and easy.</p>
+  <!-- HERO -->
+  <header class="appts-hero">
+    <div class="appts-hero__inner">
+      <h1>Appointments Dashboard</h1>
+      <p>Find your slot fast — sorted by time, filter by source, and highlight the next-up.</p>
+
+      <!-- TOOLBAR -->
+      <div class="appts-toolbar">
+        <div class="appts-filters">
+          <label class="seg">
+            <input type="radio" name="src" value="all" checked>
+            <span>All</span>
+          </label>
+          <label class="seg">
+            <input type="radio" name="src" value="lifesafer">
+            <span>Lifesafer</span>
+          </label>
+          <label class="seg">
+            <input type="radio" name="src" value="guardian">
+            <span>Guardian</span>
+          </label>
+        </div>
+
+        <div class="appts-search">
+          <input id="appts-search" type="search" placeholder="Search client, vehicle, service…" spellcheck="false" />
+        </div>
+
+        <label class="appts-toggle">
+          <input id="hide-completed" type="checkbox" />
+          <span>Hide completed</span>
+        </label>
+      </div>
+    </div>
   </header>
 
-  <!-- Main Content Wrapper -->
-  <main class="container">
-    <!-- Legend -->
-    <div id="legend">
-      <button>Normal Appointment</button>
-      <button class="completed">Completed Appointment</button>
-    </div>
-
-    <!-- Lifesafer Table -->
+  <!-- MAIN -->
+  <main class="appts-container">
+    <!-- Lifesafer -->
     <section class="appointments-section">
-      <h2>Lifesafer Appointments</h2>
-      <div class="table-responsive">
-        <table>
+      <h2 class="appts-h2">Lifesafer</h2>
+      <div class="table-wrap">
+        <table class="appts-table" data-src="lifesafer">
+          <colgroup>
+            <col style="width:22%">
+            <col style="width:18%">
+            <col style="width:18%">
+            <col style="width:18%">
+            <col style="width:18%">
+            <col style="width:6%">
+          </colgroup>
           <thead>
             <tr>
               <th>Location</th>
@@ -39,21 +94,27 @@
               <th>Service</th>
               <th>Client</th>
               <th>Vehicle</th>
-              <th>Firmware</th>
+              <th>FW</th>
             </tr>
           </thead>
-          <tbody id="lifesafer-data">
-            <!-- Rows populated by JavaScript -->
-          </tbody>
+          <tbody id="lifesafer-data"></tbody>
         </table>
       </div>
     </section>
 
-    <!-- Guardian Table -->
+    <!-- Guardian -->
     <section class="appointments-section">
-      <h2>Guardian Appointments</h2>
-      <div class="table-responsive">
-        <table>
+      <h2 class="appts-h2">Guardian</h2>
+      <div class="table-wrap">
+        <table class="appts-table" data-src="guardian">
+          <colgroup>
+            <col style="width:22%">
+            <col style="width:18%">
+            <col style="width:18%">
+            <col style="width:18%">
+            <col style="width:18%">
+            <col style="width:6%">
+          </colgroup>
           <thead>
             <tr>
               <th>Location</th>
@@ -61,131 +122,158 @@
               <th>Service</th>
               <th>Client</th>
               <th>Vehicle</th>
-              <th>Firmware</th>
+              <th>FW</th>
             </tr>
           </thead>
-          <tbody id="guardian-data">
-            <!-- Rows populated by JavaScript -->
-          </tbody>
+          <tbody id="guardian-data"></tbody>
         </table>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2024 Kawika Kode. All Rights Reserved.</p>
+    <div class="footer-inner">
+      <a href="#top" class="backtop" aria-label="Back to top">▲ Back to Top</a>
+      <div class="footer-meta">© 2025 InterlockGo NOCO • Evans, CO</div>
+    </div>
   </footer>
 
-
-
-  <!-- Fetch & Render Appointments JSON -->
+  <!-- DATA + UX SCRIPTS -->
   <script>
-    fetch('../appointments.json')
-      .then(response => response.json())
-      .then(data => {
-        // Lifesafer appointments
-        const lifesaferAppointments = data.lifesafer;
-        const lifesaferTableBody = document.getElementById('lifesafer-data');
+  (async () => {
+    // Fetch JSON
+    let data;
+    try {
+      const res = await fetch('../appointments.json', { cache: 'no-store' });
+      data = await res.json();
+    } catch (e) {
+      console.error('Error loading appointments:', e);
+      return;
+    }
 
-        lifesaferAppointments.forEach(appointment => {
-          const row = document.createElement('tr');
+    // Helpers
+    const parseTime = (s) => {
+      // Examples in your data: "08/20/2025 09:00:00 AM ..."
+      // Strip trailing text after seconds and parse as local
+      const m = String(s || '').match(/^\d{2}\/\d{2}\/\d{4}\s+\d{1,2}:\d{2}:\d{2}\s+[AP]M/);
+      return m ? new Date(m[0]) : null;
+    };
 
-          // Mark completed appointments
-          if (appointment.Completed) {
-            row.classList.add('completed-row');
-          }
+    const buildRow = (appt) => {
+      const tr = document.createElement('tr');
+      tr.dataset.client = (appt.Client || '').toLowerCase();
+      tr.dataset.vehicle = (appt.Vehicle || '').toLowerCase();
+      tr.dataset.service = (appt.Service || '').toLowerCase();
+      tr.dataset.location = (appt.Location || '').toLowerCase();
+      tr.dataset.completed = appt.Completed ? '1' : '0';
 
-          // Create cells
-          const locationCell = document.createElement('td');
-          locationCell.textContent = appointment.Location;
+      // Cells
+      const td = (text) => {
+        const el = document.createElement('td');
+        el.textContent = text ?? '';
+        return el;
+      };
 
-          const timeCell = document.createElement('td');
-          timeCell.textContent = appointment["Appointment Time"];
+      const timeDate = parseTime(appt['Appointment Time']);
+      const timeCell = td(appt['Appointment Time'] || '');
+      timeCell.className = 'cell-time';
+      if (appt.Completed) timeCell.classList.add('completed');
 
-          const serviceCell = document.createElement('td');
-          serviceCell.textContent = appointment.Service;
+      const svcCell = td(appt.Service);
+      if (appt.Service) {
+        const badge = document.createElement('span');
+        badge.className = 'chip chip--svc';
+        badge.textContent = appt.Service;
+        svcCell.textContent = '';
+        svcCell.appendChild(badge);
+      }
 
-          const clientCell = document.createElement('td');
-          clientCell.textContent = appointment.Client;
+      const fwCell = td(appt.Firmware);
+      if (appt.Firmware) {
+        const chip = document.createElement('span');
+        chip.className = 'chip chip--fw';
+        chip.textContent = appt.Firmware;
+        fwCell.textContent = '';
+        fwCell.appendChild(chip);
+      }
 
-          const vehicleCell = document.createElement('td');
-          vehicleCell.textContent = appointment.Vehicle;
+      tr.appendChild(td(appt.Location));
+      tr.appendChild(timeCell);
+      tr.appendChild(svcCell);
+      tr.appendChild(td(appt.Client));
+      tr.appendChild(td(appt.Vehicle));
+      tr.appendChild(fwCell);
 
-          const firmwareCell = document.createElement('td');
-          firmwareCell.textContent = appointment.Firmware;
+      // Store sortable key
+      tr.dataset.when = timeDate ? timeDate.getTime() : 0;
+      if (appt.Completed) tr.classList.add('completed-row');
+      return tr;
+    };
 
-          // Apply "completed" class if completed
-          if (appointment.Completed) {
-            timeCell.classList.add('completed');
-          }
+    const lifebody = document.getElementById('lifesafer-data');
+    const guardbody = document.getElementById('guardian-data');
 
-          // Append cells to the row
-          row.appendChild(locationCell);
-          row.appendChild(timeCell);
-          row.appendChild(serviceCell);
-          row.appendChild(clientCell);
-          row.appendChild(vehicleCell);
-          row.appendChild(firmwareCell);
+    // Build rows & sort by time
+    const liferows = (data.lifesafer || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
+    const guardrows = (data.guardian || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
 
-          // Add row to Lifesafer table
-          lifesaferTableBody.appendChild(row);
-        });
+    liferows.forEach(r => lifebody.appendChild(r));
+    guardrows.forEach(r => guardbody.appendChild(r));
 
-        // Guardian appointments
-        const guardianAppointments = data.guardian;
-        const guardianTableBody = document.getElementById('guardian-data');
+    // Highlight "next up" across BOTH tables (first upcoming, not completed)
+    const now = Date.now();
+    const allRows = [...liferows, ...guardrows]
+      .filter(r => r.dataset.completed !== '1' && Number(r.dataset.when) >= now)
+      .sort((a,b)=>a.dataset.when-b.dataset.when);
 
-        guardianAppointments.forEach(appointment => {
-          const row = document.createElement('tr');
+    if (allRows.length) {
+      allRows[0].classList.add('next-row');
+      // Ensure its section header is visible on load
+      allRows[0].closest('.appointments-section')?.querySelector('.appts-h2')?.classList.add('appts-h2--accent');
+    }
 
-          // Mark completed appointments
-          if (appointment.Completed) {
-            row.classList.add('completed-row');
-          }
+    // --- Toolbar interactions ---
+    const qs = (sel) => document.querySelector(sel);
+    const srcRadios = Array.from(document.querySelectorAll('input[name="src"]'));
+    const hideCompleted = qs('#hide-completed');
+    const searchBox = qs('#appts-search');
 
-          // Create cells
-          const locationCell = document.createElement('td');
-          locationCell.textContent = appointment.Location;
+    function applyFilters() {
+      const src = srcRadios.find(r=>r.checked)?.value || 'all';
+      const q = (searchBox.value || '').trim().toLowerCase();
+      const hide = hideCompleted.checked;
 
-          const timeCell = document.createElement('td');
-          timeCell.textContent = appointment["Appointment Time"];
+      [lifebody, guardbody].forEach(tbody => {
+        const wantThisTable =
+          src === 'all' || (tbody.id === 'lifesafer-data' && src === 'lifesafer') || (tbody.id === 'guardian-data' && src === 'guardian');
+        tbody.closest('.appointments-section').style.display = wantThisTable ? '' : 'none';
+      });
 
-          const serviceCell = document.createElement('td');
-          serviceCell.textContent = appointment.Service;
+      const rows = document.querySelectorAll('.appts-table tbody tr');
+      rows.forEach(tr => {
+        let show = true;
+        if (hide && tr.dataset.completed === '1') show = false;
+        if (q) {
+          const hay = `${tr.dataset.client} ${tr.dataset.vehicle} ${tr.dataset.service} ${tr.dataset.location}`;
+          if (!hay.includes(q)) show = false;
+        }
+        tr.style.display = show ? '' : 'none';
+      });
+    }
 
-          const clientCell = document.createElement('td');
-          clientCell.textContent = appointment.Client;
+    srcRadios.forEach(r => r.addEventListener('change', applyFilters));
+    hideCompleted.addEventListener('change', applyFilters);
 
-          const vehicleCell = document.createElement('td');
-          vehicleCell.textContent = appointment.Vehicle;
+    // tiny debounce for search
+    let t;
+    searchBox.addEventListener('input', () => {
+      clearTimeout(t);
+      t = setTimeout(applyFilters, 120);
+    });
 
-          const firmwareCell = document.createElement('td');
-          firmwareCell.textContent = appointment.Firmware;
-
-          // Apply "completed" class if completed
-          if (appointment.Completed) {
-            timeCell.classList.add('completed');
-          }
-
-          // Append cells to the row
-          row.appendChild(locationCell);
-          row.appendChild(timeCell);
-          row.appendChild(serviceCell);
-          row.appendChild(clientCell);
-          row.appendChild(vehicleCell);
-          row.appendChild(firmwareCell);
-
-          // Add row to Guardian table
-          guardianTableBody.appendChild(row);
-        });
-      })
-      .catch(error => console.error('Error loading data:', error));
+    applyFilters();
+  })();
   </script>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <a href="/index.html">Back to Home</a>
-  </footer>
 </body>
 </html>
