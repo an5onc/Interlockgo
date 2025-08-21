@@ -189,6 +189,8 @@
   will-change: transform, box-shadow;                  /* scroll anim hint */
   contain: paint;                                      /* isolate repaints */
   box-shadow: 0 12px 28px rgba(0,0,0,var(--elev, .28));/* lighter idle */
+  content-visibility: auto;
+  contain-intrinsic-size: 900px; /* reserve space to prevent jump; tweak if needed */
 }
 
 /* per-card index for peek math (4 cards) */

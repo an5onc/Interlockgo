@@ -11,13 +11,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="images/Interlockgo.jpeg" imagesizes="100vw">
+
+  <!-- === PERFORMANCE: PRELOAD HERO ====================================== -->
+  <link rel="preload" as="image" href="images/Interlockgo.jpeg" imagesizes="100vw" />
 
   <!-- === STYLESHEETS ===================================================== -->
   <link href="base.css?v=2025-08-19-1" rel="stylesheet" />
   <link href="index.css?v=2025-08-19-1" rel="stylesheet" />
 
-  <!-- Flag that JS is enabled so reveal animations only run then -->
+  <!-- JS-on flag for reveal animations -->
   <script>document.documentElement.classList.add('js');</script>
 
   <!-- If JS fails/blocked, keep cards visible -->
@@ -26,7 +28,7 @@
 <body id="top">
 
   <!-- =====================================================================
-       NAVIGATION (matches base.css nav styles + hover/glow)
+       NAVIGATION
        =================================================================== -->
   <nav>
     <ul>
@@ -51,7 +53,7 @@
   </nav>
 
   <!-- =====================================================================
-       HERO (dark overlay, red accent CTA with dropdown phone)
+       HERO
        =================================================================== -->
   <header class="hero-section">
     <div class="hero-overlay">
@@ -62,7 +64,7 @@
         <div class="cta-dropdown-container">
           <!-- Main CTA -->
           <a href="tel:970-515-5740" class="cta-button" aria-label="Call InterlockGo">Call Now</a>
-          <!-- Hover phone dropdown (still accessible on click for mobile) -->
+          <!-- Hover phone dropdown (also clickable on mobile) -->
           <div class="phone-number">
             <a href="tel:970-515-5740">970-515-5740</a>
           </div>
@@ -94,10 +96,9 @@
           <h3>FAST. POWERFUL. SECURE.</h3>
         </div>
 
-        <p>Same-day installs, clean wiring, and verified</p>
-        <p>calibrations.</p>
+        <p>Same-day installs, clean wiring, and verified calibrations.</p>
 
-        <img src="images/interlockgologo.png" alt="InterlockGo logo" class="whyilg-logo">
+        <img src="images/interlockgologo.png" alt="InterlockGo logo" class="whyilg-logo" loading="lazy" decoding="async">
       </article>
 
       <!-- 02 -->
@@ -116,7 +117,7 @@
         </div>
 
         <p>Authorized Lifesafer provider.</p>
-        <img src="images/LifeSafer_image.png" alt="LifeSafer logo" class="whyilg-logo">
+        <img src="images/LifeSafer_image.png" alt="LifeSafer logo" class="whyilg-logo" loading="lazy" decoding="async">
       </article>
 
       <!-- 03 -->
@@ -136,7 +137,7 @@
         </div>
 
         <p>Authorized Guardian provider.</p>
-        <img src="images/guardianV2.png" alt="Guardian logo" class="whyilg-logo">
+        <img src="images/guardianV2.png" alt="Guardian logo" class="whyilg-logo" loading="lazy" decoding="async">
       </article>
 
       <!-- 04 -->
@@ -157,7 +158,7 @@
 
         <p>Need your Interlock Affidavit notarized?</p>
         <p>We got you.</p>
-        <img src="images/notarylogo.png" alt="Notary logo" class="whyilg-logo">
+        <img src="images/notarylogo.png" alt="Notary logo" class="whyilg-logo" loading="lazy" decoding="async">
       </article>
     </div>
   </section>
@@ -168,16 +169,13 @@
   <footer class="footer">
     <div class="footer-inner">
       <a href="#top" class="backtop" aria-label="Back to top">
-        <span class="backtop-ico" aria-hidden="true">
-          <!-- Simple up arrow (SVG removed for brevity) -->
-          ▲
-        </span>
+        <span class="backtop-ico" aria-hidden="true">▲</span>
         Back to Top
       </a>
 
       <!-- Floating call button (uses base.css styles) -->
       <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
-        <img src="images/smileyface.png" alt="Call InterlockGo">
+        <img src="images/smileyface.png" alt="Call InterlockGo" loading="lazy" decoding="async">
       </a>
 
       <div class="footer-meta">© 2025 InterlockGo NOCO • Evans, CO</div>
@@ -185,69 +183,93 @@
   </footer>
 
   <!-- =====================================================================
-       SCRIPTS — Reveal-on-scroll + sticky elevation/scale
-       (kept lightweight; matches our CSS variables)
+       SCRIPTS — Reveal + Sticky Stack (deferred first run)
        =================================================================== -->
   <script>
-    // Reveal on scroll (gracefully degrades if unsupported)
-    (() => {
-      const els = document.querySelectorAll('.reveal');
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduce || !('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('visible'));
-        return;
-      }
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            obs.unobserve(e.target); // animate once
-          }
-        });
-      }, { threshold: 0.35 });
-      els.forEach(el => io.observe(el));
-    })();
+  // Reveal on scroll (gracefully degrades if unsupported)
+  (() => {
+    const els = document.querySelectorAll('.reveal');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target); // animate once
+        }
+      });
+    }, { threshold: 0.35 });
+    els.forEach(el => io.observe(el));
+  })();
   </script>
 
   <script>
-    // Sticky stack elevation/scale update
-    (() => {
-      const cards = Array.from(document.querySelectorAll('.whyilg-card'));
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduce || !cards.length) return;
+  // Sticky stack elevation/scale update (defer initial compute)
+  (() => {
+    const cards = Array.from(document.querySelectorAll('.whyilg-card'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !cards.length) return;
 
-      // match CSS math: top: var(--pin); min-height: calc(100svh - 120px)
-      const topOffset = 80;
-      const sectionHeight = () => Math.max((window.innerHeight || document.documentElement.clientHeight) - 120, 1);
+    const topOffset = 80;
+    const sectionHeight = () =>
+      Math.max((window.innerHeight || document.documentElement.clientHeight) - 120, 1);
 
-      let ticking = false;
-      function update() {
-        const h = sectionHeight();
-        cards.forEach(card => {
-          const r = card.getBoundingClientRect();
-          // progress: 0 (just entering) -> 1 (pinned at top)
-          let p = 1 - ((r.top - topOffset) / h);
-          p = Math.max(0, Math.min(1, p));
+    let ticking = false;
+    function update() {
+      const h = sectionHeight();
+      cards.forEach(card => {
+        const r = card.getBoundingClientRect();
+        let p = 1 - ((r.top - topOffset) / h);
+        p = Math.max(0, Math.min(1, p));
+        const scale = 0.985 + p * 0.015;   // 0.985 → 1.000
+        const elev  = 0.06  + p * 0.10;    // shadow alpha
+        card.style.setProperty('--scale', scale.toFixed(3));
+        card.style.setProperty('--elev',  elev.toFixed(3));
+      });
+      ticking = false;
+    }
 
-          const scale = 0.985 + p * 0.015;   // 0.985 → 1.000
-          const elev  = 0.06  + p * 0.10;    // shadow alpha
-          card.style.setProperty('--scale', scale.toFixed(3));
-          card.style.setProperty('--elev',  elev.toFixed(3));
-        });
-        ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
       }
+    }
 
-      function onScroll() {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
-        }
-      }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => requestAnimationFrame(update), { passive: true });
 
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', () => requestAnimationFrame(update), { passive: true });
-      update();
-    })();
+    // run initial update during idle (or rAF fallback)
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => requestAnimationFrame(update), { timeout: 120 });
+    } else {
+      requestAnimationFrame(update);
+    }
+  })();
+  </script>
+
+  <!-- =====================================================================
+       OPTIONAL: Ultra-light hero parallax (no background-attachment: fixed)
+       =================================================================== -->
+  <script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const el = document.querySelector('.hero-section');
+    if (reduce || !el) return;
+
+    let ticking = false;
+    function tick() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      el.style.backgroundPosition = `center ${Math.round(y * 0.12)}px`;
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(tick); }
+    }, { passive: true });
+  })();
   </script>
 </body>
 </html>
