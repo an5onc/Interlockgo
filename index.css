@@ -5,9 +5,12 @@
   background: url("images/Interlockgo.jpeg") center/cover no-repeat fixed;
 }
 .hero-overlay{
-  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
   min-height: inherit;
+  background:
+    radial-gradient(1200px 600px at 25% 20%, rgba(232,65,66,.18), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.66), rgba(0,0,0,.35) 40%, rgba(0,0,0,.25));
 }
+
 .hero{
   max-width: 1200px;
   margin: 0 auto;
@@ -17,19 +20,81 @@
 .hero h1 { font-family: "Poppins", sans-serif; font-weight: 600; margin: 0 0 6px; font-size: clamp(28px, 6vw, 48px); }
 .hero p { margin: 0 0 16px; font-size: clamp(14px, 2.4vw, 18px); }
 
+/* Hero type polish */
+.hero h1{
+  letter-spacing:.01em;
+  text-wrap: balance;            /* nicer multi-line titles */
+}
+.hero p{
+  color: var(--muted);
+  max-width: 56ch;               /* improve line length for readability */
+}
+
+
 /* CTA dropdown */
 .cta-dropdown-container { position: relative; display:inline-block; }
-.cta-button { display:inline-block; padding:10px 16px; background:#0b6efd; color:#fff; border-radius:8px; }
+
+.cta-button {
+  display:inline-block;
+  padding:12px 18px;
+  background: var(--accent);
+  color:#fff;
+  border-radius:10px;
+  font-weight:600;
+  line-height:1;
+  box-shadow: 0 8px 24px rgba(232,65,66,.35);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(232,65,66,.45);
+}
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 28px rgba(232,65,66,.42);
+}
+.cta-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 7px var(--ring);
+}
+
+/* phone number dropdown */
 .cta-dropdown-container:hover .phone-number { opacity:1; transform:translateY(0); pointer-events:auto; }
-.phone-number{ position:absolute; top:100%; left:0; background:#fff; color:#111; padding:8px 12px; border-radius:8px;
-  box-shadow:0 6px 18px rgba(0,0,0,.15); opacity:0; transform:translateY(6px); transition:.2s; pointer-events:none; }
+.phone-number{
+  position:absolute; top:100%; left:0;
+  background: var(--surface);
+  color: var(--text);
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow);
+  opacity:0; transform:translateY(6px);
+  transition:.2s; pointer-events:none;
+}
+.phone-number a { color: var(--text); font-weight:600; }
+.phone-number a:hover { color: var(--accent); }
+
 
 /* Why InterlockGo sticky stack */
 .whyilg{ padding:4rem 0; width:100%; scroll-snap-type:y proximity; --pin:80px; }
-.whyilg-title{ text-align:center; margin: 0 0 16px; }
+.whyilg-title{
+  text-align:center;
+  margin: 0 0 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.whyilg-title::after{
+  content:""; display:block; width:64px; height:2px;
+  margin:10px auto 0; background: var(--accent); opacity:.9;
+  border-radius:2px;
+}
+
 .whyilg-stack {
   position: relative;
-  height: calc(var(--cards, 4) * 100svh); /* one viewport per card */
+  height: calc(var(--cards, 4) * 60svh); /* one viewport per card */
   max-width: clamp(720px, 92vw, 1600px);
   margin: 0 auto;
   padding: 0 clamp(12px, 3vw, 32px);
@@ -39,15 +104,41 @@
 .whyilg-card{
   position: sticky; top: var(--pin);
   min-height: calc(100svh - 120px);
-  background:#fff; border-radius: 16px; padding: 20px;
-  box-shadow: 0 12px 28px rgba(0,0,0,var(--elev, .06));
+
+  /* dark surface */
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.06);
+  border-top: 3px solid var(--accent);
+  border-radius: 16px;
+
+  /* layout */
+  padding: 24px clamp(16px, 3vw, 28px);
+  display:grid; gap: 12px; align-content:start;
+
+  /* motion / elevation (script updates --elev) */
+  box-shadow: 0 12px 28px rgba(0,0,0,var(--elev, .35));
   transform: scale(var(--scale, .985));
-  transition: transform .2s ease, box-shadow .2s ease;
-  display:grid; gap: 10px; align-content:start;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-.whyilg-index{ font-weight:600; color:#0b6efd; }
+.whyilg-card:hover{
+  box-shadow:
+    0 28px 60px rgba(0,0,0,.55),
+    0 0 0 1px rgba(232,65,66,.18) inset;
+}
+
+.whyilg-index{
+  font-weight:700;
+  color: var(--accent);
+  letter-spacing:.06em;
+}
 .whyilg-head{ display:flex; align-items:center; gap:10px; }
-.whyilg-ico{ width:32px; height:32px; color:#0b6efd; }
+.whyilg-ico{
+  width:32px; height:32px;
+  color: var(--accent);
+  opacity:.95;
+}
+
 .whyilg-logo {
   width: 100%;
   height: auto;
@@ -57,7 +148,53 @@
   object-fit: contain;
 }
 
-.tone-light{ background:#f8fafc; }
-.tone-blue{ background:#f0f6ff; }
-.tone-gray{ background:#f6f7f9; }
-.tone-red{ background:#fff5f5; }
+.tone-light, .tone-blue, .tone-gray, .tone-red {
+  background: var(--surface);
+}
+.tone-red { border-top-color: var(--accent); }
+
+/* === Step 5: Card micro-interactions (dark theme) === */
+
+/* Slight rhythm under the card title row */
+.whyilg-head { margin-bottom: 6px; }
+
+/* Icon + index animations / color */
+.whyilg-card .whyilg-ico {
+  transition: transform .18s ease, color .18s ease, filter .18s ease;
+}
+.whyilg-card:hover .whyilg-ico {
+  transform: translateY(-2px) scale(1.05);
+  color: var(--accent);
+  filter: drop-shadow(0 4px 18px rgba(232,65,66,.35));
+}
+
+.whyilg-card .whyilg-index {
+  transition: color .18s ease, text-shadow .18s ease;
+}
+.whyilg-card:hover .whyilg-index {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(232,65,66,.35);
+}
+
+/* Subtle lift + inner accent ring on hover */
+.whyilg-card { position: relative; }
+.whyilg-card:hover {
+  transform: scale(var(--scale)) translateY(-2px); /* keeps your sticky scale */
+  box-shadow:
+    0 28px 60px rgba(0,0,0,.55),
+    0 0 0 1px rgba(232,65,66,.12) inset;
+}
+
+/* Decorative edge highlight (faint, only on hover) */
+.whyilg-card::after {
+  content:"";
+  position:absolute; inset:-1px; border-radius:inherit;
+  box-shadow: 0 0 0 1px rgba(232,65,66,.12);
+  opacity:0; pointer-events:none; transition: opacity .18s ease;
+}
+.whyilg-card:hover::after { opacity:1; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .whyilg-card, .whyilg-card * { transition: none !important; }
+}
