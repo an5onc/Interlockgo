@@ -1,174 +1,96 @@
+/* ====== Guardian Page Styles (matches home & Lifesafer) =============== */
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9fafb;
-  color: #333;
-  line-height: 1.6;
+/* Section spacing */
+.page-intro,
+.video-section,
+.location { padding: clamp(16px, 3vw, 36px); }
+.page-intro p { max-width: 68ch; }
+
+/* Hero variant for brand pages */
+.hero--brand {
+  background-image: url('../images/guardianV2.png');
+  background-size: cover;
+  background-position: center; padding-top: 220px; min-height: 100px;
+  background-color: grey;
+  /* If the image is clipped by nav, nudge as needed:
+     background-position: center 20%;  or  padding-top: 120px; */
 }
 
-/* Navigation */
-nav {
-  background-color: #004080;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-}
-
-nav .logo {
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-decoration: none;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  margin-left: 1.5rem;
-}
-
-nav ul li a {
-  color: #cbd5e1;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-  color: #fff;
-  border-bottom: 2px solid #fff;
-  padding-bottom: 2px;
-}
-
-/* Headings */
-h1 {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 2.5rem;
-  color: #004080;
-}
-
-h2 {
-  font-size: 1.5rem;
-  color: #022c6b;
-  margin-bottom: 1rem;
-}
-
-/* Equipment Intro Paragraph */
-.equipment-intro {
-  max-width: 700px;
-  margin: 1rem auto 3rem auto;
-  font-size: 1.1rem;
-  text-align: center;
-  color: #555;
-}
-
-/* Video Cards Container */
-.video-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 0 2rem 3rem 2rem;
-}
-
-/* Individual Video Card */
-.video-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 320px;
-  padding: 1rem;
+.hero-section .hero {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;  /* align to top instead of center */
   align-items: center;
+  padding-top: 60px;            /* add breathing room from nav */
+  min-height: 300px;            /* keeps hero tall */
+  text-align: center;
 }
 
-.video-card-content {
-  width: 100%;
+
+/* Even, responsive video grid */
+.video-grid,
+.video-cards { /* support either class name */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(14px, 2.6vw, 24px);
+  align-items: start;
 }
 
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+/* Card styling */
+.video-card {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(14px, 2.4vw, 20px);
+  transform: translateZ(0);
+  transition: box-shadow .25s ease, transform .25s ease;
 }
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+.video-card:hover {
+  box-shadow: 0 14px 40px rgba(0,0,0,.12);
+  transform: translateY(-2px);
 }
-
-/* Footer */
-.site-footer {
-  background-color: #004080;
-  color: #cbd5e1;
-  padding: 1.5rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  font-size: 0.9rem;
-}
-
-.footer-info p {
-  margin: 0.3rem 0;
-}
-
-.footer-links a {
-  color: #cbd5e1;
-  text-decoration: none;
-  margin: 0 0.5rem;
+.video-card h3 {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   font-weight: 600;
-  transition: color 0.3s ease;
+  font-size: clamp(18px, 2.2vw, 20px);
+  margin: 0 0 10px;
 }
 
-.footer-links a:hover {
-  color: #fff;
+/* Uniform 16:9 frames */
+.video-frame,
+.video-wrapper { /* support either class name */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* modern browsers */
+  background: #0a0a0a;
+  border-radius: 12px;
+  overflow: hidden;
 }
+@supports not (aspect-ratio: 1 / 1) {
+  .video-frame,
+  .video-wrapper { padding-bottom: 56.25%; height: 0; }
+  .video-frame iframe,
+  .video-wrapper iframe { position: absolute; inset: 0; }
+}
+.video-frame iframe,
+.video-wrapper iframe { width: 100%; height: 100%; border: 0; }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .video-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-  .video-card {
-    width: 90%;
-  }
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-  }
-  nav ul li {
-    margin-left: 0;
-    margin-bottom: 0.5rem;
-  }
-  .site-footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .footer-links {
-    margin-top: 1rem;
-  }
+/* Location / map */
+.location address {
+  font-style: normal;
+  line-height: 1.5;
+  margin-bottom: 12px;
 }
+.map-embed { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.08); }
+.map-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+/* Reveal animation (same as home) */
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Small helpers for consistent spacing */
+h1, h2 { letter-spacing: 0.2px; }
+.cta .map-embed { margin-top: 12px; }
+
+/* Optional: align page heading color with brand if desired */
+/* h1 { color: #0b3b7a; } */
