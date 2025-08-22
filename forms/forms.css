@@ -1,126 +1,128 @@
-/* ----------------- Base / Theme ----------------- */
+/* ====== Forms Page Styles (matches home, Lifesafer, Guardian) ========= */
+
+/* Base / Theme */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-:root{
+:root {
   --brand-green:#4CAF50;
-  --bg:#f5f5f5;
-  --text:#333;
+  --bg:#0c0c0c;
+  --text:#dcd9d9;
   --muted:#666;
-  --surface:#fff;
-  --nav:#444;
+  --surface:#222121;
   --radius:12px;
   --shadow:0 6px 16px rgba(0,0,0,0.08);
 }
 
-html,body{
+html,body {
   font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color:var(--text);
   background:var(--bg);
+  line-height:1.6;
 }
 
-/* ----------------- Top Bar ----------------- */
-.navbar{
-  background:var(--nav);
-  padding:12px 20px;
-}
-.navbar__brand{
+/* Hero (consistent with other brand pages) */
+.hero-section.hero--brand {
+  background-image: linear-gradient(to right, rgba(76,175,80,.85), rgba(76,175,80,.45)),
+                    url('../images/Interlockgo.jpeg'); /* swap in your hero/shop image */
+  background-size: cover;
+  background-position: center 20%;
   color:#fff;
-  font-weight:600;
-  letter-spacing:.3px;
+  text-align:center;
+  padding: 64px 20px;
+  margin-bottom: 24px;
 }
+.hero-section.hero--brand h1 { font-size:2.2rem; margin-bottom:8px; }
+.hero-section.hero--brand p { opacity:.95; max-width:720px; margin:0 auto; }
 
-/* ----------------- Hero ----------------- */
-.hero{
-  background:linear-gradient(to right, rgba(76,175,80,.85), rgba(76,175,80,.45)),
-             url('https://images.unsplash.com/photo-1556742400-14f2b000f9a1?auto=format&fit=crop&w=1368&q=80');
-  background-size:cover; background-position:center;
-  color:#fff; text-align:center; padding:64px 20px; margin-bottom:24px;
-}
-.hero h1{ font-size:2.2rem; margin-bottom:8px; }
-.hero p{ opacity:.95; max-width:720px; margin:0 auto; }
+/* Container */
+.container { width:92%; max-width:1200px; margin:0 auto; }
 
-/* ----------------- Layout ----------------- */
-.container{ width:92%; max-width:1200px; margin:0 auto; }
-
-/* ----------------- Section headings ----------------- */
-.section{
+/* Sections */
+.section {
   background:var(--surface);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:20px;
   margin-bottom:24px;
 }
-.section h2{
+.section h2 {
   font-size:1.4rem;
   border-left:4px solid var(--brand-green);
   padding-left:10px;
   margin-bottom:14px;
 }
 
-/* ----------------- Card Grid (links) ----------------- */
-.grid{
+/* Card Grid */
+.grid {
   display:grid;
-  grid-template-columns:repeat( auto-fit, minmax(240px,1fr) );
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
   gap:16px;
 }
-.card{
+.card {
   background:var(--surface);
-  border:1px solid #e9e9e9;
+  border:1px solid #959393;
   border-radius:var(--radius);
   padding:18px;
   box-shadow:var(--shadow);
   display:flex; flex-direction:column; gap:8px;
   transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
 }
-.card h3{ font-size:1.05rem; }
-.card p{ color:var(--muted); font-size:.92rem; line-height:1.4; }
-
-.card a.button{
+.card h3 { font-size:1.05rem; }
+.card p { color:var(--muted); font-size:.92rem; line-height:1.4; }
+.card a.button {
   align-self:flex-start;
   text-decoration:none;
   background:var(--brand-green);
-  color:#fff;
+  color:#faf7f7;
   padding:10px 14px;
   border-radius:10px;
   font-weight:600;
   transition:filter .16s ease;
 }
-.card:hover{ transform:translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.10); border-color:#e0e0e0; }
-.card a.button:hover{ filter:brightness(.95); }
+.card:hover { transform:translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.10); border-color:#e0e0e0; }
+.card a.button:hover { filter:brightness(.95); }
 
-/* ----------------- Quick links list ----------------- */
-.list{
+/* Quick Links List */
+.list {
   list-style:none;
   display:grid;
-  grid-template-columns:repeat( auto-fit, minmax(260px,1fr) );
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
   gap:10px;
 }
-.list a{
+.list a {
   display:block;
-  background:#fff;
+  background:var(--brand-green);
   padding:12px 14px;
   border:1px solid #e7e7e7;
   border-radius:10px;
   text-decoration:none;
-  color:var(--text);
+  color: white;
   transition:background .12s ease, border-color .12s ease, transform .12s ease;
 }
-.list a:hover{ background:#fafafa; border-color:#ddd; transform:translateY(-1px); }
+.list a:hover { background:#fafafa; border-color:#ddd; transform:translateY(-1px); }
 
-/* ----------------- Footer ----------------- */
-footer{
-  text-align:center; margin:24px 0 32px;
+/* Footer (reuses global footer styles) */
+footer {
+  text-align:left;
+  margin:24px 0 32px;
 }
-footer .home-btn{
-  display:inline-flex; align-items:center; gap:10px;
-  text-decoration:none; color:var(--text); font-weight:600;
-  background:#fff; border:1px solid #e7e7e7; border-radius:999px;
-  padding:8px 14px; box-shadow:var(--shadow);
+footer .home-btn {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--surface);
+  font-weight:600;
+  background:var(--bg);
+  border:1px solid #e2dede;
+  border-radius:999px;
+  padding:8px 14px;
+  box-shadow:var(--shadow);
 }
-footer .home-btn img{ width:22px; height:22px; }
+footer .home-btn img { width:22px; height:22px; }
 
-/* ----------------- Responsive tweaks ----------------- */
-@media (max-width: 520px){
-  .hero{ padding:48px 16px; }
-  .hero h1{ font-size:1.8rem; }
+/* Responsive */
+@media (max-width: 520px) {
+  .hero-section.hero--brand { padding:48px 16px; }
+  .hero-section.hero--brand h1 { font-size:1.8rem; }
 }
