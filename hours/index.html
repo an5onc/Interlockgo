@@ -1,112 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- META -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hours of Operation</title>
+  <title>Shop Hours — Evans, CO | InterlockGo NOCO</title>
+  <meta name="description" content="InterlockGo NOCO shop hours and availability in Evans, CO. We operate on an appointment-based system. Call 970‑515‑5740 to schedule an appointment, walk-ins are strictly on a case by case basis." />
+  <link rel="canonical" href="https://interlockgo.io/hours/" />
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Fonts (same as site) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
 
-  <!-- Link to external CSS file -->
-  <link rel="stylesheet" href="hours.css" />
+  <!-- Styles -->
+  <link href="../base.css" rel="stylesheet" />
+  <link href="hours.css" rel="stylesheet" />
+
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body id="top">
 
-  <!-- Hero Section -->
-  <header class="hero-section">
-    <div class="hero-overlay">
-      <h1>Interlock Go Evans</h1>
-    </div>
-  </header>
-
-  <!-- Navigation -->
+  <!-- NAV (unified) -->
   <nav>
     <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../appointments/">Appointments</a></li>
+      <li><a class="active" href="./">Shop hours</a></li>
       <li>
-        <a href="/index.html">Home</a>
+        <a href="javascript:void(0)">Equipment</a>
+        <ul>
+          <li><a href="../lifesafer/">Lifesafer</a></li>
+          <li><a href="../guardian/">Guardian</a></li>
+        </ul>
       </li>
       <li>
-        <a href="/lilly.html">Ask Lilly</a>
+        <a href="javascript:void(0)">Support</a>
+        <ul>
+          <li><a href="../forms/">Forms</a></li>
+          <li><a href="../contactus/">Contact</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://myaccount.lifesafer.com/account/login" target="_blank" rel="noopener">My Account</a>
       </li>
     </ul>
   </nav>
 
-  <!-- Main Section -->
-  <main>
-    <h2>Hours of Operation</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Day of the Week</th>
-          <th>Hours</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Monday</td>
-          <td>8am - 6pm </td>
-        </tr>
-        <tr>
-          <td>Tuesday</td>
-          <td>Install Appointments only</td>
-        </tr>
-        <tr>
-          <td>Wednesday</td>
-          <td>8am - 6pm </td>
-        </tr>
-        <tr>
-          <td>Thursday</td>
-          <td>Install Appointments only</td>
-        </tr>
-        <tr>
-          <td>Friday</td>
-          <td>8am - 5pm </td>
-        </tr>
-        <tr>
-          <td>Saturday</td>
-          <td>9am - 1pm</td>
-        </tr>
-        <tr>
-          <td>Sunday</td>
-          <td>Closed</td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
-
-  <!-- Footer -->
-   <!-- =====================================================================
-       FOOTER + CALL FLOAT
-       =================================================================== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <!-- Back to top -->
-    <a href="#top" class="backtop" aria-label="Back to top">
-      <span class="backtop-ico" aria-hidden="true">▲</span>
-      Back to Top
-    </a>
-
-    <!-- Contact link -->
-    <a href="contactus/index.html" class="contact-link" aria-label="Contact InterlockGo Evans">
-      Contact Us
-    </a>
-
-    <!-- Floating call button -->
-    <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
-      <img src="../images/smileyface.png" alt="Call InterlockGo NOCO — Evans, CO" loading="lazy" decoding="async">
-    </a>
-
-    <!-- Footer meta (NAP for SEO) -->
-    <div class="footer-meta">
-      © 2025 InterlockGo NOCO • 3610 35th Avenue, Evans, CO 80620 • 
-      <a href="tel:970-515-5740">970-515-5740</a>
+  <!-- HERO (unified look) -->
+  <header class="hero-section hero--brand">
+    <div class="hero-overlay">
+      <div class="hero">
+        <h1>Shop Hours — Evans, CO</h1>
+        <p class="content-width">
+         We operate on an <strong>appointment-based system</strong>. Walk-ins are strictly on a case by case basis.
+          Call <a href="tel:970-515-5740" style="text-decoration:underline;">970‑515‑5740</a> for same‑day availability.
+        </p>
+      </div>
     </div>
-  </div>
-</footer>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+  <section class="section">
+    <h2>Hours of Operation <span class="sub">- InterlockGo NOCO</span></h2>
+
+    <div class="table-wrap" role="region" aria-labelledby="hours-heading">
+      <table class="hours-table">
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Hours</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Monday</th><td>8:00 AM – 6:00 PM</td><td>Appointments only</td></tr>
+          <tr><th scope="row">Tuesday</th><td>By appointment</td><td>Install appointments only</td></tr>
+          <tr><th scope="row">Wednesday</th><td>8:00 AM – 6:00 PM</td><td>Appointments only</td></tr>
+          <tr><th scope="row">Thursday</th><td>By appointment</td><td>Install appointments only</td></tr>
+          <tr><th scope="row">Friday</th><td>8:00 AM – 5:00 PM</td><td>Appointments only</td></tr>
+          <tr><th scope="row">Saturday</th><td>9:00 AM – 1:00 PM</td><td>Appointments only (Limited slots)</td></tr>
+          <tr><th scope="row">Sunday</th><td>Closed</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">
+      Need a time outside posted hours? <a href="../contactus/index.htmlS">Contact us</a> and we’ll try to accommodate.
+    </p>
+  </section>
+</main>
+
+
+  <!-- FOOTER (unified + floater) -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#top" class="backtop" aria-label="Back to top">
+        <span class="backtop-ico" aria-hidden="true">▲</span>
+        Back to Top
+      </a>
+
+      <a href="../contactus/" class="contact-link" aria-label="Contact InterlockGo Evans">
+        Contact Us
+      </a>
+
+      <!-- Floating call button -->
+      <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
+        <img src="../images/smileyface.png" alt="Call InterlockGo NOCO — Evans, CO" loading="lazy" decoding="async">
+      </a>
+
+      <div class="footer-meta">
+        © 2025 InterlockGo NOCO • 3610 35th Avenue, Evans, CO 80620 •
+        <a href="tel:970-515-5740">970‑515‑5740</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
