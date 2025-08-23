@@ -156,10 +156,11 @@ nav > ul > li > a:active { transform: translateY(0); }
 }
 .footer-inner {
   max-width: 1200px; margin: 0 auto;
-  display: grid; gap: 16px; align-items: center;
+  display: inline; gap: 16px; align-items: center;
 }
 .footer-meta { color: var(--muted); font-size: 14px; }
 .backtop { display:inline-flex; gap:8px; align-items:center; }
+
 
 
 /* === 6) REVEAL UTILITY ================================================== */
