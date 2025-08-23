@@ -13,10 +13,19 @@
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "08/23/2025 09:00:00 AM",
             "Service": "Daily Monitoring FC100",
+            "Client": "Valles",
+            "Vehicle": "2008 Ford F150",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/23/2025 09:15:00 AM",
+            "Service": "Daily Monitoring FC100",
             "Client": "Esparza",
             "Vehicle": "2000 Ford Ranger",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -34,7 +43,7 @@
             "Client": "AVALOS",
             "Vehicle": "2012 Ford F150",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -47,12 +56,21 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/23/2025 10:30:00 AM",
+            "Appointment Time": "08/23/2025 10:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "PARMENTER",
             "Vehicle": "2005 Buick LaCrosse",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/23/2025 10:45:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "GOMEZ VALERIO",
+            "Vehicle": "2018 Hyundai Tucson- Key Start",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -60,15 +78,6 @@
             "Service": "Daily Monitoring FC100",
             "Client": "Martinez",
             "Vehicle": "2016 Dodge Ram 1500 key",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/23/2025 11:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "GOMEZ VALERIO",
-            "Vehicle": "2018 Hyundai Tucson- Key Start",
             "Firmware": "L250",
             "Completed": false
         },
