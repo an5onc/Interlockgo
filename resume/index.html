@@ -5,113 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Anson Cordeiro • Resume</title>
 
-  <!-- Fonts to match site -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <!-- Page styles -->
-  <link rel="stylesheet" href="resume.css" />
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;800&display=swap" rel="stylesheet" />
+  <link href="/base.css?v=2025-08-19-1" rel="stylesheet" />
+  <link href="/resume/resume.css?v=2025-08-23-1" rel="stylesheet" />
+
+  <meta name="description" content="Hands-on interlock installer & small-business owner with aviation QA background and modern software skills—clean installs, safety focus, solid web tooling." />
 </head>
-<body>
-  <!-- Top bar -->
-  <nav class="navbar">
-    <div class="navbar__brand">InterlockGo • My Resume</div>
+<body id="top">
+  <!-- NAV -->
+  <nav class="navbar" role="navigation" aria-label="Primary">
+    <div class="navbar__brand">InterlockGo • Resume</div>
     <a class="navbar__home" href="/index.html">Home</a>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
+  <!-- HERO -->
+  <header class="hero" role="banner">
     <div class="hero__inner">
       <img class="hero__photo" src="/images/anson.jpg" alt="Anson Cordeiro" />
       <h1>Anson Cordeiro</h1>
       <p>Ignition Interlock Installer • Aviation QA • Software Engineering</p>
-      <div class="hero__meta">
-        <span>Location: Greeley, CO (Greater NOCO)</span>
+      <div class="hero__meta" aria-label="Contact & location">
+        <span>Greeley, CO (Greater NOCO)</span>
         <span>Email: <strong>vball[at]gmail[dot]com</strong> (redacted)</span>
-        <span>Phone: <strong>(970) XXX-XXXX</strong> (redacted)</span>
+        <span>Phone: <strong>(970) XXX‑XXXX</strong> (redacted)</span>
       </div>
     </div>
   </header>
-  
 
-  <main class="container">
+  <main class="container" role="main">
     <!-- Summary -->
-    <section class="section">
-      <h2>Professional Summary</h2>
+    <section class="section" id="summary" aria-labelledby="summary-h">
+      <h2 id="summary-h">Professional Summary</h2>
       <p>
-        Hands-on interlock installation tech and small-business owner with deep background in aviation maintenance and quality assurance.
-        Experienced leading operations, implementing checklists, and documenting processes. Comfortable across shop tools, wiring diagrams,
-        and modern web/software tooling. Known for clean installs, safety focus, and clear, client-friendly communication.
+        Hands-on interlock installation tech and small-business owner with deep aviation maintenance and quality assurance background.
+        Builder mindset with modern web tooling (GitHub/Vercel/GoDaddy). Known for clean installs, client education,
+        and process discipline—reducing rework and preventing lockouts with checklists and documentation.
       </p>
     </section>
 
     <!-- Core Skills -->
-    <section class="section">
-      <h2>Core Skills</h2>
-      <div class="chips">
-        <span>Ignition Interlock Installs</span>
-        <span>Vehicle Wiring & Diagnostics</span>
-        <span>Client Education & Compliance</span>
-        <span>Shop Operations & Scheduling</span>
-        <span>QA / Checklists / Documentation</span>
-        <span>Project & Resource Planning</span>
-        <span>GitHub / GoDaddy / Vercel</span>
-        <span>HTML / CSS / JS / Python / Java / C#</span>
-        <span>Windows / macOS / Linux</span>
+    <section class="section" id="skills" aria-labelledby="skills-h">
+      <h2 id="skills-h">Core Skills</h2>
+      <div class="chips" role="list">
+        <span role="listitem">Ignition Interlock Installs</span>
+        <span role="listitem">Vehicle Wiring & Diagnostics</span>
+        <span role="listitem">Client Education & Compliance</span>
+        <span role="listitem">Shop Operations & Scheduling</span>
+        <span role="listitem">QA / Checklists / Documentation</span>
+        <span role="listitem">Project & Resource Planning</span>
+        <span role="listitem">GitHub / GoDaddy / Vercel</span>
+        <span role="listitem">HTML / CSS / JS / Python / Java / C#</span>
+        <span role="listitem">Windows / macOS / Linux</span>
       </div>
     </section>
 
     <!-- Experience -->
-    <section class="section">
-      <h2>Experience</h2>
+    <section class="section" id="experience" aria-labelledby="exp-h">
+      <h2 id="exp-h">Experience</h2>
 
-      <article class="xp">
+      <article class="xp" aria-label="Owner, InterlockGo-NOCO">
         <div class="xp__header">
-          <h3>Owner • Kawika Capitol Ltd (DBA InterlockGo-NOCO)</h3>
+          <h3>Owner • Kawika Capitol Ltd (DBA InterlockGo‑NOCO)</h3>
           <span>2023 – Present • Evans, CO</span>
         </div>
         <ul>
-          <li>Operate Northern Colorado interlock service shop; schedule installs/calibrations and manage client flow.</li>
-          <li>Implement checklists and documentation to reduce rework and prevent lockouts; coordinate with vendor portals.</li>
-          <li>Build/maintain the business website; automate appointment views and reference forms for faster service.</li>
+          <li>Operate NOCO interlock shop; schedule installs/calibrations; manage client throughput and expectations.</li>
+          <li>Implemented checklists & documentation to reduce rework and prevent lockouts; coordinated vendor portal workflows.</li>
+          <li>Built and maintained the business website; automated appointment views and centralized reference forms.</li>
         </ul>
       </article>
 
-      <article class="xp">
+      <article class="xp" aria-label="Installation Technician, InterlockGo">
         <div class="xp__header">
           <h3>Installation Technician • InterlockGo</h3>
           <span>2022 – 2023 • Evans, CO</span>
         </div>
         <ul>
-          <li>Performed L250/FC100 installs, service, and calibrations; guided clients on correct blow/hum procedure.</li>
-          <li>Used wiring diagrams and shop tools to identify clean, reversible tap points; documented firmware and outcomes.</li>
+          <li>Performed L250/FC100 installs, service, and calibrations; coached clients on correct blow/hum procedure.</li>
+          <li>Used wiring diagrams and tooling to identify clean, reversible tap points; documented firmware and outcomes.</li>
         </ul>
       </article>
 
-      <article class="xp">
+      <article class="xp" aria-label="Aviation Technical Inspector">
         <div class="xp__header">
           <h3>U.S. Army • Aviation Technical Inspector / Attack Helicopter Mechanic</h3>
           <span>2004 – 2016</span>
         </div>
         <ul>
-          <li>Reviewed procedures/equipment to ensure compliance with federal safety standards; supervised investigations. </li>
-          <li>Led multi-department operations; implemented policy and resource allocation across echelons.</li>
-          <li>Multiple deployments to the Middle East (Iraq and Afghanistan) for support of Operation Iraqi and Enduring Freedom.</li>
+          <li>Ensured compliance with safety standards; supervised investigations and corrective actions.</li>
+          <li>Led cross-functional operations; implemented policy and resource allocation across echelons.</li>
+          <li>Deployments in support of OIF/OEF (Iraq & Afghanistan).</li>
         </ul>
       </article>
     </section>
 
     <!-- Education -->
-    <section class="section">
-      <h2>Education</h2>
+    <section class="section" id="education" aria-labelledby="edu-h">
+      <h2 id="edu-h">Education</h2>
       <ul class="edu">
-        <li><strong>B.S. Kinesiology,</strong> University of Texas at El Paso (2016–2020)</li>
-        <li><strong>M.S. Exercise Physiology (coursework),</strong> Univ. of Northern Colorado (2020–2023) </li>
-        <li><strong>B.S. Computer Science (Software Eng., in progress),</strong> Univ. of Northern Colorado (2022–Present)</li>
+        <li><strong>B.S. Kinesiology</strong>, University of Texas at El Paso (2016–2020)</li>
+        <li><strong>M.S. Exercise Physiology (coursework)</strong>, Univ. of Northern Colorado (2020–2023)</li>
+        <li><strong>B.S. Computer Science (Software Eng., in progress)</strong>, Univ. of Northern Colorado (2022–Present)</li>
       </ul>
     </section>
 
     <!-- Tools & Tech -->
-    <section class="section">
-      <h2>Tools & Technology</h2>
+    <section class="section" id="tech" aria-labelledby="tech-h">
+      <h2 id="tech-h">Tools & Technology</h2>
       <div class="two-col">
         <ul>
           <li>Web/Dev: GitHub, VS Code, GoDaddy, Vercel</li>
@@ -119,8 +122,8 @@
           <li>OS: Windows, macOS, Linux</li>
         </ul>
         <ul>
-          <li>Shop/Vendor: Lifesafer Plus Client, ULLSA-e</li>
-          <li>Connectivity: Wi-Fi, Bluetooth</li>
+          <li>Shop/Vendor: Lifesafer Plus Client, ULLSA‑e</li>
+          <li>Connectivity: Wi‑Fi, Bluetooth</li>
           <li>Hardware: Custom PCs; hydraulics, pneumatics, gearbox systems</li>
         </ul>
       </div>
@@ -128,8 +131,8 @@
     </section>
 
     <!-- Honors -->
-    <section class="section">
-      <h2>Honors & Awards</h2>
+    <section class="section" id="awards" aria-labelledby="awards-h">
+      <h2 id="awards-h">Honors & Awards</h2>
       <ul class="awards">
         <li>Army Commendation Medal ×3 (2006, 2008, 2013)</li>
         <li>Army Achievement Medal ×3 (2005, 2006, 2011)</li>
@@ -139,42 +142,31 @@
       </ul>
     </section>
 
-    <!-- Footer -->
-    <section class="section section--tight">
+    <!-- CTA -->
+    <section class="section" aria-label="Calls to action">
       <div class="cta">
-        <a class="button" href="contactus.html">Contact Our Shop</a>
-        <a class="button button--ghost" href="index.html">Back to Home</a>
+        <a class="button" href="/contactus/index.html">Contact Our Shop</a>
+        <a class="button button--ghost" href="/index.html">Back to Home</a>
       </div>
     </section>
   </main>
 
-  <!-- =====================================================================
-       FOOTER + CALL FLOAT
-       =================================================================== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <!-- Back to top -->
-    <a href="#top" class="backtop" aria-label="Back to top">
-      <span class="backtop-ico" aria-hidden="true">▲</span>
-      Back to Top
-    </a>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#top" aria-label="Back to top">Back to Top</a>
+      <a href="/contactus/index.html" aria-label="Contact InterlockGo Evans">Contact Us</a>
+      <a href="/resume/index.html" aria-label="My resume">My Resume</a>
 
-    <!-- Contact link -->
-    <a href="contactus/index.html" class="contact-link" aria-label="Contact InterlockGo Evans">
-      Contact Us
-    </a>
+      <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
+        <img src="/images/smileyface.png" alt="Call InterlockGo NOCO — Evans, CO" loading="lazy" decoding="async">
+      </a>
 
-    <!-- Floating call button -->
-    <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
-      <img src="../images/smileyface.png" alt="Call InterlockGo NOCO — Evans, CO" loading="lazy" decoding="async">
-    </a>
-
-    <!-- Footer meta (NAP for SEO) -->
-    <div class="footer-meta">
-      © 2025 InterlockGo NOCO • 3610 35th Avenue, Evans, CO 80620 • 
-      <a href="tel:970-515-5740">970-515-5740</a>
+      <div class="footer-meta">
+        © 2025 InterlockGo NOCO • 3610 35th Avenue Unit #7, Evans, CO 80620 •
+        <a href="tel:970-515-5740">970‑515‑5740</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
