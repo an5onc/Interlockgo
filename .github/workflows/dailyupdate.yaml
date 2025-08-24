@@ -1,0 +1,43 @@
+name: daily update
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # run every 30 minutes (UTC)
+  workflow_dispatch:         # allow manual runs from Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # load dotenv if you use a .env locally
+          pip install python-dotenv || true
+
+      - name: Run updater
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # add any other needed secrets here (DB creds, API tokens, etc.)
+        run: python appointments.py
+
+      - name: Commit & push changes (if any)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "No changes"; exit 0; }
+          git commit -m "Daily appointments update"
+          git push
