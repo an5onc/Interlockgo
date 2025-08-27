@@ -47,12 +47,12 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/27/2025 02:00:00 PM",
+            "Appointment Time": "08/27/2025 02:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "Eisele",
             "Vehicle": "2012 Honda Civic",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
