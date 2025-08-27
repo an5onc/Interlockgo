@@ -131,15 +131,6 @@
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
             "Appointment Time": "08/27/2025 01:00:00 PM",
-            "Service": "Vehicle Swap",
-            "Client": "VASQUEZ",
-            "Vehicle": "2019 Kia Sorento PB",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "08/27/2025 01:00:00 PM",
             "Service": "Interlock Exchange",
             "Client": "RICHTER",
             "Vehicle": "2003 GMC Yukon",
