@@ -2,7 +2,7 @@ name: daily update
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # run every 30 minutes (UTC)
+    - cron: "0,30 * * * *"   # run at minute 0 and 30 of every hour (UTC)
   workflow_dispatch:         # allow manual runs from Actions tab
 
 permissions:
@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Log start time
+        run: echo "Workflow started at $(date -u) on branch $GITHUB_REF"
 
 
       - uses: actions/setup-python@v5
