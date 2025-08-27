@@ -43,7 +43,43 @@
 .appts-toggle{
   display:inline-flex; align-items:center; gap:8px; color: var(--text); font-weight:600;
 }
+
 .appts-toggle input{ width:18px; height:18px; }
+
+/* Refresh / actions */
+.appts-actions{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:auto; /* push to the right end of toolbar */
+}
+.appts-actions button{
+  display:inline-flex; align-items:center; gap:8px;
+  height:36px; padding:0 12px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.12);
+  background: var(--surface);
+  color: var(--text);
+  font-weight:600;
+  cursor:pointer;
+  transition: background .18s ease, border-color .18s ease, transform .06s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+}
+.appts-actions button:hover:not(:disabled){
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.18);
+}
+.appts-actions button:active:not(:disabled){
+  transform: translateY(1px);
+}
+.appts-actions button:disabled{
+  opacity:.6; cursor:wait;
+}
+.appts-updated{
+  font-size:.78rem;
+  color: var(--muted);
+  white-space:nowrap;
+}
 
 /* Layout */
 .appts-container{
