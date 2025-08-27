@@ -131,18 +131,18 @@
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
             "Appointment Time": "08/27/2025 11:00:00 AM",
-            "Service": "Install Fee",
-            "Client": "RICHTER",
-            "Vehicle": "2003 GMC Yukon",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "08/27/2025 11:00:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "THOMAS",
             "Vehicle": "2008 Lexus RX350 KEY",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "GIS(CO) Evans - Interlock Go (7244)",
+            "Appointment Time": "08/27/2025 12:00:00 PM",
+            "Service": "Install Fee",
+            "Client": "RICHTER",
+            "Vehicle": "2003 GMC Yukon",
             "Firmware": "L250",
             "Completed": true
         },
