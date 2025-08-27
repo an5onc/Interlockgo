@@ -2,7 +2,7 @@ name: daily update
 
 on:
   schedule:
-    - cron: "0,30 * * * *"   # run at minute 0 and 30 of every hour (UTC)
+    - cron: "0 */6 * * *"   # run every 6 hours (UTC)
   workflow_dispatch:         # allow manual runs from Actions tab
 
 concurrency:
