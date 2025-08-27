@@ -5,6 +5,10 @@ on:
     - cron: "0,30 * * * *"   # run at minute 0 and 30 of every hour (UTC)
   workflow_dispatch:         # allow manual runs from Actions tab
 
+concurrency:
+  group: daily-update-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -15,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Log start time
-        run: echo "Workflow started at $(date -u) on branch $GITHUB_REF"
+        run: echo "Workflow started at $(date -u) on branch $GITHUB_REF (run $GITHUB_RUN_NUMBER attempt $GITHUB_RUN_ATTEMPT)"
 
       - name: Show workspace
         run: |
