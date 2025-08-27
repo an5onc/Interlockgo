@@ -17,6 +17,14 @@ jobs:
       - name: Log start time
         run: echo "Workflow started at $(date -u) on branch $GITHUB_REF"
 
+      - name: Show workspace
+        run: |
+          echo "PWD: $(pwd)"
+          echo "Listing top-level:"
+          ls -la
+          echo "Find key files:"
+          ls -la importappointments.py || true
+          ls -la appointments.json || true
 
       - uses: actions/setup-python@v5
         with:
