@@ -71,6 +71,11 @@
           <input id="hide-completed" type="checkbox" />
           <span>Hide completed</span>
         </label>
+
+        <div class="appts-actions">
+          <button id="appts-refresh" type="button" aria-live="polite">🔄 Refresh data</button>
+          <small id="appts-updated" class="appts-updated" aria-live="polite" style="display:block;margin-top:.25rem;opacity:.8"></small>
+        </div>
       </div>
     </div>
   </header>
@@ -168,17 +173,39 @@
   <!-- DATA + UX SCRIPTS -->
   <script>
   (async () => {
-    // Fetch JSON
-    let data;
-    try {
-      const res = await fetch('../appointments.json', { cache: 'no-store' });
-      data = await res.json();
-    } catch (e) {
-      console.error('Error loading appointments:', e);
-      return;
+    const lifebody = document.getElementById('lifesafer-data');
+    const guardbody = document.getElementById('guardian-data');
+    const updatedEl = document.getElementById('appts-updated');
+
+    // --- Toolbar interactions ---
+    const qs = (sel) => document.querySelector(sel);
+    const srcRadios = Array.from(document.querySelectorAll('input[name="src"]'));
+    const hideCompleted = qs('#hide-completed');
+    const searchBox = qs('#appts-search');
+
+    function applyFilters() {
+      const src = srcRadios.find(r=>r.checked)?.value || 'all';
+      const q = (searchBox.value || '').trim().toLowerCase();
+      const hide = hideCompleted.checked;
+
+      [lifebody, guardbody].forEach(tbody => {
+        const wantThisTable =
+          src === 'all' || (tbody.id === 'lifesafer-data' && src === 'lifesafer') || (tbody.id === 'guardian-data' && src === 'guardian');
+        tbody.closest('.appointments-section').style.display = wantThisTable ? '' : 'none';
+      });
+
+      const rows = document.querySelectorAll('.appts-table tbody tr');
+      rows.forEach(tr => {
+        let show = true;
+        if (hide && tr.dataset.completed === '1') show = false;
+        if (q) {
+          const hay = `${tr.dataset.client} ${tr.dataset.vehicle} ${tr.dataset.service} ${tr.dataset.location}`;
+          if (!hay.includes(q)) show = false;
+        }
+        tr.style.display = show ? '' : 'none';
+      });
     }
 
-    // Helpers
     const parseTime = (s) => {
       // Examples in your data: "08/20/2025 09:00:00 AM ..."
       // Strip trailing text after seconds and parse as local
@@ -237,59 +264,63 @@
       return tr;
     };
 
-    const lifebody = document.getElementById('lifesafer-data');
-    const guardbody = document.getElementById('guardian-data');
+    function renderTables(data) {
+      lifebody.innerHTML = '';
+      guardbody.innerHTML = '';
 
-    // Build rows & sort by time
-    const liferows = (data.lifesafer || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
-    const guardrows = (data.guardian || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
+      const liferows = (data.lifesafer || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
+      const guardrows = (data.guardian || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
 
-    liferows.forEach(r => lifebody.appendChild(r));
-    guardrows.forEach(r => guardbody.appendChild(r));
+      liferows.forEach(r => lifebody.appendChild(r));
+      guardrows.forEach(r => guardbody.appendChild(r));
 
-    // Highlight "next up" across BOTH tables (first upcoming, not completed)
-    const now = Date.now();
-    const allRows = [...liferows, ...guardrows]
-      .filter(r => r.dataset.completed !== '1' && Number(r.dataset.when) >= now)
-      .sort((a,b)=>a.dataset.when-b.dataset.when);
+      // Highlight "next up" across BOTH tables (first upcoming, not completed)
+      const now = Date.now();
+      const allRows = [...liferows, ...guardrows]
+        .filter(r => r.dataset.completed !== '1' && Number(r.dataset.when) >= now)
+        .sort((a,b)=>a.dataset.when-b.dataset.when);
 
-    if (allRows.length) {
-      allRows[0].classList.add('next-row');
-      // Ensure its section header is visible on load
-      allRows[0].closest('.appointments-section')?.querySelector('.appts-h2')?.classList.add('appts-h2--accent');
+      // Clear previous highlights and accents
+      document.querySelectorAll('.next-row').forEach(el => el.classList.remove('next-row'));
+      document.querySelectorAll('.appts-h2--accent').forEach(el => el.classList.remove('appts-h2--accent'));
+
+      if (allRows.length) {
+        allRows[0].classList.add('next-row');
+        allRows[0].closest('.appointments-section')?.querySelector('.appts-h2')?.classList.add('appts-h2--accent');
+      }
+
+      applyFilters();
     }
 
-    // --- Toolbar interactions ---
-    const qs = (sel) => document.querySelector(sel);
-    const srcRadios = Array.from(document.querySelectorAll('input[name="src"]'));
-    const hideCompleted = qs('#hide-completed');
-    const searchBox = qs('#appts-search');
+    function setUpdated(ts) {
+      updatedEl.textContent = ts ? ("Updated " + new Date(ts).toLocaleString()) : "";
+    }
 
-    function applyFilters() {
-      const src = srcRadios.find(r=>r.checked)?.value || 'all';
-      const q = (searchBox.value || '').trim().toLowerCase();
-      const hide = hideCompleted.checked;
-
-      [lifebody, guardbody].forEach(tbody => {
-        const wantThisTable =
-          src === 'all' || (tbody.id === 'lifesafer-data' && src === 'lifesafer') || (tbody.id === 'guardian-data' && src === 'guardian');
-        tbody.closest('.appointments-section').style.display = wantThisTable ? '' : 'none';
-      });
-
-      const rows = document.querySelectorAll('.appts-table tbody tr');
-      rows.forEach(tr => {
-        let show = true;
-        if (hide && tr.dataset.completed === '1') show = false;
-        if (q) {
-          const hay = `${tr.dataset.client} ${tr.dataset.vehicle} ${tr.dataset.service} ${tr.dataset.location}`;
-          if (!hay.includes(q)) show = false;
+    async function loadData() {
+      const refreshBtn = document.getElementById('appts-refresh');
+      if (refreshBtn) {
+        refreshBtn.disabled = true;
+        refreshBtn.textContent = "Refreshing…";
+      }
+      try {
+        const res = await fetch(`../appointments.json?ts=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error("Network error");
+        const data = await res.json();
+        renderTables(data);
+        setUpdated(Date.now());
+      } catch (e) {
+        alert('Failed to load appointments.');
+        console.error(e);
+      } finally {
+        if (refreshBtn) {
+          refreshBtn.disabled = false;
+          refreshBtn.textContent = "🔄 Refresh data";
         }
-        tr.style.display = show ? '' : 'none';
-      });
+      }
     }
 
-    srcRadios.forEach(r => r.addEventListener('change', applyFilters));
-    hideCompleted.addEventListener('change', applyFilters);
+    const refreshBtn = document.getElementById('appts-refresh');
+    if (refreshBtn) refreshBtn.addEventListener('click', loadData);
 
     // tiny debounce for search
     let t;
@@ -298,7 +329,10 @@
       t = setTimeout(applyFilters, 120);
     });
 
-    applyFilters();
+    srcRadios.forEach(r => r.addEventListener('change', applyFilters));
+    hideCompleted.addEventListener('change', applyFilters);
+
+    await loadData();
   })();
   </script>
 </body>
