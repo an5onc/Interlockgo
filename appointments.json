@@ -57,15 +57,6 @@
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "08/27/2025 03:00:00 PM",
-            "Service": "Install Fee",
-            "Client": "HUGGINS",
-            "Vehicle": "2007 Ford Explorer- Key start",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/27/2025 03:00:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "GONZALES",
             "Vehicle": "2015 Nissan altima-push start",
@@ -75,11 +66,20 @@
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "08/27/2025 04:30:00 PM",
+            "Service": "Install Fee",
+            "Client": "HUGGINS",
+            "Vehicle": "2007 Ford Explorer- Key start",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/27/2025 04:45:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "MENDEZ",
             "Vehicle": "2007 Dodge Dakota",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -88,7 +88,7 @@
             "Client": "GURROLA",
             "Vehicle": "2016 GMC SIERRA 1500 KEY",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -97,7 +97,7 @@
             "Client": "HELTENBERG",
             "Vehicle": "1995 Dodge ram2500-key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": [
