@@ -25,7 +25,7 @@
             "Client": "CASAS",
             "Vehicle": "2017 Dodge Journey",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -34,7 +34,7 @@
             "Client": "MALDONADO",
             "Vehicle": "2017 Dodge Challenger - Push",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -47,10 +47,19 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 10:30:00 AM",
+            "Appointment Time": "08/29/2025 10:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "HERRERA",
             "Vehicle": "2006 Chevrolet Impala",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/29/2025 10:45:00 AM",
+            "Service": "Reset/Violation Reset",
+            "Client": "ROBINSON",
+            "Vehicle": "2020 Ford Explorer",
             "Firmware": "L250",
             "Completed": false
         },
@@ -70,16 +79,34 @@
             "Client": "PRICE-FOSTER",
             "Vehicle": "2017 Hyundai Sante Fe Sport Key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 11:30:00 AM",
+            "Appointment Time": "08/29/2025 11:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "Tow",
             "Vehicle": "2006 Chevrolet Equinox KEY",
             "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/29/2025 12:15:00 PM",
+            "Service": "Reset/Violation Reset",
+            "Client": "ROBINSON",
+            "Vehicle": "2020 Ford Explorer",
+            "Firmware": "L250",
             "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/29/2025 12:30:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "GONZALES",
+            "Vehicle": "1999 Chrysler Concorde",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -102,6 +129,15 @@
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "08/29/2025 02:00:00 PM",
+            "Service": "Install Fee",
+            "Client": "Hansen",
+            "Vehicle": "2011 Chevrolet Silverado 1500",
+            "Firmware": "L250",
+            "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/29/2025 02:00:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "JARAMILLO",
             "Vehicle": "2007 Chevrolet Monte Carlo",
@@ -114,6 +150,15 @@
             "Service": "Daily Monitoring FC100",
             "Client": "BABCOCK",
             "Vehicle": "2005 Pontiac Vibe",
+            "Firmware": "L250",
+            "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/29/2025 03:00:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "GARCIA",
+            "Vehicle": "2015 Ford F150 - key",
             "Firmware": "L250",
             "Completed": false
         },
@@ -153,7 +198,7 @@
             "Client": "VASQUEZ",
             "Vehicle": "2019 Kia Sorento PB",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
