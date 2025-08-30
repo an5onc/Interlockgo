@@ -92,19 +92,19 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 12:15:00 PM",
-            "Service": "Reset/Violation Reset",
-            "Client": "ROBINSON",
-            "Vehicle": "2020 Ford Explorer",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "08/29/2025 12:30:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "GONZALES",
             "Vehicle": "1999 Chrysler Concorde",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/29/2025 12:30:00 PM",
+            "Service": "Reset/Violation Reset",
+            "Client": "ROBINSON",
+            "Vehicle": "2020 Ford Explorer",
             "Firmware": "L250",
             "Completed": true
         },
@@ -115,43 +115,34 @@
             "Client": "Stone",
             "Vehicle": "2007 Toyota Tacoma",
             "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 01:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "GUTIERREZ",
-            "Vehicle": "2014 Nissan Sentra",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 02:00:00 PM",
-            "Service": "Install Fee",
-            "Client": "Hansen",
-            "Vehicle": "2011 Chevrolet Silverado 1500",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 02:00:00 PM",
+            "Appointment Time": "08/29/2025 01:45:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "JARAMILLO",
             "Vehicle": "2007 Chevrolet Monte Carlo",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 02:30:00 PM",
+            "Appointment Time": "08/29/2025 02:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "BABCOCK",
             "Vehicle": "2005 Pontiac Vibe",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "08/29/2025 02:30:00 PM",
+            "Service": "Install Fee",
+            "Client": "Hansen",
+            "Vehicle": "2011 Chevrolet Silverado 1500",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -160,7 +151,7 @@
             "Client": "GARCIA",
             "Vehicle": "2015 Ford F150 - key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -178,16 +169,16 @@
             "Client": "CHAVES NAVARRO",
             "Vehicle": "2011 Chevrolet Tahoe - Key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "08/29/2025 05:30:00 PM",
+            "Appointment Time": "08/29/2025 04:30:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "CETO",
             "Vehicle": "2009 Honda Civic",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": [
