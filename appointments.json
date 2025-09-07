@@ -79,7 +79,7 @@
             "Client": "Siegfried",
             "Vehicle": "2005 Nissan Altima",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": []
