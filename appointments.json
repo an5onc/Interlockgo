@@ -2,21 +2,21 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/08/2025 08:00:00 AM",
+            "Appointment Time": "09/08/2025 08:15:00 AM",
             "Service": "Install Fee",
             "Client": "MOODY",
             "Vehicle": "2008 Honda CRV KEY",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/08/2025 09:30:00 AM",
+            "Appointment Time": "09/08/2025 09:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "AKERS",
             "Vehicle": "2024 Ford bronco-push start",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -25,7 +25,7 @@
             "Client": "RIVERA",
             "Vehicle": "2018 Toyota Camry",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -34,7 +34,7 @@
             "Client": "Cardona",
             "Vehicle": "2014 Chevrolet Silverado 2500",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
