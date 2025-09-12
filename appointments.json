@@ -7,7 +7,7 @@
             "Client": "RYDGREN",
             "Vehicle": "2018 Ford F150 PUSH",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": []
