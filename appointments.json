@@ -2,12 +2,12 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/18/2025 11:00:00 AM",
+            "Appointment Time": "09/18/2025 11:30:00 AM",
             "Service": "Install Fee",
             "Client": "BLAKE",
             "Vehicle": "2014 Cadillac CTS",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
