@@ -11,12 +11,12 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/18/2025 02:30:00 PM",
+            "Appointment Time": "09/18/2025 05:30:00 PM",
             "Service": "Install Fee",
             "Client": "Quigley",
             "Vehicle": "2016 Nissan Murano",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": []
