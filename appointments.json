@@ -52,7 +52,7 @@
             "Client": "BABCOCK",
             "Vehicle": "2005 Pontiac Vibe",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -61,7 +61,16 @@
             "Client": "HERRERA",
             "Vehicle": "2012 Nissan Ultima - PUSH",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "09/19/2025 03:15:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "SAENZ",
+            "Vehicle": "2000 Chevrolet Silverado",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -70,7 +79,7 @@
             "Client": "BAUMAN",
             "Vehicle": "2013 Nissan Juke",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -79,7 +88,7 @@
             "Client": "VOZAR",
             "Vehicle": "2005 Jeep Grand Cherokee key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -88,7 +97,7 @@
             "Client": "JANS",
             "Vehicle": "2006 Subaru Outback",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -106,16 +115,7 @@
             "Client": "Mendoza",
             "Vehicle": "1997 Honda Civic",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/19/2025 05:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "SAENZ",
-            "Vehicle": "2000 Chevrolet Silverado",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": []
