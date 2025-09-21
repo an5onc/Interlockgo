@@ -124,7 +124,7 @@
             "Client": "PADILLA",
             "Vehicle": "2009 Volvo S60 Key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -133,7 +133,7 @@
             "Client": "MENDOZA",
             "Vehicle": "2017 Lexus IS 300",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": [
