@@ -114,6 +114,14 @@
   font-variant-numeric: tabular-nums;  /* align times */
 }
 
+/* Column widths to keep header/body aligned exactly */
+.appts-table th:nth-child(1), .appts-table td:nth-child(1){ width:22%; } /* Location */
+.appts-table th:nth-child(2), .appts-table td:nth-child(2){ width:18%; } /* Appointment Time */
+.appts-table th:nth-child(3), .appts-table td:nth-child(3){ width:20%; } /* Service */
+.appts-table th:nth-child(4), .appts-table td:nth-child(4){ width:18%; } /* Client */
+.appts-table th:nth-child(5), .appts-table td:nth-child(5){ width:16%; } /* Vehicle */
+.appts-table th:nth-child(6), .appts-table td:nth-child(6){ width:6%; }  /* FW */
+
 .appts-table thead th{
   position: sticky; top: 0; z-index: 1;
   background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
@@ -144,12 +152,20 @@
 .next-row{
   position: relative;
   background: rgba(232,65,66,.09) !important;
+  /* Draw the red bar without taking any layout space */
+  box-shadow: inset 4px 0 0 0 var(--accent);
 }
-.next-row::before{
-  content:""; position:absolute; left:0; top:-1px; bottom:-1px; width:4px;
-  background: var(--accent);
-  box-shadow: 0 0 18px rgba(232,65,66,.55);
+/* Defensive: if the markup accidentally includes a leading marker cell, hide it so columns stay aligned */
+.next-row td.red-bar,
+.next-row td.next-marker,
+.next-row td.next-cell,
+.next-row td.indicator{
+  display: none !important;
+  padding: 0 !important;
+  width: 0 !important;
 }
+/* If an entirely empty first cell exists on the next row, hide it */
+.next-row td:first-child:empty{ display:none !important; width:0 !important; padding:0 !important; }
 
 /* Chips */
 .chip{
@@ -193,4 +209,3 @@
     letter-spacing:.02em;
   }
 }
-
