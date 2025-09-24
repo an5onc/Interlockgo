@@ -2,21 +2,12 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/24/2025 09:30:00 AM",
+            "Appointment Time": "09/24/2025 09:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "MORENO",
             "Vehicle": "2020 Dodge Ram 2500",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/24/2025 10:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "PENA",
-            "Vehicle": "2012 Toyota Corolla",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -25,7 +16,7 @@
             "Client": "PRIETO",
             "Vehicle": "2002 GMC Sierra",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -99,11 +90,11 @@
             "Client": "OLSEN",
             "Vehicle": "2016 Kia Forte - Key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "09/24/2025 11:00:00 AM",
+            "Appointment Time": "09/24/2025 05:00:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "RICHTER",
             "Vehicle": "2003 GMC Yukon",
