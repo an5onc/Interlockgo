@@ -135,7 +135,7 @@
             "Client": "TERRAZAS LOZANO",
             "Vehicle": "2020 Toyota Rav4",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
