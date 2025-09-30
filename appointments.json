@@ -56,21 +56,12 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/29/2025 05:00:00 PM",
+            "Appointment Time": "09/29/2025 04:45:00 PM",
             "Service": "Reset/Violation Reset",
             "Client": "Quigley",
             "Vehicle": "2016 Nissan Murano",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "09/29/2025 05:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "PENA",
-            "Vehicle": "2012 Toyota Corolla",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": []
