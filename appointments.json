@@ -4,7 +4,7 @@
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "10/04/2025 08:00:00 AM",
             "Service": "Install Fee",
-            "Client": "HACKBARTH",
+            "Client": "Hackbarth",
             "Vehicle": "2016 Toyota Tundra",
             "Firmware": "L250",
             "Completed": false
@@ -25,7 +25,7 @@
             "Client": "AVALOS",
             "Vehicle": "2012 Ford F150",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -34,7 +34,16 @@
             "Client": "CUEVAS",
             "Vehicle": "2009 Honda ACCORD KEY",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/04/2025 09:45:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Barraza",
+            "Vehicle": "1994 Chevrolet Camaro-Key",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -43,25 +52,25 @@
             "Client": "CANARGO",
             "Vehicle": "2008 Saturn Vue",
             "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/04/2025 10:30:00 AM",
-            "Service": "Vehicle Swap",
-            "Client": "PERRY",
-            "Vehicle": "1999 Ford Taurus",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/04/2025 10:30:00 AM",
+            "Appointment Time": "10/04/2025 10:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "PARMENTER",
             "Vehicle": "2005 Buick LaCrosse",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/04/2025 10:15:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "BENZOR",
+            "Vehicle": "1999 Chevrolet Tahoe",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -70,7 +79,7 @@
             "Client": "CETO",
             "Vehicle": "2009 Honda Civic",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -92,12 +101,21 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/04/2025 11:45:00 AM",
+            "Service": "Vehicle Swap",
+            "Client": "PERRY",
+            "Vehicle": "1999 Ford Taurus",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "10/04/2025 12:00:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "SOTO MERAZ",
             "Vehicle": "2021 Dodge Charger-Push Start",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -105,15 +123,6 @@
             "Service": "Daily Monitoring FC100",
             "Client": "Siegfried",
             "Vehicle": "2005 Nissan Altima",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/04/2025 12:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "REDD",
-            "Vehicle": "1997 GMC Sonoma",
             "Firmware": "L250",
             "Completed": false
         },
