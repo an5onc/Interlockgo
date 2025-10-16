@@ -1,14 +1,4 @@
 {
-    "lifesafer": [
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/16/2025 04:30:00 PM",
-            "Service": "Install Fee",
-            "Client": "Vasquez",
-            "Vehicle": "2018 Chevrolet Silverado 1500",
-            "Firmware": "L250",
-            "Completed": false
-        }
-    ],
+    "lifesafer": [],
     "guardian": []
 }
