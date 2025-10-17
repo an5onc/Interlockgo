@@ -16,16 +16,16 @@
             "Client": "RIVERA",
             "Vehicle": "2018 Toyota Camry",
             "Firmware": "Legacy",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "10/17/2025 09:00:00 AM",
-            "Service": "De-Install Fee",
-            "Client": "GARCIA",
-            "Vehicle": "2015 Ford F150 - key",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Quigley",
+            "Vehicle": "2016 Nissan Murano",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -34,7 +34,16 @@
             "Client": "Hershberger",
             "Vehicle": "2012 Suzuki Kizashi - Push",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/17/2025 09:45:00 AM",
+            "Service": "De-Install Fee",
+            "Client": "GARCIA",
+            "Vehicle": "2015 Ford F150 - key",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -47,28 +56,19 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/17/2025 10:15:00 AM",
+            "Service": "De-Install Fee",
+            "Client": "NORTHWAY",
+            "Vehicle": "2012 Ford Fusion",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "10/17/2025 10:30:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "LOPEZ TZUN",
             "Vehicle": "2005 Toyota Tacoma-key",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/17/2025 11:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "DELEON",
-            "Vehicle": "2008 Cadillac Escalade",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/17/2025 11:00:00 AM",
-            "Service": "De-Install Fee",
-            "Client": "NORTHWAY",
-            "Vehicle": "2012 Ford Fusion",
             "Firmware": "L250",
             "Completed": false
         },
