@@ -110,12 +110,12 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/31/2025 11:00:00 AM",
+            "Appointment Time": "10/31/2025 12:00:00 PM",
             "Service": "Install Fee",
             "Client": "CONTRERAS",
             "Vehicle": "2007 Chevrolet 2500",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -124,16 +124,16 @@
             "Client": "MORENO",
             "Vehicle": "2020 Dodge Ram 2500",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/31/2025 01:00:00 PM",
+            "Appointment Time": "10/31/2025 01:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "DOMINGUEZ",
             "Vehicle": "2023 Cadillac CT5",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -142,16 +142,7 @@
             "Client": "LOCK",
             "Vehicle": "2024 Dodge ram 2500",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/31/2025 02:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "MARTINEZ",
-            "Vehicle": "2007 Toyota Tundra Key",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -161,6 +152,15 @@
             "Vehicle": "2011 Kia Optima",
             "Firmware": "L250",
             "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/31/2025 02:15:00 PM",
+            "Service": "De-Install Fee",
+            "Client": "BAKER",
+            "Vehicle": "2003 Dodge Dakota",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -182,15 +182,6 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/31/2025 04:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "Sanchez Aguirre",
-            "Vehicle": "2024 Jeep Wrangler-push",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "10/31/2025 04:30:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "CHAVES NAVARRO",
@@ -200,12 +191,30 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "10/31/2025 05:00:00 PM",
+            "Appointment Time": "10/31/2025 04:30:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Sanchez Aguirre",
+            "Vehicle": "2024 Jeep Wrangler-push",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/31/2025 04:45:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "Hansen",
             "Vehicle": "2002 Nissan Altima key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "10/31/2025 05:30:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "JARA GONZALEZ",
+            "Vehicle": "2015 GMC SIERRA DENALI 2500 KEY",
+            "Firmware": "L250",
+            "Completed": true
         }
     ],
     "guardian": [
