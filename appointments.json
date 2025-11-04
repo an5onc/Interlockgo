@@ -1,14 +1,4 @@
 {
-    "lifesafer": [
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/04/2025 08:00:00 AM",
-            "Service": "Install Fee",
-            "Client": "Mariani",
-            "Vehicle": "2019 Dodge RAM 2500 PUSH",
-            "Firmware": "L250",
-            "Completed": false
-        }
-    ],
+    "lifesafer": [],
     "guardian": []
 }
