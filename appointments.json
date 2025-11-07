@@ -1,14 +1,4 @@
 {
-    "lifesafer": [
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/06/2025 01:30:00 PM",
-            "Service": "Install Fee",
-            "Client": "Tideman",
-            "Vehicle": "2022 Ford F-250 Super Duty",
-            "Firmware": "L250",
-            "Completed": false
-        }
-    ],
+    "lifesafer": [],
     "guardian": []
 }
