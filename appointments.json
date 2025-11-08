@@ -3,29 +3,11 @@
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "11/08/2025 08:00:00 AM",
-            "Service": "Install Fee",
-            "Client": "BENSON",
-            "Vehicle": "2013 Ford F250",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/08/2025 08:30:00 AM",
-            "Service": "Install Fee",
-            "Client": "WERITO",
-            "Vehicle": "2019 Toyota Tacoma",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/08/2025 08:30:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "COONS",
             "Vehicle": "2008 GMC Sierra",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -34,7 +16,7 @@
             "Client": "GARRIDO",
             "Vehicle": "2008 Nissan Altima PTS",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -43,16 +25,16 @@
             "Client": "Valles",
             "Vehicle": "2008 Ford F150",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/08/2025 09:30:00 AM",
+            "Appointment Time": "11/08/2025 09:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "PEREZ",
             "Vehicle": "2023 Kia Sportage",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -74,12 +56,12 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/08/2025 10:30:00 AM",
-            "Service": "De-Install Fee",
-            "Client": "GOMEZ",
-            "Vehicle": "2012 Honda CIVIC KEY START",
+            "Appointment Time": "11/08/2025 10:15:00 AM",
+            "Service": "Install Fee",
+            "Client": "WERITO",
+            "Vehicle": "2019 Toyota Tacoma",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -87,6 +69,24 @@
             "Service": "Daily Monitoring FC100",
             "Client": "Battelo",
             "Vehicle": "2000 Buick Lasabre",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "11/08/2025 10:30:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Battelo",
+            "Vehicle": "2000 Buick Lasabre",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "11/08/2025 10:45:00 AM",
+            "Service": "De-Install Fee",
+            "Client": "GOMEZ",
+            "Vehicle": "2012 Honda CIVIC KEY START",
             "Firmware": "L250",
             "Completed": true
         },
@@ -106,16 +106,16 @@
             "Client": "VOZAR",
             "Vehicle": "2005 Jeep Grand Cherokee key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/08/2025 11:30:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "CARDENAS",
-            "Vehicle": "2004 Chevrolet Impala",
+            "Appointment Time": "11/08/2025 11:00:00 AM",
+            "Service": "Install Fee",
+            "Client": "BENSON",
+            "Vehicle": "2013 Ford F250",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
