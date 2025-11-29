@@ -6,17 +6,8 @@
             "Service": "Daily Monitoring FC100",
             "Client": "BREHM",
             "Vehicle": "2010 Honda Civic - key",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/29/2025 08:30:00 AM",
-            "Service": "Interlock Exchange",
-            "Client": "PEREZ",
-            "Vehicle": "2023 Kia Sportage",
-            "Firmware": "L250",
-            "Completed": false
+            "Firmware": "Legacy",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -43,25 +34,16 @@
             "Client": "Sparks",
             "Vehicle": "2007 Toyota 4Runner",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "11/29/2025 09:30:00 AM",
-            "Service": "Reset/Violation Reset",
-            "Client": "LOPEZ-LOMA",
-            "Vehicle": "2004 Ford Explorer",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "11/29/2025 10:00:00 AM",
             "Service": "Install Fee",
             "Client": "Pulido",
-            "Vehicle": "2019 Chrysler Pacifica",
+            "Vehicle": "2018 Chrysler Pacifica",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -70,7 +52,7 @@
             "Client": "GOSSETT",
             "Vehicle": "2004 Chevrolet TRAILBLAZER",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -79,7 +61,7 @@
             "Client": "GARCIA",
             "Vehicle": "2008 Toyota SION KEY",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -88,7 +70,7 @@
             "Client": "CONTRERAS GARCIA",
             "Vehicle": "2012 Ford Focus-key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
