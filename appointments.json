@@ -11,6 +11,15 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "12/08/2025 11:00:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "FUENTES",
+            "Vehicle": "1999 Chevrolet Silverado",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "12/08/2025 12:30:00 PM",
             "Service": "Interlock Exchange",
             "Client": "Stone",
@@ -88,15 +97,6 @@
             "Client": "Jenkins",
             "Vehicle": "2012 Chevrolet Tahoe Key",
             "Firmware": "Legacy",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/08/2025 05:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "FUENTES",
-            "Vehicle": "1999 Chevrolet Silverado",
-            "Firmware": "L250",
             "Completed": false
         }
     ],
