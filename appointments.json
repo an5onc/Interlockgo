@@ -7,16 +7,16 @@
             "Client": "PECKHAM",
             "Vehicle": "2011 Ford Escape",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/10/2025 09:30:00 AM",
+            "Appointment Time": "12/10/2025 09:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "LOCK",
             "Vehicle": "2024 Dodge ram 2500",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -33,15 +33,6 @@
             "Service": "Daily Monitoring FC100",
             "Client": "BABCOCK",
             "Vehicle": "2005 Pontiac Vibe",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/10/2025 10:30:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "AGUIAR",
-            "Vehicle": "2015 Subaru FORRESTER KEY",
             "Firmware": "L250",
             "Completed": false
         },
