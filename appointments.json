@@ -1,14 +1,4 @@
 {
-    "lifesafer": [
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/16/2025 09:00:00 AM",
-            "Service": "Install Fee",
-            "Client": "RODRIGUZ NARANJO",
-            "Vehicle": "2005 Saturn Relay",
-            "Firmware": "L250",
-            "Completed": false
-        }
-    ],
+    "lifesafer": [],
     "guardian": []
 }
