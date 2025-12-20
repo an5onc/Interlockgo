@@ -7,7 +7,7 @@
             "Client": "Gonzalez",
             "Vehicle": "2017 Chrysler 300 S",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -16,25 +16,7 @@
             "Client": "LONA TORRES",
             "Vehicle": "1997 Ford RANGER KEY",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/20/2025 09:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "FENN",
-            "Vehicle": "2000 Toyota Camry",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/20/2025 09:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "Mariani",
-            "Vehicle": "2019 Dodge RAM 2500 PUSH",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -52,7 +34,7 @@
             "Client": "GARRIDO",
             "Vehicle": "2008 Nissan Altima PTS",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -70,16 +52,25 @@
             "Client": "PEREZ",
             "Vehicle": "2023 Kia Sportage",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "12/20/2025 10:15:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Sparks",
+            "Vehicle": "2007 Toyota 4Runner",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "12/20/2025 10:30:00 AM",
             "Service": "Daily Monitoring FC100",
-            "Client": "Sparks",
-            "Vehicle": "2007 Toyota 4Runner",
+            "Client": "FENN",
+            "Vehicle": "2000 Toyota Camry",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -88,7 +79,7 @@
             "Client": "Battelo",
             "Vehicle": "2000 Buick Lasabre",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -141,6 +132,15 @@
             "Service": "Daily Monitoring FC100",
             "Client": "Palmier",
             "Vehicle": "2010 Mazda CX-7",
+            "Firmware": "L250",
+            "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "12/20/2025 01:00:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "Mariani",
+            "Vehicle": "2019 Dodge RAM 2500 PUSH",
             "Firmware": "L250",
             "Completed": false
         },
