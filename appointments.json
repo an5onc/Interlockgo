@@ -70,7 +70,7 @@
             "Client": "GOMEZ VALERIO",
             "Vehicle": "2011 Chevrolet Cruze",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -79,16 +79,7 @@
             "Client": "PERRY",
             "Vehicle": "2002 GMC Yukon",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/27/2025 12:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "FROMM",
-            "Vehicle": "2013 Honda Accord",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -107,15 +98,6 @@
             "Vehicle": "2021 Dodge Charger-Push Start",
             "Firmware": "L250",
             "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "12/27/2025 01:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "CETO",
-            "Vehicle": "2009 Honda Civic",
-            "Firmware": "L250",
-            "Completed": false
         }
     ],
     "guardian": [
@@ -130,12 +112,12 @@
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "12/27/2025 12:30:00 PM",
+            "Appointment Time": "12/27/2025 11:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "Collett",
             "Vehicle": "2016 Ford Fusion- Key Start",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
