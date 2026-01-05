@@ -325,6 +325,25 @@
   color: var(--muted);
 }
 
+.stat-stars {
+  color: #fbbf24;
+  font-size: var(--text-sm);
+  letter-spacing: 1px;
+}
+
+.trust-link {
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.trust-link:hover {
+  transform: scale(1.05);
+}
+
+.trust-link:hover .stat-number {
+  color: var(--accent);
+}
+
 @media (max-width: 768px) {
   .trust-bar-inner {
     gap: var(--space-5);

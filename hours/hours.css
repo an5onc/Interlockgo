@@ -90,3 +90,34 @@
 .hours-table tbody tr:hover { background: rgba(255,255,255,.03); }
 
 .note { color: var(--muted); margin-top: 12px; }
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 16px;
+    margin: 16px 0;
+  }
+
+  .hero-section .hero {
+    padding-top: 40px;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hours-table {
+    font-size: 14px;
+  }
+
+  .hours-table thead th,
+  .hours-table td,
+  .hours-table th {
+    padding: 10px 8px;
+  }
+
+  .section h2 {
+    font-size: clamp(18px, 5vw, 24px);
+    padding-left: 10px;
+    border-left-width: 4px;
+  }
+}

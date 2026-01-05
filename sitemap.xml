@@ -57,4 +57,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Reviews Page -->
+  <url>
+    <loc>https://interlockgo.io/reviews/</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

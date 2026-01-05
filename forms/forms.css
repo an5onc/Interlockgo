@@ -1,23 +1,9 @@
-/* ====== Forms Page Styles (matches home, Lifesafer, Guardian) ========= */
+/* ====== Forms Page Styles (uses base.css tokens) ========= */
 
-/* Base / Theme */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --brand-green:#4CAF50;
-  --bg:#0c0c0c;
-  --text:#dcd9d9;
-  --muted:#666;
-  --surface:#222121;
-  --radius:12px;
-  --shadow:0 6px 16px rgba(0,0,0,0.08);
-}
-
-html,body {
-  font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
+/* Page-specific tokens - extends base.css */
+.forms-page {
+  --brand-green: #4CAF50;
+  --radius: 12px;
 }
 
 /* Hero (consistent with other brand pages) */
@@ -122,7 +108,32 @@ footer .home-btn {
 footer .home-btn img { width:22px; height:22px; }
 
 /* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+}
+
 @media (max-width: 520px) {
-  .hero-section.hero--brand { padding:48px 16px; }
-  .hero-section.hero--brand h1 { font-size:1.8rem; }
+  .hero-section.hero--brand { padding: 48px 16px; }
+  .hero-section.hero--brand h1 { font-size: 1.8rem; }
+
+  .card h3 { font-size: 0.95rem; }
+  .card p { font-size: 0.85rem; }
+  .card a.button { padding: 10px 12px; font-size: 0.9rem; }
 }
