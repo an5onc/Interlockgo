@@ -43,8 +43,8 @@
   <link rel="preload" as="image" href="images/Interlockgo.jpeg" imagesizes="100vw" />
 
   <!-- === STYLESHEETS ===================================================== -->
-  <link href="base.css?v=2025-08-19-1" rel="stylesheet" />
-  <link href="index.css?v=2025-08-19-1" rel="stylesheet" />
+  <link href="base.css?v=2025-01-05-1" rel="stylesheet" />
+  <link href="index.css?v=2025-01-05-1" rel="stylesheet" />
 
   <!-- JS-on flag for reveal animations -->
   <script>document.documentElement.classList.add('js');</script>
@@ -52,25 +52,79 @@
   <!-- If JS fails/blocked, keep cards visible -->
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
+  <!-- === STRUCTURED DATA: Organization ================================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://interlockgo.io/#organization",
+    "name": "InterlockGo NOCO",
+    "url": "https://interlockgo.io/",
+    "logo": "https://interlockgo.io/images/interlockgologo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-970-515-5740",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": ["English", "Spanish"]
+    }
+  }
+  </script>
+
   <!-- === STRUCTURED DATA: LocalBusiness ================================ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AutoRepair",
+    "@type": ["AutoRepair", "LocalBusiness"],
+    "@id": "https://interlockgo.io/#localbusiness",
     "name": "InterlockGo NOCO",
+    "description": "Certified ignition interlock installation, calibration, and service in Evans, CO. Authorized Lifesafer and Guardian provider serving Northern Colorado.",
     "image": "https://interlockgo.io/images/Interlockgo.jpeg",
     "url": "https://interlockgo.io/",
     "telephone": "+1-970-515-5740",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "3610 35th Avenue",
+      "streetAddress": "3610 35th Avenue Unit #7",
       "addressLocality": "Evans",
       "addressRegion": "CO",
       "postalCode": "80620",
       "addressCountry": "US"
     },
-    "areaServed": ["Evans CO","Greeley CO","Weld County CO","Northern Colorado"],
-     "sameAs": []
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "40.3792",
+      "longitude": "-104.7367"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Evans", "containedInPlace": {"@type": "State", "name": "Colorado"}},
+      {"@type": "City", "name": "Greeley", "containedInPlace": {"@type": "State", "name": "Colorado"}},
+      {"@type": "City", "name": "Fort Collins", "containedInPlace": {"@type": "State", "name": "Colorado"}},
+      {"@type": "City", "name": "Loveland", "containedInPlace": {"@type": "State", "name": "Colorado"}},
+      {"@type": "City", "name": "Windsor", "containedInPlace": {"@type": "State", "name": "Colorado"}},
+      {"@type": "AdministrativeArea", "name": "Weld County"}
+    ],
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "17:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "17:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "17:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "17:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"}
+    ],
+    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Ignition Interlock Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ignition Interlock Installation"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ignition Interlock Calibration"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ignition Interlock Removal"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Notary Services"}}
+      ]
+    },
+    "parentOrganization": {"@id": "https://interlockgo.io/#organization"},
+    "sameAs": []
   }
   </script>
 
@@ -83,12 +137,32 @@
       {
         "@type":"Question",
         "name":"Do you offer same‑day ignition interlock installation?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. We frequently have same‑day or next‑day appointments available in Evans, CO. Call 970‑515‑5740 to check today’s openings."}
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. We frequently have same‑day or next‑day appointments available in Evans, CO. Call 970‑515‑5740 to check today's openings."}
       },
       {
         "@type":"Question",
         "name":"Are you certified for Lifesafer and Guardian devices?",
         "acceptedAnswer":{"@type":"Answer","text":"Yes. InterlockGo NOCO is an authorized provider for Lifesafer and Guardian—installations, calibrations, service, and clean removals."}
+      },
+      {
+        "@type":"Question",
+        "name":"How much does an ignition interlock device cost in Colorado?",
+        "acceptedAnswer":{"@type":"Answer","text":"Costs vary by provider and device. Typically you'll pay an installation fee plus monthly service fees for calibration. Contact us at 970-515-5740 for current pricing on Lifesafer and Guardian devices."}
+      },
+      {
+        "@type":"Question",
+        "name":"How long do I need an ignition interlock in Colorado?",
+        "acceptedAnswer":{"@type":"Answer","text":"The interlock period in Colorado depends on your offense. First-time DUI offenders typically need the device for 8 months to 2 years. Repeat offenses require longer periods. Your reinstatement letter from Colorado DMV will specify your exact requirement."}
+      },
+      {
+        "@type":"Question",
+        "name":"What areas do you serve in Northern Colorado?",
+        "acceptedAnswer":{"@type":"Answer","text":"We serve Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, and all of Weld County. Our shop is conveniently located at 3610 35th Avenue in Evans, CO."}
+      },
+      {
+        "@type":"Question",
+        "name":"Can you notarize my interlock affidavit?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes! We have a Notary Public on-site. We can notarize your Colorado ignition interlock affidavit during your installation or calibration appointment—no extra trip needed."}
       }
     ]
   }
@@ -142,6 +216,30 @@
   </header>
 
   <!-- =====================================================================
+       TRUST BAR (certifications + social proof)
+       =================================================================== -->
+  <section class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <img src="images/LifeSafer_image.png" alt="Lifesafer Certified" class="trust-logo" loading="lazy">
+        <span>Lifesafer Authorized</span>
+      </div>
+      <div class="trust-item">
+        <img src="images/guardianV2.png" alt="Guardian Certified" class="trust-logo" loading="lazy">
+        <span>Guardian Certified</span>
+      </div>
+      <div class="trust-item trust-stat">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Installs Completed</span>
+      </div>
+      <div class="trust-item">
+        <img src="images/notarylogo.png" alt="Notary Public" class="trust-logo" loading="lazy">
+        <span>Notary On-Site</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
        SEO INTRO (early, scannable copy)
        =================================================================== -->
   <section class="seo-intro">
@@ -150,6 +248,10 @@
       InterlockGo NOCO provides <strong>ignition interlock installation, calibration, monthly service, and removal</strong> in Northern Colorado.
       As an <strong>authorized Lifesafer and Guardian installer</strong> in <strong>Evans, CO</strong>, we help you meet <strong>Colorado DMV interlock requirements</strong>
       quickly and correctly—so you can get back on the road with confidence.
+    </p>
+    <p class="service-areas">
+      <strong>Serving Northern Colorado:</strong> Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, LaSalle, Milliken, and all of Weld County.
+      Conveniently located off US-85 in Evans.
     </p>
   </section>
 
@@ -240,12 +342,32 @@
 
     <details>
       <summary>Do you offer same‑day ignition interlock installation?</summary>
-      <p>Yes. We often have same‑day or next‑day appointments available. Call <a href="tel:970-515-5740">970‑515‑5740</a> to check today’s openings.</p>
+      <p>Yes. We often have same‑day or next‑day appointments available. Call <a href="tel:970-515-5740">970‑515‑5740</a> to check today's openings.</p>
     </details>
 
     <details>
       <summary>Are you certified for Lifesafer and Guardian devices?</summary>
       <p>Yes, we are an authorized provider for both <a href="lifesafer/">Lifesafer</a> and <a href="guardian/">Guardian</a> devices—installation, calibration, and service.</p>
+    </details>
+
+    <details>
+      <summary>How much does an ignition interlock device cost in Colorado?</summary>
+      <p>Costs vary by provider and device. Typically you'll pay an installation fee plus monthly service fees for calibration. Contact us at <a href="tel:970-515-5740">970-515-5740</a> for current pricing on Lifesafer and Guardian devices.</p>
+    </details>
+
+    <details>
+      <summary>How long do I need an ignition interlock in Colorado?</summary>
+      <p>The interlock period in Colorado depends on your offense. First-time DUI offenders typically need the device for 8 months to 2 years. Repeat offenses require longer periods. Your reinstatement letter from Colorado DMV will specify your exact requirement.</p>
+    </details>
+
+    <details>
+      <summary>What areas do you serve in Northern Colorado?</summary>
+      <p>We serve Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, and all of Weld County. Our shop is conveniently located at 3610 35th Avenue in Evans, CO.</p>
+    </details>
+
+    <details>
+      <summary>Can you notarize my interlock affidavit?</summary>
+      <p>Yes! We have a Notary Public on-site. We can notarize your Colorado ignition interlock affidavit during your installation or calibration appointment—no extra trip needed.</p>
     </details>
   </section>
 

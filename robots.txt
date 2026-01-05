@@ -1,0 +1,16 @@
+# InterlockGo NOCO - Ignition Interlock Service
+# https://interlockgo.io
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://interlockgo.io/sitemap.xml
+
+# Private/internal pages
+Disallow: /lilly/
+Disallow: /resume/
+
+# Allow all crawlers to access CSS and JS
+Allow: /*.css$
+Allow: /*.js$
