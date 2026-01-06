@@ -258,81 +258,138 @@
   </section>
 
   <!-- =====================================================================
-       WHY INTERLOCKGO (Sticky “peek” stack — 4 cards)
+       WHY INTERLOCKGO — Futuristic 3D Orbital Carousel
        =================================================================== -->
-  <section class="whyilg" id="why">
-    <h2 class="whyilg-title">Why Choose InterlockGo in Evans, CO</h2>
+  <section class="orbit-section" id="why">
+    <!-- Ambient background effects -->
+    <div class="orbit-ambient">
+      <div class="orbit-glow orbit-glow-1"></div>
+      <div class="orbit-glow orbit-glow-2"></div>
+      <div class="orbit-grid"></div>
+    </div>
 
-    <div class="whyilg-stack" style="--cards: 4">
-      <!-- 01 -->
-      <article class="whyilg-card tone-light reveal">
-        <div class="whyilg-index">01</div>
-        <div class="whyilg-head">
-          <span class="whyilg-ico" aria-hidden="true">
-            <!-- shield-check -->
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
-              <path d="M9 12l2 2 4-4"></path>
-            </svg>
-          </span>
-          <h3>Same‑Day Interlock Installs</h3>
-        </div>
-        <p>Fast scheduling, clean wiring, verified calibrations, and clear instructions before you leave.</p>
-        <img src="images/interlockgologo.png" alt="InterlockGo NOCO — Same‑day ignition interlock installation in Evans, CO" class="whyilg-logo" loading="lazy" decoding="async">
-      </article>
+    <div class="orbit-container">
+      <header class="orbit-header">
+        <span class="orbit-label">Why Choose Us</span>
+        <h2 class="orbit-title">The InterlockGo Difference</h2>
+        <p class="orbit-subtitle">Scroll to explore our advantages</p>
+      </header>
 
-      <!-- 02 -->
-      <article class="whyilg-card tone-blue reveal">
-        <div class="whyilg-index">02</div>
-        <div class="whyilg-head">
-          <span class="whyilg-ico" aria-hidden="true">
-            <!-- award badge -->
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="5"></circle>
-              <path d="M8.5 13L7 22l5-3 5 3-1.5-9"></path>
-            </svg>
-          </span>
-          <h3>Lifesafer Certified</h3>
+      <!-- Progress indicator -->
+      <div class="orbit-progress">
+        <div class="orbit-progress-track">
+          <div class="orbit-progress-fill"></div>
         </div>
-        <p>Authorized Lifesafer ignition interlock installation, calibration, service &amp; removal.</p>
-        <img src="images/LifeSafer_image.png" alt="Authorized Lifesafer ignition interlock installer in Evans and Greeley, Colorado" class="whyilg-logo" loading="lazy" decoding="async">
-      </article>
+        <div class="orbit-progress-dots">
+          <button class="orbit-dot active" data-index="0" aria-label="Card 1"><span>01</span></button>
+          <button class="orbit-dot" data-index="1" aria-label="Card 2"><span>02</span></button>
+          <button class="orbit-dot" data-index="2" aria-label="Card 3"><span>03</span></button>
+          <button class="orbit-dot" data-index="3" aria-label="Card 4"><span>04</span></button>
+        </div>
+      </div>
 
-      <!-- 03 -->
-      <article class="whyilg-card tone-gray reveal">
-        <div class="whyilg-index">03</div>
-        <div class="whyilg-head">
-          <span class="whyilg-ico" aria-hidden="true">
-            <!-- shield-keyhole -->
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
-              <circle cx="12" cy="13" r="2"></circle>
-              <path d="M12 15v3"></path>
-            </svg>
-          </span>
-          <h3>Guardian Certified</h3>
-        </div>
-        <p>Authorized Guardian interlock installs with ongoing monthly service and support.</p>
-        <img src="images/guardianV2.png" alt="Guardian ignition interlock certified installer — InterlockGo NOCO" class="whyilg-logo" loading="lazy" decoding="async">
-      </article>
+      <!-- 3D Carousel Stage -->
+      <div class="orbit-stage">
+        <div class="orbit-track">
+          <!-- Card 01 -->
+          <article class="orbit-card" data-index="0">
+            <div class="orbit-card-inner">
+              <div class="orbit-card-glow"></div>
+              <div class="orbit-card-border"></div>
+              <div class="orbit-card-content">
+                <div class="orbit-card-number">01</div>
+                <div class="orbit-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                </div>
+                <h3 class="orbit-card-title">Same‑Day Installs</h3>
+                <p class="orbit-card-text">Fast scheduling, clean wiring, verified calibrations—ready before you leave.</p>
+                <div class="orbit-card-image">
+                  <img src="images/interlockgologo.png" alt="InterlockGo NOCO" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </article>
 
-      <!-- 04 -->
-      <article class="whyilg-card tone-red reveal">
-        <div class="whyilg-index">04</div>
-        <div class="whyilg-head">
-          <span class="whyilg-ico" aria-hidden="true">
-            <!-- file-check (notarized document) -->
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z"></path>
-              <polyline points="14 2 14 9 21 9"></polyline>
-              <path d="M9 14l2 2 4-4"></path>
-            </svg>
-          </span>
-          <h3>Notary Public on Site</h3>
+          <!-- Card 02 -->
+          <article class="orbit-card" data-index="1">
+            <div class="orbit-card-inner">
+              <div class="orbit-card-glow"></div>
+              <div class="orbit-card-border"></div>
+              <div class="orbit-card-content">
+                <div class="orbit-card-number">02</div>
+                <div class="orbit-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="5"></circle>
+                    <path d="M8.5 13L7 22l5-3 5 3-1.5-9"></path>
+                  </svg>
+                </div>
+                <h3 class="orbit-card-title">Lifesafer Certified</h3>
+                <p class="orbit-card-text">Authorized installation, calibration, service & removal for all Lifesafer devices.</p>
+                <div class="orbit-card-image">
+                  <img src="images/LifeSafer_image.png" alt="Lifesafer Authorized" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 03 -->
+          <article class="orbit-card" data-index="2">
+            <div class="orbit-card-inner">
+              <div class="orbit-card-glow"></div>
+              <div class="orbit-card-border"></div>
+              <div class="orbit-card-content">
+                <div class="orbit-card-number">03</div>
+                <div class="orbit-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
+                    <circle cx="12" cy="13" r="2"></circle>
+                    <path d="M12 15v3"></path>
+                  </svg>
+                </div>
+                <h3 class="orbit-card-title">Guardian Certified</h3>
+                <p class="orbit-card-text">Full Guardian interlock services with ongoing monthly support included.</p>
+                <div class="orbit-card-image">
+                  <img src="images/guardianV2.png" alt="Guardian Certified" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 04 -->
+          <article class="orbit-card" data-index="3">
+            <div class="orbit-card-inner">
+              <div class="orbit-card-glow"></div>
+              <div class="orbit-card-border"></div>
+              <div class="orbit-card-content">
+                <div class="orbit-card-number">04</div>
+                <div class="orbit-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z"></path>
+                    <polyline points="14 2 14 9 21 9"></polyline>
+                    <path d="M9 14l2 2 4-4"></path>
+                  </svg>
+                </div>
+                <h3 class="orbit-card-title">Notary On-Site</h3>
+                <p class="orbit-card-text">Get your Colorado interlock affidavit notarized during the same visit.</p>
+                <div class="orbit-card-image">
+                  <img src="images/notarylogo.png" alt="Notary Public" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
-        <p>Need your Colorado interlock affidavit notarized? We can do that during the same visit.</p>
-        <img src="images/notarylogo.png" alt="On‑site notary for Colorado ignition interlock affidavits" class="whyilg-logo" loading="lazy" decoding="async">
-      </article>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="orbit-scroll-hint">
+        <div class="orbit-scroll-mouse">
+          <div class="orbit-scroll-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+      </div>
     </div>
   </section>
 
@@ -412,7 +469,7 @@
 
 
   <!-- =====================================================================
-       SCRIPTS — Reveal + Sticky Stack (deferred first run)
+       SCRIPTS — Reveal + 3D Orbital Carousel
        =================================================================== -->
   <script>
   // Reveal on scroll (gracefully degrades if unsupported)
@@ -427,7 +484,7 @@
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
-          obs.unobserve(e.target); // animate once
+          obs.unobserve(e.target);
         }
       });
     }, { threshold: 0.35 });
@@ -436,47 +493,216 @@
   </script>
 
   <script>
-  // Sticky stack elevation/scale update (defer initial compute)
+  // 3D Orbital Carousel Controller
   (() => {
-    const cards = Array.from(document.querySelectorAll('.whyilg-card'));
+    const stage = document.querySelector('.orbit-stage');
+    const track = document.querySelector('.orbit-track');
+    const cards = Array.from(document.querySelectorAll('.orbit-card'));
+    const dots = Array.from(document.querySelectorAll('.orbit-dot'));
+    const progressFill = document.querySelector('.orbit-progress-fill');
+    const scrollHint = document.querySelector('.orbit-scroll-hint');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !cards.length) return;
 
-    const topOffset = 80;
-    const sectionHeight = () =>
-      Math.max((window.innerHeight || document.documentElement.clientHeight) - 120, 1);
+    if (!track || !cards.length) return;
 
-    let ticking = false;
-    function update() {
-      const h = sectionHeight();
-      cards.forEach(card => {
-        const r = card.getBoundingClientRect();
-        let p = 1 - ((r.top - topOffset) / h);
-        p = Math.max(0, Math.min(1, p));
-        const scale = 0.985 + p * 0.015;   // 0.985 → 1.000
-        const elev  = 0.06  + p * 0.10;    // shadow alpha
-        card.style.setProperty('--scale', scale.toFixed(3));
-        card.style.setProperty('--elev',  elev.toFixed(3));
-      });
-      ticking = false;
-    }
+    let currentIndex = 0;
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let velocity = 0;
+    let rafId = null;
 
-    function onScroll() {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
+    // Calculate card width with gap
+    const getCardWidth = () => {
+      const card = cards[0];
+      const style = getComputedStyle(track);
+      const gap = parseInt(style.gap) || 24;
+      return card.offsetWidth + gap;
+    };
+
+    // Smooth scroll to card index
+    const scrollToCard = (index, smooth = true) => {
+      index = Math.max(0, Math.min(index, cards.length - 1));
+      currentIndex = index;
+
+      const cardWidth = getCardWidth();
+      const stageWidth = stage.offsetWidth;
+      const offset = (stageWidth - cards[0].offsetWidth) / 2;
+      const targetScroll = index * cardWidth - offset;
+
+      if (smooth && !reduce) {
+        track.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      } else {
+        track.style.transition = 'none';
       }
+
+      track.style.transform = `translateX(${-targetScroll}px)`;
+      updateActiveStates();
+    };
+
+    // Update active card and progress
+    const updateActiveStates = () => {
+      cards.forEach((card, i) => {
+        card.classList.toggle('active', i === currentIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+
+      // Update progress bar
+      const progress = ((currentIndex + 1) / cards.length) * 100;
+      progressFill.style.width = `${progress}%`;
+
+      // Hide scroll hint after first interaction
+      if (currentIndex > 0 && scrollHint) {
+        scrollHint.style.opacity = '0';
+        setTimeout(() => scrollHint.style.display = 'none', 300);
+      }
+    };
+
+    // Dot click handlers
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => scrollToCard(i));
+    });
+
+    // Wheel scroll handling (horizontal scroll on vertical wheel)
+    let wheelTimeout;
+    stage.addEventListener('wheel', (e) => {
+      e.preventDefault();
+
+      clearTimeout(wheelTimeout);
+
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+
+      wheelTimeout = setTimeout(() => {
+        if (delta > 30) {
+          scrollToCard(currentIndex + 1);
+        } else if (delta < -30) {
+          scrollToCard(currentIndex - 1);
+        }
+      }, 50);
+    }, { passive: false });
+
+    // Touch/drag handling
+    const handleDragStart = (e) => {
+      isDragging = true;
+      startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+      track.style.transition = 'none';
+      track.style.cursor = 'grabbing';
+    };
+
+    const handleDragMove = (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+
+      const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+      const diff = x - startX;
+      velocity = diff;
+
+      const cardWidth = getCardWidth();
+      const stageWidth = stage.offsetWidth;
+      const offset = (stageWidth - cards[0].offsetWidth) / 2;
+      const currentScroll = currentIndex * cardWidth - offset;
+
+      track.style.transform = `translateX(${-currentScroll + diff}px)`;
+    };
+
+    const handleDragEnd = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.cursor = 'grab';
+
+      const threshold = getCardWidth() * 0.2;
+
+      if (velocity > threshold) {
+        scrollToCard(currentIndex - 1);
+      } else if (velocity < -threshold) {
+        scrollToCard(currentIndex + 1);
+      } else {
+        scrollToCard(currentIndex);
+      }
+
+      velocity = 0;
+    };
+
+    // Mouse events
+    stage.addEventListener('mousedown', handleDragStart);
+    window.addEventListener('mousemove', handleDragMove);
+    window.addEventListener('mouseup', handleDragEnd);
+
+    // Touch events
+    stage.addEventListener('touchstart', handleDragStart, { passive: true });
+    stage.addEventListener('touchmove', handleDragMove, { passive: false });
+    stage.addEventListener('touchend', handleDragEnd);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const stageRect = stage.getBoundingClientRect();
+      const inView = stageRect.top < window.innerHeight && stageRect.bottom > 0;
+
+      if (!inView) return;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        scrollToCard(currentIndex + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        scrollToCard(currentIndex - 1);
+      }
+    });
+
+    // 3D tilt effect on mouse move (desktop only)
+    if (!reduce && window.matchMedia('(hover: hover)').matches) {
+      cards.forEach(card => {
+        const inner = card.querySelector('.orbit-card-inner');
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = ((y - centerY) / centerY) * -8;
+          const rotateY = ((x - centerX) / centerX) * 8;
+
+          inner.style.transform = `
+            translateY(-8px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            scale(1.02)
+          `;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          inner.style.transform = '';
+        });
+      });
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => requestAnimationFrame(update), { passive: true });
+    // Initialize
+    track.style.cursor = 'grab';
+    scrollToCard(0, false);
 
-    // run initial update during idle (or rAF fallback)
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => requestAnimationFrame(update), { timeout: 120 });
-    } else {
-      requestAnimationFrame(update);
-    }
+    // Handle resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => scrollToCard(currentIndex, false), 100);
+    });
+
+    // Intersection observer for section visibility
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          cards[currentIndex].classList.add('active');
+        }
+      });
+    }, { threshold: [0.3] });
+
+    const section = document.querySelector('.orbit-section');
+    if (section) sectionObserver.observe(section);
   })();
   </script>
 

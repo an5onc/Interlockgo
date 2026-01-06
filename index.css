@@ -97,167 +97,562 @@
 .phone-number a:hover { color: var(--accent); }
 
 
-/* === 3) WHY INTERLOCKGO SECTION ========================================= */
+/* ==========================================================================
+   3D ORBITAL CAROUSEL — FUTURISTIC CARD EXPERIENCE
+   ========================================================================== */
 
-.whyilg{
-  padding:4rem 0;
-  width:100%;
-  scroll-snap-type:y proximity;
-  /* performance isolation */
-  will-change: scroll-position;
-  contain: layout paint;
-
-  /* sticky math tokens */
-  --pin: 80px;    /* top sticky offset */
-  --peek: 40px;   /* visible band of previous card */
-
-  margin: 6px 0 12px;
-  color: var(--text);
-}
-
-/* Section title */
-.whyilg-title{
-  text-align:center;
-  margin: 8px 0 18px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--text);
-}
-.whyilg-title::after{
-  content:""; display:block; width:64px; height:2px;
-  margin:10px auto 0; background: var(--accent); opacity:.9;
-  border-radius:2px;
-}
-
-
-/* === 4) STICKY STACK (runway + peeks) =================================== */
-
-.whyilg-stack {
+/* === SECTION CONTAINER === */
+.orbit-section {
   position: relative;
-
-  /* runway:
-     N * cardHeight
-   + 2*(N-1)*peek        (down + up peeks as you advance)
-   + pin                  (final parking room for last card)
-  */
-  height: calc(
-    var(--cards, 4) * (100svh - 120px)
-    + ((var(--cards, 4) - 1) * var(--peek) * 2)
-    + var(--pin)
-  );
-
-  /* small safety slack */
-  padding-bottom: 8px;
-
-  max-width: clamp(720px, 92vw, 1600px);
-  margin: 0 auto;
-  padding: 0 clamp(12px, 3vw, 32px);
+  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg) 0%, #080a0d 100%);
 }
-@supports (height: 100dvh) {
-  .whyilg-stack {
-    height: calc(
-      var(--cards, 4) * (100dvh - 120px)
-      + ((var(--cards, 4) - 1) * var(--peek) * 2)
-      + var(--pin)
-    );
+
+/* === AMBIENT BACKGROUND EFFECTS === */
+.orbit-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.orbit-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: orbitFloat 20s ease-in-out infinite;
+}
+
+.orbit-glow-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(232, 65, 66, 0.3) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.orbit-glow-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(100, 150, 255, 0.15) 0%, transparent 70%);
+  bottom: -150px;
+  left: -100px;
+  animation-delay: -10s;
+}
+
+@keyframes orbitFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+/* Futuristic grid background */
+.orbit-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232, 65, 66, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 65, 66, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 20%, transparent 70%);
+}
+
+/* === CONTAINER === */
+.orbit-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  z-index: 1;
+}
+
+/* === HEADER === */
+.orbit-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.orbit-label {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(232, 65, 66, 0.1);
+  border: 1px solid rgba(232, 65, 66, 0.2);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.orbit-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.orbit-subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* === PROGRESS INDICATOR === */
+.orbit-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.orbit-progress-track {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.orbit-progress-fill {
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(90deg, var(--accent), #ff6b6b);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 20px rgba(232, 65, 66, 0.5);
+}
+
+.orbit-progress-dots {
+  display: flex;
+  gap: 12px;
+}
+
+.orbit-dot {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.orbit-dot::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, rgba(232, 65, 66, 0.5) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.orbit-dot span {
+  position: relative;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.orbit-dot:hover {
+  background: rgba(232, 65, 66, 0.1);
+  border-color: rgba(232, 65, 66, 0.3);
+  transform: scale(1.1);
+}
+
+.orbit-dot:hover span {
+  color: var(--accent);
+}
+
+.orbit-dot.active {
+  background: rgba(232, 65, 66, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 30px rgba(232, 65, 66, 0.3);
+}
+
+.orbit-dot.active::before {
+  opacity: 1;
+}
+
+.orbit-dot.active span {
+  color: var(--accent);
+}
+
+/* === 3D CAROUSEL STAGE === */
+.orbit-stage {
+  position: relative;
+  perspective: 1200px;
+  perspective-origin: center center;
+  padding: 20px 0;
+}
+
+.orbit-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* === GLASSMORPHIC CARDS === */
+.orbit-card {
+  flex: 0 0 320px;
+  height: 420px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.orbit-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glassmorphism background */
+.orbit-card-content {
+  position: relative;
+  height: 100%;
+  padding: 32px 28px;
+  background: rgba(20, 25, 32, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Animated holographic border */
+.orbit-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(
+    var(--border-angle, 0deg),
+    transparent 0%,
+    rgba(232, 65, 66, 0.8) 25%,
+    rgba(255, 120, 120, 0.6) 50%,
+    rgba(232, 65, 66, 0.8) 75%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  animation: borderRotate 4s linear infinite paused;
+}
+
+@keyframes borderRotate {
+  to { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Glow effect behind card */
+.orbit-card-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(232, 65, 66, 0.25) 0%,
+    transparent 70%
+  );
+  border-radius: 40px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  filter: blur(30px);
+}
+
+/* Card number */
+.orbit-card-number {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+
+/* Icon container */
+.orbit-card-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(232, 65, 66, 0.2) 0%, rgba(232, 65, 66, 0.05) 100%);
+  border: 1px solid rgba(232, 65, 66, 0.3);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orbit-card-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--accent);
+  transition: all 0.4s ease;
+}
+
+/* Card title */
+.orbit-card-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+/* Card text */
+.orbit-card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 auto;
+}
+
+/* Card image */
+.orbit-card-image {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.orbit-card-image img {
+  display: block;
+  width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+/* === CARD STATES === */
+
+/* Hover state */
+.orbit-card:hover .orbit-card-inner {
+  transform: translateY(-8px) rotateX(2deg);
+}
+
+.orbit-card:hover .orbit-card-glow {
+  opacity: 1;
+}
+
+.orbit-card:hover .orbit-card-border {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.orbit-card:hover .orbit-card-icon {
+  transform: scale(1.1) translateY(-4px);
+  background: linear-gradient(135deg, rgba(232, 65, 66, 0.3) 0%, rgba(232, 65, 66, 0.1) 100%);
+  box-shadow: 0 8px 32px rgba(232, 65, 66, 0.3);
+}
+
+.orbit-card:hover .orbit-card-icon svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 12px rgba(232, 65, 66, 0.5));
+}
+
+.orbit-card:hover .orbit-card-number {
+  color: rgba(232, 65, 66, 0.15);
+  transform: translateY(-4px);
+}
+
+.orbit-card:hover .orbit-card-image img {
+  filter: brightness(1.1);
+}
+
+/* Active/focused card */
+.orbit-card.active .orbit-card-inner {
+  transform: scale(1.02);
+}
+
+.orbit-card.active .orbit-card-glow {
+  opacity: 0.8;
+}
+
+.orbit-card.active .orbit-card-border {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/* === SCROLL HINT === */
+.orbit-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.orbit-scroll-hint:hover {
+  opacity: 1;
+}
+
+.orbit-scroll-hint span {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.orbit-scroll-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  position: relative;
+}
+
+.orbit-scroll-wheel {
+  width: 4px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 2s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateX(-50%) translateY(10px);
   }
 }
 
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .orbit-card {
+    flex: 0 0 280px;
+    height: 380px;
+  }
 
-/* === 5) CARD SKIN (dark surface, depth, perf) =========================== */
+  .orbit-card-content {
+    padding: 24px 20px;
+  }
 
-.whyilg-card{
-  position: sticky;
-  top: calc(var(--pin) + var(--i, 0) * var(--peek));
-  min-height: calc(100svh - 120px);
+  .orbit-card-icon {
+    width: 48px;
+    height: 48px;
+  }
 
-  /* dark surface */
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,.06);
-  border-top: 3px solid var(--accent);
-  border-radius: 16px;
-
-  /* layout */
-  padding: 24px clamp(16px, 3vw, 28px);
-  display:grid; gap: 12px; align-content:start;
-
-  /* depth & performance */
-  transform: translateZ(0) scale(var(--scale, .985));  /* GPU layer */
-  will-change: transform, box-shadow;                  /* scroll anim hint */
-  contain: paint;                                      /* isolate repaints */
-  box-shadow: 0 12px 28px rgba(0,0,0,var(--elev, .28));/* lighter idle */
-  content-visibility: auto;
-  contain-intrinsic-size: 900px; /* reserve space to prevent jump; tweak if needed */
+  .orbit-card-title {
+    font-size: 1.2rem;
+  }
 }
 
-/* per-card index for peek math (4 cards) */
-.whyilg-card:nth-child(1){ --i: 0; }
-.whyilg-card:nth-child(2){ --i: 1; }
-.whyilg-card:nth-child(3){ --i: 2; }
-.whyilg-card:nth-child(4){ --i: 3; }
+@media (max-width: 768px) {
+  .orbit-container {
+    padding: 40px 16px 60px;
+  }
 
-/* head + icon + index */
-.whyilg-head{ display:flex; align-items:center; gap:10px; margin-bottom: 6px; }
-.whyilg-index{ font-weight:700; color: var(--accent); letter-spacing:.06em; }
-.whyilg-ico{ width:32px; height:32px; color: var(--accent); opacity:.95; }
+  .orbit-header {
+    margin-bottom: 32px;
+  }
 
-/* logo sizing within cards */
-.whyilg-logo {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  max-width: clamp(320px, 60%, 720px);
-  object-fit: contain;
+  .orbit-progress {
+    margin-bottom: 24px;
+  }
+
+  .orbit-card {
+    flex: 0 0 260px;
+    height: 360px;
+  }
+
+  .orbit-card-content {
+    padding: 20px 18px;
+  }
+
+  .orbit-card-number {
+    font-size: 2.5rem;
+  }
+
+  .orbit-scroll-hint {
+    display: none;
+  }
 }
 
-/* unify tone variants on dark */
-.tone-light, .tone-blue, .tone-gray, .tone-red { background: var(--surface); }
-.tone-red { border-top-color: var(--accent); }
+@media (max-width: 480px) {
+  .orbit-card {
+    flex: 0 0 calc(100vw - 48px);
+    height: auto;
+    min-height: 340px;
+  }
 
+  .orbit-progress-track {
+    width: 150px;
+  }
 
-/* === 6) CARD MICRO-INTERACTIONS (hover polish) ========================== */
-
-.whyilg-card:hover {
-  transform: scale(var(--scale)) translateY(-2px);
-  box-shadow:
-    0 28px 60px rgba(0,0,0,.55),
-    0 0 0 1px rgba(232,65,66,.12) inset;
+  .orbit-dot {
+    width: 36px;
+    height: 36px;
+  }
 }
 
-.whyilg-card .whyilg-ico {
-  transition: transform .18s ease, color .18s ease, filter .18s ease;
-}
-.whyilg-card:hover .whyilg-ico {
-  transform: translateY(-2px) scale(1.05);
-  color: var(--accent);
-  filter: drop-shadow(0 4px 18px rgba(232,65,66,.35));
-}
-
-.whyilg-card .whyilg-index {
-  transition: color .18s ease, text-shadow .18s ease;
-}
-.whyilg-card:hover .whyilg-index {
-  color: var(--accent);
-  text-shadow: 0 0 12px rgba(232,65,66,.35);
-}
-
-
-/* === 7) RESPONSIVE TWEAKS ============================================== */
-
-@media (max-width: 640px){
-  .whyilg-stack{ padding: 0 12px; }
-  .whyilg{ --peek: 28px; }             /* smaller reveal on phones */
-}
-
-
-/* === 8) REDUCED MOTION ================================================== */
-
+/* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
-  .whyilg-card, .whyilg-card * { transition: none !important; }
+  .orbit-glow,
+  .orbit-card-inner,
+  .orbit-card-border,
+  .orbit-card-glow,
+  .orbit-scroll-wheel,
+  .orbit-track {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 
