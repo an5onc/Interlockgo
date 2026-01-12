@@ -6,8 +6,8 @@
             "Service": "Daily Monitoring FC100",
             "Client": "Bengtson-Hanselin",
             "Vehicle": "2023 Subaru LEGACY",
-            "Firmware": "Legacy",
-            "Completed": false
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -25,16 +25,7 @@
             "Client": "DELEON",
             "Vehicle": "2008 Cadillac Escalade",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/12/2026 10:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "LARA",
-            "Vehicle": "1998 Ford Ranger",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -61,7 +52,7 @@
             "Client": "Beck",
             "Vehicle": "2020 Ford Escape Hybrid",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -69,6 +60,15 @@
             "Service": "Daily Monitoring FC100",
             "Client": "MCCORMICK",
             "Vehicle": "2002 Chevrolet Silverado",
+            "Firmware": "L250",
+            "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/12/2026 01:00:00 PM",
+            "Service": "Vehicle Swap",
+            "Client": "FRANCO",
+            "Vehicle": "2002 Toyota Camry",
             "Firmware": "L250",
             "Completed": false
         },
@@ -87,15 +87,6 @@
             "Service": "Daily Monitoring FC100",
             "Client": "MOODY",
             "Vehicle": "2008 Honda CRV KEY",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/12/2026 02:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "NEDDERMEYER",
-            "Vehicle": "2016 Chevrolet MALIBU KEY",
             "Firmware": "L250",
             "Completed": false
         },
