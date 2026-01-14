@@ -7,7 +7,7 @@
             "Client": "MENDOZA",
             "Vehicle": "2021 Dodge Ram 1500 Smart Key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -47,15 +47,6 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/14/2026 04:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "Suedekum",
-            "Vehicle": "2001 Dodge Grand Caravan",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/14/2026 05:00:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "CARDENAS",
@@ -81,7 +72,7 @@
             "Client": "OLSEN",
             "Vehicle": "2016 Kia Forte - Key",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
