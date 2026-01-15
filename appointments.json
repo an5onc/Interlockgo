@@ -16,25 +16,16 @@
             "Client": "LOPEZ",
             "Vehicle": "2015 Nissan Frontier",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/14/2026 01:30:00 PM",
+            "Appointment Time": "01/14/2026 01:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "LARA",
             "Vehicle": "1998 Ford Ranger",
             "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/14/2026 02:00:00 PM",
-            "Service": "Install Fee",
-            "Client": "Stevens",
-            "Vehicle": "2013 Mini-Cooper Mini cooper",
-            "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -43,23 +34,50 @@
             "Client": "NEDDERMEYER",
             "Vehicle": "2016 Chevrolet MALIBU KEY",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/14/2026 04:30:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "MCCORMICK",
+            "Vehicle": "2002 Chevrolet Silverado",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/14/2026 04:45:00 PM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "TRUJILLO",
+            "Vehicle": "2023 Chevrolet Silverado 3500",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/14/2026 05:00:00 PM",
+            "Service": "Install Fee",
+            "Client": "Stevens",
+            "Vehicle": "2013 Mini-Cooper Mini cooper push",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/14/2026 05:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "CARDENAS",
             "Vehicle": "2004 Chevrolet Impala",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/14/2026 05:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "TRUJILLO",
-            "Vehicle": "2023 Chevrolet Silverado 3500",
+            "Appointment Time": "01/14/2026 05:15:00 PM",
+            "Service": "Install Fee",
+            "Client": "Stevens",
+            "Vehicle": "2013 Mini-Cooper Mini cooper",
             "Firmware": "L250",
             "Completed": false
         }
