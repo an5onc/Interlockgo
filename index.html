@@ -2,57 +2,51 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17605887515');
+  </script>
 
-  gtag('config', 'AW-17605887515');
-</script>
-  <!-- === CORE META ====================================================== -->
+  <!-- Theme initialization (prevents flash) -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- === CORE META === -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Title: ~60 chars, primary keyword + city -->
   <title>Ignition Interlock Installation in Evans, CO | InterlockGo NOCO</title>
-
-  <!-- Description: ~155 chars, includes brand + services + location -->
-  <meta name="description" content="Certified ignition interlock installs, calibration & service in Evans, CO. Lifesafer & Guardian provider. Same‑day appointments. Clean wiring. Call 970‑515‑5740." />
-
-  <!-- Canonical (use your live domain) -->
+  <meta name="description" content="Certified ignition interlock installs, calibration & service in Evans, CO. Lifesafer & Guardian provider. Same-day appointments. Clean wiring. Call 970-515-5740." />
   <link rel="canonical" href="https://interlockgo.io/" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Ignition Interlock Installation in Evans, CO | InterlockGo NOCO" />
-  <meta property="og:description" content="Certified Lifesafer & Guardian ignition interlock installs, calibration and service. Same‑day appointments in Evans & Greeley, CO." />
+  <meta property="og:description" content="Certified Lifesafer & Guardian ignition interlock installs, calibration and service. Same-day appointments in Evans & Greeley, CO." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://interlockgo.io/" />
   <meta property="og:image" content="https://interlockgo.io/images/Interlockgo.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ignition Interlock Installation in Evans, CO | InterlockGo NOCO" />
-  <meta name="twitter:description" content="Same‑day certified interlock installs & calibration in Northern Colorado." />
-  <meta name="twitter:image" content="https://interlockgo.io/images/Interlockgo.jpeg" />
 
-  <!-- === FONTS =========================================================== -->
+  <!-- === FONTS === -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- === PERFORMANCE: PRELOAD HERO ====================================== -->
-  <link rel="preload" as="image" href="images/Interlockgo.jpeg" imagesizes="100vw" />
+  <!-- === STYLESHEET === -->
+  <link href="index.css" rel="stylesheet" />
 
-  <!-- === STYLESHEETS ===================================================== -->
-  <link href="base.css?v=2025-01-05-1" rel="stylesheet" />
-  <link href="index.css?v=2025-01-05-1" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 
-  <!-- JS-on flag for reveal animations -->
-  <script>document.documentElement.classList.add('js');</script>
-
-  <!-- If JS fails/blocked, keep cards visible -->
-  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
-
-  <!-- === STRUCTURED DATA: Organization ================================= -->
+  <!-- === STRUCTURED DATA: Organization === -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,7 +65,7 @@
   }
   </script>
 
-  <!-- === STRUCTURED DATA: LocalBusiness ================================ -->
+  <!-- === STRUCTURED DATA: LocalBusiness === -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -101,8 +95,7 @@
       {"@type": "City", "name": "Greeley", "containedInPlace": {"@type": "State", "name": "Colorado"}},
       {"@type": "City", "name": "Fort Collins", "containedInPlace": {"@type": "State", "name": "Colorado"}},
       {"@type": "City", "name": "Loveland", "containedInPlace": {"@type": "State", "name": "Colorado"}},
-      {"@type": "City", "name": "Windsor", "containedInPlace": {"@type": "State", "name": "Colorado"}},
-      {"@type": "AdministrativeArea", "name": "Weld County"}
+      {"@type": "City", "name": "Windsor", "containedInPlace": {"@type": "State", "name": "Colorado"}}
     ],
     "openingHoursSpecification": [
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "17:00"},
@@ -112,23 +105,11 @@
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00"},
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"}
     ],
-    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Ignition Interlock Services",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ignition Interlock Installation"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ignition Interlock Calibration"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ignition Interlock Removal"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Notary Services"}}
-      ]
-    },
-    "parentOrganization": {"@id": "https://interlockgo.io/#organization"},
-    "sameAs": []
+    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"]
   }
   </script>
 
-  <!-- === STRUCTURED DATA: FAQ (must mirror on-page content) ============ -->
+  <!-- === STRUCTURED DATA: FAQ === -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -136,607 +117,456 @@
     "mainEntity":[
       {
         "@type":"Question",
-        "name":"Do you offer same‑day ignition interlock installation?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. We frequently have same‑day or next‑day appointments available in Evans, CO. Call 970‑515‑5740 to check today's openings."}
+        "name":"Do you offer same-day ignition interlock installation?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. We frequently have same-day or next-day appointments available in Evans, CO. Call 970-515-5740 to check today's openings."}
       },
       {
         "@type":"Question",
         "name":"Are you certified for Lifesafer and Guardian devices?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes. InterlockGo NOCO is an authorized provider for Lifesafer and Guardian—installations, calibrations, service, and clean removals."}
-      },
-      {
-        "@type":"Question",
-        "name":"How much does an ignition interlock device cost in Colorado?",
-        "acceptedAnswer":{"@type":"Answer","text":"Costs vary by provider and device. Typically you'll pay an installation fee plus monthly service fees for calibration. Contact us at 970-515-5740 for current pricing on Lifesafer and Guardian devices."}
-      },
-      {
-        "@type":"Question",
-        "name":"How long do I need an ignition interlock in Colorado?",
-        "acceptedAnswer":{"@type":"Answer","text":"The interlock period in Colorado depends on your offense. First-time DUI offenders typically need the device for 8 months to 2 years. Repeat offenses require longer periods. Your reinstatement letter from Colorado DMV will specify your exact requirement."}
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. InterlockGo NOCO is an authorized provider for Lifesafer and Guardian installations, calibrations, service, and clean removals."}
       },
       {
         "@type":"Question",
         "name":"What areas do you serve in Northern Colorado?",
         "acceptedAnswer":{"@type":"Answer","text":"We serve Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, and all of Weld County. Our shop is conveniently located at 3610 35th Avenue in Evans, CO."}
-      },
-      {
-        "@type":"Question",
-        "name":"Can you notarize my interlock affidavit?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes! We have a Notary Public on-site. We can notarize your Colorado ignition interlock affidavit during your installation or calibration appointment—no extra trip needed."}
       }
     ]
   }
   </script>
 </head>
 <body id="top">
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- =====================================================================
-       NAVIGATION
-       =================================================================== -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="appointments/">Appointments</a></li>
-      <li><a href="hours/">Shop hours</a></li>
-      <li>
-        <a href="javascript:void(0)">Equipment</a>
-        <ul>
+  <!-- Background gradient layer -->
+  <div class="page-bg" aria-hidden="true">
+    <div class="page-bg__gradient"></div>
+    <div class="page-bg__glow page-bg__glow--1"></div>
+    <div class="page-bg__glow page-bg__glow--2"></div>
+  </div>
+
+  <!-- ===== MAIN CARD CONTAINER ===== -->
+  <div class="main-card">
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="header">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/" class="nav__logo" aria-label="InterlockGo Home">
+          <img src="images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" />
+          <span class="nav__wordmark">InterlockGo</span>
+        </a>
+
+        <ul class="nav__links" id="nav-links">
+          <li><a href="/">Home</a></li>
           <li><a href="lifesafer/">Lifesafer</a></li>
           <li><a href="guardian/">Guardian</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="javascript:void(0)">Support</a>
-        <ul>
-          <li><a href="forms/">Forms</a></li>
+          <li><a href="appointments/">Appointments</a></li>
           <li><a href="contactus/">Contact</a></li>
-          <li><a href="reviews/">Reviews</a></li>
         </ul>
-      </li>
-      <li><a href="https://myaccount.lifesafer.com/account/login" target="_blank" rel="noopener">My Account</a></li>
-      <li><a href="getstarted/">First Step</a></li>
-    </ul>
-  </nav>
 
-  <!-- =====================================================================
-       HERO
-       =================================================================== -->
-  <header class="hero-section" style="background-image:url('images/Interlockgo.jpeg')">
-    <div class="hero-overlay">
-      <div class="hero">
-        <!-- Primary H1 with main keyword + city -->
-        <h1>Ignition Interlock Installation & Calibration — Evans, CO</h1>
-        <p>Certified Lifesafer &amp; Guardian provider serving Evans, Greeley &amp; Weld County. Same‑day installs. Friendly, fast service.</p>
-
-        <div class="cta-dropdown-container">
-          <a href="tel:970-515-5740" class="cta-button" aria-label="Call InterlockGo">Call Now</a>
-          <div class="phone-number"><a href="tel:970-515-5740">970-515-5740</a></div>
+        <div class="nav__actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <a href="https://myaccount.lifesafer.com/account/login" class="nav__link--text" target="_blank" rel="noopener">Log in</a>
+          <a href="getstarted/" class="btn btn--primary btn--sm">Get Started</a>
         </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- =====================================================================
-       TRUST BAR (certifications + social proof)
-       =================================================================== -->
-  <section class="trust-bar">
-    <div class="trust-bar-inner">
-      <div class="trust-item">
-        <img src="images/LifeSafer_image.png" alt="Lifesafer Certified" class="trust-logo" loading="lazy">
-        <span>Lifesafer Authorized</span>
-      </div>
-      <div class="trust-item">
-        <img src="images/guardianV2.png" alt="Guardian Certified" class="trust-logo" loading="lazy">
-        <span>Guardian Certified</span>
-      </div>
-      <a href="reviews/" class="trust-item trust-stat trust-link">
-        <span class="stat-number">4.5</span>
-        <span class="stat-stars">★★★★★</span>
-        <span class="stat-label">Google Reviews</span>
-      </a>
-      <div class="trust-item">
-        <img src="images/notarylogo.png" alt="Notary Public" class="trust-logo" loading="lazy">
-        <span>Notary On-Site</span>
-      </div>
-    </div>
-  </section>
+        <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
 
-  <!-- =====================================================================
-       SEO INTRO (early, scannable copy)
-       =================================================================== -->
-  <section class="seo-intro">
-    <h2>Colorado Ignition Interlock Device Service You Can Trust</h2>
-    <p>
-      InterlockGo NOCO provides <strong>ignition interlock installation, calibration, monthly service, and removal</strong> in Northern Colorado.
-      As an <strong>authorized Lifesafer and Guardian installer</strong> in <strong>Evans, CO</strong>, we help you meet <strong>Colorado DMV interlock requirements</strong>
-      quickly and correctly—so you can get back on the road with confidence.
-    </p>
-    <p class="service-areas">
-      <strong>Serving Northern Colorado:</strong> Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, LaSalle, Milliken, and all of Weld County.
-      Conveniently located off US-85 in Evans.
-    </p>
-  </section>
+    <!-- ===== HERO SECTION ===== -->
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero__content">
+          <!-- Eyebrow Badge -->
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            Flexible Scheduling &amp; Same-Day Appointments
+          </div>
 
-  <!-- =====================================================================
-       WHY INTERLOCKGO — Futuristic 3D Orbital Carousel
-       =================================================================== -->
-  <section class="orbit-section" id="why">
-    <!-- Ambient background effects -->
-    <div class="orbit-ambient">
-      <div class="orbit-glow orbit-glow-1"></div>
-      <div class="orbit-glow orbit-glow-2"></div>
-      <div class="orbit-grid"></div>
-    </div>
+          <!-- Headline -->
+          <h1 class="hero__title">
+            LifeSafer<br />
+            <span class="hero__title--accent">or Guardian</span>
+          </h1>
 
-    <div class="orbit-container">
-      <header class="orbit-header">
-        <span class="orbit-label">Why Choose Us</span>
-        <h2 class="orbit-title">The InterlockGo Difference</h2>
-        <p class="orbit-subtitle">Scroll to explore our advantages</p>
-      </header>
+          <!-- Subheadline -->
+          <p class="hero__subtitle">
+            Certified Lifesafer & Guardian ignition interlock installation, calibration, and service in Northern Colorado. Knowledgeable and Friendly service through every step.
+          </p>
 
-      <!-- Progress indicator -->
-      <div class="orbit-progress">
-        <div class="orbit-progress-track">
-          <div class="orbit-progress-fill"></div>
+          <!-- CTAs -->
+          <div class="hero__cta">
+            <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Call Now
+            </a>
+            <a href="tel:970-515-5740" class="btn btn--secondary btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Call to Schedule
+            </a>
+          </div>
+
+          <!-- Micro-proof -->
+          <p class="hero__proof">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+            Trusted by 500+ drivers across Weld County
+          </p>
+
+          <!-- Chat bubble personality element -->
+          <div class="hero__chat" aria-hidden="true">
+            <img src="images/anson.jpg" alt="" class="hero__chat-avatar" />
+            <span>Anson here! Ready to help.</span>
+          </div>
         </div>
-        <div class="orbit-progress-dots">
-          <button class="orbit-dot active" data-index="0" aria-label="Card 1"><span>01</span></button>
-          <button class="orbit-dot" data-index="1" aria-label="Card 2"><span>02</span></button>
-          <button class="orbit-dot" data-index="2" aria-label="Card 3"><span>03</span></button>
-          <button class="orbit-dot" data-index="3" aria-label="Card 4"><span>04</span></button>
-        </div>
-      </div>
 
-      <!-- 3D Carousel Stage -->
-      <div class="orbit-stage">
-        <div class="orbit-track">
-          <!-- Card 01 -->
-          <article class="orbit-card" data-index="0">
-            <div class="orbit-card-inner">
-              <div class="orbit-card-glow"></div>
-              <div class="orbit-card-border"></div>
-              <div class="orbit-card-content">
-                <div class="orbit-card-number">01</div>
-                <div class="orbit-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
-                    <path d="M9 12l2 2 4-4"></path>
-                  </svg>
-                </div>
-                <h3 class="orbit-card-title">Same‑Day Installs</h3>
-                <p class="orbit-card-text">Fast scheduling, clean wiring, verified calibrations—ready before you leave.</p>
-                <div class="orbit-card-image">
-                  <img src="images/interlockgo.png" alt="InterlockGo NOCO" loading="lazy" decoding="async">
-                </div>
-              </div>
+        <!-- Hero Visual: Device Switcher -->
+        <div class="hero__visual hero__visual--model">
+          <div class="device-switcher" data-device-state="neutral">
+            <model-viewer id="truck-viewer" src="images/tesla_cybertruck.glb" ios-src="images/Tesla_Cybertruck.usdz" alt="Tesla Cybertruck 3D model" loading="eager" camera-controls interaction-prompt="none" exposure="1.1" shadow-intensity="0.4"></model-viewer>
+            <div class="device-pop device-pop--lifesafer" aria-hidden="true">
+              <img src="images/ls250.png" alt="Lifesafer LS250 Device" />
+              <span>LifeSafer LS250</span>
             </div>
-          </article>
-
-          <!-- Card 02 -->
-          <article class="orbit-card" data-index="1">
-            <div class="orbit-card-inner">
-              <div class="orbit-card-glow"></div>
-              <div class="orbit-card-border"></div>
-              <div class="orbit-card-content">
-                <div class="orbit-card-number">02</div>
-                <div class="orbit-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="8" r="5"></circle>
-                    <path d="M8.5 13L7 22l5-3 5 3-1.5-9"></path>
-                  </svg>
-                </div>
-                <h3 class="orbit-card-title">Lifesafer Certified</h3>
-                <p class="orbit-card-text">Authorized installation, calibration, service & removal for all Lifesafer devices.</p>
-                <div class="orbit-card-image">
-                  <img src="images/LifeSafer_image.png" alt="Lifesafer Authorized" loading="lazy" decoding="async">
-                </div>
-              </div>
+            <div class="device-pop device-pop--guardian" aria-hidden="true">
+              <img src="images/guardianhandset.png" alt="Guardian Interlock Device" />
+              <span>Guardian Handset</span>
             </div>
-          </article>
-
-          <!-- Card 03 -->
-          <article class="orbit-card" data-index="2">
-            <div class="orbit-card-inner">
-              <div class="orbit-card-glow"></div>
-              <div class="orbit-card-border"></div>
-              <div class="orbit-card-content">
-                <div class="orbit-card-number">03</div>
-                <div class="orbit-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3l7 4v5a8 8 0 1 1-14 0V7l7-4z"></path>
-                    <circle cx="12" cy="13" r="2"></circle>
-                    <path d="M12 15v3"></path>
-                  </svg>
-                </div>
-                <h3 class="orbit-card-title">Guardian Certified</h3>
-                <p class="orbit-card-text">Full Guardian interlock services with ongoing monthly support included.</p>
-                <div class="orbit-card-image">
-                  <img src="images/guardianV2.png" alt="Guardian Certified" loading="lazy" decoding="async">
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 04 -->
-          <article class="orbit-card" data-index="3">
-            <div class="orbit-card-inner">
-              <div class="orbit-card-glow"></div>
-              <div class="orbit-card-border"></div>
-              <div class="orbit-card-content">
-                <div class="orbit-card-number">04</div>
-                <div class="orbit-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z"></path>
-                    <polyline points="14 2 14 9 21 9"></polyline>
-                    <path d="M9 14l2 2 4-4"></path>
-                  </svg>
-                </div>
-                <h3 class="orbit-card-title">Notary On-Site</h3>
-                <p class="orbit-card-text">Get your Colorado interlock affidavit notarized during the same visit.</p>
-                <div class="orbit-card-image">
-                  <img src="images/notarylogo.png" alt="Notary Public" loading="lazy" decoding="async">
-                </div>
-              </div>
-            </div>
-          </article>
+            <div class="device-hint">Rotate the truck to reveal a device</div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Scroll hint -->
-      <div class="orbit-scroll-hint">
-        <div class="orbit-scroll-mouse">
-          <div class="orbit-scroll-wheel"></div>
+      <!-- ===== SOCIAL PROOF / LOGO STRIP ===== -->
+      <section class="logos" aria-label="Trusted partners">
+        <p class="logos__label">Authorized Provider For</p>
+        <div class="logos__row">
+          <img src="images/LifeSafer_image.png" alt="Lifesafer Authorized" class="logos__img" loading="lazy" />
+          <img src="images/guardianV2.png" alt="Guardian Certified" class="logos__img" loading="lazy" />
+          <img src="images/notarylogo.png" alt="Notary Public On-Site" class="logos__img" loading="lazy" />
         </div>
-        <span>Scroll to explore</span>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- =====================================================================
-       FAQ (matches FAQ schema)
-       =================================================================== -->
-  <section class="faq">
-    <h2>Ignition Interlock FAQs</h2>
-
-    <details>
-      <summary>Do you offer same‑day ignition interlock installation?</summary>
-      <p>Yes. We often have same‑day or next‑day appointments available. Call <a href="tel:970-515-5740">970‑515‑5740</a> to check today's openings.</p>
-    </details>
-
-    <details>
-      <summary>Are you certified for Lifesafer and Guardian devices?</summary>
-      <p>Yes, we are an authorized provider for both <a href="lifesafer/">Lifesafer</a> and <a href="guardian/">Guardian</a> devices—installation, calibration, and service.</p>
-    </details>
-
-    <details>
-      <summary>How much does an ignition interlock device cost in Colorado?</summary>
-      <p>Costs vary by provider and device. Typically you'll pay an installation fee plus monthly service fees for calibration. Contact us at <a href="tel:970-515-5740">970-515-5740</a> for current pricing on Lifesafer and Guardian devices.</p>
-    </details>
-
-    <details>
-      <summary>How long do I need an ignition interlock in Colorado?</summary>
-      <p>The interlock period in Colorado depends on your offense. First-time DUI offenders typically need the device for 8 months to 2 years. Repeat offenses require longer periods. Your reinstatement letter from Colorado DMV will specify your exact requirement.</p>
-    </details>
-
-    <details>
-      <summary>What areas do you serve in Northern Colorado?</summary>
-      <p>We serve Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, and all of Weld County. Our shop is conveniently located at 3610 35th Avenue in Evans, CO.</p>
-    </details>
-
-    <details>
-      <summary>Can you notarize my interlock affidavit?</summary>
-      <p>Yes! We have a Notary Public on-site. We can notarize your Colorado ignition interlock affidavit during your installation or calibration appointment—no extra trip needed.</p>
-    </details>
-  </section>
-
-  <!-- =====================================================================
-       FOOTER + CALL FLOAT
-       =================================================================== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <!-- Back to top -->
-    <a href="#top" class="backtop" aria-label="Back to top">
-      <span class="backtop-ico" aria-hidden="true">▲</span>
-      Back to Top
-    </a>
-
-    <!-- Contact link -->
-    <div>
-     <a href="contactus/index.html" class="contact-link" aria-label="Contact InterlockGo Evans">
-        Contact Us
-      </a>
-    </div>
-
-    <!-- Resume link -->
-    <div>
-     <a href="resume/index.html" class="resume-link" aria-label="My resume">
-        My Resume
-      </a>
-    </div>
-
-    <!-- Floating call button -->
-    <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
-      <img src="../images/smileyface.png" alt="Call InterlockGo NOCO — Evans, CO" loading="lazy" decoding="async">
-    </a>
-
-    <!-- Footer meta (NAP for SEO) -->
-    <div class="footer-meta">
-      © 2025 InterlockGo NOCO • 3610 35th Avenue Unit #7, Evans, CO 80620 • Created and maintained by NexGen Studios
-    </div>
+    </main>
   </div>
-</footer>
 
+  <!-- ===== FEATURES SECTION ===== -->
+  <section class="features" aria-labelledby="features-title">
+    <div class="container">
+      <h2 id="features-title" class="section-title">Why Choose InterlockGo?</h2>
+      <p class="section-subtitle">Ignition Interlock Devices is all we do.</p>
 
-  <!-- =====================================================================
-       SCRIPTS — Reveal + 3D Orbital Carousel
-       =================================================================== -->
-  <script>
-  // Reveal on scroll (gracefully degrades if unsupported)
-  (() => {
-    const els = document.querySelectorAll('.reveal');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach(el => el.classList.add('visible'));
-      return;
-    }
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.35 });
-    els.forEach(el => io.observe(el));
-  })();
-  </script>
+      <div class="features__orbit">
+        <div class="orbit orbit--rating">
+          <div class="orbit__center">
+            <span class="orbit__metric">4.5</span>
+            <span class="orbit__metric-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="orbit__metric-label">Google Rating</span>
+          </div>
+          <div class="orbit__ring orbit__ring--1"></div>
+          <div class="orbit__ring orbit__ring--2"></div>
+          <div class="orbit__ring orbit__ring--3"></div>
+          <div class="orbit__nodes orbit__nodes--rating">
+            <div class="orbit__node orbit__node--product orbit__node--rating orbit__node--ring1">
+              <div class="orbit__node-inner">
+                <img src="images/ls250.png" alt="LifeSafer LS250 Device" />
+              </div>
+            </div>
+            <div class="orbit__node orbit__node--product orbit__node--rating orbit__node--ring2">
+              <div class="orbit__node-inner">
+                <img src="images/guardianhandset.png" alt="Guardian Interlock Device" />
+              </div>
+            </div>
+            <div class="orbit__node orbit__node--product orbit__node--rating orbit__node--ring3">
+              <div class="orbit__node-inner">
+                <img src="images/lc100.png" alt="LifeSafer LC100 Device" />
+              </div>
+            </div>
+            <div class="orbit__node orbit__node--product orbit__node--rating orbit__node--avatar orbit__node--ring4">
+              <div class="orbit__node-inner">
+                <img src="images/anson.jpg" alt="Anson" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <script>
-  // 3D Orbital Carousel Controller
-  (() => {
-    const stage = document.querySelector('.orbit-stage');
-    const track = document.querySelector('.orbit-track');
-    const cards = Array.from(document.querySelectorAll('.orbit-card'));
-    const dots = Array.from(document.querySelectorAll('.orbit-dot'));
-    const progressFill = document.querySelector('.orbit-progress-fill');
-    const scrollHint = document.querySelector('.orbit-scroll-hint');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      <div class="features__grid">
+        <!-- Feature 1 -->
+        <article class="feature-card">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Interlock Only. No One Takes a Backseat.</h3>
+          <p class="feature-card__text">We don’t do car audio or mechanic work. Every appointment gets our full attention and equal treatment.</p>
+        </article>
 
-    if (!track || !cards.length) return;
+        <!-- Feature 2 -->
+        <article class="feature-card">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Certified Service</h3>
+          <p class="feature-card__text">Authorized Lifesafer & Guardian provider. Certified calibrations with proper documentation.</p>
+        </article>
 
-    let currentIndex = 0;
-    let isDragging = false;
-    let startX = 0;
-    let scrollLeft = 0;
-    let velocity = 0;
-    let rafId = null;
+        <!-- Feature 3 -->
+        <article class="feature-card">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="M12 18v-6"></path>
+              <path d="M9 15l3 3 3-3"></path>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Notary On-Site</h3>
+          <p class="feature-card__text">Get your Colorado interlock affidavit notarized during your appointment. No extra trips needed.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    // Calculate card width with gap
-    const getCardWidth = () => {
-      const card = cards[0];
-      const style = getComputedStyle(track);
-      const gap = parseInt(style.gap) || 24;
-      return card.offsetWidth + gap;
-    };
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+      <h2 id="how-title" class="section-title">How It Works</h2>
+      <p class="section-subtitle">For your driving privileges to be reinstated, you must complete the Colorado state interlock program. </p>
 
-    // Smooth scroll to card index
-    const scrollToCard = (index, smooth = true) => {
-      index = Math.max(0, Math.min(index, cards.length - 1));
-      currentIndex = index;
+      <div class="steps">
+        <!-- Step 1 -->
+        <div class="step">
+          <div class="step__number">1</div>
+          <div class="step__content">
+            <h3 class="step__title">Schedule</h3>
+            <p class="step__text">Call or Visit our shop to schedule an installation appointment.</p>
+          </div>
+        </div>
 
-      const cardWidth = getCardWidth();
-      const stageWidth = stage.offsetWidth;
-      const offset = (stageWidth - cards[0].offsetWidth) / 2;
-      const targetScroll = index * cardWidth - offset;
+        <div class="step__connector" aria-hidden="true"></div>
 
-      if (smooth && !reduce) {
-        track.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-      } else {
-        track.style.transition = 'none';
-      }
+        <!-- Step 2 -->
+        <div class="step">
+          <div class="step__number">2</div>
+          <div class="step__content">
+            <h3 class="step__title">Install</h3>
+            <p class="step__text">The installation can take our technicians between 2-4 hours. You are welcome to wait on-site or drop off your vehicle.</p>
+          </div>
+        </div>
 
-      track.style.transform = `translateX(${-targetScroll}px)`;
-      updateActiveStates();
-    };
+        <div class="step__connector" aria-hidden="true"></div>
 
-    // Update active card and progress
-    const updateActiveStates = () => {
-      cards.forEach((card, i) => {
-        card.classList.toggle('active', i === currentIndex);
-      });
+        <!-- Step 3 -->
+        <div class="step">
+          <div class="step__number">3</div>
+          <div class="step__content">
+            <h3 class="step__title">Drive</h3>
+            <p class="step__text">Present your notarized interlock affidavit and other needed documents to the DMV. Pass the written and driving test to be issued a restricted Driver's License. Get back to your daily routine with confidence.</p>
+          </div>
+        </div>
+      </div>
 
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
-      });
+      <div class="how-it-works__cta">
+        <a href="getstarted/" class="btn btn--primary btn--lg">Get Started Today</a>
+      </div>
+    </div>
+  </section>
 
-      // Update progress bar
-      const progress = ((currentIndex + 1) / cards.length) * 100;
-      progressFill.style.width = `${progress}%`;
+  <!-- ===== USE CASES ===== -->
+  <section class="use-cases" aria-labelledby="usecases-title">
+    <div class="container">
+      <h2 id="usecases-title" class="section-title">We're Here to Help</h2>
+      <p class="section-subtitle">No matter your situation, we provide professional, judgment-free service.</p>
 
-      // Hide scroll hint after first interaction
-      if (currentIndex > 0 && scrollHint) {
-        scrollHint.style.opacity = '0';
-        setTimeout(() => scrollHint.style.display = 'none', 300);
-      }
-    };
+      <div class="use-cases__grid">
+        <!-- Use Case 1 -->
+        <article class="use-case-card">
+          <div class="use-case-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <path d="M12 8v8"></path>
+              <path d="M8 12h8"></path>
+            </svg>
+          </div>
+          <h3 class="use-case-card__title">DUI/DWI Compliance</h3>
+          <p class="use-case-card__text">Meet Colorado DMV requirements with certified installation and proper documentation.</p>
+        </article>
 
-    // Dot click handlers
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => scrollToCard(i));
-    });
+        <!-- Use Case 2 -->
+        <article class="use-case-card">
+          <div class="use-case-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+              <circle cx="7" cy="17" r="2"></circle>
+              <path d="M9 17h6"></path>
+              <circle cx="17" cy="17" r="2"></circle>
+            </svg>
+          </div>
+          <h3 class="use-case-card__title">Fleet Vehicles</h3>
+          <p class="use-case-card__text">Commercial fleet interlock solutions with flexible scheduling and volume pricing.</p>
+        </article>
 
-    // Wheel scroll handling (horizontal scroll on vertical wheel)
-    let wheelTimeout;
-    stage.addEventListener('wheel', (e) => {
-      e.preventDefault();
+        <!-- Use Case 3 -->
+        <article class="use-case-card">
+          <div class="use-case-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="use-case-card__title">Court Requirements</h3>
+          <p class="use-case-card__text">We work with the Colorado Reporting Office and Department of Revenue to ensure all requirements are met.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      clearTimeout(wheelTimeout);
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <div class="container">
+      <h2 id="testimonials-title" class="section-title">What Our Customers Say</h2>
 
-      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      <div class="testimonials__grid">
+        <!-- Testimonial 1 -->
+        <blockquote class="testimonial">
+          <div class="testimonial__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial__quote">"Fast, professional, and friendly. They got me in the same day I called. The install was clean and they explained everything clearly."</p>
+          <footer class="testimonial__author">
+            <span class="testimonial__name">Michael R.</span>
+            <span class="testimonial__location">Greeley, CO</span>
+          </footer>
+        </blockquote>
 
-      wheelTimeout = setTimeout(() => {
-        if (delta > 30) {
-          scrollToCard(currentIndex + 1);
-        } else if (delta < -30) {
-          scrollToCard(currentIndex - 1);
-        }
-      }, 50);
-    }, { passive: false });
+        <!-- Testimonial 2 -->
+        <blockquote class="testimonial">
+          <div class="testimonial__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial__quote">"Best experience I could have hoped for given the circumstances. No judgment, just helpful service. Having the notary on-site saved me so much time."</p>
+          <footer class="testimonial__author">
+            <span class="testimonial__name">Sarah T.</span>
+            <span class="testimonial__location">Fort Collins, CO</span>
+          </footer>
+        </blockquote>
 
-    // Touch/drag handling
-    const handleDragStart = (e) => {
-      isDragging = true;
-      startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-      track.style.transition = 'none';
-      track.style.cursor = 'grabbing';
-    };
+        <!-- Testimonial 3 -->
+        <blockquote class="testimonial">
+          <div class="testimonial__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial__quote">"Anson is great! Very knowledgeable and makes the whole process stress-free. Highly recommend InterlockGo to anyone in Northern Colorado."</p>
+          <footer class="testimonial__author">
+            <span class="testimonial__name">David K.</span>
+            <span class="testimonial__location">Evans, CO</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
 
-    const handleDragMove = (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta" aria-labelledby="finalcta-title">
+    <div class="container">
+      <h2 id="finalcta-title" class="final-cta__title">Ready to Get Started?</h2>
+      <p class="final-cta__text">Call now or schedule online. Same-day appointments often available.</p>
+      <div class="final-cta__buttons">
+        <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          970-515-5740
+        </a>
+        <a href="tel:970-515-5740" class="btn btn--secondary btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Call to Schedule
+        </a>
+      </div>
+      <p class="final-cta__address">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        3610 35th Avenue Unit #7, Evans, CO 80620
+      </p>
+    </div>
+  </section>
 
-      const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-      const diff = x - startX;
-      velocity = diff;
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" />
+          <span class="footer__company">InterlockGo NOCO</span>
+        </div>
 
-      const cardWidth = getCardWidth();
-      const stageWidth = stage.offsetWidth;
-      const offset = (stageWidth - cards[0].offsetWidth) / 2;
-      const currentScroll = currentIndex * cardWidth - offset;
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="lifesafer/">Lifesafer</a>
+          <a href="guardian/">Guardian</a>
+          <a href="forms/">Forms</a>
+          <a href="reviews/">Reviews</a>
+          <a href="contactus/">Contact</a>
+        </nav>
 
-      track.style.transform = `translateX(${-currentScroll + diff}px)`;
-    };
+        <div class="footer__meta">
+          <p>&copy; 2025 InterlockGo NOCO. All rights reserved.</p>
+          <p>Created and maintained by NexGen Studios</p>
+        </div>
+      </div>
 
-    const handleDragEnd = () => {
-      if (!isDragging) return;
-      isDragging = false;
-      track.style.cursor = 'grab';
+      <a href="#top" class="footer__backtop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </a>
+    </div>
+  </footer>
 
-      const threshold = getCardWidth() * 0.2;
+  <!-- Floating Call Button -->
+  <a href="tel:970-515-5740" class="call-float" aria-label="Call InterlockGo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </a>
 
-      if (velocity > threshold) {
-        scrollToCard(currentIndex - 1);
-      } else if (velocity < -threshold) {
-        scrollToCard(currentIndex + 1);
-      } else {
-        scrollToCard(currentIndex);
-      }
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
-      velocity = 0;
-    };
-
-    // Mouse events
-    stage.addEventListener('mousedown', handleDragStart);
-    window.addEventListener('mousemove', handleDragMove);
-    window.addEventListener('mouseup', handleDragEnd);
-
-    // Touch events
-    stage.addEventListener('touchstart', handleDragStart, { passive: true });
-    stage.addEventListener('touchmove', handleDragMove, { passive: false });
-    stage.addEventListener('touchend', handleDragEnd);
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      const stageRect = stage.getBoundingClientRect();
-      const inView = stageRect.top < window.innerHeight && stageRect.bottom > 0;
-
-      if (!inView) return;
-
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        scrollToCard(currentIndex + 1);
-      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        scrollToCard(currentIndex - 1);
-      }
-    });
-
-    // 3D tilt effect on mouse move (desktop only)
-    if (!reduce && window.matchMedia('(hover: hover)').matches) {
-      cards.forEach(card => {
-        const inner = card.querySelector('.orbit-card-inner');
-
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          const rotateX = ((y - centerY) / centerY) * -8;
-          const rotateY = ((x - centerX) / centerX) * 8;
-
-          inner.style.transform = `
-            translateY(-8px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            scale(1.02)
-          `;
-        });
-
-        card.addEventListener('mouseleave', () => {
-          inner.style.transform = '';
-        });
-      });
-    }
-
-    // Initialize
-    track.style.cursor = 'grab';
-    scrollToCard(0, false);
-
-    // Handle resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => scrollToCard(currentIndex, false), 100);
-    });
-
-    // Intersection observer for section visibility
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-          cards[currentIndex].classList.add('active');
-        }
-      });
-    }, { threshold: [0.3] });
-
-    const section = document.querySelector('.orbit-section');
-    if (section) sectionObserver.observe(section);
-  })();
-  </script>
-
-  <!-- =====================================================================
-       OPTIONAL: Ultra-light hero parallax (no background-attachment: fixed)
-       =================================================================== -->
-  <script>
-  (() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const el = document.querySelector('.hero-section');
-    if (reduce || !el) return;
-
-    let ticking = false;
-    function tick() {
-      const y = window.scrollY || document.documentElement.scrollTop || 0;
-      el.style.backgroundPosition = `center ${Math.round(y * 0.12)}px`;
-      ticking = false;
-    }
-    window.addEventListener('scroll', () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(tick); }
-    }, { passive: true });
-  })();
-  </script>
-
-  <!-- === Minimal CSS hook for map (in case not in base.css) ============ -->
-  <style>
-    .map-embed{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.08);}
-    .map-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-    .seo-intro, .location, .faq {padding: clamp(16px, 3vw, 36px);}
-    .seo-intro p {max-width: 68ch;}
-    .faq details {margin: 8px 0;}
-  </style>
-
-  <!-- Mobile Navigation -->
-  <script src="js/mobile-nav.js"></script>
+  <!-- Script -->
+  <script src="script.js"></script>
+  <script src="js/device-switcher.js"></script>
 </body>
 </html>

@@ -262,7 +262,7 @@ nav {
 .nav-menu li ul {
   position: absolute;
   left: 0;
-  top: calc(100% + 8px);
+  top: 100%;
   background: var(--surface);
   padding: 8px 0;
   display: none;
@@ -275,7 +275,8 @@ nav {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.nav-menu li:hover > ul {
+.nav-menu li:hover > ul,
+.nav-menu li:focus-within > ul {
   display: block;
   opacity: 1;
   transform: translateY(0);
@@ -488,31 +489,48 @@ nav > ul > li > a {
   padding: 10px 14px;
   color: var(--text);
   font-weight: 500;
+  font-size: 0.9375rem;
   background: transparent;
   border-radius: 10px;
-  transition: color 0.15s ease, background 0.15s ease;
+  position: relative;
+  border: 1px solid transparent;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 nav > ul > li > a:hover {
   color: var(--accent);
   background: rgba(232, 65, 66, 0.08);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+nav > ul > li > a.active {
+  color: var(--accent);
+  background: rgba(232, 65, 66, 0.12);
+  border-color: rgba(232, 65, 66, 0.25);
 }
 
 nav > ul li ul {
   position: absolute;
   left: 0;
-  top: calc(100% + 4px);
+  top: 100%;
   background: var(--surface);
   padding: 8px 0;
-  display: none;
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 12px;
   min-width: 150px;
+  opacity: 0;
+  transform: translateY(-6px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-nav > ul li:hover > ul {
-  display: block;
+nav > ul li:hover > ul,
+nav > ul li:focus-within > ul {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 nav > ul li ul a {
@@ -564,6 +582,10 @@ nav > ul li ul a {
     box-shadow: none;
     border: none;
     border-radius: 0;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   nav > ul li.open > ul,

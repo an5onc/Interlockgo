@@ -2,40 +2,47 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17605887515');
+  </script>
 
-  gtag('config', 'AW-17605887515');
-</script>
-  <!-- META -->
+  <!-- Theme initialization (prevents flash) -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- === CORE META === -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Lifesafer Ignition Interlock Installer in Evans, CO | InterlockGo NOCO</title>
   <meta name="description" content="Certified Lifesafer ignition interlock installation, calibration & service in Evans and Greeley, CO. Same-day appointments. Call 970-515-5740." />
   <link rel="canonical" href="https://interlockgo.io/lifesafer/" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Lifesafer Interlock Installer in Evans, CO" />
-  <meta property="og:description" content="Authorized Lifesafer ignition interlock installs, service & calibration at InterlockGo NOCO — Evans, CO." />
+  <meta property="og:description" content="Authorized Lifesafer ignition interlock installs, service & calibration at InterlockGo NOCO - Evans, CO." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://interlockgo.io/lifesafer/" />
   <meta property="og:image" content="https://interlockgo.io/images/LifeSafer_image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts (same as home) -->
+  <!-- === FONTS === -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
-  <link href="../base.css" rel="stylesheet" />
+  <!-- === STYLESHEET === -->
+  <link href="../index.css" rel="stylesheet" />
   <link href="lifesafer.css" rel="stylesheet" />
-
-  <script>document.documentElement.classList.add('js');</script>
-  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
   <!-- Structured Data: BreadcrumbList -->
   <script type="application/ld+json">
@@ -44,8 +51,7 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://interlockgo.io/"},
-      {"@type": "ListItem", "position": 2, "name": "Equipment", "item": "https://interlockgo.io/#equipment"},
-      {"@type": "ListItem", "position": 3, "name": "Lifesafer", "item": "https://interlockgo.io/lifesafer/"}
+      {"@type": "ListItem", "position": 2, "name": "Lifesafer", "item": "https://interlockgo.io/lifesafer/"}
     ]
   }
   </script>
@@ -64,156 +70,336 @@
   </script>
 </head>
 <body id="top">
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NAV (mirrors home; note ../ paths) -->
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../appointments/">Appointments</a></li>
-      <li><a href="../hours/">Shop hours</a></li>
-      <li>
-        <a href="javascript:void(0)">Equipment</a>
-        <ul>
-          <li><a class="active" href="./">Lifesafer</a></li>
+  <!-- Background gradient layer -->
+  <div class="page-bg" aria-hidden="true">
+    <div class="page-bg__gradient"></div>
+    <div class="page-bg__glow page-bg__glow--1"></div>
+    <div class="page-bg__glow page-bg__glow--2"></div>
+  </div>
+
+  <!-- ===== MAIN CARD CONTAINER ===== -->
+  <div class="main-card">
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="header">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="../" class="nav__logo" aria-label="InterlockGo Home">
+          <img src="../images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" />
+          <span class="nav__wordmark">InterlockGo</span>
+        </a>
+
+        <ul class="nav__links" id="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="./" class="nav__link--active">Lifesafer</a></li>
           <li><a href="../guardian/">Guardian</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="javascript:void(0)">Support</a>
-        <ul>
-          <li><a href="../forms/">Forms</a></li>
+          <li><a href="../appointments/">Appointments</a></li>
           <li><a href="../contactus/">Contact</a></li>
         </ul>
-      </li>
-      <li>
-        <a href="https://myaccount.lifesafer.com/account/login" target="_blank" rel="noopener">My Account</a>
-      </li>
-    </ul>
-  </nav>
 
-  <!-- HERO (matches home styling) -->
-  <header class="hero-section hero--brand">
-    <div class="hero-overlay">
-      <div class="hero">
-        <h1>Lifesafer Ignition Interlock — Evans, CO</h1>
-        <p>Authorized Lifesafer installer for Northern Colorado. Same‑day installs, calibration & clean removals.</p>
-        <div class="cta-dropdown-container">
-          <a href="tel:970-515-5740" class="cta-button" aria-label="Call InterlockGo">Call Now</a>
-          <div class="phone-number"><a href="tel:970-515-5740">970‑515‑5740</a></div>
+        <div class="nav__actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <a href="https://myaccount.lifesafer.com/account/login" class="nav__link--text" target="_blank" rel="noopener">Log in</a>
+          <a href="../getstarted/" class="btn btn--primary btn--sm">Get Started</a>
         </div>
+
+        <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero__content">
+          <!-- Eyebrow Badge -->
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            Authorized Lifesafer Provider
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero__title">
+            Lifesafer Interlock<br />
+            <span class="hero__title--accent">Installation & Service</span>
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="hero__subtitle">
+            Certified Lifesafer installation, calibration, and service in Northern Colorado. Featuring the LS250 and FC100 devices with 24/7 support and real-time reporting.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero__cta">
+            <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Call Now
+            </a>
+            <a href="tel:970-515-5740" class="btn btn--secondary btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Call to Schedule
+            </a>
+          </div>
+
+          <!-- Micro-proof -->
+          <p class="hero__proof">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+            Same-day installs & monthly calibrations
+          </p>
+        </div>
+
+        <!-- Hero Visual: Device Showcase -->
+        <div class="hero__visual">
+          <div class="device-showcase">
+            <div class="device-showcase__main">
+              <img src="../images/ls250.png" alt="Lifesafer LS250 Ignition Interlock Device" class="device-showcase__image" />
+            </div>
+            <div class="device-showcase__glow" aria-hidden="true"></div>
+            <div class="device-showcase__ring device-showcase__ring--1" aria-hidden="true"></div>
+            <div class="device-showcase__ring device-showcase__ring--2" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== AUTHORIZED PROVIDER ===== -->
+      <section class="logos" aria-label="Authorized provider">
+        <p class="logos__label">Authorized Provider For</p>
+        <div class="logos__row">
+          <img src="../images/LifeSafer_image.png" alt="Lifesafer Authorized" class="logos__img" loading="lazy" />
+          <img src="../images/notarylogo.png" alt="Notary Public On-Site" class="logos__img" loading="lazy" />
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== DEVICES SECTION ===== -->
+  <section class="features" aria-labelledby="devices-title">
+    <div class="container">
+      <h2 id="devices-title" class="section-title">Lifesafer Devices</h2>
+      <p class="section-subtitle">State-of-the-art ignition interlock technology with industry-leading features.</p>
+
+      <div class="features__grid">
+        <!-- LS250 Device -->
+        <article class="feature-card">
+          <div class="feature-card__icon feature-card__icon--device">
+            <img src="../images/ls250.png" alt="Lifesafer LS250" loading="lazy" />
+          </div>
+          <h3 class="feature-card__title">Lifesafer LS250</h3>
+          <p class="feature-card__text">Compact, easy-to-use ignition interlock with camera-equipped handset, real-time reporting, and 24/7 support.</p>
+        </article>
+
+        <!-- FC100 Device -->
+        <article class="feature-card">
+          <div class="feature-card__icon feature-card__icon--device">
+            <img src="../images/lc100.png" alt="Lifesafer FC100" loading="lazy" />
+          </div>
+          <h3 class="feature-card__title">Lifesafer FC100</h3>
+          <p class="feature-card__text">Built-in camera for identity verification, GPS tracking capabilities, and wireless data transfer.</p>
+        </article>
+
+        <!-- Service Feature -->
+        <article class="feature-card">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Colorado DMV Approved</h3>
+          <p class="feature-card__text">All Lifesafer devices meet Colorado requirements. Proper documentation and compliance guaranteed.</p>
+        </article>
       </div>
     </div>
-  </header>
-
-  <!-- PAGE INTRO (SEO copy) -->
-  <section class="page-intro">
-    <h2>Certified Lifesafer Installation, Calibration & Service</h2>
-    <p>
-      InterlockGo NOCO is an <strong>authorized Lifesafer ignition interlock</strong> provider serving Evans, Greeley and the wider Weld County area.
-      We offer <strong>same‑day appointments</strong>, clear instructions, and <strong>monthly calibrations</strong> to keep you compliant with Colorado DMV requirements.
-    </p>
   </section>
 
-  <!-- VIDEO GRID (even, responsive, 16:9) -->
-  <section class="video-section">
-    <h2 class="visually-hidden">Lifesafer Device Tutorials</h2>
+  <!-- ===== VIDEO TUTORIALS SECTION ===== -->
+  <section class="how-it-works" aria-labelledby="videos-title">
+    <div class="container">
+      <h2 id="videos-title" class="section-title">Device Tutorials</h2>
+      <p class="section-subtitle">Learn how to use your Lifesafer device with these helpful video guides.</p>
 
-    <div class="video-grid">
-      <!-- FC100 (English) -->
-      <article class="video-card reveal">
-        <h3>Lifesafer FC100 — How It Works (English)</h3>
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/biubuR6AJU8"
-            title="Lifesafer FC100 — English tutorial"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
-        </div>
-      </article>
+      <div class="video-grid">
+        <!-- FC100 (English) -->
+        <article class="video-card">
+          <h3>FC100 - How It Works (English)</h3>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/biubuR6AJU8"
+              title="Lifesafer FC100 - English tutorial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </article>
 
-      <!-- FC100 (Spanish) -->
-      <article class="video-card reveal">
-        <h3>Lifesafer FC100 — Instrucciones (Español)</h3>
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube.com/embed/gZROvBInl_g"
-            title="Lifesafer FC100 — Instrucciones en Español"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
-        </div>
-      </article>
+        <!-- FC100 (Spanish) -->
+        <article class="video-card">
+          <h3>FC100 - Instrucciones (Espanol)</h3>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/gZROvBInl_g"
+              title="Lifesafer FC100 - Instrucciones en Espanol"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </article>
 
-      <!-- L250 -->
-      <article class="video-card reveal">
-        <h3>Lifesafer L250 — Overview</h3>
-        <div class="video-frame">
-          <iframe
-            src="https://player.vimeo.com/video/234037867?h=a0f7cbce7e"
-            title="Lifesafer L250 overview"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen loading="lazy"></iframe>
-        </div>
-      </article>
+        <!-- L250 -->
+        <article class="video-card">
+          <h3>L250 - Overview</h3>
+          <div class="video-frame">
+            <iframe
+              src="https://player.vimeo.com/video/234037867?h=a0f7cbce7e"
+              title="Lifesafer L250 overview"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- =====================================================================
-       FOOTER + CALL FLOAT
-       =================================================================== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <!-- Back to top -->
-    <a href="#top" class="backtop" aria-label="Back to top">
-      <span class="backtop-ico" aria-hidden="true">▲</span>
-      Back to Top
-    </a>
+  <!-- ===== WHY LIFESAFER SECTION ===== -->
+  <section class="use-cases" aria-labelledby="why-title">
+    <div class="container">
+      <h2 id="why-title" class="section-title">Why Choose Lifesafer?</h2>
+      <p class="section-subtitle">Industry-leading technology backed by decades of experience.</p>
 
-    <!-- Contact link -->
-    <div>
-      <a href="../contactus/" class="contact-link" aria-label="Contact InterlockGo Evans">
-        Contact Us
+      <div class="use-cases__grid">
+        <article class="use-case-card">
+          <div class="use-case-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="use-case-card__title">Proven Reliability</h3>
+          <p class="use-case-card__text">Over 30 years of trusted ignition interlock technology with millions of installations.</p>
+        </article>
+
+        <article class="use-case-card">
+          <div class="use-case-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3 class="use-case-card__title">24/7 Support</h3>
+          <p class="use-case-card__text">Round-the-clock customer service and roadside assistance when you need it most.</p>
+        </article>
+
+        <article class="use-case-card">
+          <div class="use-case-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <h3 class="use-case-card__title">Local Service</h3>
+          <p class="use-case-card__text">InterlockGo NOCO is your authorized local provider with flexible scheduling.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta" aria-labelledby="finalcta-title">
+    <div class="container">
+      <h2 id="finalcta-title" class="final-cta__title">Ready to Get Started with Lifesafer?</h2>
+      <p class="final-cta__text">Call now or schedule online. Same-day appointments often available.</p>
+      <div class="final-cta__buttons">
+        <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          970-515-5740
+        </a>
+        <a href="tel:970-515-5740" class="btn btn--secondary btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Call to Schedule
+        </a>
+      </div>
+      <p class="final-cta__address">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        3610 35th Avenue Unit #7, Evans, CO 80620
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="../images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" />
+          <span class="footer__company">InterlockGo NOCO</span>
+        </div>
+
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="./">Lifesafer</a>
+          <a href="../guardian/">Guardian</a>
+          <a href="../forms/">Forms</a>
+          <a href="../reviews/">Reviews</a>
+          <a href="../contactus/">Contact</a>
+        </nav>
+
+        <div class="footer__meta">
+          <p>&copy; 2025 InterlockGo NOCO. All rights reserved.</p>
+          <p>Created and maintained by NexGen Studios</p>
+        </div>
+      </div>
+
+      <a href="#top" class="footer__backtop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
       </a>
     </div>
+  </footer>
 
-    <!-- Floating call button -->
-    <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
-      <img src="../images/smileyface.png" alt="Call InterlockGo NOCO — Evans, CO" loading="lazy" decoding="async">
-    </a>
+  <!-- Floating Call Button -->
+  <a href="tel:970-515-5740" class="call-float" aria-label="Call InterlockGo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </a>
 
-    <!-- Footer meta (NAP for SEO) -->
-    <div class="footer-meta">
-      © 2025 InterlockGo NOCO • 3610 35th Avenue, Evans, CO 80620 • 
-      <a href="tel:970-515-5740">970-515-5740</a>
-    </div>
-  </div>
-</footer>
+  <!-- Mobile Menu Overlay -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
-  <!-- Light reveal (matches home) -->
-  <script>
-  (() => {
-    const els = document.querySelectorAll('.reveal');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach(el => el.classList.add('visible'));
-      return;
-    }
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.35 });
-    els.forEach(el => io.observe(el));
-  })();
-  </script>
-
-  <!-- Minimal page-scoped helpers -->
-  <style>
-    /* map embed fallback (if not already in base.css) */
-    .map-embed{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.08);}
-    .map-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  </style>
-
-  <!-- Mobile Navigation -->
-  <script src="../js/mobile-nav.js"></script>
+  <!-- Script -->
+  <script src="../script.js"></script>
 </body>
 </html>

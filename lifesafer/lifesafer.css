@@ -1,89 +1,223 @@
-/* ====== Lifesafer Page Styles (matches home look) ===================== */
+/* ==========================================================================
+   LIFESAFER PAGE - EQUIPMENT STYLES
+   Extends index.css for Lifesafer-specific components
+   ========================================================================== */
 
-/* Page sections */
-.page-intro,
-.video-section,
-.location { padding: clamp(16px, 3vw, 36px); }
-.page-intro p { max-width: 68ch; }
-
-/* Hero variant (uses home hero base styles) */
-.hero--brand {
-  background-image: url('../images/LifeSafer_image.png');
-  background-size: cover;
-  background-position: center top;   /* anchors to top */
-  padding-top: 120px;                /* extra breathing room under nav */
-  min-height: 300px;                 /* adjust as needed */
-}
-
-.hero-section .hero {
+/* === DEVICE SHOWCASE (Hero Visual) === */
+.device-showcase {
+  position: relative;
+  width: 320px;
+  height: 320px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;  /* align to top instead of center */
   align-items: center;
-  padding-top: 60px;            /* add breathing room from nav */
-  min-height: 300px;            /* keeps hero tall */
-  text-align: center;
+  justify-content: center;
 }
 
+@media (min-width: 768px) {
+  .device-showcase {
+    width: 400px;
+    height: 400px;
+  }
+}
 
+.device-showcase__main {
+  position: relative;
+  z-index: 10;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-/* Even, responsive video grid */
+@media (min-width: 768px) {
+  .device-showcase__main {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+.device-showcase__image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(11, 30, 102, 0.3));
+  animation: deviceFloat 4s ease-in-out infinite;
+}
+
+[data-theme="dark"] .device-showcase__image {
+  filter: drop-shadow(0 20px 40px rgba(182, 255, 46, 0.2));
+}
+
+@keyframes deviceFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.device-showcase__glow {
+  position: absolute;
+  inset: 20%;
+  background: radial-gradient(circle, var(--glow-accent) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.device-showcase__ring {
+  position: absolute;
+  border: 1px solid var(--orbit-ring);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.device-showcase__ring--1 {
+  width: 280px;
+  height: 280px;
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+.device-showcase__ring--2 {
+  width: 100%;
+  height: 100%;
+  border-style: dashed;
+  animation: ringPulse 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes ringPulse {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.02); }
+}
+
+/* === VIDEO GRID === */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: clamp(14px, 2.6vw, 24px);
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
 }
 
+@media (min-width: 768px) {
+  .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.video-grid--2col {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .video-grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === VIDEO CARDS === */
 .video-card {
-  background: var(--card-bg, #fff);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  padding: clamp(14px, 2.4vw, 20px);
-  transform: translateZ(0);
-  transition: box-shadow .25s ease, transform .25s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-normal) ease;
 }
 
 .video-card:hover {
-  box-shadow: 0 14px 40px rgba(0,0,0,.12);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
 }
 
 .video-card h3 {
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-size: var(--text-lg);
   font-weight: 600;
-  font-size: clamp(18px, 2.2vw, 20px);
-  margin: 0 0 10px;
+  margin-bottom: var(--space-4);
+  color: var(--text);
 }
 
-/* Perfect 16:9 frames (uniform heights) */
 .video-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;           /* modern browsers */
-  background: #0a0a0a;
-  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  background: var(--navy-ink);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
-@supports not (aspect-ratio: 1 / 1) {
-  .video-frame { padding-bottom: 56.25%; height: 0; }
-  .video-frame iframe { position: absolute; inset: 0; }
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
-.video-frame iframe { width: 100%; height: 100%; border: 0; }
 
-/* Location / map */
-.location address {
-  font-style: normal;
-  line-height: 1.5;
-  margin-bottom: 12px;
+/* === FEATURE CARD DEVICE ICON === */
+.feature-card__icon--device {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(11, 30, 102, 0.05) 0%, rgba(182, 255, 46, 0.05) 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
 }
-.map-embed { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.08); }
-.map-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 
-/* Reveal animation (same behavior as home) */
-.reveal { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+[data-theme="dark"] .feature-card__icon--device {
+  background: linear-gradient(135deg, rgba(15, 20, 36, 0.8) 0%, rgba(11, 30, 102, 0.3) 100%);
+}
 
-/* Small helpers to align with home spacing */
-h1, h2 { letter-spacing: 0.2px; }
-.cta .map-embed { margin-top: 12px; }
+.feature-card__icon--device img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+/* === ACTIVE NAV LINK === */
+.nav__link--active {
+  color: var(--accent) !important;
+  background: rgba(11, 30, 102, 0.08);
+  border-radius: var(--radius-md);
+}
+
+[data-theme="dark"] .nav__link--active {
+  background: rgba(182, 255, 46, 0.1);
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 640px) {
+  .device-showcase {
+    width: 280px;
+    height: 280px;
+  }
+
+  .device-showcase__main {
+    width: 180px;
+    height: 180px;
+  }
+
+  .device-showcase__ring--1 {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* === PRINT === */
+@media print {
+  .device-showcase__glow,
+  .device-showcase__ring {
+    display: none;
+  }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  .device-showcase__image {
+    animation: none;
+  }
+
+  .device-showcase__ring {
+    animation: none;
+  }
+}

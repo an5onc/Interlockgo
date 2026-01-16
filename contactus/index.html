@@ -16,9 +16,16 @@
   <meta name="description" content="Contact InterlockGo NOCO for ignition interlock installation, calibration, and service questions. Located at 3610 35th Ave, Evans, CO. Call 970-515-5740." />
   <link rel="canonical" href="https://interlockgo.io/contactus/" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <!-- Shared theme + page CSS -->
   <link rel="stylesheet" href="../base.css" />
   <link rel="stylesheet" href="contactus.css" />
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -42,14 +49,6 @@
     <ul>
       <li><a href="../index.html">Home</a></li>
       <li><a href="../appointments/">Appointments</a></li>
-      <li><a href="../hours/">Shop hours</a></li>
-      <li>
-        <a href="javascript:void(0)">Equipment</a>
-        <ul>
-          <li><a href="../lifesafer/">Lifesafer</a></li>
-          <li><a href="../guardian/">Guardian</a></li>
-        </ul>
-      </li>
       <li>
         <a href="javascript:void(0)">Support</a>
         <ul>
@@ -65,8 +64,25 @@
   <!-- HERO (matches site look) -->
   <header class="contact-hero">
     <div class="contact-hero__inner">
-      <h1>Questions? Comments? Concerns?</h1>
-      <p>We’re here to help. Reach us by email or phone, or stop by during shop hours.</p>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-chip">InterlockGo - SUPPORT DESK</div>
+          <h1>Questions? Comments? Concerns?</h1>
+          <p>We are here to help. Reach us by email or phone, or stop by during shop hours.</p>
+          <div class="hero-actions">
+            <a class="button button--ghost" href="tel:970-515-5740">Call now</a>
+            <a class="button" href="mailto:interlockgo@gmail.com">Email us</a>
+          </div>
+          <div class="hero-signal">
+            <span class="hero-dot" aria-hidden="true"></span>
+            Always moving. Always connected.
+          </div>
+        </div>
+        <div class="hero-model">
+          <model-viewer src="tesla_cybertruck.glb" ios-src="Tesla_Cybertruck.usdz" alt="Tesla Cybertruck 3D model" loading="eager" camera-controls auto-rotate rotation-per-second="18deg" exposure="1.05" shadow-intensity="0.4" interaction-prompt="none" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
+          <div class="hero-model__label">3D support experience</div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -104,10 +120,6 @@
             <tr><th>Sunday</th><td>Closed</td></tr>
           </tbody>
         </table>
-
-        <div class="mt-16">
-          <a class="button" href="../hours/">See full hours & directions</a>
-        </div>
       </article>
 
       <!-- Right: map (optional; replace src with your embed when ready) -->

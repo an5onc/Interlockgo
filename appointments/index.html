@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Schedule Interlock Appointment in Evans, CO | InterlockGo NOCO</title>
+  <title>Command Center | InterlockGo NOCO Appointments</title>
   <meta name="description" content="View available ignition interlock appointments at InterlockGo NOCO. Same-day slots for Lifesafer and Guardian calibration in Evans, CO. Call 970-515-5740." />
   <link rel="canonical" href="https://interlockgo.io/appointments/" />
 
-  <!-- Global + Page CSS -->
-  <link href="../base.css?v=2025-08-19-1" rel="stylesheet" />
-  <link href="appointments.css?v=2025-08-21-2" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Dashboard CSS -->
+  <link href="dashboard.css?v=2025-01-16" rel="stylesheet" />
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -26,179 +30,269 @@
   </script>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17605887515');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17605887515');
+  </script>
 </head>
 <body id="top">
 
-  <!-- NAV (shared) -->
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../appointments/">Appointments</a></li>
-      <li><a href="../hours/">Shop hours</a></li>
-      <li>
-        <a href="javascript:void(0)">Equipment</a>
-        <ul>
-          <li><a href="../lifesafer/">Lifesafer</a></li>
-          <li><a href="../guardian/">Guardian</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="javascript:void(0)">Support</a>
-        <ul>
-          <li><a href="../forms/">Forms</a></li>
-          <li><a href="../contactus/">Contact</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://myaccount.lifesafer.com/account/login" target="_blank" rel="noopener">My Account</a>
-      </li>
-    </ul>
+  <!-- ===== AURORA BACKGROUND ===== -->
+  <div class="dashboard-aurora" aria-hidden="true">
+    <div class="aurora__layer aurora__layer--1"></div>
+    <div class="aurora__layer aurora__layer--2"></div>
+    <div class="aurora__layer aurora__layer--3"></div>
+    <div class="aurora__grid"></div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="dashboard-nav">
+    <div class="dashboard-nav__inner">
+      <a href="../index.html" class="dashboard-nav__brand">
+        <img src="../images/interlockgologo.png" alt="InterlockGo" class="dashboard-nav__logo" width="32" height="32" />
+        <span class="dashboard-nav__title">InterlockGo</span>
+      </a>
+
+      <div class="dashboard-nav__links">
+        <a href="../index.html" class="dashboard-nav__link">Home</a>
+        <a href="../lifesafer/" class="dashboard-nav__link">Lifesafer</a>
+        <a href="../guardian/" class="dashboard-nav__link">Guardian</a>
+        <a href="./" class="dashboard-nav__link dashboard-nav__link--active">Appointments</a>
+        <a href="../contactus/" class="dashboard-nav__link">Contact</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="appts-hero">
-    <div class="appts-hero__inner">
-      <h1>Appointments Dashboard</h1>
-      <p>Find your slot fast — sorted by time, filter by source, and highlight the next-up.</p>
+  <!-- ===== MAIN DASHBOARD ===== -->
+  <main class="dashboard-main">
 
-      <!-- TOOLBAR -->
-      <div class="appts-toolbar">
-        <div class="appts-filters">
-          <label class="seg">
+    <!-- ===== HERO SECTION ===== -->
+    <section class="dashboard-hero">
+      <div class="dashboard-hero__header">
+        <!-- Status Badge -->
+        <span class="dashboard-hero__badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Live Dashboard
+        </span>
+
+        <!-- Title -->
+        <h1 class="dashboard-hero__title">
+          <span class="dashboard-hero__title-main">Command Center</span>
+          <span class="dashboard-hero__title-accent">Appointments Dashboard</span>
+        </h1>
+
+        <p class="dashboard-hero__subtitle">
+          Real-time appointment tracking for Lifesafer and Guardian interlock devices.
+          Sorted by time, filtered by source, with the next appointment highlighted.
+        </p>
+      </div>
+
+      <!-- ===== STATS ROW ===== -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-card__value" id="stat-total">--</span>
+          <span class="stat-card__label">Total Today</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__value" id="stat-lifesafer">--</span>
+          <span class="stat-card__label">Lifesafer</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__value" id="stat-guardian">--</span>
+          <span class="stat-card__label">Guardian</span>
+        </div>
+        <div class="stat-card stat-card--highlight">
+          <span class="stat-card__label">Next Up</span>
+          <span class="stat-card__value" id="stat-next">--</span>
+        </div>
+      </div>
+
+      <!-- ===== TOOLBAR ===== -->
+      <div class="dashboard-toolbar">
+        <!-- Filter Segments -->
+        <div class="toolbar-filters">
+          <label class="filter-seg">
             <input type="radio" name="src" value="all" checked>
             <span>All</span>
           </label>
-          <label class="seg">
+          <label class="filter-seg">
             <input type="radio" name="src" value="lifesafer">
             <span>Lifesafer</span>
           </label>
-          <label class="seg">
+          <label class="filter-seg">
             <input type="radio" name="src" value="guardian">
             <span>Guardian</span>
           </label>
         </div>
 
-        <div class="appts-search">
-          <input id="appts-search" type="search" placeholder="Search client, vehicle, service…" spellcheck="false" />
+        <!-- Search -->
+        <div class="toolbar-search">
+          <svg class="toolbar-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+          </svg>
+          <input
+            id="appts-search"
+            class="toolbar-search__input"
+            type="search"
+            placeholder="Search client, vehicle, service..."
+            spellcheck="false"
+          />
         </div>
 
-        <label class="appts-toggle">
+        <!-- Toggle -->
+        <label class="toolbar-toggle">
           <input id="hide-completed" type="checkbox" />
           <span>Hide completed</span>
         </label>
 
-        <div class="appts-actions">
-          <button id="appts-refresh" type="button" aria-live="polite">🔄 Refresh data</button>
-          <small id="appts-updated" class="appts-updated" aria-live="polite" style="display:block;margin-top:.25rem;opacity:.8"></small>
+        <!-- Actions -->
+        <div class="toolbar-actions">
+          <button id="appts-refresh" class="toolbar-refresh" type="button" aria-live="polite">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            Refresh
+          </button>
+          <span id="appts-updated" class="toolbar-updated" aria-live="polite"></span>
         </div>
       </div>
+    </section>
+
+    <!-- ===== DATA PORTALS ===== -->
+    <div class="data-portals">
+
+      <!-- Lifesafer Portal -->
+      <section class="data-portal appointments-section">
+        <div class="data-portal__header">
+          <h2 class="data-portal__title appts-h2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+            Lifesafer
+          </h2>
+          <span class="data-portal__count" id="lifesafer-count">0 appointments</span>
+        </div>
+        <div class="data-portal__frame">
+          <div class="table-wrap">
+            <table class="appts-table" data-src="lifesafer">
+              <colgroup>
+                <col style="width:22%">
+                <col style="width:18%">
+                <col style="width:18%">
+                <col style="width:18%">
+                <col style="width:18%">
+                <col style="width:6%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Location</th>
+                  <th>Appointment Time</th>
+                  <th>Service</th>
+                  <th>Client</th>
+                  <th>Vehicle</th>
+                  <th>FW</th>
+                </tr>
+              </thead>
+              <tbody id="lifesafer-data"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guardian Portal -->
+      <section class="data-portal appointments-section">
+        <div class="data-portal__header">
+          <h2 class="data-portal__title appts-h2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Guardian
+          </h2>
+          <span class="data-portal__count" id="guardian-count">0 appointments</span>
+        </div>
+        <div class="data-portal__frame">
+          <div class="table-wrap">
+            <table class="appts-table" data-src="guardian">
+              <colgroup>
+                <col style="width:22%">
+                <col style="width:18%">
+                <col style="width:18%">
+                <col style="width:18%">
+                <col style="width:18%">
+                <col style="width:6%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Location</th>
+                  <th>Appointment Time</th>
+                  <th>Service</th>
+                  <th>Client</th>
+                  <th>Vehicle</th>
+                  <th>FW</th>
+                </tr>
+              </thead>
+              <tbody id="guardian-data"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
     </div>
-  </header>
-
-  <!-- MAIN -->
-  <main class="appts-container">
-    <!-- Lifesafer -->
-    <section class="appointments-section">
-      <h2 class="appts-h2">Lifesafer</h2>
-      <div class="table-wrap">
-        <table class="appts-table" data-src="lifesafer">
-          <colgroup>
-            <col style="width:22%">
-            <col style="width:18%">
-            <col style="width:18%">
-            <col style="width:18%">
-            <col style="width:18%">
-            <col style="width:6%">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>Location</th>
-              <th>Appointment Time</th>
-              <th>Service</th>
-              <th>Client</th>
-              <th>Vehicle</th>
-              <th>FW</th>
-            </tr>
-          </thead>
-          <tbody id="lifesafer-data"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Guardian -->
-    <section class="appointments-section">
-      <h2 class="appts-h2">Guardian</h2>
-      <div class="table-wrap">
-        <table class="appts-table" data-src="guardian">
-          <colgroup>
-            <col style="width:22%">
-            <col style="width:18%">
-            <col style="width:18%">
-            <col style="width:18%">
-            <col style="width:18%">
-            <col style="width:6%">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>Location</th>
-              <th>Appointment Time</th>
-              <th>Service</th>
-              <th>Client</th>
-              <th>Vehicle</th>
-              <th>FW</th>
-            </tr>
-          </thead>
-          <tbody id="guardian-data"></tbody>
-        </table>
-      </div>
-    </section>
   </main>
 
-  <!-- =====================================================================
-       FOOTER + CALL FLOAT
-       =================================================================== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <!-- Back to top -->
-    <a href="#top" class="backtop" aria-label="Back to top">
-      <span class="backtop-ico" aria-hidden="true">▲</span>
-      Back to Top
-    </a>
+  <!-- ===== FOOTER ===== -->
+  <footer class="dashboard-footer">
+    <div class="dashboard-footer__inner">
+      <div class="dashboard-footer__brand">
+        <img src="../images/interlockgologo.png" alt="InterlockGo" class="dashboard-footer__logo" width="28" height="28" />
+        <span class="dashboard-footer__company">InterlockGo NOCO</span>
+      </div>
 
-    <!-- Contact link -->
-    <div>
-      <a href="../contactus/" class="contact-link" aria-label="Contact InterlockGo Evans">
-        Contact Us
-      </a>
+      <div class="dashboard-footer__links">
+        <a href="../lifesafer/" class="dashboard-footer__link">Lifesafer</a>
+        <a href="../guardian/" class="dashboard-footer__link">Guardian</a>
+        <a href="../forms/" class="dashboard-footer__link">Forms</a>
+        <a href="../contactus/" class="dashboard-footer__link">Contact</a>
+      </div>
+
+      <div class="dashboard-footer__meta">
+        <p>&copy; 2025 InterlockGo NOCO &bull; 3610 35th Avenue, Evans, CO 80620 &bull; <a href="tel:970-515-5740" style="color:inherit;">970-515-5740</a></p>
+      </div>
     </div>
+  </footer>
 
-    <!-- Floating call button -->
-    <a href="tel:970-515-5740" class="call-button" aria-label="Call InterlockGo">
-      <img src="../images/smileyface.png" alt="Call InterlockGo NOCO — Evans, CO" loading="lazy" decoding="async">
-    </a>
+  <!-- ===== FLOATING CALL BUTTON ===== -->
+  <a href="tel:970-515-5740" class="call-float" aria-label="Call InterlockGo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </a>
 
-    <!-- Footer meta (NAP for SEO) -->
-    <div class="footer-meta">
-      © 2025 InterlockGo NOCO • 3610 35th Avenue, Evans, CO 80620 • 
-      <a href="tel:970-515-5740">970-515-5740</a>
-    </div>
-  </div>
-</footer>
-
-  <!-- DATA + UX SCRIPTS -->
+  <!-- ===== DATA + UX SCRIPTS ===== -->
   <script>
   (async () => {
     const lifebody = document.getElementById('lifesafer-data');
     const guardbody = document.getElementById('guardian-data');
     const updatedEl = document.getElementById('appts-updated');
+
+    // Stats elements
+    const statTotal = document.getElementById('stat-total');
+    const statLifesafer = document.getElementById('stat-lifesafer');
+    const statGuardian = document.getElementById('stat-guardian');
+    const statNext = document.getElementById('stat-next');
+    const lifesaferCount = document.getElementById('lifesafer-count');
+    const guardianCount = document.getElementById('guardian-count');
 
     // --- Toolbar interactions ---
     const qs = (sel) => document.querySelector(sel);
@@ -230,8 +324,6 @@
     }
 
     const parseTime = (s) => {
-      // Examples in your data: "08/20/2025 09:00:00 AM ..."
-      // Strip trailing text after seconds and parse as local
       const m = String(s || '').match(/^\d{2}\/\d{2}\/\d{4}\s+\d{1,2}:\d{2}:\d{2}\s+[AP]M/);
       return m ? new Date(m[0]) : null;
     };
@@ -244,58 +336,90 @@
       tr.dataset.location = (appt.Location || '').toLowerCase();
       tr.dataset.completed = appt.Completed ? '1' : '0';
 
-      // Cells
-      const td = (text) => {
+      const td = (text, label) => {
         const el = document.createElement('td');
         el.textContent = text ?? '';
+        if (label) el.setAttribute('data-label', label);
         return el;
       };
 
       const timeDate = parseTime(appt['Appointment Time']);
-      const timeCell = td(appt['Appointment Time'] || '');
+      const timeCell = td(appt['Appointment Time'] || '', 'Time');
       timeCell.className = 'cell-time';
       if (appt.Completed) timeCell.classList.add('completed');
 
-      const svcCell = td(appt.Service);
+      const svcCell = td('', 'Service');
       if (appt.Service) {
         const badge = document.createElement('span');
         badge.className = 'chip chip--svc';
         badge.textContent = appt.Service;
-        svcCell.textContent = '';
         svcCell.appendChild(badge);
       }
 
-      const fwCell = td(appt.Firmware);
+      const fwCell = td('', 'Firmware');
       if (appt.Firmware) {
         const chip = document.createElement('span');
         chip.className = 'chip chip--fw';
         chip.textContent = appt.Firmware;
-        fwCell.textContent = '';
         fwCell.appendChild(chip);
       }
 
-      tr.appendChild(td(appt.Location));
+      const locCell = td(appt.Location, 'Location');
+      const clientCell = td(appt.Client, 'Client');
+      const vehicleCell = td(appt.Vehicle, 'Vehicle');
+
+      tr.appendChild(locCell);
       tr.appendChild(timeCell);
       tr.appendChild(svcCell);
-      tr.appendChild(td(appt.Client));
-      tr.appendChild(td(appt.Vehicle));
+      tr.appendChild(clientCell);
+      tr.appendChild(vehicleCell);
       tr.appendChild(fwCell);
 
-      // Store sortable key
       tr.dataset.when = timeDate ? timeDate.getTime() : 0;
       if (appt.Completed) tr.classList.add('completed-row');
       return tr;
     };
 
+    function animateValue(element, end, duration = 600) {
+      const start = parseInt(element.textContent) || 0;
+      if (start === end) return;
+      const range = end - start;
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        element.textContent = Math.round(start + range * easeOut);
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    function clearTable(tbody) {
+      while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+      }
+    }
+
     function renderTables(data) {
-      lifebody.innerHTML = '';
-      guardbody.innerHTML = '';
+      clearTable(lifebody);
+      clearTable(guardbody);
 
       const liferows = (data.lifesafer || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
       const guardrows = (data.guardian || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
 
       liferows.forEach(r => lifebody.appendChild(r));
       guardrows.forEach(r => guardbody.appendChild(r));
+
+      // Update stats with animation
+      animateValue(statTotal, liferows.length + guardrows.length);
+      animateValue(statLifesafer, liferows.length);
+      animateValue(statGuardian, guardrows.length);
+
+      // Update portal counts
+      lifesaferCount.textContent = `${liferows.length} appointment${liferows.length !== 1 ? 's' : ''}`;
+      guardianCount.textContent = `${guardrows.length} appointment${guardrows.length !== 1 ? 's' : ''}`;
 
       // Highlight "next up" across BOTH tables (first upcoming, not completed)
       const now = Date.now();
@@ -305,25 +429,37 @@
 
       // Clear previous highlights and accents
       document.querySelectorAll('.next-row').forEach(el => el.classList.remove('next-row'));
-      document.querySelectorAll('.appts-h2--accent').forEach(el => el.classList.remove('appts-h2--accent'));
+      document.querySelectorAll('.appts-h2--accent, .data-portal__title--accent').forEach(el => {
+        el.classList.remove('appts-h2--accent');
+        el.classList.remove('data-portal__title--accent');
+      });
 
       if (allRows.length) {
         allRows[0].classList.add('next-row');
-        allRows[0].closest('.appointments-section')?.querySelector('.appts-h2')?.classList.add('appts-h2--accent');
+        const titleEl = allRows[0].closest('.appointments-section')?.querySelector('.data-portal__title');
+        if (titleEl) titleEl.classList.add('data-portal__title--accent');
+
+        // Update "Next Up" stat
+        const nextClient = allRows[0].dataset.client;
+        const nextTime = new Date(Number(allRows[0].dataset.when));
+        const timeStr = nextTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+        statNext.textContent = timeStr;
+      } else {
+        statNext.textContent = '--';
       }
 
       applyFilters();
     }
 
     function setUpdated(ts) {
-      updatedEl.textContent = ts ? ("Updated " + new Date(ts).toLocaleString()) : "";
+      updatedEl.textContent = ts ? ("Updated " + new Date(ts).toLocaleTimeString()) : "";
     }
 
     async function loadData() {
       const refreshBtn = document.getElementById('appts-refresh');
       if (refreshBtn) {
         refreshBtn.disabled = true;
-        refreshBtn.textContent = "Refreshing…";
+        refreshBtn.classList.add('toolbar-refresh--loading');
       }
       try {
         const res = await fetch(`../appointments.json?ts=${Date.now()}`, { cache: 'no-store' });
@@ -332,12 +468,16 @@
         renderTables(data);
         setUpdated(Date.now());
       } catch (e) {
-        alert('Failed to load appointments.');
         console.error(e);
+        // Show error state
+        statTotal.textContent = '!';
+        statLifesafer.textContent = '!';
+        statGuardian.textContent = '!';
+        statNext.textContent = 'Error';
       } finally {
         if (refreshBtn) {
           refreshBtn.disabled = false;
-          refreshBtn.textContent = "🔄 Refresh data";
+          refreshBtn.classList.remove('toolbar-refresh--loading');
         }
       }
     }
@@ -359,7 +499,5 @@
   })();
   </script>
 
-  <!-- Mobile Navigation -->
-  <script src="../js/mobile-nav.js"></script>
 </body>
 </html>
