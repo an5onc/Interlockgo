@@ -1051,6 +1051,14 @@ ul {
   object-fit: contain;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .orbit:hover .orbit__nodes,
+  .orbit:hover .orbit__node,
+  .orbit:hover .orbit__node-inner {
+    animation-play-state: paused;
+  }
+}
+
 /* Icon Nodes */
 .orbit__node--icon {
   width: 44px;

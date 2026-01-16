@@ -217,26 +217,6 @@
     document.body.classList.remove('js-focus-visible');
   }
 
-  // === ORBIT ANIMATION PAUSE ON HOVER ===
-  const orbitNodes = document.querySelector('.orbit__nodes');
-  const orbit = document.querySelector('.orbit');
-
-  if (orbit && orbitNodes) {
-    orbit.addEventListener('mouseenter', () => {
-      orbitNodes.style.animationPlayState = 'paused';
-      orbitNodes.querySelectorAll('.orbit__node').forEach(node => {
-        node.style.animationPlayState = 'paused';
-      });
-    });
-
-    orbit.addEventListener('mouseleave', () => {
-      orbitNodes.style.animationPlayState = 'running';
-      orbitNodes.querySelectorAll('.orbit__node').forEach(node => {
-        node.style.animationPlayState = 'running';
-      });
-    });
-  }
-
   // === KEYBOARD NAVIGATION HELPERS ===
   // Skip link functionality
   const skipLink = document.querySelector('.skip-link');
