@@ -11,12 +11,30 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/23/2026 09:30:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "FRANCO",
+            "Vehicle": "2012 Volkswagen Passat`",
+            "Firmware": "L250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "01/23/2026 10:30:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "YBARRA",
             "Vehicle": "2011 Jeep Cherokee PUSH",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "01/23/2026 10:45:00 AM",
+            "Service": "Reset/Violation Reset",
+            "Client": "CORRAL",
+            "Vehicle": "2005 GMC Sierra",
+            "Firmware": "L250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -24,15 +42,6 @@
             "Service": "Daily Monitoring FC100",
             "Client": "CLARK",
             "Vehicle": "2006 Ford F 150 Key",
-            "Firmware": "L250",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "01/23/2026 01:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "FRANCO",
-            "Vehicle": "2012 Volkswagen Passat`",
             "Firmware": "L250",
             "Completed": false
         },
@@ -108,7 +117,7 @@
             "Client": "MYER",
             "Vehicle": "2017 Toyota Yaris",
             "Firmware": "L250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
