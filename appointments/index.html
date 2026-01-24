@@ -330,53 +330,65 @@
 
     const buildRow = (appt) => {
       const tr = document.createElement('tr');
+
+      // Set data attributes for filtering/sorting
       tr.dataset.client = (appt.Client || '').toLowerCase();
       tr.dataset.vehicle = (appt.Vehicle || '').toLowerCase();
       tr.dataset.service = (appt.Service || '').toLowerCase();
       tr.dataset.location = (appt.Location || '').toLowerCase();
       tr.dataset.completed = appt.Completed ? '1' : '0';
 
-      const td = (text, label) => {
-        const el = document.createElement('td');
-        el.textContent = text ?? '';
-        if (label) el.setAttribute('data-label', label);
-        return el;
-      };
-
       const timeDate = parseTime(appt['Appointment Time']);
-      const timeCell = td(appt['Appointment Time'] || '', 'Time');
-      timeCell.className = 'cell-time';
-      if (appt.Completed) timeCell.classList.add('completed');
+      tr.dataset.when = timeDate ? timeDate.getTime() : 0;
+      if (appt.Completed) tr.classList.add('completed-row');
 
-      const svcCell = td('', 'Service');
+      // Cell 1: Location
+      const td1 = document.createElement('td');
+      td1.setAttribute('data-label', 'Location');
+      td1.textContent = appt.Location || '';
+      tr.appendChild(td1);
+
+      // Cell 2: Appointment Time
+      const td2 = document.createElement('td');
+      td2.setAttribute('data-label', 'Time');
+      td2.className = appt.Completed ? 'cell-time completed' : 'cell-time';
+      td2.textContent = appt['Appointment Time'] || '';
+      tr.appendChild(td2);
+
+      // Cell 3: Service (with badge)
+      const td3 = document.createElement('td');
+      td3.setAttribute('data-label', 'Service');
       if (appt.Service) {
         const badge = document.createElement('span');
         badge.className = 'chip chip--svc';
         badge.textContent = appt.Service;
-        svcCell.appendChild(badge);
+        td3.appendChild(badge);
       }
+      tr.appendChild(td3);
 
-      const fwCell = td('', 'Firmware');
+      // Cell 4: Client
+      const td4 = document.createElement('td');
+      td4.setAttribute('data-label', 'Client');
+      td4.textContent = appt.Client || '';
+      tr.appendChild(td4);
+
+      // Cell 5: Vehicle
+      const td5 = document.createElement('td');
+      td5.setAttribute('data-label', 'Vehicle');
+      td5.textContent = appt.Vehicle || '';
+      tr.appendChild(td5);
+
+      // Cell 6: Firmware (with chip)
+      const td6 = document.createElement('td');
+      td6.setAttribute('data-label', 'Firmware');
       if (appt.Firmware) {
         const chip = document.createElement('span');
         chip.className = 'chip chip--fw';
         chip.textContent = appt.Firmware;
-        fwCell.appendChild(chip);
+        td6.appendChild(chip);
       }
+      tr.appendChild(td6);
 
-      const locCell = td(appt.Location, 'Location');
-      const clientCell = td(appt.Client, 'Client');
-      const vehicleCell = td(appt.Vehicle, 'Vehicle');
-
-      tr.appendChild(locCell);
-      tr.appendChild(timeCell);
-      tr.appendChild(svcCell);
-      tr.appendChild(clientCell);
-      tr.appendChild(vehicleCell);
-      tr.appendChild(fwCell);
-
-      tr.dataset.when = timeDate ? timeDate.getTime() : 0;
-      if (appt.Completed) tr.classList.add('completed-row');
       return tr;
     };
 
