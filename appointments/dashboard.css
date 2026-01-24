@@ -698,23 +698,12 @@ body {
 }
 
 .appts-table tbody tr::before {
-  content: '';
-  display: block;           /* Prevent browser treating as table-cell */
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  background: var(--dash-lime);
-  transition: width var(--dash-transition-fast);
+  display: none;            /* Disabled: was causing table cell alignment issues */
 }
 
 .appts-table tbody tr:hover {
   background: rgba(255, 255, 255, 0.03);
-}
-
-.appts-table tbody tr:hover::before {
-  width: 3px;
+  box-shadow: inset 3px 0 0 var(--dash-lime);  /* Replaces ::before hover effect */
 }
 
 .appts-table tbody td {
