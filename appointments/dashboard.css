@@ -699,6 +699,7 @@ body {
 
 .appts-table tbody tr::before {
   content: '';
+  display: block;           /* Prevent browser treating as table-cell */
   position: absolute;
   left: 0;
   top: 0;
