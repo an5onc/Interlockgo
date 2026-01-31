@@ -134,19 +134,20 @@ def scrape_appointments(username, password, source='lifesafer'):
                 else:
                     appointment_time = appointment_time.strip()
     
-                # Extract client initials as "F.L." (first letter of first name + first letter of last name with periods)
+                # Extract client initials as "L.F." (last initial, first initial)
+                # Website format: "LastName, FirstName [MiddleName]"
                 client_full = columns[4].get_text(strip=True)
                 if ',' in client_full:
-                    # Format: "LastName, FirstName"
-                    parts = [p.strip() for p in client_full.split(',')]
+                    parts = [p.strip() for p in client_full.split(',', 1)]
                     last_init = parts[0][0].upper() if parts[0] else '?'
-                    first_init = parts[1][0].upper() if len(parts) > 1 and parts[1] else '?'
-                    client_initials = f"{first_init}.{last_init}."
+                    # First name is first word after comma (ignore middle name)
+                    first_words = parts[1].split() if len(parts) > 1 and parts[1] else []
+                    first_init = first_words[0][0].upper() if first_words else '?'
+                    client_initials = f"{last_init}.{first_init}."
                 else:
-                    # Format: "FirstName LastName" or single name
                     words = client_full.strip().split()
                     if len(words) >= 2:
-                        client_initials = f"{words[0][0].upper()}.{words[-1][0].upper()}."
+                        client_initials = f"{words[-1][0].upper()}.{words[0][0].upper()}."
                     elif words:
                         client_initials = f"{words[0][0].upper()}."
                     else:
