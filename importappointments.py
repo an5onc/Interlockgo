@@ -73,9 +73,10 @@ def require_creds(*names: str):
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-def scrape_appointments(username, password):
+def scrape_appointments(username, password, source='lifesafer'):
     """
     Logs in with the given credentials, scrapes appointments, and returns them as a list of dictionaries.
+    source: 'lifesafer' or 'guardian' — controls handset logic.
     """
     rows = []
     chrome_options = Options()
@@ -133,26 +134,39 @@ def scrape_appointments(username, password):
                 else:
                     appointment_time = appointment_time.strip()
     
-                # Extract and sanitize client name (using last name)
+                # Extract client initials as "F.L." (first letter of first name + first letter of last name with periods)
                 client_full = columns[4].get_text(strip=True)
                 if ',' in client_full:
-                    client_last_name = client_full.split(',')[0].strip()
+                    # Format: "LastName, FirstName"
+                    parts = [p.strip() for p in client_full.split(',')]
+                    last_init = parts[0][0].upper() if parts[0] else '?'
+                    first_init = parts[1][0].upper() if len(parts) > 1 and parts[1] else '?'
+                    client_initials = f"{first_init}.{last_init}."
                 else:
-                    client_last_name = client_full.split(' ')[-1].split('(')[0].strip()
+                    # Format: "FirstName LastName" or single name
+                    words = client_full.strip().split()
+                    if len(words) >= 2:
+                        client_initials = f"{words[0][0].upper()}.{words[-1][0].upper()}."
+                    elif words:
+                        client_initials = f"{words[0][0].upper()}."
+                    else:
+                        client_initials = '?'
     
-                # Extract firmware version and clean it up
-                firmware_raw = columns[7].get_text(strip=True)
-                logging.debug(f"Extracted Firmware: '{firmware_raw}' (repr: {repr(firmware_raw)})")
-                firmware_clean = firmware_raw.replace('\xa0', ' ').strip()
-                firmware = 'Legacy' if '(camera)' in firmware_clean.lower() else 'L250'
+                # Determine handset type
+                if source == 'guardian':
+                    handset = 'AMS2500'
+                else:
+                    # Lifesafer: "111" means LS250, anything else is LC100
+                    firmware_raw = columns[7].get_text(strip=True).replace('\xa0', ' ').strip()
+                    handset = 'LS250' if firmware_raw == '111' else 'LC100'
     
                 rows.append({
                     'Location': columns[0].get_text(strip=True),
                     'Appointment Time': appointment_time,
                     'Service': columns[3].get_text(strip=True),
-                    'Client': client_last_name,
+                    'Client': client_initials,
                     'Vehicle': columns[6].get_text(strip=True),
-                    'Firmware': firmware,
+                    'Handset': handset,
                     'Completed': completed
                 })
     except Exception as e:
@@ -214,11 +228,11 @@ def main():
     
     # 1. Scrape Lifesafer appointments
     logging.info("Scraping Lifesafer appointments...")
-    lifesafer_data = scrape_appointments(LIFESAFER_USERNAME, LIFESAFER_PASSWORD)
+    lifesafer_data = scrape_appointments(LIFESAFER_USERNAME, LIFESAFER_PASSWORD, source='lifesafer')
     
     # 2. Scrape Guardian appointments
     logging.info("Scraping Guardian appointments...")
-    guardian_data = scrape_appointments(GUARDIAN_USERNAME, GUARDIAN_PASSWORD)
+    guardian_data = scrape_appointments(GUARDIAN_USERNAME, GUARDIAN_PASSWORD, source='guardian')
     
     # Combine the data into one JSON structure
     combined_data = {
