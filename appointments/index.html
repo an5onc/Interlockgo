@@ -288,6 +288,7 @@
               ${providerLabel}
             </span>
             ${appt.Service ? `<span class="appt-card__service-badge ${serviceColor(appt.Service)}">${appt.Service}</span>` : ''}
+            <span class="appt-card__status-badge ${appt.Completed ? 'status--completed' : 'status--pending'}">${appt.Completed ? 'Completed' : 'Pending'}</span>
           </div>
           <div class="appt-card__row-bottom">
             ${appt.Vehicle ? `<span class="appt-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> ${appt.Vehicle}</span>` : ''}
@@ -298,9 +299,6 @@
           ${appt.Handset ? `<div class="appt-card__handset-img-wrap ${handsetColor(appt.Handset)}">
             <img src="../images/${appt.Handset === 'AMS2500' ? 'guardianhandset' : appt.Handset.toLowerCase()}.png" alt="${appt.Handset}" class="appt-card__handset-img" title="${appt.Handset}" />
           </div>` : ''}
-          <span class="appt-card__status-badge ${appt.Completed ? 'status--completed' : 'status--pending'}">
-            ${appt.Completed ? 'Completed' : 'Pending'}
-          </span>
         </div>
       `;
 
