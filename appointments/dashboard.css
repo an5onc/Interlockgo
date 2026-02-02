@@ -277,7 +277,7 @@ body {
 
 /* Handset Image */
 .appt-card__handset-img-wrap {
-  width: 48px; height: 48px;
+  width: 72px; height: 72px;
   border-radius: 10px;
   border: 1px solid var(--dash-border);
   display: flex;
