@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Dashboard CSS -->
-  <link href="dashboard.css?v=2026-01-24c" rel="stylesheet" />
+  <link href="dashboard.css?v=2026-01-25a" rel="stylesheet" />
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -72,7 +72,6 @@
     <!-- ===== HERO SECTION ===== -->
     <section class="dashboard-hero">
       <div class="dashboard-hero__header">
-        <!-- Status Badge -->
         <span class="dashboard-hero__badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"></circle>
@@ -81,7 +80,6 @@
           Live Dashboard
         </span>
 
-        <!-- Title -->
         <h1 class="dashboard-hero__title">
           <span class="dashboard-hero__title-main">Command Center</span>
           <span class="dashboard-hero__title-accent">Appointments Dashboard</span>
@@ -115,7 +113,6 @@
 
       <!-- ===== TOOLBAR ===== -->
       <div class="dashboard-toolbar">
-        <!-- Filter Segments -->
         <div class="toolbar-filters">
           <label class="filter-seg">
             <input type="radio" name="src" value="all" checked>
@@ -131,7 +128,6 @@
           </label>
         </div>
 
-        <!-- Search -->
         <div class="toolbar-search">
           <svg class="toolbar-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
@@ -146,13 +142,11 @@
           />
         </div>
 
-        <!-- Toggle -->
         <label class="toolbar-toggle">
           <input id="hide-completed" type="checkbox" />
           <span>Hide completed</span>
         </label>
 
-        <!-- Actions -->
         <div class="toolbar-actions">
           <button id="appts-refresh" class="toolbar-refresh" type="button" aria-live="polite">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -167,88 +161,9 @@
       </div>
     </section>
 
-    <!-- ===== DATA PORTALS ===== -->
-    <div class="data-portals">
+    <!-- ===== APPOINTMENT CARDS ===== -->
+    <div id="appointments-container" class="appointments-container"></div>
 
-      <!-- Lifesafer Portal -->
-      <section class="data-portal appointments-section">
-        <div class="data-portal__header">
-          <h2 class="data-portal__title appts-h2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <path d="M9 12l2 2 4-4"></path>
-            </svg>
-            Lifesafer
-          </h2>
-          <span class="data-portal__count" id="lifesafer-count">0 appointments</span>
-        </div>
-        <div class="data-portal__frame">
-          <div class="table-wrap">
-            <table class="appts-table" data-src="lifesafer">
-              <colgroup>
-                <col style="width:22%">
-                <col style="width:20%">
-                <col style="width:20%">
-                <col style="width:8%">
-                <col style="width:22%">
-                <col style="width:8%">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Location</th>
-                  <th>Appointment Time</th>
-                  <th>Service</th>
-                  <th>Client</th>
-                  <th>Vehicle</th>
-                  <th>Handset</th>
-                </tr>
-              </thead>
-              <tbody id="lifesafer-data"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- Guardian Portal -->
-      <section class="data-portal appointments-section">
-        <div class="data-portal__header">
-          <h2 class="data-portal__title appts-h2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
-            Guardian
-          </h2>
-          <span class="data-portal__count" id="guardian-count">0 appointments</span>
-        </div>
-        <div class="data-portal__frame">
-          <div class="table-wrap">
-            <table class="appts-table" data-src="guardian">
-              <colgroup>
-                <col style="width:22%">
-                <col style="width:20%">
-                <col style="width:20%">
-                <col style="width:8%">
-                <col style="width:22%">
-                <col style="width:8%">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Location</th>
-                  <th>Appointment Time</th>
-                  <th>Service</th>
-                  <th>Client</th>
-                  <th>Vehicle</th>
-                  <th>Handset</th>
-                </tr>
-              </thead>
-              <tbody id="guardian-data"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-    </div>
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -282,8 +197,7 @@
   <!-- ===== DATA + UX SCRIPTS ===== -->
   <script>
   (async () => {
-    const lifebody = document.getElementById('lifesafer-data');
-    const guardbody = document.getElementById('guardian-data');
+    const container = document.getElementById('appointments-container');
     const updatedEl = document.getElementById('appts-updated');
 
     // Stats elements
@@ -291,113 +205,134 @@
     const statLifesafer = document.getElementById('stat-lifesafer');
     const statGuardian = document.getElementById('stat-guardian');
     const statNext = document.getElementById('stat-next');
-    const lifesaferCount = document.getElementById('lifesafer-count');
-    const guardianCount = document.getElementById('guardian-count');
 
-    // --- Toolbar interactions ---
-    const qs = (sel) => document.querySelector(sel);
+    // Toolbar
     const srcRadios = Array.from(document.querySelectorAll('input[name="src"]'));
-    const hideCompleted = qs('#hide-completed');
-    const searchBox = qs('#appts-search');
+    const hideCompleted = document.getElementById('hide-completed');
+    const searchBox = document.getElementById('appts-search');
 
-    function applyFilters() {
-      const src = srcRadios.find(r=>r.checked)?.value || 'all';
-      const q = (searchBox.value || '').trim().toLowerCase();
-      const hide = hideCompleted.checked;
-
-      [lifebody, guardbody].forEach(tbody => {
-        const wantThisTable =
-          src === 'all' || (tbody.id === 'lifesafer-data' && src === 'lifesafer') || (tbody.id === 'guardian-data' && src === 'guardian');
-        tbody.closest('.appointments-section').style.display = wantThisTable ? '' : 'none';
-      });
-
-      const rows = document.querySelectorAll('.appts-table tbody tr');
-      rows.forEach(tr => {
-        let show = true;
-        if (hide && tr.dataset.completed === '1') show = false;
-        if (q) {
-          const hay = `${tr.dataset.client} ${tr.dataset.vehicle} ${tr.dataset.service} ${tr.dataset.location}`;
-          if (!hay.includes(q)) show = false;
-        }
-        tr.style.display = show ? '' : 'none';
-      });
-    }
+    // Store all card data for filtering
+    let allCards = [];
 
     const parseTime = (s) => {
       const m = String(s || '').match(/^\d{2}\/\d{2}\/\d{4}\s+\d{1,2}:\d{2}:\d{2}\s+[AP]M/);
       return m ? new Date(m[0]) : null;
     };
 
-    const buildRow = (appt) => {
-      const tr = document.createElement('tr');
+    const formatTime = (dateStr) => {
+      const d = parseTime(dateStr);
+      if (!d) return { time: dateStr || '—', period: '' };
+      const h = d.getHours();
+      const m = d.getMinutes();
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      const h12 = h % 12 || 12;
+      return { time: `${h12}:${m.toString().padStart(2, '0')}`, period: ampm };
+    };
 
-      // Set data attributes for filtering/sorting
-      tr.dataset.client = (appt.Client || '').toLowerCase();
-      tr.dataset.vehicle = (appt.Vehicle || '').toLowerCase();
-      tr.dataset.service = (appt.Service || '').toLowerCase();
-      tr.dataset.location = (appt.Location || '').toLowerCase();
-      tr.dataset.completed = appt.Completed ? '1' : '0';
+    const formatDateHeader = (dateStr) => {
+      const d = parseTime(dateStr);
+      if (!d) return 'Today';
+      return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    };
+
+    const serviceColor = (service) => {
+      const s = (service || '').toLowerCase();
+      if (s.includes('install') && s.includes('de')) return 'svc-deinstall';
+      if (s.includes('install')) return 'svc-install';
+      if (s.includes('reset') || s.includes('violation')) return 'svc-violation';
+      if (s.includes('monitor')) return 'svc-monitor';
+      if (s.includes('swap')) return 'svc-swap';
+      return 'svc-default';
+    };
+
+    const handsetColor = (handset) => {
+      const h = (handset || '').toUpperCase();
+      if (h.includes('LS250')) return 'hs-ls250';
+      if (h.includes('LC100')) return 'hs-lc100';
+      if (h.includes('AMS')) return 'hs-ams2500';
+      return 'hs-default';
+    };
+
+    function buildCard(appt, provider) {
+      const card = document.createElement('div');
+      card.className = `appt-card appt-card--${provider}`;
+      card.dataset.provider = provider;
+      card.dataset.client = (appt.Client || '').toLowerCase();
+      card.dataset.vehicle = (appt.Vehicle || '').toLowerCase();
+      card.dataset.service = (appt.Service || '').toLowerCase();
+      card.dataset.location = (appt.Location || '').toLowerCase();
+      card.dataset.completed = appt.Completed ? '1' : '0';
 
       const timeDate = parseTime(appt['Appointment Time']);
-      tr.dataset.when = timeDate ? timeDate.getTime() : 0;
-      if (appt.Completed) tr.classList.add('completed-row');
+      card.dataset.when = timeDate ? timeDate.getTime() : 0;
+      card.dataset.dateKey = timeDate ? timeDate.toDateString() : 'unknown';
 
-      // Cell 1: Location
-      const td1 = document.createElement('td');
-      td1.setAttribute('data-label', 'Location');
-      td1.textContent = appt.Location || '';
-      tr.appendChild(td1);
+      if (appt.Completed) card.classList.add('appt-card--completed');
 
-      // Cell 2: Appointment Time
-      const td2 = document.createElement('td');
-      td2.setAttribute('data-label', 'Time');
-      td2.className = appt.Completed ? 'cell-time completed' : 'cell-time';
-      td2.textContent = appt['Appointment Time'] || '';
-      tr.appendChild(td2);
+      const { time, period } = formatTime(appt['Appointment Time']);
 
-      // Cell 3: Service (with badge)
-      const td3 = document.createElement('td');
-      td3.setAttribute('data-label', 'Service');
-      if (appt.Service) {
-        const badge = document.createElement('span');
-        badge.className = 'chip chip--svc';
-        badge.textContent = appt.Service;
-        td3.appendChild(badge);
-      }
-      tr.appendChild(td3);
+      const providerLabel = provider === 'guardian' ? 'GUARDIAN' : 'LIFESAFER';
 
-      // Cell 4: Client
-      const td4 = document.createElement('td');
-      td4.setAttribute('data-label', 'Client');
-      td4.textContent = appt.Client || '';
-      tr.appendChild(td4);
+      card.innerHTML = `
+        <div class="appt-card__time">
+          <span class="appt-card__time-value">${time}</span>
+          <span class="appt-card__time-period">${period}</span>
+        </div>
+        <div class="appt-card__details">
+          <div class="appt-card__row-top">
+            <span class="appt-card__client">${appt.Client || '—'}</span>
+            <span class="appt-card__provider-badge provider-badge--${provider}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              ${providerLabel}
+            </span>
+            ${appt.Service ? `<span class="appt-card__service-badge ${serviceColor(appt.Service)}">${appt.Service}</span>` : ''}
+          </div>
+          <div class="appt-card__row-bottom">
+            ${appt.Vehicle ? `<span class="appt-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> ${appt.Vehicle}</span>` : ''}
+            ${appt.Location ? `<span class="appt-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${appt.Location}</span>` : ''}
+          </div>
+        </div>
+        <div class="appt-card__right">
+          ${appt.Handset ? `<span class="appt-card__handset-badge ${handsetColor(appt.Handset)}">${appt.Handset}</span>` : ''}
+          <span class="appt-card__status-badge ${appt.Completed ? 'status--completed' : 'status--pending'}">
+            ${appt.Completed ? 'Completed' : 'Pending'}
+          </span>
+        </div>
+      `;
 
-      // Cell 5: Vehicle
-      const td5 = document.createElement('td');
-      td5.setAttribute('data-label', 'Vehicle');
-      td5.textContent = appt.Vehicle || '';
-      tr.appendChild(td5);
+      return card;
+    }
 
-      // Cell 6: Handset (with chip)
-      const td6 = document.createElement('td');
-      td6.setAttribute('data-label', 'Handset');
-      if (appt.Handset) {
-        const chip = document.createElement('span');
-        chip.className = 'chip chip--fw';
-        chip.textContent = appt.Handset;
-        td6.appendChild(chip);
-      }
-      tr.appendChild(td6);
+    function applyFilters() {
+      const src = srcRadios.find(r => r.checked)?.value || 'all';
+      const q = (searchBox.value || '').trim().toLowerCase();
+      const hide = hideCompleted.checked;
 
-      return tr;
-    };
+      allCards.forEach(card => {
+        let show = true;
+        if (src !== 'all' && card.dataset.provider !== src) show = false;
+        if (hide && card.dataset.completed === '1') show = false;
+        if (q) {
+          const hay = `${card.dataset.client} ${card.dataset.vehicle} ${card.dataset.service} ${card.dataset.location}`;
+          if (!hay.includes(q)) show = false;
+        }
+        card.style.display = show ? '' : 'none';
+      });
+
+      // Hide empty date groups
+      container.querySelectorAll('.date-group').forEach(group => {
+        const visibleCards = group.querySelectorAll('.appt-card:not([style*="display: none"])');
+        group.style.display = visibleCards.length ? '' : 'none';
+      });
+    }
 
     function animateValue(element, end, duration = 600) {
       const start = parseInt(element.textContent) || 0;
       if (start === end) return;
       const range = end - start;
       const startTime = performance.now();
-
       function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
@@ -408,55 +343,110 @@
       requestAnimationFrame(update);
     }
 
-    function clearTable(tbody) {
-      while (tbody.firstChild) {
-        tbody.removeChild(tbody.firstChild);
-      }
-    }
+    function renderCards(data) {
+      container.innerHTML = '';
+      allCards = [];
 
-    function renderTables(data) {
-      clearTable(lifebody);
-      clearTable(guardbody);
+      const lifeAppts = (data.lifesafer || []).map(a => ({ ...a, _provider: 'lifesafer' }));
+      const guardAppts = (data.guardian || []).map(a => ({ ...a, _provider: 'guardian' }));
+      const all = [...lifeAppts, ...guardAppts];
 
-      const liferows = (data.lifesafer || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
-      const guardrows = (data.guardian || []).map(buildRow).sort((a,b)=>a.dataset.when-b.dataset.when);
-
-      liferows.forEach(r => lifebody.appendChild(r));
-      guardrows.forEach(r => guardbody.appendChild(r));
-
-      // Update stats with animation
-      animateValue(statTotal, liferows.length + guardrows.length);
-      animateValue(statLifesafer, liferows.length);
-      animateValue(statGuardian, guardrows.length);
-
-      // Update portal counts
-      lifesaferCount.textContent = `${liferows.length} appointment${liferows.length !== 1 ? 's' : ''}`;
-      guardianCount.textContent = `${guardrows.length} appointment${guardrows.length !== 1 ? 's' : ''}`;
-
-      // Highlight "next up" across BOTH tables (first upcoming, not completed)
-      const now = Date.now();
-      const allRows = [...liferows, ...guardrows]
-        .filter(r => r.dataset.completed !== '1' && Number(r.dataset.when) >= now)
-        .sort((a,b)=>a.dataset.when-b.dataset.when);
-
-      // Clear previous highlights and accents
-      document.querySelectorAll('.next-row').forEach(el => el.classList.remove('next-row'));
-      document.querySelectorAll('.appts-h2--accent, .data-portal__title--accent').forEach(el => {
-        el.classList.remove('appts-h2--accent');
-        el.classList.remove('data-portal__title--accent');
+      // Sort by time
+      all.sort((a, b) => {
+        const ta = parseTime(a['Appointment Time']);
+        const tb = parseTime(b['Appointment Time']);
+        return (ta ? ta.getTime() : 0) - (tb ? tb.getTime() : 0);
       });
 
-      if (allRows.length) {
-        allRows[0].classList.add('next-row');
-        const titleEl = allRows[0].closest('.appointments-section')?.querySelector('.data-portal__title');
-        if (titleEl) titleEl.classList.add('data-portal__title--accent');
+      // Group by date
+      const grouped = {};
+      all.forEach(appt => {
+        const d = parseTime(appt['Appointment Time']);
+        const key = d ? d.toDateString() : 'Unknown';
+        if (!grouped[key]) grouped[key] = [];
+        grouped[key].push(appt);
+      });
 
-        // Update "Next Up" stat
-        const nextClient = allRows[0].dataset.client;
-        const nextTime = new Date(Number(allRows[0].dataset.when));
-        const timeStr = nextTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-        statNext.textContent = timeStr;
-      } else {
+      // Update stats
+      animateValue(statTotal, all.length);
+      animateValue(statLifesafer, lifeAppts.length);
+      animateValue(statGuardian, guardAppts.length);
+
+      if (Object.keys(grouped).length === 0) {
+        container.innerHTML = `
+          <div class="appts-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <p>No appointments loaded</p>
+            <span>Check back soon for updated appointment times</span>
+          </div>
+        `;
+        statNext.textContent = '--';
+        return;
+      }
+
+      // Find next-up card (first non-completed, upcoming)
+      const now = Date.now();
+      let nextUpWhen = null;
+      for (const appt of all) {
+        if (appt.Completed) continue;
+        const t = parseTime(appt['Appointment Time']);
+        if (t && t.getTime() >= now) { nextUpWhen = t.getTime(); break; }
+      }
+
+      Object.entries(grouped).forEach(([dateKey, appts]) => {
+        const group = document.createElement('div');
+        group.className = 'date-group';
+
+        // Date header
+        const header = document.createElement('div');
+        header.className = 'date-group__header';
+        const sampleTime = appts[0] ? appts[0]['Appointment Time'] : '';
+        header.innerHTML = `
+          <div class="date-group__label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span>${formatDateHeader(sampleTime)}</span>
+          </div>
+          <span class="date-group__count">${appts.length} appointment${appts.length !== 1 ? 's' : ''}</span>
+          <div class="date-group__line"></div>
+        `;
+        group.appendChild(header);
+
+        const cardList = document.createElement('div');
+        cardList.className = 'card-list';
+
+        appts.forEach(appt => {
+          const card = buildCard(appt, appt._provider);
+
+          // Mark next-up
+          if (nextUpWhen && !appt.Completed) {
+            const t = parseTime(appt['Appointment Time']);
+            if (t && t.getTime() === nextUpWhen) {
+              card.classList.add('appt-card--next');
+              nextUpWhen = null; // only mark first one
+              const timeStr = t.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+              statNext.textContent = timeStr;
+            }
+          }
+
+          allCards.push(card);
+          cardList.appendChild(card);
+        });
+
+        group.appendChild(cardList);
+        container.appendChild(group);
+      });
+
+      if (nextUpWhen !== null && !document.querySelector('.appt-card--next')) {
         statNext.textContent = '--';
       }
 
@@ -477,11 +467,10 @@
         const res = await fetch(`../appointments.json?ts=${Date.now()}`, { cache: 'no-store' });
         if (!res.ok) throw new Error("Network error");
         const data = await res.json();
-        renderTables(data);
+        renderCards(data);
         setUpdated(Date.now());
       } catch (e) {
         console.error(e);
-        // Show error state
         statTotal.textContent = '!';
         statLifesafer.textContent = '!';
         statGuardian.textContent = '!';
@@ -494,16 +483,13 @@
       }
     }
 
-    const refreshBtn = document.getElementById('appts-refresh');
-    if (refreshBtn) refreshBtn.addEventListener('click', loadData);
+    document.getElementById('appts-refresh').addEventListener('click', loadData);
 
-    // tiny debounce for search
     let t;
     searchBox.addEventListener('input', () => {
       clearTimeout(t);
       t = setTimeout(applyFilters, 120);
     });
-
     srcRadios.forEach(r => r.addEventListener('change', applyFilters));
     hideCompleted.addEventListener('change', applyFilters);
 
