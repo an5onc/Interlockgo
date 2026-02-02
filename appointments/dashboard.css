@@ -270,10 +270,31 @@ body {
   font-size: 0.6rem; font-weight: 600;
   padding: 2px 8px; border-radius: 100px;
 }
-.hs-ls250   { background: rgba(139, 92, 246, 0.12); color: #C4B5FD; }
-.hs-lc100   { background: rgba(100, 116, 139, 0.15); color: #CBD5E1; }
-.hs-ams2500 { background: rgba(249, 115, 22, 0.12); color: #FDBA74; }
-.hs-default { background: rgba(100, 116, 139, 0.1);  color: #94A3B8; }
+.hs-ls250   { background: rgba(139, 92, 246, 0.12); color: #C4B5FD; border-color: rgba(139, 92, 246, 0.3); }
+.hs-lc100   { background: rgba(100, 116, 139, 0.15); color: #CBD5E1; border-color: rgba(100, 116, 139, 0.3); }
+.hs-ams2500 { background: rgba(249, 115, 22, 0.12); color: #FDBA74; border-color: rgba(249, 115, 22, 0.3); }
+.hs-default { background: rgba(100, 116, 139, 0.1);  color: #94A3B8; border-color: rgba(100, 116, 139, 0.2); }
+
+/* Handset Image */
+.appt-card__handset-img-wrap {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--dash-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: all var(--dash-transition-fast);
+}
+.appt-card__handset-img-wrap:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(182, 255, 46, 0.15);
+}
+.appt-card__handset-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+}
 
 /* === STATUS BADGE === */
 .appt-card__status-badge {

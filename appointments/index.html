@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Dashboard CSS -->
-  <link href="dashboard.css?v=2026-01-25a" rel="stylesheet" />
+  <link href="dashboard.css?v=2026-02-02a" rel="stylesheet" />
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -295,7 +295,9 @@
           </div>
         </div>
         <div class="appt-card__right">
-          ${appt.Handset ? `<span class="appt-card__handset-badge ${handsetColor(appt.Handset)}">${appt.Handset}</span>` : ''}
+          ${appt.Handset ? `<div class="appt-card__handset-img-wrap ${handsetColor(appt.Handset)}">
+            <img src="../images/${appt.Handset === 'AMS2500' ? 'guardianhandset' : appt.Handset.toLowerCase()}.png" alt="${appt.Handset}" class="appt-card__handset-img" title="${appt.Handset}" />
+          </div>` : ''}
           <span class="appt-card__status-badge ${appt.Completed ? 'status--completed' : 'status--pending'}">
             ${appt.Completed ? 'Completed' : 'Pending'}
           </span>
