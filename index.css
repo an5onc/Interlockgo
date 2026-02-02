@@ -754,6 +754,12 @@ ul {
   padding: var(--space-6) var(--space-4);
 }
 
+.hero-video {
+  width: min(520px, 100%);
+  border-radius: 28px;
+  display: block;
+}
+
 .device-switcher {
   position: relative;
   width: min(520px, 100%);
