@@ -7,6 +7,15 @@
             "Client": "M.A.",
             "Vehicle": "2010 Jeep Wrangler Key Start",
             "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/04/2026 11:30:00 AM",
+            "Service": "Send Mail",
+            "Client": "M.A.",
+            "Vehicle": "2010 Jeep Wrangler Key Start",
+            "Handset": "LC100",
             "Completed": false
         },
         {
@@ -63,7 +72,7 @@
             "Client": "J.C.",
             "Vehicle": "2009 Chevrolet 2500",
             "Handset": "AMS2500",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
