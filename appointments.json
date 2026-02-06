@@ -2,21 +2,21 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/06/2026 08:30:00 AM",
+            "Appointment Time": "02/06/2026 08:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "V.L.",
             "Vehicle": "2018 Chrysler Pacifica",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/06/2026 09:00:00 AM",
+            "Appointment Time": "02/06/2026 08:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "P.E.",
             "Vehicle": "2018 Toyota Rav 4 - Push",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -29,21 +29,12 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/06/2026 09:30:00 AM",
+            "Appointment Time": "02/06/2026 09:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "H.M.",
             "Vehicle": "2012 Suzuki Kizashi - Push",
             "Handset": "LC100",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/06/2026 10:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "G.M.",
-            "Vehicle": "2008 Toyota SION KEY",
-            "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -52,7 +43,25 @@
             "Client": "G.S.",
             "Vehicle": "2010 Chevrolet IMPALA KEY",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/06/2026 10:30:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "G.M.",
+            "Vehicle": "2008 Toyota SION KEY",
+            "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/06/2026 11:15:00 AM",
+            "Service": "Install Fee",
+            "Client": "C.O.",
+            "Vehicle": "2010 Chevrolet Camaro",
+            "Handset": "LS250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -90,7 +99,7 @@
             "Client": "G.I.",
             "Vehicle": "2010 Honda Accord",
             "Handset": "AMS2500",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
@@ -99,7 +108,7 @@
             "Client": "P.I.",
             "Vehicle": "2018 Nissan MAXIMA PUSH",
             "Handset": "AMS2500",
-            "Completed": false
+            "Completed": true
         }
     ]
 }
