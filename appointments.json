@@ -2,15 +2,6 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/07/2026 08:00:00 AM",
-            "Service": "Install Fee",
-            "Client": "S.Z.",
-            "Vehicle": "2005 Ford F350-KEY",
-            "Handset": "LC100",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/07/2026 08:30:00 AM",
             "Service": "Reset/Violation Reset",
             "Client": "T.G.",
@@ -20,21 +11,30 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/07/2026 08:45:00 AM",
+            "Service": "Install Fee",
+            "Client": "S.Z.",
+            "Vehicle": "2005 Ford F350-KEY",
+            "Handset": "LS250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/07/2026 09:00:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "A.J.",
             "Vehicle": "2012 Mazda 3",
             "Handset": "LS250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/07/2026 09:30:00 AM",
+            "Appointment Time": "02/07/2026 09:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "C.M.",
             "Vehicle": "2009 Honda Civic",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -47,30 +47,30 @@
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/07/2026 09:45:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "P.J.",
+            "Vehicle": "2005 Buick LaCrosse",
+            "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/07/2026 09:45:00 AM",
+            "Service": "De-Install Fee",
+            "Client": "H.J.",
+            "Vehicle": "2021 Chevrolet Silverado",
+            "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/07/2026 10:00:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "B.J.",
             "Vehicle": "1994 Chevrolet Camaro-Key",
             "Handset": "LC100",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/07/2026 10:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "P.J.",
-            "Vehicle": "2005 Buick LaCrosse",
-            "Handset": "LC100",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/07/2026 10:30:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "P.M.",
-            "Vehicle": "2010 Mazda CX-7",
-            "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -79,25 +79,34 @@
             "Client": "G.J.",
             "Vehicle": "2011 Chevrolet Cruze",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/07/2026 11:00:00 AM",
-            "Service": "Re-Instated",
-            "Client": "W.M.",
-            "Vehicle": "2011 Subaru Legacy",
+            "Appointment Time": "02/07/2026 10:45:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "P.M.",
+            "Vehicle": "2010 Mazda CX-7",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/07/2026 11:00:00 AM",
+            "Appointment Time": "02/07/2026 10:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "F.D.",
             "Vehicle": "2014 Subaru Forester",
             "Handset": "LS250",
-            "Completed": false
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/07/2026 11:30:00 AM",
+            "Service": "Re-Instated",
+            "Client": "W.M.",
+            "Vehicle": "2011 Subaru Legacy",
+            "Handset": "LS250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -141,6 +150,15 @@
             "Service": "Reset/Violation Reset",
             "Client": "E.V.",
             "Vehicle": "2000 Ford Ranger",
+            "Handset": "LC100",
+            "Completed": false
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/07/2026 01:15:00 PM",
+            "Service": "Install Fee",
+            "Client": "C.J.",
+            "Vehicle": "2007 Toyota Tacoma",
             "Handset": "LC100",
             "Completed": false
         }
