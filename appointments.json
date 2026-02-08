@@ -120,11 +120,11 @@
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/07/2026 12:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "C.E.",
-            "Vehicle": "2005 GMC Sierra",
-            "Handset": "LC100",
-            "Completed": false
+            "Service": "Install Fee",
+            "Client": "C.J.",
+            "Vehicle": "2007 Toyota Tacoma",
+            "Handset": "LS250",
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -133,7 +133,7 @@
             "Client": "R.C.",
             "Vehicle": "1997 GMC Sonoma",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
@@ -142,25 +142,16 @@
             "Client": "S.R.",
             "Vehicle": "2005 Nissan Altima",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/07/2026 01:00:00 PM",
-            "Service": "Reset/Violation Reset",
+            "Service": "Daily Monitoring FC100",
             "Client": "E.V.",
             "Vehicle": "2000 Ford Ranger",
             "Handset": "LC100",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/07/2026 01:15:00 PM",
-            "Service": "Install Fee",
-            "Client": "C.J.",
-            "Vehicle": "2007 Toyota Tacoma",
-            "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": []
