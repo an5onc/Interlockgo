@@ -7,41 +7,68 @@
             "Client": "H.J.",
             "Vehicle": "2006 Chevrolet Silverado",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/13/2026 09:30:00 AM",
+            "Appointment Time": "02/13/2026 09:15:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "S.I.",
             "Vehicle": "2005 Jeep LIBERTY KEY",
             "Handset": "LS250",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/13/2026 10:00:00 AM",
+            "Appointment Time": "02/13/2026 09:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "H.V.",
             "Vehicle": "2006 Chevrolet Impala",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/13/2026 10:00:00 AM",
+            "Appointment Time": "02/13/2026 09:45:00 AM",
             "Service": "Daily Monitoring FC100",
             "Client": "C.R.",
             "Vehicle": "2017 Dodge Journey",
+            "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/13/2026 10:45:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "P.L.",
+            "Vehicle": "2017 Hyundai Sante Fe Sport Key",
+            "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/13/2026 11:30:00 AM",
+            "Service": "Daily Monitoring FC100",
+            "Client": "C.R.",
+            "Vehicle": "2011 Chevrolet Tahoe - Key",
+            "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/13/2026 12:00:00 PM",
+            "Service": "De-Install Fee",
+            "Client": "G.J.",
+            "Vehicle": "2008 Nissan Altima PTS",
             "Handset": "LC100",
             "Completed": false
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/13/2026 11:00:00 AM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "P.L.",
-            "Vehicle": "2017 Hyundai Sante Fe Sport Key",
+            "Appointment Time": "02/13/2026 01:00:00 PM",
+            "Service": "De-Install Fee",
+            "Client": "H.B.",
+            "Vehicle": "1995 Dodge ram2500-key",
             "Handset": "LC100",
             "Completed": false
         },
@@ -69,15 +96,6 @@
             "Service": "Daily Monitoring FC100",
             "Client": "L.M.",
             "Vehicle": "2002 Ford RANGER KEY",
-            "Handset": "LC100",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/13/2026 03:30:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "C.R.",
-            "Vehicle": "2011 Chevrolet Tahoe - Key",
             "Handset": "LC100",
             "Completed": false
         },
