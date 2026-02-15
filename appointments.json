@@ -97,16 +97,16 @@
             "Client": "A.M.",
             "Vehicle": "2015 Subaru FORRESTER KEY",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/14/2026 12:30:00 PM",
+            "Appointment Time": "02/14/2026 12:15:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "P.B.",
             "Vehicle": "2002 GMC Yukon",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         }
     ],
     "guardian": [
