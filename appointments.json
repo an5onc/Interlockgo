@@ -2,12 +2,12 @@
     "lifesafer": [
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/17/2026 08:00:00 AM",
+            "Appointment Time": "02/17/2026 09:00:00 AM",
             "Service": "Install Fee",
             "Client": "E.C.",
             "Vehicle": "2007 Mazda 3 Key",
-            "Handset": "LC100",
-            "Completed": false
+            "Handset": "LS250",
+            "Completed": true
         }
     ],
     "guardian": []
