@@ -1550,7 +1550,7 @@ ul {
 
 .faq__answer p {
   font-size: var(--text-base);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: var(--leading-relaxed);
   margin: 0;
 }
@@ -1558,6 +1558,18 @@ ul {
 .faq__answer a {
   color: var(--royal-blue);
   text-decoration: underline;
+}
+
+[data-theme="dark"] .faq__question {
+  color: #F0F2F8;
+}
+
+[data-theme="dark"] .faq__answer p {
+  color: #B8C0D8;
+}
+
+[data-theme="dark"] .faq__question::after {
+  color: #B8C0D8;
 }
 
 /* === FINAL CTA SECTION === */
