@@ -7,42 +7,51 @@
             "Client": "S.D.",
             "Vehicle": "2015 Toyota Camry",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/18/2026 09:30:00 AM",
-            "Service": "Daily Monitoring FC100",
+            "Service": "De-Install Fee",
             "Client": "M.J.",
             "Vehicle": "1997 Honda Civic",
             "Handset": "LC100",
-            "Completed": false
+            "Completed": true
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
             "Appointment Time": "02/18/2026 10:00:00 AM",
             "Service": "Daily Monitoring FC100",
+            "Client": "M.G.",
+            "Vehicle": "2016 Dodge Ram 1500 key",
+            "Handset": "LC100",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/18/2026 10:15:00 AM",
+            "Service": "Daily Monitoring FC100",
             "Client": "S.T.",
             "Vehicle": "2018 Ford F150 PB",
+            "Handset": "LS250",
+            "Completed": true
+        },
+        {
+            "Location": "LSCO - Evans - Interlock Go",
+            "Appointment Time": "02/18/2026 12:30:00 PM",
+            "Service": "Reset/Violation Reset",
+            "Client": "T.J.",
+            "Vehicle": "2025 Ford f-150 Larait - push button",
             "Handset": "LS250",
             "Completed": false
         },
         {
             "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/18/2026 01:30:00 PM",
+            "Appointment Time": "02/18/2026 01:00:00 PM",
             "Service": "Daily Monitoring FC100",
-            "Client": "G.A.",
-            "Vehicle": "2014 Nissan Sentra",
-            "Handset": "LC100",
-            "Completed": false
-        },
-        {
-            "Location": "LSCO - Evans - Interlock Go",
-            "Appointment Time": "02/18/2026 05:00:00 PM",
-            "Service": "Daily Monitoring FC100",
-            "Client": "M.G.",
-            "Vehicle": "2016 Dodge Ram 1500 key",
-            "Handset": "LC100",
+            "Client": "Z.A.",
+            "Vehicle": "2016 Ford f-150 PUSH",
+            "Handset": "LS250",
             "Completed": false
         },
         {
@@ -67,7 +76,7 @@
     "guardian": [
         {
             "Location": "GIS(CO) Evans - Interlock Go (7244)",
-            "Appointment Time": "02/18/2026 10:00:00 AM",
+            "Appointment Time": "02/18/2026 12:00:00 PM",
             "Service": "Daily Monitoring FC100",
             "Client": "A.D.",
             "Vehicle": "2004 Subaru Forester Key",
