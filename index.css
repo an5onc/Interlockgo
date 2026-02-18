@@ -1572,6 +1572,10 @@ ul {
   color: #B8C0D8;
 }
 
+[data-theme="dark"] .faq__answer a {
+  color: var(--lime-accent);
+}
+
 /* === FINAL CTA SECTION === */
 .final-cta {
   padding: var(--space-16) 0;
