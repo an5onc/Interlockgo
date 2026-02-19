@@ -96,28 +96,49 @@
 <body id="top">
 
   <!-- NAV -->
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../appointments/">Appointments</a></li>
-      <li><a href="../hours/">Shop hours</a></li>
-      <li>
-        <a href="javascript:void(0)">Equipment</a>
-        <ul>
-          <li><a href="../lifesafer/">Lifesafer</a></li>
-          <li><a href="../guardian/">Guardian</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="javascript:void(0)">Support</a>
-        <ul>
-          <li><a href="../forms/">Forms</a></li>
-          <li><a href="../contactus/">Contact</a></li>
-        </ul>
-      </li>
-      <li><a href="https://myaccount.lifesafer.com/account/login" target="_blank" rel="noopener">My Account</a></li>
-    </ul>
-  </nav>
+  <header class="header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="../" class="nav__logo" aria-label="InterlockGo Home">
+        <img src="../images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" />
+        <span class="nav__wordmark">InterlockGo</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../lifesafer/">Lifesafer</a></li>
+        <li><a href="../guardian/">Guardian</a></li>
+        <li><a href="../appointments/">Appointments</a></li>
+        <li><a href="../contactus/">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="https://myaccount.lifesafer.com/account/login" class="nav__link--text" target="_blank" rel="noopener">Log in</a>
+        <a href="../getstarted/" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
 
   <!-- HERO -->
   <header class="reviews-hero">
@@ -423,6 +444,8 @@
   </script>
 
   <!-- Mobile Navigation -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <script src="../script.js"></script>
   <script src="../js/mobile-nav.js"></script>
 </body>
 </html>
