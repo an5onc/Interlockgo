@@ -1445,6 +1445,15 @@ ul {
   .testimonials__grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .testimonials__grid--5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .testimonials__grid--5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 .testimonial {
