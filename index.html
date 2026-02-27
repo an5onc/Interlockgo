@@ -105,7 +105,14 @@
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "17:00"},
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00"}
     ],
-    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"]
+    "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
   }
   </script>
 
@@ -174,7 +181,7 @@
     <header class="header">
       <nav class="nav" aria-label="Main navigation">
         <a href="/" class="nav__logo" aria-label="InterlockGo Home">
-          <img src="images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" />
+          <img src="images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" loading="lazy" />
           <span class="nav__wordmark">InterlockGo</span>
         </a>
 
@@ -531,8 +538,12 @@
         </blockquote>
       </div>
 
-      <div style="text-align:center;margin-top:2rem;">
+      <div style="text-align:center;margin-top:2rem;display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
         <a href="reviews/" class="btn btn--lg btn--see-reviews">⭐ See All Reviews</a>
+        <a href="https://g.page/r/CQAAAAAAAAqEEAI/review" target="_blank" rel="noopener noreferrer" class="btn btn--lg" style="background:linear-gradient(135deg,#4285f4,#34a853);color:#fff;border:none;display:inline-flex;align-items:center;gap:0.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Leave a Google Review
+        </a>
       </div>
     </div>
   </section>
@@ -545,58 +556,44 @@
 
       <div class="faq__list">
         <details class="faq__item">
-          <summary class="faq__question">Do you offer same-day ignition interlock installation?</summary>
+          <summary class="faq__question">How does an ignition interlock device work?</summary>
           <div class="faq__answer">
-            <p>Yes. We frequently have same-day or next-day appointments available in Evans, CO. Call <a href="tel:970-515-5740">970-515-5740</a> to check today's openings.</p>
+            <p>An ignition interlock device is a breathalyzer installed in your vehicle that prevents the engine from starting if alcohol is detected. Before starting your car, you blow into the device — if your BAC is above the preset limit (usually 0.02%), the vehicle won't start. The device also requires periodic retests while driving to ensure continued sobriety.</p>
           </div>
         </details>
 
         <details class="faq__item">
-          <summary class="faq__question">Are you certified for Lifesafer and Guardian devices?</summary>
+          <summary class="faq__question">How long do I need the device?</summary>
           <div class="faq__answer">
-            <p>Yes. InterlockGo NOCO is an authorized provider for Lifesafer and Guardian installations, calibrations, service, and clean removals.</p>
+            <p>The duration depends on your specific case and Colorado DMV requirements, typically ranging from 8 months to 2+ years for DUI offenses. Your court order or DMV paperwork will specify your exact requirement period. We'll help you understand your timeline and ensure you complete all necessary steps for removal when eligible.</p>
           </div>
         </details>
 
         <details class="faq__item">
-          <summary class="faq__question">What areas do you serve in Northern Colorado?</summary>
+          <summary class="faq__question">What happens if I fail a breath test?</summary>
           <div class="faq__answer">
-            <p>We serve Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, and all of Weld County. Our shop is conveniently located at 3610 35th Avenue Unit #7 in Evans, CO.</p>
+            <p>If you fail a breath test, your vehicle won't start and the violation is recorded in the device's memory for reporting to authorities. Multiple violations can extend your interlock requirement or result in license suspension. If you believe a test was failed in error (from mouthwash, food, etc.), wait 5-10 minutes and retest — we'll help you understand how to avoid false positives.</p>
           </div>
         </details>
 
         <details class="faq__item">
-          <summary class="faq__question">How long does an interlock installation take?</summary>
+          <summary class="faq__question">How much does it cost?</summary>
           <div class="faq__answer">
-            <p>A typical installation takes between 2–4 hours. You're welcome to wait on-site or drop off your vehicle and we'll call you when it's ready.</p>
+            <p>Typical costs include installation ($75-150), monthly lease and calibration ($60-90), and removal ($50-75), though prices vary by device and provider. Additional fees may apply for violations or early termination. Call us at <a href="tel:970-515-5740">970-515-5740</a> for a detailed quote — we'll explain all costs upfront with no hidden fees.</p>
           </div>
         </details>
 
         <details class="faq__item">
-          <summary class="faq__question">How much does an ignition interlock cost in Colorado?</summary>
+          <summary class="faq__question">Do you service all of Northern Colorado?</summary>
           <div class="faq__answer">
-            <p>Costs vary by device and program length. Installation fees and monthly lease/calibration fees apply. Call us at <a href="tel:970-515-5740">970-515-5740</a> for a personalized quote — we'll walk you through all the costs upfront with no surprises.</p>
+            <p>Yes, we proudly serve Evans, Greeley, Fort Collins, Loveland, Windsor, Johnstown, and all surrounding areas in Weld and Larimer counties. Our central Evans location at 3610 35th Avenue Unit #7 is easily accessible from anywhere in Northern Colorado. We offer flexible scheduling including same-day appointments when available.</p>
           </div>
         </details>
 
         <details class="faq__item">
-          <summary class="faq__question">Do you offer notary services for the interlock affidavit?</summary>
+          <summary class="faq__question">How do I schedule my appointment?</summary>
           <div class="faq__answer">
-            <p>Yes! We have a notary on-site so you can get your Colorado interlock affidavit notarized during your appointment — no extra trips needed.</p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__question">What do I need to bring to my installation appointment?</summary>
-          <div class="faq__answer">
-            <p>Bring your vehicle, a Colorado-issued photo ID, and proof of Colorado Registration. We'll handle the rest and help you understand the next steps.</p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__question">How often do I need to get my interlock device calibrated?</summary>
-          <div class="faq__answer">
-            <p>In Colorado, calibration is typically required every 45 days. We'll set up your recurring appointments so you never miss a deadline.</p>
+            <p>Scheduling is easy — just call us at <a href="tel:970-515-5740">970-515-5740</a> and we'll find a time that works for you, often same-day or next-day. You can also stop by our Evans shop during business hours (Mon-Fri 9-5, Sat 10-2). We'll handle everything from installation through your required calibrations, keeping you on track with automated reminders.</p>
           </div>
         </details>
       </div>
@@ -638,7 +635,7 @@
       <div class="footer__grid">
         <div class="footer__col">
           <div class="footer__brand">
-            <img src="images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" />
+            <img src="images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" loading="lazy" />
             <span class="footer__company">InterlockGo NOCO</span>
           </div>
           <p class="footer__tagline">Certified ignition interlock installation, calibration &amp; service in Northern Colorado.</p>
