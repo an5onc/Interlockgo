@@ -82,6 +82,12 @@
   </url>
   <url>
     <loc>https://interlockgo.io/longmont/</loc>
+  </url>
+  <url>
+    <loc>https://interlockgo.io/timnath/</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
