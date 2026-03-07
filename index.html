@@ -61,7 +61,12 @@
       "contactType": "customer service",
       "areaServed": "US",
       "availableLanguage": ["English", "Spanish"]
-    }
+    },
+    "sameAs": [
+      "https://www.bbb.org/us/co/evans/profile/interlock-device/interlock-go-noco-1296-92018662",
+      "https://www.lifesafer.com/find-a-service-center/",
+      "https://www.guardianinterlock.com/find-a-location/"
+    ]
   }
   </script>
 
@@ -112,6 +117,38 @@
       "reviewCount": "47",
       "bestRating": "5",
       "worstRating": "1"
+    },
+    "sameAs": [
+      "https://www.bbb.org/us/co/evans/profile/interlock-device/interlock-go-noco-1296-92018662",
+      "https://www.lifesafer.com/find-a-service-center/",
+      "https://www.guardianinterlock.com/find-a-location/"
+    ],
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".hero-headline", ".hero-subtext", ".service-summary"]
+    }
+  }
+  </script>
+
+  <!-- === STRUCTURED DATA: WebSite === -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://interlockgo.io/#website",
+    "url": "https://interlockgo.io/",
+    "name": "InterlockGo NOCO",
+    "description": "Certified ignition interlock installation and service in Northern Colorado",
+    "publisher": {
+      "@id": "https://interlockgo.io/#organization"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://interlockgo.io/?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
     }
   }
   </script>
