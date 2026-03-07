@@ -2,34 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Command Center | InterlockGo NOCO Appointments</title>
-  <meta name="description" content="View available ignition interlock appointments at InterlockGo NOCO. Same-day slots for Lifesafer and Guardian calibration in Evans, CO. Call 970-515-5740." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book an Appointment | InterlockGo NOCO — Same-Day Available</title>
+  <meta name="description" content="Book your ignition interlock installation or calibration appointment with InterlockGo NOCO. Same-day appointments often available. Call 970-515-5740 or text 970-239-1354." />
   <link rel="canonical" href="https://interlockgo.io/appointments/" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Dashboard CSS -->
-  <link href="dashboard.css?v=2026-02-02a" rel="stylesheet" />
+  <link rel="stylesheet" href="../base.css" />
+  <link rel="stylesheet" href="../index.css" />
 
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Structured Data: BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://interlockgo.io/"},
-      {"@type": "ListItem", "position": 2, "name": "Appointments", "item": "https://interlockgo.io/appointments/"}
-    ]
-  }
-  </script>
-
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -38,502 +25,268 @@
     gtag('config', 'AW-17605887515');
   </script>
 
-  <!-- === STRUCTURED DATA: LocalBusiness === -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": ["AutoRepair", "LocalBusiness"],
-    "@id": "https://interlockgo.io/#localbusiness",
-    "name": "InterlockGo NOCO",
-    "description": "Professional ignition interlock device installation, calibration, and removal services in Northern Colorado. Lifesafer and Guardian certified.",
-    "url": "https://interlockgo.io",
-    "telephone": "+19705155740",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "3610 35th Avenue Unit #7",
-      "addressLocality": "Evans",
-      "addressRegion": "CO",
-      "postalCode": "80620",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.3783,
-      "longitude": -104.7003
-    },
-    "areaServed": ["Evans", "Greeley", "Fort Collins", "Loveland", "Windsor", "Johnstown"],
-    "priceRange": "$$",
-    "image": "https://interlockgo.io/images/interlockgologo.png",
-    "sameAs": []
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://interlockgo.io/"},
+      {"@type": "ListItem", "position": 2, "name": "Book Appointment", "item": "https://interlockgo.io/appointments/"}
+    ]
   }
   </script>
-  <!-- Google tag (gtag.js) GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JCBPD2PLD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3JCBPD2PLD');
-  </script>
+
+  <style>
+    .appt-hero {
+      padding: 80px 0 48px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--royal-blue-dark) 0%, var(--royal-blue) 100%);
+      color: #fff;
+    }
+    .appt-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
+    .appt-hero p { font-size: 1.05rem; opacity: 0.85; max-width: 480px; margin: 0 auto 28px; }
+    .appt-hero__btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .appt-body { padding: 64px 0 80px; }
+    .appt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 860px; margin: 0 auto 48px; }
+    @media (max-width: 640px) { .appt-grid { grid-template-columns: 1fr; } }
+    .appt-card {
+      background: var(--surface);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .appt-card__icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(11,30,102,0.08);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .appt-card__icon svg { width: 24px; height: 24px; stroke: var(--royal-blue); }
+    .appt-card h2 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .appt-card p { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
+    .appt-callback {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .appt-callback h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+    .appt-callback p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
+    .appt-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .appt-form input, .appt-form select {
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .appt-form input:focus, .appt-form select:focus { border-color: var(--royal-blue); }
+    .appt-form button { grid-column: 1 / -1; }
+    .appt-success { text-align: center; color: #16a34a; font-weight: 600; padding: 12px 0; display: none; }
+    .hours-note {
+      max-width: 520px;
+      margin: 24px auto 0;
+      text-align: center;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body id="top">
 
-  <!-- ===== AURORA BACKGROUND ===== -->
-  <div class="dashboard-aurora" aria-hidden="true">
-    <div class="aurora__layer aurora__layer--1"></div>
-    <div class="aurora__layer aurora__layer--2"></div>
-    <div class="aurora__layer aurora__layer--3"></div>
-    <div class="aurora__grid"></div>
-  </div>
-
-  <!-- ===== NAVIGATION ===== -->
-  <nav class="dashboard-nav">
-    <div class="dashboard-nav__inner">
-      <a href="../index.html" class="dashboard-nav__brand">
-        <img src="../images/interlockgologo.png" alt="InterlockGo" class="dashboard-nav__logo" width="32" height="32" />
-        <span class="dashboard-nav__title">InterlockGo</span>
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo" aria-label="InterlockGo Home">
+        <img src="../images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" loading="lazy" />
+        <span class="nav__wordmark">InterlockGo</span>
       </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/lifesafer/">Lifesafer</a></li>
+        <li><a href="/guardian/">Guardian</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/appointments/" aria-current="page">Book Appointment</a></li>
+        <li><a href="/contactus/">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="/getstarted/" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-      <div class="dashboard-nav__links">
-        <a href="../index.html" class="dashboard-nav__link">Home</a>
-        <a href="../lifesafer/" class="dashboard-nav__link">Lifesafer</a>
-        <a href="../guardian/" class="dashboard-nav__link">Guardian</a>
-        <a href="./" class="dashboard-nav__link dashboard-nav__link--active">Appointments</a>
-        <a href="../contactus/" class="dashboard-nav__link">Contact</a>
+  <!-- HERO -->
+  <section class="appt-hero">
+    <div class="container">
+      <h1>Book Your Appointment</h1>
+      <p>Same-day and next-day appointments often available. Call, text, or leave your info below.</p>
+      <div class="appt-hero__btns">
+        <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:6px" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Call 970-515-5740
+        </a>
+        <a href="sms:970-239-1354" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,0.4);color:#fff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:6px" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Text 970-239-1354
+        </a>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <!-- ===== MAIN DASHBOARD ===== -->
-  <main class="dashboard-main">
+  <!-- BODY -->
+  <main class="appt-body">
+    <div class="container">
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="dashboard-hero">
-      <div class="dashboard-hero__header">
-        <span class="dashboard-hero__badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-          Live Dashboard
-        </span>
-
-        <h1 class="dashboard-hero__title">
-          <span class="dashboard-hero__title-main">Command Center</span>
-          <span class="dashboard-hero__title-accent">Appointments Dashboard</span>
-        </h1>
-
-        <p class="dashboard-hero__subtitle">
-          Real-time appointment tracking for Lifesafer and Guardian interlock devices.
-          Sorted by time, filtered by source, with the next appointment highlighted.
-        </p>
-      </div>
-
-      <!-- ===== STATS ROW ===== -->
-      <div class="stats-row">
-        <div class="stat-card">
-          <span class="stat-card__value" id="stat-total">--</span>
-          <span class="stat-card__label">Total Today</span>
+      <!-- Service Type Cards -->
+      <div class="appt-grid">
+        <div class="appt-card">
+          <div class="appt-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h2>New Installation</h2>
+          <p>First-time install for Lifesafer or Guardian device. Takes 2–4 hours. Same-day often available.</p>
+          <a href="tel:970-515-5740" class="btn btn--primary btn--sm">Schedule Install</a>
         </div>
-        <div class="stat-card">
-          <span class="stat-card__value" id="stat-lifesafer">--</span>
-          <span class="stat-card__label">Lifesafer</span>
+        <div class="appt-card">
+          <div class="appt-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h2>Calibration Service</h2>
+          <p>Required every 60 days in Colorado. Quick visit — usually 30 minutes or less.</p>
+          <a href="tel:970-515-5740" class="btn btn--primary btn--sm">Schedule Calibration</a>
         </div>
-        <div class="stat-card">
-          <span class="stat-card__value" id="stat-guardian">--</span>
-          <span class="stat-card__label">Guardian</span>
+        <div class="appt-card">
+          <div class="appt-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 10 4 15 9 20"></polyline><path d="M20 4v7a4 4 0 0 1-4 4H4"></path></svg>
+          </div>
+          <h2>Device Removal</h2>
+          <p>Program complete? We'll remove your device quickly once you have court authorization.</p>
+          <a href="tel:970-515-5740" class="btn btn--primary btn--sm">Schedule Removal</a>
         </div>
-        <div class="stat-card stat-card--highlight">
-          <span class="stat-card__label">Next Up</span>
-          <span class="stat-card__value" id="stat-next">--</span>
+        <div class="appt-card">
+          <div class="appt-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg>
+          </div>
+          <h2>Violation Reset</h2>
+          <p>Had a lockout or violation code? We'll reset your device and get you back on the road.</p>
+          <a href="tel:970-515-5740" class="btn btn--primary btn--sm">Schedule Reset</a>
         </div>
       </div>
 
-      <!-- ===== TOOLBAR ===== -->
-      <div class="dashboard-toolbar">
-        <div class="toolbar-filters">
-          <label class="filter-seg">
-            <input type="radio" name="src" value="all" checked>
-            <span>All</span>
-          </label>
-          <label class="filter-seg">
-            <input type="radio" name="src" value="lifesafer">
-            <span>Lifesafer</span>
-          </label>
-          <label class="filter-seg">
-            <input type="radio" name="src" value="guardian">
-            <span>Guardian</span>
-          </label>
-        </div>
-
-        <div class="toolbar-search">
-          <svg class="toolbar-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="M21 21l-4.35-4.35"></path>
-          </svg>
-          <input
-            id="appts-search"
-            class="toolbar-search__input"
-            type="search"
-            placeholder="Search client, vehicle, service..."
-            spellcheck="false"
-          />
-        </div>
-
-        <label class="toolbar-toggle">
-          <input id="hide-completed" type="checkbox" />
-          <span>Hide completed</span>
-        </label>
-
-        <div class="toolbar-actions">
-          <button id="appts-refresh" class="toolbar-refresh" type="button" aria-live="polite">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="23 4 23 10 17 10"></polyline>
-              <polyline points="1 20 1 14 7 14"></polyline>
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-            </svg>
-            Refresh
-          </button>
-          <span id="appts-updated" class="toolbar-updated" aria-live="polite"></span>
-        </div>
+      <!-- After-Hours Callback -->
+      <div class="appt-callback">
+        <h2>After Hours? Leave Your Info</h2>
+        <p>We'll call you back first thing during business hours — usually within the hour when we open.</p>
+        <form class="appt-form" id="apptCallbackForm" onsubmit="submitApptCallback(event)">
+          <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
+          <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" />
+          <select name="service">
+            <option value="" disabled selected>Service needed</option>
+            <option value="installation">New Installation</option>
+            <option value="calibration">Calibration</option>
+            <option value="removal">Device Removal</option>
+            <option value="reset">Violation Reset</option>
+            <option value="question">General Question</option>
+          </select>
+          <input type="text" name="city" placeholder="Your city (optional)" autocomplete="address-level2" />
+          <button type="submit" class="btn btn--primary">Request Callback</button>
+        </form>
+        <p class="appt-success" id="apptSuccess">✅ Got it! We'll call you back when we open. Thank you!</p>
       </div>
-    </section>
 
-    <!-- ===== APPOINTMENT CARDS ===== -->
-    <div id="appointments-container" class="appointments-container"></div>
+      <p class="hours-note">
+        Business hours: Mon–Fri 9am–5pm · Sat 10am–2pm Mountain Time<br>
+        Located at 3610 35th Ave Unit #7, Evans, CO 80620
+      </p>
 
+    </div>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="dashboard-footer">
-    <div class="dashboard-footer__inner">
-      <div class="dashboard-footer__brand">
-        <img src="../images/interlockgologo.png" alt="InterlockGo" class="dashboard-footer__logo" width="28" height="28" />
-        <span class="dashboard-footer__company">InterlockGo NOCO</span>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="footer__brand">
+            <img src="../images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" loading="lazy" />
+            <span class="footer__company">InterlockGo NOCO</span>
+          </div>
+          <p class="footer__tagline">Certified ignition interlock installation, calibration &amp; service in Northern Colorado.</p>
+          <a href="/review/" class="footer__review-link">⭐ Leave a Google Review</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title">Navigation</span>
+          <nav class="footer__col-links" aria-label="Footer navigation">
+            <a href="/lifesafer/">Lifesafer</a>
+            <a href="/guardian/">Guardian</a>
+            <a href="/forms/">Forms</a>
+            <a href="/reviews/">Reviews</a>
+            <a href="/contactus/">Contact</a>
+          </nav>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title">Service Areas</span>
+          <nav class="footer__col-links" aria-label="Service areas">
+            <a href="/greeley/">Greeley</a>
+            <a href="/fort-collins/">Fort Collins</a>
+            <a href="/loveland/">Loveland</a>
+            <a href="/windsor/">Windsor</a>
+            <a href="/johnstown/">Johnstown</a>
+          </nav>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-title">Legal</span>
+          <nav class="footer__col-links" aria-label="Legal">
+            <a href="/privacy-policy/">Privacy Policy</a>
+            <a href="/sms-terms/">SMS Terms &amp; Conditions</a>
+          </nav>
+        </div>
       </div>
-
-      <div class="dashboard-footer__links">
-        <a href="../lifesafer/" class="dashboard-footer__link">Lifesafer</a>
-        <a href="../guardian/" class="dashboard-footer__link">Guardian</a>
-        <a href="../forms/" class="dashboard-footer__link">Forms</a>
-        <a href="../contactus/" class="dashboard-footer__link">Contact</a>
+      <div class="footer__bottom">
+        <p>&copy; 2026 InterlockGo NOCO. All rights reserved.</p>
+        <p>Created and maintained by <strong>NexGen Studios</strong></p>
       </div>
-
-      <div class="dashboard-footer__meta">
-        <p>&copy; 2025 InterlockGo NOCO &bull; 3610 35th Avenue Unit #7, Evans, CO 80620 &bull; <a href="tel:970-515-5740" style="color:inherit;">970-515-5740</a></p>
-      </div>
+      <a href="#top" class="footer__backtop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </a>
     </div>
   </footer>
 
-  <!-- ===== FLOATING CALL BUTTON ===== -->
   <a href="tel:970-515-5740" class="call-float" aria-label="Call InterlockGo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
   </a>
 
-  <!-- ===== DATA + UX SCRIPTS ===== -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <script src="../script.js"></script>
   <script>
-  (async () => {
-    const container = document.getElementById('appointments-container');
-    const updatedEl = document.getElementById('appts-updated');
-
-    // Stats elements
-    const statTotal = document.getElementById('stat-total');
-    const statLifesafer = document.getElementById('stat-lifesafer');
-    const statGuardian = document.getElementById('stat-guardian');
-    const statNext = document.getElementById('stat-next');
-
-    // Toolbar
-    const srcRadios = Array.from(document.querySelectorAll('input[name="src"]'));
-    const hideCompleted = document.getElementById('hide-completed');
-    const searchBox = document.getElementById('appts-search');
-
-    // Store all card data for filtering
-    let allCards = [];
-
-    const parseTime = (s) => {
-      const m = String(s || '').match(/^\d{2}\/\d{2}\/\d{4}\s+\d{1,2}:\d{2}:\d{2}\s+[AP]M/);
-      return m ? new Date(m[0]) : null;
-    };
-
-    const formatTime = (dateStr) => {
-      const d = parseTime(dateStr);
-      if (!d) return { time: dateStr || '—', period: '' };
-      const h = d.getHours();
-      const m = d.getMinutes();
-      const ampm = h >= 12 ? 'PM' : 'AM';
-      const h12 = h % 12 || 12;
-      return { time: `${h12}:${m.toString().padStart(2, '0')}`, period: ampm };
-    };
-
-    const formatDateHeader = (dateStr) => {
-      const d = parseTime(dateStr);
-      if (!d) return 'Today';
-      return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-    };
-
-    const serviceColor = (service) => {
-      const s = (service || '').toLowerCase();
-      if (s.includes('install') && s.includes('de')) return 'svc-deinstall';
-      if (s.includes('install')) return 'svc-install';
-      if (s.includes('reset') || s.includes('violation')) return 'svc-violation';
-      if (s.includes('monitor')) return 'svc-monitor';
-      if (s.includes('swap')) return 'svc-swap';
-      return 'svc-default';
-    };
-
-    const handsetColor = (handset) => {
-      const h = (handset || '').toUpperCase();
-      if (h.includes('LS250')) return 'hs-ls250';
-      if (h.includes('LC100')) return 'hs-lc100';
-      if (h.includes('AMS')) return 'hs-ams2500';
-      return 'hs-default';
-    };
-
-    function buildCard(appt, provider) {
-      const card = document.createElement('div');
-      card.className = `appt-card appt-card--${provider}`;
-      card.dataset.provider = provider;
-      card.dataset.client = (appt.Client || '').toLowerCase();
-      card.dataset.vehicle = (appt.Vehicle || '').toLowerCase();
-      card.dataset.service = (appt.Service || '').toLowerCase();
-      card.dataset.location = (appt.Location || '').toLowerCase();
-      card.dataset.completed = appt.Completed ? '1' : '0';
-
-      const timeDate = parseTime(appt['Appointment Time']);
-      card.dataset.when = timeDate ? timeDate.getTime() : 0;
-      card.dataset.dateKey = timeDate ? timeDate.toDateString() : 'unknown';
-
-      if (appt.Completed) card.classList.add('appt-card--completed');
-
-      const { time, period } = formatTime(appt['Appointment Time']);
-
-      const providerLabel = provider === 'guardian' ? 'GUARDIAN' : 'LIFESAFER';
-
-      card.innerHTML = `
-        <div class="appt-card__time">
-          <span class="appt-card__time-value">${time}</span>
-          <span class="appt-card__time-period">${period}</span>
-        </div>
-        <div class="appt-card__details">
-          <div class="appt-card__row-top">
-            <span class="appt-card__client">${appt.Client || '—'}</span>
-            <span class="appt-card__provider-badge provider-badge--${provider}">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-              ${providerLabel}
-            </span>
-            ${appt.Service ? `<span class="appt-card__service-badge ${serviceColor(appt.Service)}">${appt.Service}</span>` : ''}
-            <span class="appt-card__status-badge ${appt.Completed ? 'status--completed' : 'status--pending'}">${appt.Completed ? 'Completed' : 'Pending'}</span>
-          </div>
-          <div class="appt-card__row-bottom">
-            ${appt.Vehicle ? `<span class="appt-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> ${appt.Vehicle}</span>` : ''}
-            ${appt.Location ? `<span class="appt-card__detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${appt.Location}</span>` : ''}
-          </div>
-        </div>
-        <div class="appt-card__right">
-          ${appt.Handset ? `<div class="appt-card__handset-img-wrap ${handsetColor(appt.Handset)}">
-            <img src="../images/${appt.Handset === 'AMS2500' ? 'guardianhandset' : appt.Handset.toLowerCase()}.png" alt="${appt.Handset}" class="appt-card__handset-img" title="${appt.Handset}" />
-          </div>` : ''}
-        </div>
-      `;
-
-      return card;
+    function submitApptCallback(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form));
+      fetch('https://interlockgo-admin-production-9759.up.railway.app/api/callback-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).catch(() => {});
+      form.style.display = 'none';
+      document.getElementById('apptSuccess').style.display = 'block';
     }
-
-    function applyFilters() {
-      const src = srcRadios.find(r => r.checked)?.value || 'all';
-      const q = (searchBox.value || '').trim().toLowerCase();
-      const hide = hideCompleted.checked;
-
-      allCards.forEach(card => {
-        let show = true;
-        if (src !== 'all' && card.dataset.provider !== src) show = false;
-        if (hide && card.dataset.completed === '1') show = false;
-        if (q) {
-          const hay = `${card.dataset.client} ${card.dataset.vehicle} ${card.dataset.service} ${card.dataset.location}`;
-          if (!hay.includes(q)) show = false;
-        }
-        card.style.display = show ? '' : 'none';
-      });
-
-      // Hide empty date groups
-      container.querySelectorAll('.date-group').forEach(group => {
-        const visibleCards = group.querySelectorAll('.appt-card:not([style*="display: none"])');
-        group.style.display = visibleCards.length ? '' : 'none';
-      });
-    }
-
-    function animateValue(element, end, duration = 600) {
-      const start = parseInt(element.textContent) || 0;
-      if (start === end) return;
-      const range = end - start;
-      const startTime = performance.now();
-      function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        element.textContent = Math.round(start + range * easeOut);
-        if (progress < 1) requestAnimationFrame(update);
-      }
-      requestAnimationFrame(update);
-    }
-
-    function renderCards(data) {
-      container.innerHTML = '';
-      allCards = [];
-
-      const lifeAppts = (data.lifesafer || []).map(a => ({ ...a, _provider: 'lifesafer' }));
-      const guardAppts = (data.guardian || []).map(a => ({ ...a, _provider: 'guardian' }));
-      const all = [...lifeAppts, ...guardAppts];
-
-      // Sort by time
-      all.sort((a, b) => {
-        const ta = parseTime(a['Appointment Time']);
-        const tb = parseTime(b['Appointment Time']);
-        return (ta ? ta.getTime() : 0) - (tb ? tb.getTime() : 0);
-      });
-
-      // Group by date
-      const grouped = {};
-      all.forEach(appt => {
-        const d = parseTime(appt['Appointment Time']);
-        const key = d ? d.toDateString() : 'Unknown';
-        if (!grouped[key]) grouped[key] = [];
-        grouped[key].push(appt);
-      });
-
-      // Update stats
-      animateValue(statTotal, all.length);
-      animateValue(statLifesafer, lifeAppts.length);
-      animateValue(statGuardian, guardAppts.length);
-
-      if (Object.keys(grouped).length === 0) {
-        container.innerHTML = `
-          <div class="appts-empty">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-            <p>No appointments loaded</p>
-            <span>Check back soon for updated appointment times</span>
-          </div>
-        `;
-        statNext.textContent = '--';
-        return;
-      }
-
-      // Find next-up card (first non-completed, upcoming)
-      const now = Date.now();
-      let nextUpWhen = null;
-      for (const appt of all) {
-        if (appt.Completed) continue;
-        const t = parseTime(appt['Appointment Time']);
-        if (t && t.getTime() >= now) { nextUpWhen = t.getTime(); break; }
-      }
-
-      Object.entries(grouped).forEach(([dateKey, appts]) => {
-        const group = document.createElement('div');
-        group.className = 'date-group';
-
-        // Date header
-        const header = document.createElement('div');
-        header.className = 'date-group__header';
-        const sampleTime = appts[0] ? appts[0]['Appointment Time'] : '';
-        header.innerHTML = `
-          <div class="date-group__label">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-            <span>${formatDateHeader(sampleTime)}</span>
-          </div>
-          <span class="date-group__count">${appts.length} appointment${appts.length !== 1 ? 's' : ''}</span>
-          <div class="date-group__line"></div>
-        `;
-        group.appendChild(header);
-
-        const cardList = document.createElement('div');
-        cardList.className = 'card-list';
-
-        appts.forEach(appt => {
-          const card = buildCard(appt, appt._provider);
-
-          // Mark next-up
-          if (nextUpWhen && !appt.Completed) {
-            const t = parseTime(appt['Appointment Time']);
-            if (t && t.getTime() === nextUpWhen) {
-              card.classList.add('appt-card--next');
-              nextUpWhen = null; // only mark first one
-              const timeStr = t.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-              statNext.textContent = timeStr;
-            }
-          }
-
-          allCards.push(card);
-          cardList.appendChild(card);
-        });
-
-        group.appendChild(cardList);
-        container.appendChild(group);
-      });
-
-      if (nextUpWhen !== null && !document.querySelector('.appt-card--next')) {
-        statNext.textContent = '--';
-      }
-
-      applyFilters();
-    }
-
-    function setUpdated(ts) {
-      updatedEl.textContent = ts ? ("Updated " + new Date(ts).toLocaleTimeString()) : "";
-    }
-
-    async function loadData() {
-      const refreshBtn = document.getElementById('appts-refresh');
-      if (refreshBtn) {
-        refreshBtn.disabled = true;
-        refreshBtn.classList.add('toolbar-refresh--loading');
-      }
-      try {
-        const res = await fetch(`../appointments.json?ts=${Date.now()}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error("Network error");
-        const data = await res.json();
-        renderCards(data);
-        setUpdated(Date.now());
-      } catch (e) {
-        console.error(e);
-        statTotal.textContent = '!';
-        statLifesafer.textContent = '!';
-        statGuardian.textContent = '!';
-        statNext.textContent = 'Error';
-      } finally {
-        if (refreshBtn) {
-          refreshBtn.disabled = false;
-          refreshBtn.classList.remove('toolbar-refresh--loading');
-        }
-      }
-    }
-
-    document.getElementById('appts-refresh').addEventListener('click', loadData);
-
-    let t;
-    searchBox.addEventListener('input', () => {
-      clearTimeout(t);
-      t = setTimeout(applyFilters, 120);
-    });
-    srcRadios.forEach(r => r.addEventListener('change', applyFilters));
-    hideCompleted.addEventListener('change', applyFilters);
-
-    await loadData();
-  })();
   </script>
-
 </body>
 </html>

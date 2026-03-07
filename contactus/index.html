@@ -1,192 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17605887515');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Ignition Interlock Service in Evans, CO | InterlockGo NOCO</title>
-  <meta name="description" content="Contact InterlockGo NOCO for ignition interlock installation, calibration, and service questions. Located at 3610 35th Ave Unit 7, Evans, CO. Call 970-515-5740." />
+  <title>Contact Us | InterlockGo NOCO — Evans, CO</title>
+  <meta name="description" content="Contact InterlockGo NOCO for ignition interlock installation, calibration, and service. Located at 3610 35th Ave Unit 7, Evans, CO. Call or text 970-515-5740." />
   <link rel="canonical" href="https://interlockgo.io/contactus/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Shared theme + page CSS -->
   <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="contactus.css" />
-
-  <script type="module" src="../js/vendor/model-viewer.min.js"></script>
-  <script nomodule src="../js/vendor/model-viewer-umd.min.js"></script>
+  <link rel="stylesheet" href="../index.css" />
 
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Structured Data: BreadcrumbList -->
+  <!-- Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17605887515');
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://interlockgo.io/"},
-      {"@type": "ListItem", "position": 2, "name": "Support", "item": "https://interlockgo.io/#support"},
-      {"@type": "ListItem", "position": 3, "name": "Contact Us", "item": "https://interlockgo.io/contactus/"}
+      {"@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://interlockgo.io/contactus/"}
     ]
   }
   </script>
 
-  <!-- === STRUCTURED DATA: LocalBusiness === -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["AutoRepair", "LocalBusiness"],
-    "@id": "https://interlockgo.io/#localbusiness",
-    "name": "InterlockGo NOCO",
-    "description": "Professional ignition interlock device installation, calibration, and removal services in Northern Colorado. Lifesafer and Guardian certified.",
-    "url": "https://interlockgo.io",
-    "telephone": "+19705155740",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "3610 35th Avenue Unit #7",
-      "addressLocality": "Evans",
-      "addressRegion": "CO",
-      "postalCode": "80620",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.3783,
-      "longitude": -104.7003
-    },
-    "areaServed": ["Evans", "Greeley", "Fort Collins", "Loveland", "Windsor", "Johnstown"],
-    "priceRange": "$$",
-    "image": "https://interlockgo.io/images/interlockgologo.png",
-    "sameAs": []
-  }
-  </script>
-  <!-- Google tag (gtag.js) GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JCBPD2PLD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3JCBPD2PLD');
-  </script>
+  <style>
+    .contact-hero {
+      padding: 80px 0 48px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--royal-blue-dark) 0%, var(--royal-blue) 100%);
+      color: #fff;
+    }
+    .contact-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .contact-hero p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      max-width: 480px;
+      margin: 0 auto 28px;
+    }
+    .contact-hero__btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-body {
+      padding: 64px 0 80px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 720px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.15s;
+    }
+    .contact-item:last-of-type { border-bottom: none; }
+    .contact-item:hover { color: var(--royal-blue); }
+    .contact-item__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(11,30,102,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item__icon svg { width: 18px; height: 18px; stroke: var(--royal-blue); }
+    .contact-item__label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 2px; }
+    .contact-item__value { font-size: 0.95rem; font-weight: 600; }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.88rem; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table th { text-align: left; font-weight: 500; color: var(--text); padding: 8px 0; }
+    .hours-table td { text-align: right; color: var(--text-secondary); padding: 8px 0; }
+    .map-embed { border-radius: 12px; overflow: hidden; margin-top: 4px; }
+    .map-embed iframe { width: 100%; height: 280px; border: 0; display: block; }
+    .trust-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .trust-chip {
+      background: rgba(11,30,102,0.07);
+      border: 1px solid rgba(11,30,102,0.12);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--royal-blue);
+    }
+  </style>
 </head>
 <body id="top">
 
-  <!-- NAV (same as homepage) -->
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../faq/">FAQ</a></li>
-          <li><a href="../appointments/">Appointments</a></li>
-      <li>
-        <a href="javascript:void(0)">Support</a>
-        <ul>
-          <li><a href="../forms/">Forms</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://myaccount.lifesafer.com/account/login" target="_blank" rel="noopener">My Account</a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- HERO (matches site look) -->
-  <header class="contact-hero">
-    <div class="contact-hero__inner">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="hero-chip">InterlockGo - SUPPORT DESK</div>
-          <h1>Questions? Comments? Concerns?</h1>
-          <p>We are here to help. Reach us by email or phone, or stop by during shop hours.</p>
-          <div class="hero-actions">
-            <a class="button button--ghost" href="tel:970-515-5740">Call now</a>
-            <a class="button" href="mailto:interlockgo@gmail.com">Email us</a>
-          </div>
-          <div class="hero-signal">
-            <span class="hero-dot" aria-hidden="true"></span>
-            Always moving. Always connected.
-          </div>
-        </div>
-        <div class="hero-model">
-          <model-viewer src="tesla_cybertruck.glb" ios-src="Tesla_Cybertruck.usdz" alt="Tesla Cybertruck 3D model" loading="eager" camera-controls auto-rotate rotation-per-second="18deg" exposure="1.1" shadow-intensity="0.4" environment-image="../images/spruit_sunrise_1k_HDR.hdr" tone-mapping="neutral" interaction-prompt="none" ar ar-modes="webxr scene-viewer quick-look"></model-viewer>
-          <div class="hero-model__label">3D support experience</div>
-        </div>
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/" class="nav__logo" aria-label="InterlockGo Home">
+        <img src="../images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" loading="lazy" />
+        <span class="nav__wordmark">InterlockGo</span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/lifesafer/">Lifesafer</a></li>
+        <li><a href="/guardian/">Guardian</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/getstarted/">Book Appointment</a></li>
+        <li><a href="/contactus/" aria-current="page">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="/getstarted/" class="btn btn--primary btn--sm">Get Started</a>
       </div>
-    </div>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </header>
 
-  <!-- CONTENT -->
-  <main class="contactus-wrapper">
-    <section class="contact-grid">
-      <!-- Left: contact cards -->
-      <article class="card">
-        <h2>Get in touch</h2>
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p>Questions about installation, calibration, or your device? We're here to help — same-day responses.</p>
+      <div class="contact-hero__btns">
+        <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:6px" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Call 970-515-5740
+        </a>
+        <a href="sms:970-239-1354" class="btn btn--secondary btn--lg" style="border-color:rgba(255,255,255,0.4);color:#fff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:6px" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Text 970-239-1354
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <div class="contact-list">
-          <a href="mailto:interlockgo@gmail.com">
-            <!-- mail icon -->
-            <span class="ico" aria-hidden="true">✉️</span>
-            <span>Email: interlockgo@gmail.com</span>
-          </a>
+  <!-- CONTACT BODY -->
+  <main class="contact-body">
+    <div class="container">
+      <div class="contact-grid">
 
-          <a href="tel:9705155740">
-            <!-- phone icon -->
-            <span class="ico" aria-hidden="true">📞</span>
-            <span>Call: 970-515-5740</span>
-          </a>
+        <!-- Left: Contact Info -->
+        <div>
+          <div class="contact-card">
+            <h2>Contact Information</h2>
+
+            <a href="tel:970-515-5740" class="contact-item">
+              <div class="contact-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div>
+                <div class="contact-item__label">Phone</div>
+                <div class="contact-item__value">970-515-5740</div>
+              </div>
+            </a>
+
+            <a href="sms:970-239-1354" class="contact-item">
+              <div class="contact-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <div>
+                <div class="contact-item__label">Text</div>
+                <div class="contact-item__value">970-239-1354</div>
+              </div>
+            </a>
+
+            <a href="mailto:interlockgo@gmail.com" class="contact-item">
+              <div class="contact-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <div class="contact-item__label">Email</div>
+                <div class="contact-item__value">interlockgo@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="https://maps.google.com/?q=3610+35th+Ave+Unit+7+Evans+CO+80620" target="_blank" rel="noopener" class="contact-item">
+              <div class="contact-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <div class="contact-item__label">Address</div>
+                <div class="contact-item__value">3610 35th Ave Unit #7, Evans, CO 80620</div>
+              </div>
+            </a>
+
+            <div class="trust-chips">
+              <span class="trust-chip">⭐ 5.0 Stars (47 Reviews)</span>
+              <span class="trust-chip">✅ Lifesafer Certified</span>
+              <span class="trust-chip">✅ Guardian Authorized</span>
+              <span class="trust-chip">🏛️ BBB Accredited A+</span>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="contact-card" style="margin-top:24px">
+            <h2>Shop Hours</h2>
+            <table class="hours-table">
+              <tbody>
+                <tr><th>Monday – Friday</th><td>9:00 AM – 5:00 PM</td></tr>
+                <tr><th>Saturday</th><td>10:00 AM – 2:00 PM</td></tr>
+                <tr><th>Sunday</th><td>Closed</td></tr>
+              </tbody>
+            </table>
+            <p style="margin-top:16px;font-size:0.85rem;color:var(--text-muted)">Same-day appointments often available — call ahead to confirm availability.</p>
+          </div>
         </div>
 
-        <p class="muted mt-12">
-          Prefer text? Text us at 970-239-1354.
-        </p>
-
-        <h3 class="mt-16">Shop Hours</h3>
-        <table class="hours">
-          <tbody>
-            <tr><th>Monday, Wednesday, Friday</th><td>8:00 AM – 6:00 PM</td></tr>
-            <tr><th>Tuesday and Thursday</th><td>Reserved for Installations</td></tr>
-            <tr><th>Saturday</th><td>9:00 AM - 1:00 PM</td></tr>
-            <tr><th>Sunday</th><td>Closed</td></tr>
-          </tbody>
-        </table>
-      </article>
-
-      <!-- Right: map (optional; replace src with your embed when ready) -->
-      <aside class="card">
-        <h2>Visit us</h2>
-        <div class="map-embed">
-          <!-- Put your actual Google Maps embed here -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6078.678083893211!2d-104.73667892338965!3d40.37917777144574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876ea123f3d07be1%3A0xe97cbd123a4a6a5f!2s3610%2035th%20Ave%2C%20Evans%2C%20CO%2080620!5e0!3m2!1sen!2sus!4v1756260656934!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Right: Map -->
+        <div>
+          <div class="contact-card">
+            <h2>Visit Us</h2>
+            <div class="map-embed">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6078.678083893211!2d-104.73667892338965!3d40.37917777144574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876ea123f3d07be1%3A0xe97cbd123a4a6a5f!2s3610%2035th%20Ave%2C%20Evans%2C%20CO%2080620!5e0!3m2!1sen!2sus!4v1756260656934!5m2!1sen!2sus"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="InterlockGo NOCO location map"
+                aria-label="Google Maps showing InterlockGo NOCO location">
+              </iframe>
+            </div>
+            <p style="margin-top:16px;font-size:0.88rem;color:var(--text-secondary)">
+              <strong>3610 35th Avenue Unit #7</strong><br>
+              Evans, CO 80620<br><br>
+              Easy access from Greeley, Fort Collins, Loveland, and Windsor.
+            </p>
+            <a href="https://maps.google.com/?q=3610+35th+Ave+Unit+7+Evans+CO+80620" target="_blank" rel="noopener" class="btn btn--secondary btn--sm" style="margin-top:16px;display:inline-flex">
+              Get Directions
+            </a>
+          </div>
         </div>
-      </aside>
-    </section>
+
+      </div>
+    </div>
   </main>
 
- <!-- =====================================================================
-       FOOTER + CALL FLOAT
-       =================================================================== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__col">
           <div class="footer__brand">
-            <img src="../images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" />
+            <img src="../images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" loading="lazy" />
             <span class="footer__company">InterlockGo NOCO</span>
           </div>
           <p class="footer__tagline">Certified ignition interlock installation, calibration &amp; service in Northern Colorado.</p>
           <a href="/review/" class="footer__review-link">⭐ Leave a Google Review</a>
         </div>
-
         <div class="footer__col">
           <span class="footer__col-title">Navigation</span>
           <nav class="footer__col-links" aria-label="Footer navigation">
@@ -197,7 +305,6 @@
             <a href="/contactus/">Contact</a>
           </nav>
         </div>
-
         <div class="footer__col">
           <span class="footer__col-title">Service Areas</span>
           <nav class="footer__col-links" aria-label="Service areas">
@@ -208,7 +315,6 @@
             <a href="/johnstown/">Johnstown</a>
           </nav>
         </div>
-
         <div class="footer__col">
           <span class="footer__col-title">Legal</span>
           <nav class="footer__col-links" aria-label="Legal">
@@ -217,21 +323,21 @@
           </nav>
         </div>
       </div>
-
       <div class="footer__bottom">
-        <p>&copy; 2025 InterlockGo NOCO. All rights reserved.</p>
+        <p>&copy; 2026 InterlockGo NOCO. All rights reserved.</p>
         <p>Created and maintained by <strong>NexGen Studios</strong></p>
       </div>
-
       <a href="#top" class="footer__backtop" aria-label="Back to top">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
       </a>
     </div>
   </footer>
 
-  <!-- Mobile Navigation -->
-  <script src="../js/mobile-nav.js"></script>
+  <a href="tel:970-515-5740" class="call-float" aria-label="Call InterlockGo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+  </a>
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <script src="../script.js"></script>
 </body>
 </html>
