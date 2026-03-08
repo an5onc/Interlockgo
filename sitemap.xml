@@ -43,6 +43,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Service Areas -->
+  <url>
+    <loc>https://interlockgo.io/service-areas/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Support Pages -->
   <url>
     <loc>https://interlockgo.io/forms/</loc>
