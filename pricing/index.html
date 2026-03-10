@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17605887515');
+  </script>
+
+  <!-- Theme initialization -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ignition Interlock Cost Calculator | InterlockGo NOCO Pricing</title>
+  <meta name="description" content="Calculate your ignition interlock costs in Northern Colorado. Installation, monthly lease, calibration pricing. Get transparent pricing from InterlockGo NOCO." />
+  <link rel="canonical" href="https://interlockgo.io/pricing/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ignition Interlock Cost Calculator | InterlockGo NOCO" />
+  <meta property="og:description" content="Calculate your total ignition interlock costs. Installation, monthly lease, and calibration pricing in Northern Colorado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://interlockgo.io/pricing/" />
+  <meta property="og:image" content="https://interlockgo.io/images/Interlockgo.jpeg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link href="../index.css" rel="stylesheet" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Ignition Interlock Cost Calculator",
+    "description": "Calculate your total ignition interlock costs including installation, monthly lease, and calibration fees.",
+    "url": "https://interlockgo.io/pricing/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://interlockgo.io/#website"
+    },
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Ignition Interlock Installation and Service",
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": "https://interlockgo.io/#localbusiness"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "25",
+        "highPrice": "450"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav-wrapper">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="/" class="nav-logo">
+          <img src="/images/interlockgologo.png" alt="InterlockGo NOCO" />
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/lifesafer/">LifeSafer</a></li>
+        <li><a href="/guardian/">Guardian</a></li>
+        <li><a href="/pricing/" class="active">Pricing</a></li>
+        <li><a href="/getstarted/">Book Appointment</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/contactus/">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="5"/>
+            <path d="M10 1v2M10 17v2M3.22 3.22l1.42 1.42M14.64 14.64l1.42 1.42M1 10h2M17 10h2M3.22 16.78l1.42-1.42M14.64 5.36l1.42-1.42"/>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 10C17 14.418 13.418 18 9 18c-3.068 0-5.755-1.732-7.095-4.268A8 8 0 0 0 17 10z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>Pricing Calculator</span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <section class="pricing-hero">
+      <div class="container">
+        <h1>Ignition Interlock Cost Calculator</h1>
+        <p class="lead">Get a transparent estimate of your total ignition interlock costs</p>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+      <div class="container">
+        <div class="calculator-wrapper">
+          <div class="calculator-inputs">
+            <h2>Customize Your Estimate</h2>
+
+            <div class="input-group">
+              <label for="provider">Select Provider</label>
+              <select id="provider" onchange="updateCalculation()">
+                <option value="lifesafer">LifeSafer</option>
+                <option value="guardian">Guardian</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="months">How many months required?</label>
+              <input type="range" id="months" min="1" max="36" value="12" onchange="updateCalculation()" oninput="updateMonthsDisplay(this.value)">
+              <div class="range-display">
+                <span id="months-display">12</span> months
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="calibrations">Calibration frequency</label>
+              <select id="calibrations" onchange="updateCalculation()">
+                <option value="30">Every 30 days (standard)</option>
+                <option value="60">Every 60 days</option>
+                <option value="90">Every 90 days</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Additional Services</label>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="camera" onchange="updateCalculation()">
+                  <span>Camera unit ($15/month)</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="portable" onchange="updateCalculation()">
+                  <span>Portable unit ($10/month)</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="early-removal" onchange="updateCalculation()">
+                  <span>Early removal service</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="calculator-results">
+            <h2>Your Estimated Costs</h2>
+
+            <div class="cost-breakdown">
+              <div class="cost-item">
+                <span class="cost-label">Installation</span>
+                <span class="cost-value" id="installation-cost">$145</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">Monthly Lease</span>
+                <span class="cost-value" id="monthly-cost">$75</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">Calibrations</span>
+                <span class="cost-value" id="calibration-total">$300</span>
+              </div>
+              <div class="cost-item" id="camera-cost-row" style="display: none;">
+                <span class="cost-label">Camera Add-on</span>
+                <span class="cost-value" id="camera-cost">$0</span>
+              </div>
+              <div class="cost-item" id="portable-cost-row" style="display: none;">
+                <span class="cost-label">Portable Unit</span>
+                <span class="cost-value" id="portable-cost">$0</span>
+              </div>
+              <div class="cost-item">
+                <span class="cost-label">Removal</span>
+                <span class="cost-value" id="removal-cost">$180</span>
+              </div>
+            </div>
+
+            <div class="total-cost">
+              <span class="total-label">Total Estimated Cost</span>
+              <span class="total-value" id="total-cost">$1,500</span>
+            </div>
+
+            <div class="monthly-average">
+              <span>Average per month: </span>
+              <span id="monthly-average">$125</span>
+            </div>
+
+            <div class="cta-buttons">
+              <a href="/getstarted/" class="btn btn-primary">Book Installation</a>
+              <a href="tel:9705155740" class="btn btn-secondary">Call for Quote</a>
+            </div>
+
+            <p class="disclaimer">
+              * Prices are estimates and may vary. State fees and taxes not included.
+              Contact us for exact pricing based on your specific requirements.
+            </p>
+          </div>
+        </div>
+
+        <!-- Savings Tips -->
+        <div class="savings-tips">
+          <h3>Ways to Save on Your Interlock</h3>
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="tip-icon">💰</div>
+              <h4>Bundle Services</h4>
+              <p>Save on calibration fees by scheduling multiple services together</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">📅</div>
+              <h4>On-Time Calibrations</h4>
+              <p>Avoid late fees and violations by keeping your calibration appointments</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">🔧</div>
+              <h4>Proper Maintenance</h4>
+              <p>Keep your device clean and functioning to avoid service fees</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">📱</div>
+              <h4>Ask About Discounts</h4>
+              <p>Military, senior, and financial hardship discounts may be available</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="comparison-section">
+          <h3>Provider Comparison</h3>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>LifeSafer</th>
+                <th>Guardian</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Installation</td>
+                <td>$145-$200</td>
+                <td>$150-$250</td>
+              </tr>
+              <tr>
+                <td>Monthly Lease</td>
+                <td>$70-$90</td>
+                <td>$75-$95</td>
+              </tr>
+              <tr>
+                <td>Calibration</td>
+                <td>$25-$35</td>
+                <td>$30-$45</td>
+              </tr>
+              <tr>
+                <td>Camera Option</td>
+                <td>✓ Available</td>
+                <td>✓ Available</td>
+              </tr>
+              <tr>
+                <td>Portable Unit</td>
+                <td>✓ Available</td>
+                <td>✓ Available</td>
+              </tr>
+              <tr>
+                <td>24/7 Support</td>
+                <td>✓</td>
+                <td>✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>InterlockGo NOCO</h3>
+          <p>Certified ignition interlock installation and service in Northern Colorado</p>
+          <p class="footer-phone">
+            <a href="tel:9705155740">📞 (970) 515-5740</a>
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/getstarted/">Book Appointment</a></li>
+            <li><a href="/pricing/">Pricing Calculator</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/contactus/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Service Areas</h4>
+          <ul>
+            <li><a href="/greeley/">Greeley</a></li>
+            <li><a href="/fort-collins/">Fort Collins</a></li>
+            <li><a href="/loveland/">Loveland</a></li>
+            <li><a href="/windsor/">Windsor</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 InterlockGo NOCO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .pricing-hero {
+      padding: 60px 0 40px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .pricing-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      opacity: 0.95;
+    }
+
+    .calculator-section {
+      padding: 60px 0;
+      background: var(--background);
+    }
+
+    .calculator-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .calculator-inputs,
+    .calculator-results {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .calculator-inputs h2,
+    .calculator-results h2 {
+      margin-bottom: 25px;
+      color: var(--text-primary);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .input-group select,
+    .input-group input[type="range"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--background);
+      font-size: 16px;
+    }
+
+    .range-display {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      margin-right: 8px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .cost-breakdown {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      margin: 20px 0;
+    }
+
+    .cost-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .cost-label {
+      color: var(--text-secondary);
+    }
+
+    .cost-value {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+    }
+
+    .total-cost {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      font-size: 1.3rem;
+    }
+
+    .total-label {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .total-value {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .monthly-average {
+      text-align: center;
+      padding: 15px;
+      background: var(--background);
+      border-radius: 6px;
+      margin: 20px 0;
+      color: var(--text-secondary);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .cta-buttons .btn {
+      flex: 1;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .disclaimer {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-top: 20px;
+    }
+
+    .savings-tips {
+      margin-top: 60px;
+    }
+
+    .savings-tips h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .tip-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .tip-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .tip-card h4 {
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .tip-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .comparison-section {
+      margin-top: 60px;
+    }
+
+    .comparison-section h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+    }
+
+    .comparison-table {
+      width: 100%;
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .comparison-table thead {
+      background: var(--primary);
+      color: white;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .comparison-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 968px) {
+      .calculator-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 568px) {
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .comparison-table {
+        font-size: 0.9rem;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    function updateMonthsDisplay(value) {
+      document.getElementById('months-display').textContent = value;
+    }
+
+    function updateCalculation() {
+      const provider = document.getElementById('provider').value;
+      const months = parseInt(document.getElementById('months').value);
+      const calibrationFreq = parseInt(document.getElementById('calibrations').value);
+      const hasCamera = document.getElementById('camera').checked;
+      const hasPortable = document.getElementById('portable').checked;
+      const earlyRemoval = document.getElementById('early-removal').checked;
+
+      // Base costs by provider
+      const costs = {
+        lifesafer: {
+          installation: 145,
+          monthly: 75,
+          calibration: 25,
+          removal: 180
+        },
+        guardian: {
+          installation: 150,
+          monthly: 80,
+          calibration: 30,
+          removal: 180
+        }
+      };
+
+      const providerCosts = costs[provider];
+
+      // Calculate costs
+      const installationCost = providerCosts.installation;
+      const monthlyLeaseCost = providerCosts.monthly * months;
+      const numCalibrations = Math.floor(months * 30 / calibrationFreq);
+      const calibrationTotal = numCalibrations * providerCosts.calibration;
+      const cameraCost = hasCamera ? 15 * months : 0;
+      const portableCost = hasPortable ? 10 * months : 0;
+      const removalCost = earlyRemoval ? providerCosts.removal + 50 : providerCosts.removal;
+
+      const totalCost = installationCost + monthlyLeaseCost + calibrationTotal +
+                       cameraCost + portableCost + removalCost;
+
+      // Update display
+      document.getElementById('installation-cost').textContent = `$${installationCost}`;
+      document.getElementById('monthly-cost').textContent = `$${monthlyLeaseCost}`;
+      document.getElementById('calibration-total').textContent = `$${calibrationTotal}`;
+      document.getElementById('removal-cost').textContent = `$${removalCost}`;
+      document.getElementById('total-cost').textContent = `$${totalCost.toLocaleString()}`;
+      document.getElementById('monthly-average').textContent = `$${Math.round(totalCost / months)}`;
+
+      // Show/hide optional costs
+      if (hasCamera) {
+        document.getElementById('camera-cost-row').style.display = 'flex';
+        document.getElementById('camera-cost').textContent = `$${cameraCost}`;
+      } else {
+        document.getElementById('camera-cost-row').style.display = 'none';
+      }
+
+      if (hasPortable) {
+        document.getElementById('portable-cost-row').style.display = 'flex';
+        document.getElementById('portable-cost').textContent = `$${portableCost}`;
+      } else {
+        document.getElementById('portable-cost-row').style.display = 'none';
+      }
+    }
+
+    // Initialize calculation on page load
+    updateCalculation();
+
+    // Mobile menu functionality
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    // Theme toggle
+    document.querySelector('.theme-toggle').addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+</body>
+</html>
