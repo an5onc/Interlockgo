@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignition Interlock Cost Calculator - InterlockGo NOCO</title>
+    <meta name="description" content="Calculate your ignition interlock device costs instantly. Compare pricing for installation, monthly fees, and removal services in Northern Colorado.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ignition Interlock Cost Calculator - InterlockGo NOCO">
+    <meta property="og:description" content="Calculate your ignition interlock device costs instantly. Compare pricing for installation, monthly fees, and removal services in Northern Colorado.">
+    <meta property="og:image" content="https://interlockgo.io/interlocklogonobg.png">
+    <meta property="og:url" content="https://interlockgo.io/cost-calculator/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ignition Interlock Cost Calculator - InterlockGo NOCO">
+    <meta name="twitter:description" content="Calculate your ignition interlock device costs instantly. Compare pricing for installation, monthly fees, and removal services.">
+
+    <link rel="canonical" href="https://interlockgo.io/cost-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17605887515');
+    </script>
+
+    <link rel="stylesheet" href="../global.css">
+    <style>
+        .calculator-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .calc-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .calc-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .calc-form {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group select,
+        .form-group input {
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #fe6b00;
+            box-shadow: 0 0 0 3px rgba(254, 107, 0, 0.1);
+        }
+
+        .range-container {
+            position: relative;
+            margin-top: 0.5rem;
+        }
+
+        .range-value {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            background: #fe6b00;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #e0e0e0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #fe6b00;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(254, 107, 0, 0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #fe6b00;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(254, 107, 0, 0.3);
+        }
+
+        .results-container {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .results-hidden {
+            display: none;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cost-breakdown {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cost-item-label {
+            font-weight: 500;
+        }
+
+        .cost-item-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .total-cost {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .total-label {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .total-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .savings-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #4CAF50;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            .calc-header h1 {
+                font-size: 2rem;
+            }
+
+            .total-amount {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="../interlocklogonobg.png" alt="InterlockGo NOCO" class="logo">
+            </div>
+            <div class="nav-links desktop-nav">
+                <a href="/">Home</a>
+                <a href="/service-areas/">Service Areas</a>
+                <a href="/cost-calculator/" class="active">Cost Calculator</a>
+                <a href="/faq/">FAQ</a>
+                <a href="/appointments/" class="cta-nav">Schedule Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="calculator-container">
+            <div class="calc-header">
+                <h1>Ignition Interlock Cost Calculator</h1>
+                <p>Get an instant estimate for your ignition interlock device costs</p>
+            </div>
+
+            <div class="calc-form">
+                <div class="form-group">
+                    <label for="device-type">Select Your Device Provider</label>
+                    <select id="device-type" onchange="calculateCost()">
+                        <option value="lifesafer">LifeSafer</option>
+                        <option value="guardian">Guardian</option>
+                        <option value="intoxalock">Intoxalock</option>
+                        <option value="smartstart">Smart Start</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="months">Program Duration (Months)</label>
+                    <div class="range-container">
+                        <span class="range-value" id="months-value">6</span>
+                        <input type="range" id="months" min="1" max="36" value="6" onchange="updateMonths()" oninput="updateMonths()">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="violations">Previous Violations</label>
+                    <select id="violations" onchange="calculateCost()">
+                        <option value="first">First Offense</option>
+                        <option value="second">Second Offense</option>
+                        <option value="third">Third or More</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="extras">Additional Services</label>
+                    <div style="display: grid; gap: 0.5rem;">
+                        <label style="font-weight: normal; display: flex; align-items: center;">
+                            <input type="checkbox" id="camera" onchange="calculateCost()" style="width: auto; margin-right: 0.5rem;">
+                            Camera-Enabled Device (+$15/month)
+                        </label>
+                        <label style="font-weight: normal; display: flex; align-items: center;">
+                            <input type="checkbox" id="wireless" onchange="calculateCost()" style="width: auto; margin-right: 0.5rem;">
+                            Wireless Reporting (+$10/month)
+                        </label>
+                        <label style="font-weight: normal; display: flex; align-items: center;">
+                            <input type="checkbox" id="insurance" onchange="calculateCost()" style="width: auto; margin-right: 0.5rem;">
+                            Device Protection Plan (+$5/month)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-container results-hidden" id="results">
+                <div class="results-header">
+                    <h2>Your Estimated Costs</h2>
+                    <p>Based on your selections</p>
+                </div>
+
+                <div class="cost-breakdown">
+                    <div class="cost-item">
+                        <span class="cost-item-label">Installation Fee</span>
+                        <span class="cost-item-value" id="install-cost">$145</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-item-label">Monthly Service</span>
+                        <span class="cost-item-value" id="monthly-cost">$80</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-item-label">Total Monthly Fees</span>
+                        <span class="cost-item-value" id="total-monthly">$480</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-item-label">Removal Fee</span>
+                        <span class="cost-item-value" id="removal-cost">$180</span>
+                    </div>
+                </div>
+
+                <div class="total-cost">
+                    <div class="total-label">Total Program Cost</div>
+                    <div class="total-amount" id="total-cost">$805</div>
+                </div>
+
+                <div class="savings-badge" id="savings-badge" style="display: none;">
+                    💰 You could save up to $<span id="savings-amount">0</span> with InterlockGo!
+                </div>
+
+                <div class="cta-section">
+                    <a href="/appointments/" class="cta-button">Schedule Installation Today</a>
+                    <p style="margin-top: 1rem; opacity: 0.9;">or call <a href="tel:9705155740" style="color: white; font-weight: 700;">(970) 515-5740</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>InterlockGo NOCO</h3>
+                <p>Northern Colorado's trusted ignition interlock service provider</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="/faq/">FAQ</a>
+                <a href="/appointments/">Schedule Installation</a>
+                <a href="/cost-calculator/">Cost Calculator</a>
+                <a href="/contactus/">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h4>Service Areas</h4>
+                <a href="/greeley/">Greeley</a>
+                <a href="/fort-collins/">Fort Collins</a>
+                <a href="/loveland/">Loveland</a>
+                <a href="/windsor/">Windsor</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><strong>Phone:</strong> (970) 515-5740</p>
+                <p><strong>Hours:</strong> Mon-Sat 8AM-6PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 InterlockGo NOCO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateMonths() {
+            const months = document.getElementById('months').value;
+            document.getElementById('months-value').textContent = months;
+            calculateCost();
+        }
+
+        function calculateCost() {
+            const device = document.getElementById('device-type').value;
+            const months = parseInt(document.getElementById('months').value);
+            const violations = document.getElementById('violations').value;
+
+            // Base costs vary by provider
+            const costs = {
+                lifesafer: { install: 145, monthly: 80, removal: 180 },
+                guardian: { install: 175, monthly: 85, removal: 200 },
+                intoxalock: { install: 150, monthly: 75, removal: 175 },
+                smartstart: { install: 200, monthly: 90, removal: 195 }
+            };
+
+            // InterlockGo competitive pricing
+            const interlockgoCosts = { install: 145, monthly: 80, removal: 180 };
+
+            let selectedCosts = costs[device];
+            let monthlyRate = selectedCosts.monthly;
+
+            // Add violation surcharges
+            if (violations === 'second') monthlyRate += 10;
+            if (violations === 'third') monthlyRate += 20;
+
+            // Add extras
+            if (document.getElementById('camera').checked) monthlyRate += 15;
+            if (document.getElementById('wireless').checked) monthlyRate += 10;
+            if (document.getElementById('insurance').checked) monthlyRate += 5;
+
+            // Calculate totals
+            const totalMonthly = monthlyRate * months;
+            const totalCost = selectedCosts.install + totalMonthly + selectedCosts.removal;
+
+            // Calculate potential savings with InterlockGo
+            const interlockgoTotal = interlockgoCosts.install + (interlockgoCosts.monthly * months) + interlockgoCosts.removal;
+            const savings = totalCost - interlockgoTotal;
+
+            // Update display
+            document.getElementById('install-cost').textContent = `$${selectedCosts.install}`;
+            document.getElementById('monthly-cost').textContent = `$${monthlyRate}/mo`;
+            document.getElementById('total-monthly').textContent = `$${totalMonthly}`;
+            document.getElementById('removal-cost').textContent = `$${selectedCosts.removal}`;
+            document.getElementById('total-cost').textContent = `$${totalCost}`;
+
+            // Show savings badge if applicable
+            if (savings > 0 && device !== 'lifesafer') {
+                document.getElementById('savings-badge').style.display = 'inline-block';
+                document.getElementById('savings-amount').textContent = savings;
+            } else {
+                document.getElementById('savings-badge').style.display = 'none';
+            }
+
+            // Show results
+            document.getElementById('results').classList.remove('results-hidden');
+        }
+
+        // Calculate on load
+        window.addEventListener('DOMContentLoaded', calculateCost);
+    </script>
+</body>
+</html>
