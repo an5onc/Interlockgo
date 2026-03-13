@@ -3,91 +3,120 @@
    Extends index.css for Lifesafer-specific components
    ========================================================================== */
 
-/* === DEVICE SHOWCASE (Hero Visual) === */
-.device-showcase {
+/* === SCROLL-ANIMATED HERO === */
+.hero-scroll-wrapper {
+  height: 300vh; /* scroll distance controls animation speed */
   position: relative;
-  width: 320px;
-  height: 320px;
+}
+
+.hero-scroll-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .device-showcase {
-    width: 400px;
-    height: 400px;
-  }
-}
-
-.device-showcase__main {
+.main-card--hero {
   position: relative;
-  z-index: 10;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 1280px;
+  width: calc(100% - 2 * var(--space-6));
+  margin: 0 auto;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  min-height: 70vh;
+  transition: border-color 0.4s ease;
 }
 
-@media (min-width: 768px) {
-  .device-showcase__main {
-    width: 280px;
-    height: 280px;
-  }
-}
-
-.device-showcase__image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(11, 30, 102, 0.3));
-  animation: deviceFloat 4s ease-in-out infinite;
-}
-
-[data-theme="dark"] .device-showcase__image {
-  filter: drop-shadow(0 20px 40px rgba(182, 255, 46, 0.2));
-}
-
-@keyframes deviceFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-.device-showcase__glow {
+/* Canvas sits behind everything inside the card */
+.hero-canvas {
   position: absolute;
-  inset: 20%;
-  background: radial-gradient(circle, var(--glow-accent) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 1;
-  opacity: 0.5;
-}
-
-.device-showcase__ring {
-  position: absolute;
-  border: 1px solid var(--orbit-ring);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.device-showcase__ring--1 {
-  width: 280px;
-  height: 280px;
-  animation: ringPulse 3s ease-in-out infinite;
-}
-
-.device-showcase__ring--2 {
+  inset: 0;
   width: 100%;
   height: 100%;
-  border-style: dashed;
-  animation: ringPulse 3s ease-in-out infinite 1.5s;
+  object-fit: cover;
+  z-index: 0;
+  border-radius: inherit;
 }
 
-@keyframes ringPulse {
-  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.02); }
+/* Dark overlay for text readability — fades out as scroll progresses */
+.hero-canvas-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hero content centered over the canvas */
+.hero--scroll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-6);
+  min-height: 70vh;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content--centered {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.hero__title--scroll {
+  color: #FFFFFF;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero__title--scroll .hero__title--accent {
+  color: var(--lime-accent);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero__subtitle--scroll {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero__cta--centered {
+  justify-content: center;
+}
+
+/* When scrolling, the hero card border can glow */
+.main-card--hero.is-playing {
+  border-color: rgba(182, 255, 46, 0.2);
+}
+
+/* Ensure buttons stay readable over video */
+.hero--scroll .btn--primary {
+  background: var(--royal-blue);
+  color: #fff;
+  border-color: var(--royal-blue);
+}
+
+.hero--scroll .btn--secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero--scroll .btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 /* === VIDEO GRID === */
@@ -187,37 +216,52 @@
 
 /* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 640px) {
-  .device-showcase {
-    width: 280px;
-    height: 280px;
+  .hero--scroll {
+    padding: var(--space-8) var(--space-4);
+    min-height: 60vh;
   }
 
-  .device-showcase__main {
-    width: 180px;
-    height: 180px;
+  .hero__title--scroll {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
   }
 
-  .device-showcase__ring--1 {
-    width: 220px;
-    height: 220px;
+  .hero__subtitle--scroll {
+    font-size: var(--text-base);
+  }
+
+  .main-card--hero {
+    min-height: 60vh;
   }
 }
 
 /* === PRINT === */
 @media print {
-  .device-showcase__glow,
-  .device-showcase__ring {
+  .hero-scroll-wrapper {
+    height: auto;
+  }
+
+  .hero-scroll-sticky {
+    position: relative;
+    height: auto;
+  }
+
+  .hero-canvas,
+  .hero-canvas-overlay {
     display: none;
+  }
+
+  .hero__content--centered {
+    opacity: 1 !important;
   }
 }
 
 /* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
-  .device-showcase__image {
-    animation: none;
+  .hero__content--centered {
+    transition: none;
   }
 
-  .device-showcase__ring {
-    animation: none;
+  .hero-canvas-overlay {
+    transition: none;
   }
 }
