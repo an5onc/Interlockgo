@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Area Map - InterlockGo Northern Colorado</title>
+    <meta name="description" content="InterlockGo serves all of Northern Colorado with mobile interlock device installation. View our complete service area map covering Greeley, Fort Collins, Loveland, Windsor, and surrounding areas.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Service Area Map - InterlockGo">
+    <meta property="og:description" content="Mobile interlock device service throughout Northern Colorado. See all areas we serve.">
+    <meta property="og:image" content="/images/service-area-map.png">
+    <meta property="og:url" content="https://interlockgo.io/service-area/">
+    <meta property="og:type" content="website">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://interlockgo.io/service-area/">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        #service-map {
+            height: 600px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+
+        .service-locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .location-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .location-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-card h3 {
+            margin: 0 0 0.5rem 0;
+            color: #1a1a1a;
+            font-size: 1.25rem;
+        }
+
+        .location-card p {
+            margin: 0.25rem 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .coverage-radius {
+            background: rgba(23, 162, 184, 0.15);
+            border: 2px solid #17a2b8;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .coverage-radius h3 {
+            margin-top: 0;
+            color: #17a2b8;
+        }
+
+        .map-legend {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            line-height: 1.5;
+        }
+
+        .map-legend h4 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 4px 0;
+            font-size: 12px;
+        }
+
+        .legend-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+    </style>
+
+    <!-- Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17605887515');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">
+            <img src="/images/InterlockGo-logo-flat-transparent-600x117-optim.png" alt="InterlockGo Logo">
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/greeley/">Greeley</a>
+            <a href="/fort-collins/">Fort Collins</a>
+            <a href="/loveland/">Loveland</a>
+            <a href="/appointments/">Schedule</a>
+            <a href="/faq/">FAQ</a>
+            <a href="/contactus/">Contact</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="/">Home</a>
+        <a href="/greeley/">Greeley</a>
+        <a href="/fort-collins/">Fort Collins</a>
+        <a href="/loveland/">Loveland</a>
+        <a href="/appointments/">Schedule</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/contactus/">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Northern Colorado Service Area</h1>
+            <p>Mobile interlock device installation throughout Weld and Larimer Counties</p>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Our Complete Service Coverage</h2>
+            <p>InterlockGo provides mobile service to all of Northern Colorado. Click on any location pin to see details.</p>
+
+            <div id="service-map"></div>
+
+            <div class="coverage-radius">
+                <h3>Service Radius</h3>
+                <p>We provide mobile installation service within a 50-mile radius of Greeley, covering:</p>
+                <ul>
+                    <li>All of Weld County</li>
+                    <li>All of Larimer County</li>
+                    <li>Parts of Adams, Boulder, and Logan Counties</li>
+                    <li>Same-day service available in most areas</li>
+                </ul>
+            </div>
+
+            <!-- Location Grid -->
+            <h2>Cities We Serve</h2>
+            <div class="service-locations">
+                <div class="location-card" onclick="focusLocation(40.4233, -104.6927, 'Greeley')">
+                    <h3>Greeley</h3>
+                    <p>Weld County Seat</p>
+                    <p>Population: 108,000+</p>
+                    <p>Service: Daily</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.5853, -105.0844, 'Fort Collins')">
+                    <h3>Fort Collins</h3>
+                    <p>Larimer County Seat</p>
+                    <p>Population: 169,000+</p>
+                    <p>Service: Daily</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.3977, -105.0749, 'Loveland')">
+                    <h3>Loveland</h3>
+                    <p>Gateway to the Rockies</p>
+                    <p>Population: 78,000+</p>
+                    <p>Service: Daily</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.4926, -104.8672, 'Windsor')">
+                    <h3>Windsor</h3>
+                    <p>Growing Community</p>
+                    <p>Population: 35,000+</p>
+                    <p>Service: Daily</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.3772, -104.6891, 'Evans')">
+                    <h3>Evans</h3>
+                    <p>South Greeley Area</p>
+                    <p>Population: 22,000+</p>
+                    <p>Service: Daily</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.5578, -104.9378, 'Johnstown')">
+                    <h3>Johnstown</h3>
+                    <p>Fast Growing</p>
+                    <p>Population: 18,000+</p>
+                    <p>Service: Daily</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.5692, -104.9980, 'Timnath')">
+                    <h3>Timnath</h3>
+                    <p>Small Town Feel</p>
+                    <p>Population: 8,000+</p>
+                    <p>Service: On Request</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.2778, -104.9831, 'Longmont')">
+                    <h3>Longmont</h3>
+                    <p>Boulder County</p>
+                    <p>Population: 98,000+</p>
+                    <p>Service: Available</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.5176, -105.0631, 'Berthoud')">
+                    <h3>Berthoud</h3>
+                    <p>Between Loveland & Longmont</p>
+                    <p>Population: 10,000+</p>
+                    <p>Service: On Request</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.7608, -105.1011, 'Wellington')">
+                    <h3>Wellington</h3>
+                    <p>North of Fort Collins</p>
+                    <p>Population: 11,000+</p>
+                    <p>Service: Available</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.3683, -104.4461, 'Kersey')">
+                    <h3>Kersey</h3>
+                    <p>East Weld County</p>
+                    <p>Population: 1,600+</p>
+                    <p>Service: By Appointment</p>
+                </div>
+
+                <div class="location-card" onclick="focusLocation(40.3361, -104.7747, 'LaSalle')">
+                    <h3>LaSalle</h3>
+                    <p>Rural Weld County</p>
+                    <p>Population: 2,300+</p>
+                    <p>Service: By Appointment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Schedule?</h2>
+            <p>Mobile service available throughout Northern Colorado</p>
+            <a href="/appointments/" class="cta-button">Schedule Installation</a>
+            <p style="margin-top: 1rem;">Or call us: <a href="tel:+19708660366" style="color: white; font-weight: bold;">(970) 866-0366</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Service Areas</h3>
+                    <a href="/greeley/">Greeley</a>
+                    <a href="/fort-collins/">Fort Collins</a>
+                    <a href="/loveland/">Loveland</a>
+                    <a href="/windsor/">Windsor</a>
+                    <a href="/johnstown/">Johnstown</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="/lifesafer/">LifeSafer Installation</a>
+                    <a href="/guardian/">Guardian Installation</a>
+                    <a href="/appointments/">Schedule Service</a>
+                    <a href="/faq/">FAQs</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Phone: <a href="tel:+19708660366">(970) 866-0366</a></p>
+                    <p>Available 7 Days a Week</p>
+                    <p>Mobile Service Only</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/sms-terms/">SMS Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 InterlockGo LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+    <script>
+        // Initialize map centered on Northern Colorado
+        const map = L.map('service-map').setView([40.4783, -104.9015], 9);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Define service locations
+        const locations = [
+            {name: 'Greeley', lat: 40.4233, lng: -104.6927, type: 'primary'},
+            {name: 'Fort Collins', lat: 40.5853, lng: -105.0844, type: 'primary'},
+            {name: 'Loveland', lat: 40.3977, lng: -105.0749, type: 'primary'},
+            {name: 'Windsor', lat: 40.4926, lng: -104.8672, type: 'secondary'},
+            {name: 'Evans', lat: 40.3772, lng: -104.6891, type: 'secondary'},
+            {name: 'Johnstown', lat: 40.5578, lng: -104.9378, type: 'secondary'},
+            {name: 'Timnath', lat: 40.5692, lng: -104.9980, type: 'tertiary'},
+            {name: 'Longmont', lat: 40.2778, lng: -104.9831, type: 'tertiary'},
+            {name: 'Berthoud', lat: 40.5176, lng: -105.0631, type: 'tertiary'},
+            {name: 'Wellington', lat: 40.7608, lng: -105.1011, type: 'tertiary'},
+            {name: 'Kersey', lat: 40.3683, lng: -104.4461, type: 'tertiary'},
+            {name: 'LaSalle', lat: 40.3361, lng: -104.7747, type: 'tertiary'}
+        ];
+
+        // Create custom icons
+        const primaryIcon = L.divIcon({
+            html: '<div style="background-color: #17a2b8; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+            className: 'custom-div-icon',
+            iconSize: [26, 26],
+            iconAnchor: [13, 13]
+        });
+
+        const secondaryIcon = L.divIcon({
+            html: '<div style="background-color: #28a745; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+            className: 'custom-div-icon',
+            iconSize: [20, 20],
+            iconAnchor: [10, 10]
+        });
+
+        const tertiaryIcon = L.divIcon({
+            html: '<div style="background-color: #6c757d; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>',
+            className: 'custom-div-icon',
+            iconSize: [16, 16],
+            iconAnchor: [8, 8]
+        });
+
+        // Add markers
+        locations.forEach(location => {
+            let icon;
+            let serviceText;
+
+            if (location.type === 'primary') {
+                icon = primaryIcon;
+                serviceText = 'Daily Service Available';
+            } else if (location.type === 'secondary') {
+                icon = secondaryIcon;
+                serviceText = 'Regular Service';
+            } else {
+                icon = tertiaryIcon;
+                serviceText = 'Service By Appointment';
+            }
+
+            const marker = L.marker([location.lat, location.lng], {icon: icon}).addTo(map);
+            marker.bindPopup(`
+                <div style="text-align: center; padding: 5px;">
+                    <strong>${location.name}</strong><br>
+                    ${serviceText}<br>
+                    <a href="/appointments/" style="color: #17a2b8;">Schedule Now</a>
+                </div>
+            `);
+        });
+
+        // Add service radius circle (50 miles from Greeley)
+        const serviceCircle = L.circle([40.4233, -104.6927], {
+            color: '#17a2b8',
+            fillColor: '#17a2b8',
+            fillOpacity: 0.05,
+            radius: 80467 // 50 miles in meters
+        }).addTo(map);
+
+        // Add legend
+        const legend = L.control({position: 'bottomright'});
+        legend.onAdd = function(map) {
+            const div = L.DomUtil.create('div', 'map-legend');
+            div.innerHTML = `
+                <h4>Service Availability</h4>
+                <div class="legend-item">
+                    <div class="legend-circle" style="background-color: #17a2b8;"></div>
+                    Primary Cities (Daily)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-circle" style="background-color: #28a745;"></div>
+                    Regular Service
+                </div>
+                <div class="legend-item">
+                    <div class="legend-circle" style="background-color: #6c757d;"></div>
+                    By Appointment
+                </div>
+            `;
+            return div;
+        };
+        legend.addTo(map);
+
+        // Focus on location function
+        function focusLocation(lat, lng, name) {
+            map.setView([lat, lng], 13);
+            // Find and open the popup for this location
+            map.eachLayer(function(layer) {
+                if (layer instanceof L.Marker) {
+                    const latlng = layer.getLatLng();
+                    if (Math.abs(latlng.lat - lat) < 0.001 && Math.abs(latlng.lng - lng) < 0.001) {
+                        layer.openPopup();
+                    }
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "InterlockGo Mobile Interlock Installation",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "InterlockGo",
+            "telephone": "+19708660366",
+            "url": "https://interlockgo.io",
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Greeley",
+                    "containedInPlace": {
+                        "@type": "State",
+                        "name": "Colorado"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Fort Collins",
+                    "containedInPlace": {
+                        "@type": "State",
+                        "name": "Colorado"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Loveland",
+                    "containedInPlace": {
+                        "@type": "State",
+                        "name": "Colorado"
+                    }
+                },
+                {
+                    "@type": "City",
+                    "name": "Windsor",
+                    "containedInPlace": {
+                        "@type": "State",
+                        "name": "Colorado"
+                    }
+                }
+            ]
+        },
+        "serviceType": "Mobile Ignition Interlock Device Installation",
+        "description": "Mobile interlock device installation service throughout Northern Colorado including Weld and Larimer Counties"
+    }
+    </script>
+</body>
+</html>
