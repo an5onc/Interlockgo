@@ -486,6 +486,102 @@
     </div>
   </section>
 
+  <!-- ===== COST CALCULATOR ===== -->
+  <section class="cost-calculator" aria-labelledby="calc-title" style="background: var(--surface);padding: 4rem 0;">
+    <div class="container">
+      <h2 id="calc-title" class="section-title">Interlock Cost Calculator</h2>
+      <p class="section-subtitle">Estimate your monthly interlock expenses</p>
+
+      <div class="calculator-card" style="max-width: 600px; margin: 2rem auto; background: var(--card-bg); border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-md);">
+        <form id="costCalculator">
+          <div style="margin-bottom: 1.5rem;">
+            <label for="programLength" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Program Duration</label>
+            <select id="programLength" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text-primary);">
+              <option value="4">4 months (minimum)</option>
+              <option value="6">6 months</option>
+              <option value="9">9 months</option>
+              <option value="12" selected>12 months (typical)</option>
+              <option value="24">24 months</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <label for="deviceType" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Device Provider</label>
+            <select id="deviceType" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text-primary);">
+              <option value="lifesafer">Lifesafer</option>
+              <option value="guardian">Guardian</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">
+              <input type="checkbox" id="cameraRequired" style="margin-right: 0.5rem;">
+              Camera required (adds $30/month)
+            </label>
+          </div>
+
+          <div class="cost-breakdown" style="background: var(--surface); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+            <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-primary);">Estimated Costs</h3>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span>Installation:</span>
+              <span id="installCost">$100</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span>Monthly Lease:</span>
+              <span id="monthlyCost">$80/mo</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span>Monthly Calibration:</span>
+              <span>$30/mo</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span>Removal:</span>
+              <span>$50</span>
+            </div>
+            <div style="border-top: 2px solid var(--border); margin: 1rem 0; padding-top: 1rem;">
+              <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; color: var(--accent);">
+                <span>Total Program Cost:</span>
+                <span id="totalCost">$1,470</span>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="/getstarted/" class="btn btn--primary">Get Started Today</a>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">Prices are estimates. Actual costs may vary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Cost Calculator Logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const calc = document.getElementById('costCalculator');
+      if (!calc) return;
+
+      const updateCosts = () => {
+        const months = parseInt(document.getElementById('programLength').value);
+        const hasCamera = document.getElementById('cameraRequired').checked;
+
+        const installFee = 100;
+        const removalFee = 50;
+        const monthlyLease = hasCamera ? 110 : 80;
+        const monthlyCalibration = 30;
+        const monthlyTotal = monthlyLease + monthlyCalibration;
+
+        const total = installFee + (monthlyTotal * months) + removalFee;
+
+        document.getElementById('monthlyCost').textContent = `$${monthlyLease}/mo`;
+        document.getElementById('totalCost').textContent = `$${total.toLocaleString()}`;
+      };
+
+      calc.addEventListener('change', updateCosts);
+      updateCosts();
+    });
+  </script>
+
   <!-- ===== USE CASES ===== -->
   <section class="use-cases" aria-labelledby="usecases-title">
     <div class="container">
