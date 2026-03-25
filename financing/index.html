@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financing & Payment Plans - InterlockGo NOCO</title>
+    <meta name="description" content="Flexible payment plans for ignition interlock devices in Northern Colorado. 0% interest financing, weekly and bi-weekly payment options available.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ignition Interlock Financing Options - InterlockGo NOCO">
+    <meta property="og:description" content="Make your ignition interlock device affordable with flexible payment plans. 0% interest financing available.">
+    <meta property="og:image" content="https://interlockgo.io/interlocklogonobg.png">
+    <meta property="og:url" content="https://interlockgo.io/financing/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ignition Interlock Financing Options - InterlockGo NOCO">
+    <meta name="twitter:description" content="Make your ignition interlock device affordable with flexible payment plans.">
+
+    <link rel="canonical" href="https://interlockgo.io/financing/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17605887515');
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "InterlockGo NOCO Financing",
+      "description": "Flexible payment plans for ignition interlock devices",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "InterlockGo NOCO",
+        "telephone": "970-515-5740",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Greeley",
+          "addressRegion": "CO",
+          "postalCode": "80631"
+        }
+      },
+      "areaServed": [
+        "Greeley, CO",
+        "Fort Collins, CO",
+        "Loveland, CO",
+        "Windsor, CO"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "description": "0% interest financing available",
+        "eligibleRegion": {
+          "@type": "Place",
+          "name": "Northern Colorado"
+        }
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="../index.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 20px 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .financing-container {
+            max-width: 1200px;
+            margin: -40px auto 4rem;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .payment-calculator {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin-bottom: 3rem;
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .calc-header h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tooltip {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            cursor: help;
+            position: relative;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 14px;
+            z-index: 100;
+            font-weight: normal;
+        }
+
+        .input-group input,
+        .input-group select {
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .payment-option {
+            padding: 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .payment-option:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .payment-option.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .payment-option h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 0.5rem 0;
+        }
+
+        .payment-frequency {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .payment-total {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .approval-section {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .approval-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .approval-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .benefit-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .apply-section {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .apply-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .apply-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .apply-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .calc-grid,
+            .payment-options,
+            .approval-stats,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-calculator {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="../interlocklogonobg.png" alt="InterlockGo NOCO" class="logo">
+            </div>
+            <div class="nav-links desktop-nav">
+                <a href="/">Home</a>
+                <a href="/service-areas/">Service Areas</a>
+                <a href="/cost-calculator/">Cost Calculator</a>
+                <a href="/financing/" class="active">Financing</a>
+                <a href="/appointments/" class="cta-nav">Schedule Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Flexible Financing Options</h1>
+        <p>Don't let cost be a barrier. We offer 0% interest payment plans to make your ignition interlock device affordable.</p>
+    </div>
+
+    <div class="financing-container">
+        <div class="payment-calculator">
+            <div class="calc-header">
+                <h2>Calculate Your Payment Plan</h2>
+                <p>See how affordable your ignition interlock can be with our flexible payment options</p>
+            </div>
+
+            <div class="calc-grid">
+                <div class="input-group">
+                    <label>
+                        Total Program Cost
+                        <span class="tooltip" data-tip="Installation + Monthly Fees + Removal">?</span>
+                    </label>
+                    <input type="number" id="total-cost" value="805" min="300" max="5000">
+                </div>
+                <div class="input-group">
+                    <label>
+                        Down Payment
+                        <span class="tooltip" data-tip="Optional initial payment">?</span>
+                    </label>
+                    <input type="number" id="down-payment" value="145" min="0" max="1000">
+                </div>
+                <div class="input-group">
+                    <label>
+                        Program Duration
+                        <span class="tooltip" data-tip="Length of your interlock program">?</span>
+                    </label>
+                    <select id="duration">
+                        <option value="3">3 months</option>
+                        <option value="6" selected>6 months</option>
+                        <option value="12">12 months</option>
+                        <option value="18">18 months</option>
+                        <option value="24">24 months</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>
+                        Credit Score Range
+                        <span class="tooltip" data-tip="Helps determine approval likelihood">?</span>
+                    </label>
+                    <select id="credit-score">
+                        <option value="excellent">Excellent (750+)</option>
+                        <option value="good" selected>Good (700-749)</option>
+                        <option value="fair">Fair (650-699)</option>
+                        <option value="poor">Poor (600-649)</option>
+                        <option value="bad">Bad (Below 600)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="payment-options">
+                <div class="payment-option" onclick="selectPayment('monthly')">
+                    <h3>Monthly</h3>
+                    <div class="payment-amount" id="monthly-payment">$110</div>
+                    <div class="payment-frequency">per month</div>
+                    <div class="payment-total">Total: $<span id="monthly-total">660</span></div>
+                </div>
+                <div class="payment-option selected" onclick="selectPayment('biweekly')">
+                    <h3>Bi-Weekly</h3>
+                    <div class="payment-amount" id="biweekly-payment">$51</div>
+                    <div class="payment-frequency">every 2 weeks</div>
+                    <div class="payment-total">Total: $<span id="biweekly-total">660</span></div>
+                </div>
+                <div class="payment-option" onclick="selectPayment('weekly')">
+                    <h3>Weekly</h3>
+                    <div class="payment-amount" id="weekly-payment">$25</div>
+                    <div class="payment-frequency">per week</div>
+                    <div class="payment-total">Total: $<span id="weekly-total">660</span></div>
+                </div>
+            </div>
+
+            <div class="approval-section">
+                <h3>Your Approval Likelihood</h3>
+                <div class="approval-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Approval Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">0%</div>
+                        <div class="stat-label">Interest Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5min</div>
+                        <div class="stat-label">Quick Approval</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">✅</div>
+                <div class="benefit-content">
+                    <h3>No Credit Check Options</h3>
+                    <p>We work with all credit situations. Bad credit or no credit? No problem. We have financing solutions for everyone.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">📱</div>
+                <div class="benefit-content">
+                    <h3>Easy Online Application</h3>
+                    <p>Apply online in minutes. Get instant approval and start your program the same day. No lengthy paperwork required.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <div class="benefit-content">
+                    <h3>Flexible Payment Dates</h3>
+                    <p>Choose payment dates that work with your pay schedule. Change your payment date anytime through our online portal.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🔒</div>
+                <div class="benefit-content">
+                    <h3>Secure & Confidential</h3>
+                    <p>Your financial information is protected with bank-level security. We never share your information with third parties.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="apply-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Apply for financing now and get approved in minutes. No obligation, no hard credit check.</p>
+            <a href="/appointments/" class="apply-button">Apply for Financing</a>
+            <p style="margin-top: 1.5rem; color: #666;">
+                Questions? Call us at <strong>(970) 515-5740</strong> to speak with a financing specialist
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>InterlockGo NOCO</h3>
+                <p>Making ignition interlock devices affordable for Northern Colorado</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="/financing/">Financing Options</a>
+                <a href="/cost-calculator/">Cost Calculator</a>
+                <a href="/appointments/">Schedule Installation</a>
+                <a href="/contactus/">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <a href="/faq/">FAQ</a>
+                <a href="/lifesafer/">LifeSafer Devices</a>
+                <a href="/guardian/">Guardian Devices</a>
+                <a href="/reviews/">Customer Reviews</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><strong>Phone:</strong> (970) 515-5740</p>
+                <p><strong>Email:</strong> support@interlockgo.io</p>
+                <p><strong>Hours:</strong> Mon-Sat 8AM-6PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 InterlockGo NOCO. All rights reserved. | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/sms-terms/">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function calculatePayments() {
+            const totalCost = parseFloat(document.getElementById('total-cost').value) || 805;
+            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
+            const duration = parseInt(document.getElementById('duration').value) || 6;
+            const financeAmount = totalCost - downPayment;
+
+            // Calculate payment amounts
+            const monthlyPayment = Math.ceil(financeAmount / duration);
+            const biweeklyPayment = Math.ceil(financeAmount / (duration * 2.17)); // ~2.17 bi-weekly periods per month
+            const weeklyPayment = Math.ceil(financeAmount / (duration * 4.33)); // ~4.33 weeks per month
+
+            // Update display
+            document.getElementById('monthly-payment').textContent = `$${monthlyPayment}`;
+            document.getElementById('biweekly-payment').textContent = `$${biweeklyPayment}`;
+            document.getElementById('weekly-payment').textContent = `$${weeklyPayment}`;
+
+            // Update totals (0% interest)
+            document.getElementById('monthly-total').textContent = financeAmount;
+            document.getElementById('biweekly-total').textContent = financeAmount;
+            document.getElementById('weekly-total').textContent = financeAmount;
+
+            // Update approval likelihood based on credit score
+            const creditScore = document.getElementById('credit-score').value;
+            const approvalRates = {
+                'excellent': '99%',
+                'good': '98%',
+                'fair': '95%',
+                'poor': '90%',
+                'bad': '85%'
+            };
+            document.querySelector('.stat-number').textContent = approvalRates[creditScore];
+        }
+
+        function selectPayment(type) {
+            // Remove selected class from all options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // Add selected class to clicked option
+            event.currentTarget.classList.add('selected');
+        }
+
+        // Calculate on input change
+        document.getElementById('total-cost').addEventListener('input', calculatePayments);
+        document.getElementById('down-payment').addEventListener('input', calculatePayments);
+        document.getElementById('duration').addEventListener('change', calculatePayments);
+        document.getElementById('credit-score').addEventListener('change', calculatePayments);
+
+        // Initial calculation
+        calculatePayments();
+    </script>
+</body>
+</html>
