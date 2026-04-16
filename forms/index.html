@@ -2,41 +2,57 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17605887515');
+  </script>
 
-  gtag('config', 'AW-17605887515');
-</script>
-  <!-- META -->
+  <!-- Theme initialization (prevents flash) -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ignition Interlock Forms & Guides — Evans, CO | InterlockGo NOCO</title>
-  <meta name="description" content="Download ignition interlock forms, checklists, and guides for Colorado drivers. InterlockGo NOCO — Evans, CO. Lifesafer & Guardian certified." />
+  <meta name="description" content="Download ignition interlock forms, checklists, and guides for Colorado drivers. Client intake form, affidavits, DMV links. InterlockGo NOCO — Evans, CO." />
   <link rel="canonical" href="https://interlockgo.io/forms/" />
 
-  <!-- Styles -->
-  <link href="../base.css" rel="stylesheet" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ignition Interlock Forms & Guides | InterlockGo NOCO" />
+  <meta property="og:description" content="Download Colorado ignition interlock forms, affidavits, and DMV guides. InterlockGo NOCO — Evans, CO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://interlockgo.io/forms/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link href="../index.css" rel="stylesheet" />
   <link href="forms.css" rel="stylesheet" />
 
-  <script>document.documentElement.classList.add('js');</script>
-
-  <!-- Structured Data: BreadcrumbList -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://interlockgo.io/"},
-      {"@type": "ListItem", "position": 2, "name": "Support", "item": "https://interlockgo.io/#support"},
-      {"@type": "ListItem", "position": 3, "name": "Forms", "item": "https://interlockgo.io/forms/"}
+      {"@type": "ListItem", "position": 2, "name": "Forms", "item": "https://interlockgo.io/forms/"}
     ]
   }
   </script>
 
-  <!-- === STRUCTURED DATA: LocalBusiness === -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,18 +70,14 @@
       "postalCode": "80620",
       "addressCountry": "US"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.3783,
-      "longitude": -104.7003
-    },
+    "geo": {"@type": "GeoCoordinates", "latitude": 40.3783, "longitude": -104.7003},
     "areaServed": ["Evans", "Greeley", "Fort Collins", "Loveland", "Windsor", "Johnstown"],
     "priceRange": "$$",
-    "image": "https://interlockgo.io/images/interlockgologo.png",
-    "sameAs": []
+    "image": "https://interlockgo.io/images/interlockgologo.png"
   }
   </script>
-  <!-- Google tag (gtag.js) GA4 -->
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JCBPD2PLD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -75,125 +87,270 @@
   </script>
 </head>
 <body id="top">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NAV (same structure as site) -->
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../faq/">FAQ</a></li>
-          <li><a href="../appointments/">Appointments</a></li>
-      <li><a href="../hours/">Shop hours</a></li>
-      <li>
-        <a href="javascript:void(0)">Equipment</a>
-        <ul>
-          <li><a href="../lifesafer/">Lifesafer</a></li>
-          <li><a href="../guardian/">Guardian</a></li>
-        </ul>
-      </li>
-      <li>
-        <a class="active" href="javascript:void(0)">Support</a>
-        <ul>
-          <li><a class="active" href="./">Forms</a></li>
-          <li><a href="../contactus/">Contact</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://myaccount.lifesafer.com/account/login" target="_blank" rel="noopener">My Account</a>
-      </li>
-    </ul>
-  </nav>
+  <div class="page-bg" aria-hidden="true">
+    <div class="page-bg__gradient"></div>
+    <div class="page-bg__glow page-bg__glow--1"></div>
+    <div class="page-bg__glow page-bg__glow--2"></div>
+  </div>
 
-  <!-- HERO (unified style) -->
-  <header class="hero-section hero--brand">
-    <div class="hero-overlay">
-      <div class="hero">
-        <h1>Ignition Interlock Forms &amp; Guides</h1>
-        <p>Everything you need to stay compliant in Colorado—checklists, affidavits, and quick‑start guides. Questions? Call
-          <a href="tel:970-515-5740" style="color:#fff;text-decoration:underline;">970‑515‑5740</a>.
-        </p>
+  <!-- HEADER / NAV -->
+  <header class="header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="../" class="nav__logo" aria-label="InterlockGo Home">
+        <img src="../images/interlockgologo.png" alt="InterlockGo Logo" width="40" height="40" loading="lazy" />
+        <span class="nav__wordmark">InterlockGo</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../lifesafer/">Lifesafer</a></li>
+        <li><a href="../guardian/">Guardian</a></li>
+        <li><a href="../faq/">FAQ</a></li>
+        <li><a href="../appointments/">Appointments</a></li>
+        <li><a href="../contactus/">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="https://myaccount.lifesafer.com/account/login" class="nav__link--text" target="_blank" rel="noopener">Log in</a>
+        <a href="../getstarted/" class="btn btn--primary btn--sm">Get Started</a>
       </div>
-    </div>
+
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </header>
 
-  <main class="container">
+  <main id="main-content">
 
-    <!-- START HERE -->
-    <section class="section">
-      <h2>Start Here</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>New Client Intake Form (InterlockGo-NOCO)</h3>
-          <p>Basic info we need before your install or calibration.</p>
-          <a class="button" href="../files/client-intake-form.pdf" target="_blank" rel="noopener">Download PDF</a>
-        </div>
-        <div class="card">
-          <h3>Interlock Affidavit (Notary)</h3>
-          <p>Affidavit for Colorado interlock—notarization available on site.</p>
-          <a class="button" href="../files/interlockaffidavit.pdf" target="_blank" rel="noopener">Download PDF</a>
-        </div>
-        <div class="card">
-          <h3>Reinstatement Form (Colorado)</h3>
-          <p>Reinstatement Form for Colorado drivers.</p>
-          <a class="button" href="../files/reinstatementform.pdf" target="_blank" rel="noopener">Download PDF</a>
-        </div>
-        <div class="card">
-          <h3>Lease Extension (Colorado)</h3>
-          <p>If the DMV requires a new lease agreement.</p>
-          <a class="button" href="../files/leaseextension.pdf" target="_blank" rel="noopener">Download PDF</a>
-        </div>
-         <div class="card">
-          <h3>Mechanic Affidavit (Colorado)</h3>
-          <p>A form for your mechanic to fill out if the vehicle is the shop for an extended period of time.</p>
-          <a class="button" href="../files/mechanicaffidavit.pdf" target="_blank" rel="noopener">Download PDF</a>
-        </div>
-        <div class="card">
-          <h3>Restricted License Affidavit of Non-Ownership (Colorado)</h3>
-          <p>A form for individuals who do not own the vehicle the ignition device will be installed on.</p>
-          <a class="button" href="../files/nonownership.pdf" target="_blank" rel="noopener">Download PDF</a>
+    <!-- HERO -->
+    <section class="forms-hero">
+      <div class="container">
+        <h1 class="forms-hero__title">Forms &amp; Guides</h1>
+        <p class="forms-hero__subtitle">Everything you need to stay compliant in Colorado — checklists, affidavits, and quick-start guides. Questions? Call <a href="tel:970-515-5740" class="forms-hero__link">970‑515‑5740</a>.</p>
+      </div>
+    </section>
+
+    <!-- SECTION: Start Here -->
+    <section class="forms-section" aria-labelledby="start-here">
+      <div class="container">
+        <h2 id="start-here" class="section-title">Start Here</h2>
+        <p class="section-subtitle">Download and complete these before your installation or calibration appointment.</p>
+        <div class="forms-grid">
+
+          <article class="forms-card">
+            <div class="forms-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3 class="forms-card__title">New Client Intake Form</h3>
+            <p class="forms-card__desc">Basic info we need before your install or calibration. Print and complete before arriving.</p>
+            <a class="btn btn--primary btn--sm" href="../files/client-intake-form.pdf" target="_blank" rel="noopener">Download PDF</a>
+          </article>
+
+          <article class="forms-card">
+            <div class="forms-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+            </div>
+            <h3 class="forms-card__title">Interlock Affidavit (Notary)</h3>
+            <p class="forms-card__desc">Affidavit for Colorado interlock enrollment. Notarization available on-site.</p>
+            <a class="btn btn--primary btn--sm" href="../files/interlockaffidavit.pdf" target="_blank" rel="noopener">Download PDF</a>
+          </article>
+
+          <article class="forms-card">
+            <div class="forms-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+            </div>
+            <h3 class="forms-card__title">Reinstatement Form (Colorado)</h3>
+            <p class="forms-card__desc">Colorado DMV reinstatement application form for drivers on an interlock program.</p>
+            <a class="btn btn--primary btn--sm" href="../files/reinstatementform.pdf" target="_blank" rel="noopener">Download PDF</a>
+          </article>
+
+          <article class="forms-card">
+            <div class="forms-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            </div>
+            <h3 class="forms-card__title">Lease Extension (Colorado)</h3>
+            <p class="forms-card__desc">Required when the DMV requests a new lease agreement during your interlock period.</p>
+            <a class="btn btn--primary btn--sm" href="../files/leaseextension.pdf" target="_blank" rel="noopener">Download PDF</a>
+          </article>
+
+          <article class="forms-card">
+            <div class="forms-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <h3 class="forms-card__title">Mechanic Affidavit (Colorado)</h3>
+            <p class="forms-card__desc">For your mechanic to complete if the vehicle will be in a shop for an extended period.</p>
+            <a class="btn btn--primary btn--sm" href="../files/mechanicaffidavit.pdf" target="_blank" rel="noopener">Download PDF</a>
+          </article>
+
+          <article class="forms-card">
+            <div class="forms-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+            <h3 class="forms-card__title">Non-Ownership Affidavit (Colorado)</h3>
+            <p class="forms-card__desc">For individuals who do not own the vehicle the interlock device will be installed in.</p>
+            <a class="btn btn--primary btn--sm" href="../files/nonownership.pdf" target="_blank" rel="noopener">Download PDF</a>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- QUICK GUIDES -->
-    <section class="section">
-      <h2>Quick Guides</h2>
-      <ul class="list">
-        <li><a href="../files/how-to-blow.pdf" target="_blank" rel="noopener">How to Blow &amp; Hum (English)</a></li>
-        <li><a href="../files/how-to-blow-hum-es.pdf" target="_blank" rel="noopener">Cómo Soplar &amp; Tararear (Español)</a></li>
-        <li><a href="https://www.lifesafer.com/troubleshooting/" target="_blank" rel="noopener">Lockout &amp; Reset Policy</a></li>
-        <li><a href="../files/informationalposter.pdf" target="_blank" rel="noopener">Informational Poster</a></li>
-      </ul>
+    <!-- SECTION: Quick Guides -->
+    <section class="forms-section forms-section--alt" aria-labelledby="quick-guides">
+      <div class="container">
+        <h2 id="quick-guides" class="section-title">Quick Guides</h2>
+        <p class="section-subtitle">Step-by-step instructions for using your device correctly.</p>
+        <div class="forms-links-grid">
+
+          <a class="forms-link-card" href="../files/how-to-blow.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 12 12 14 14"></polyline></svg>
+            <span>
+              <strong>How to Blow &amp; Hum</strong>
+              <small>English — step-by-step breath technique</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+          <a class="forms-link-card" href="../files/how-to-blow-hum-es.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 12 12 14 14"></polyline></svg>
+            <span>
+              <strong>Cómo Soplar &amp; Tararear</strong>
+              <small>Español — instrucciones de uso del dispositivo</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+          <a class="forms-link-card" href="https://www.lifesafer.com/troubleshooting/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>
+              <strong>Lockout &amp; Reset Policy</strong>
+              <small>Lifesafer — troubleshooting & override codes</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+          <a class="forms-link-card" href="../files/informationalposter.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            <span>
+              <strong>Informational Poster</strong>
+              <small>General interlock program overview — printable</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+        </div>
+      </div>
     </section>
 
-    <!-- DMV / OFFICIAL LINKS -->
-    <section class="section">
-      <h2>Colorado DMV / Official Links</h2>
-      <ul class="list">
-        <li><a href="https://dmv.colorado.gov/reinstatements" target="_blank" rel="noopener">Colorado DMV — Reinstatement</a></li>
-        <li><a href="https://dmv.colorado.gov/ignition-interlock-restricted-license" target="_blank" rel="noopener">Colorado DMV — Ignition Interlock Program</a></li>
-        <li><a href="https://coloradoappt.cxmflow.com/Appointment/Index/20f440ff-2a2b-4df9-8fd9-86c057f3590a" target="_blank" rel="noopener">Colorado DMV — Schedule an Appointment</a></li>
-        <li><a href="https://dmv.colorado.gov/driver-services-frequently-asked-questions" target="_blank" rel="noopener">Colorado DMV — Driver Services FAQs</a></li>
-        <li><a href="https://dmv.colorado.gov/sr-22-and-insurance-information" target="_blank" rel="noopener">Colorado DMV — SR-22 Information</a></li>
-      </ul>
+    <!-- SECTION: DMV Links -->
+    <section class="forms-section" aria-labelledby="dmv-links">
+      <div class="container">
+        <h2 id="dmv-links" class="section-title">Colorado DMV &amp; Official Links</h2>
+        <p class="section-subtitle">Direct links to the Colorado DMV resources most relevant to interlock drivers.</p>
+        <div class="forms-links-grid">
+
+          <a class="forms-link-card" href="https://dmv.colorado.gov/reinstatements" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>
+              <strong>Colorado DMV — Reinstatement</strong>
+              <small>Requirements, fees, and process overview</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+          <a class="forms-link-card" href="https://dmv.colorado.gov/ignition-interlock-restricted-license" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2"></rect><path d="M16 8h4l3 5v3h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>
+              <strong>Colorado DMV — Interlock Program</strong>
+              <small>Ignition interlock restricted license information</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+          <a class="forms-link-card" href="https://coloradoappt.cxmflow.com/Appointment/Index/20f440ff-2a2b-4df9-8fd9-86c057f3590a" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>
+              <strong>Colorado DMV — Schedule Appointment</strong>
+              <small>Book your DMV written exam appointment</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+          <a class="forms-link-card" href="https://dmv.colorado.gov/driver-services-frequently-asked-questions" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>
+              <strong>Colorado DMV — Driver Services FAQ</strong>
+              <small>Official DMV frequently asked questions</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+          <a class="forms-link-card" href="https://dmv.colorado.gov/sr-22-and-insurance-information" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>
+              <strong>Colorado DMV — SR‑22 Information</strong>
+              <small>Financial responsibility filing requirements</small>
+            </span>
+            <svg class="forms-link-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" aria-labelledby="forms-cta-title">
+      <div class="container">
+        <h2 id="forms-cta-title" class="final-cta__title">Need help with paperwork?</h2>
+        <p class="final-cta__text">We assist with affidavits and DMV forms in-shop. Notary services available. Call or stop by.</p>
+        <div class="final-cta__buttons">
+          <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            970‑515‑5740
+          </a>
+          <a href="../contactus/" class="btn btn--secondary btn--lg">Contact Us</a>
+        </div>
+        <p class="final-cta__address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          3610 35th Avenue Unit #7, Evans, CO 80620
+        </p>
+      </div>
     </section>
 
   </main>
 
-  <!-- =====================================================================
-       FOOTER + CALL FLOAT
-       =================================================================== -->
-<footer class="footer">
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__col">
           <div class="footer__brand">
-            <img src="../images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" />
+            <img src="../images/interlockgologo.png" alt="InterlockGo" class="footer__logo" width="32" height="32" loading="lazy" />
             <span class="footer__company">InterlockGo NOCO</span>
           </div>
           <p class="footer__tagline">Certified ignition interlock installation, calibration &amp; service in Northern Colorado.</p>
-          <a href="/review/" class="footer__review-link">⭐ Leave a Google Review</a>
+          <a href="/review/" class="footer__review-link">&#11088; Leave a Google Review</a>
         </div>
-
         <div class="footer__col">
           <span class="footer__col-title">Navigation</span>
           <nav class="footer__col-links" aria-label="Footer navigation">
@@ -204,7 +361,6 @@
             <a href="/contactus/">Contact</a>
           </nav>
         </div>
-
         <div class="footer__col">
           <span class="footer__col-title">Service Areas</span>
           <nav class="footer__col-links" aria-label="Service areas">
@@ -215,7 +371,6 @@
             <a href="/johnstown/">Johnstown</a>
           </nav>
         </div>
-
         <div class="footer__col">
           <span class="footer__col-title">Legal</span>
           <nav class="footer__col-links" aria-label="Legal">
@@ -224,12 +379,10 @@
           </nav>
         </div>
       </div>
-
       <div class="footer__bottom">
         <p>&copy; 2025 InterlockGo NOCO. All rights reserved.</p>
         <p>Created and maintained by <strong>NexGen Studios</strong></p>
       </div>
-
       <a href="#top" class="footer__backtop" aria-label="Back to top">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <polyline points="18 15 12 9 6 15"></polyline>
@@ -238,7 +391,14 @@
     </div>
   </footer>
 
-  <!-- Mobile Navigation -->
-  <script src="../js/mobile-nav.js"></script>
+  <!-- Floating Call Button -->
+  <a href="tel:970-515-5740" class="call-float" aria-label="Call InterlockGo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </a>
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  <script src="../script.js"></script>
 </body>
 </html>
