@@ -2065,18 +2065,22 @@ body.scrolled .footer__backtop {
 /* ===== PRICING TABLE ===== */
 .pricing {
   padding: 80px 0;
-  background: var(--surface-2, #0f172a);
+  background: var(--royal-blue);
+  color: #ffffff;
+}
+.pricing .section-title {
+  color: #ffffff;
 }
 .pricing .section-subtitle {
   text-align: center;
-  color: var(--text-muted, #94a3b8);
+  color: rgba(255,255,255,0.8);
   margin: -16px 0 32px;
   font-size: 0.95rem;
 }
 .pricing__table {
   max-width: 680px;
   margin: 0 auto 16px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -2095,13 +2099,13 @@ body.scrolled .footer__backtop {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   padding: 14px 20px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
   font-size: 0.9rem;
   text-align: center;
-  color: var(--text-secondary, #cbd5e1);
+  color: rgba(255,255,255,0.85);
 }
-.pricing__row:hover { background: rgba(255,255,255,0.03); }
-.pricing__label { text-align: left; font-weight: 500; color: var(--text-primary, #f1f5f9); }
+.pricing__row:hover { background: rgba(255,255,255,0.05); }
+.pricing__label { text-align: left; font-weight: 500; color: #ffffff; }
 .pricing__row--total {
   background: rgba(16,185,129,0.07);
   font-weight: 700;
@@ -2110,7 +2114,7 @@ body.scrolled .footer__backtop {
 .pricing__note {
   text-align: center;
   font-size: 0.8rem;
-  color: var(--text-muted, #94a3b8);
+  color: rgba(255,255,255,0.65);
   max-width: 500px;
   margin: 0 auto;
 }
