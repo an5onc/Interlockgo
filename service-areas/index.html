@@ -10,15 +10,6 @@
     gtag('config', 'AW-17605887515');
   </script>
 
-  <!-- Theme initialization -->
-  <script>
-    (function() {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,10 +27,10 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link href="../index.css" rel="stylesheet" />
+  <link href="../theme.css" rel="stylesheet" />
 
   <!-- Leaflet Map CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -230,53 +221,27 @@
   </script>
 </head>
 <body>
-  <!-- === NAVIGATION === -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="/">
-          <img src="/images/Interlockgo.jpeg" alt="InterlockGo NOCO Logo" width="40" height="40" />
-          <span>InterlockGo NOCO</span>
-        </a>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-name">Interlockgo <em>NOCO</em></span>
+        <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
+      </a>
+      <div class="nav-links">
+        <a href="../lifesafer/">Lifesafer</a>
+        <a href="../guardian/">Guardian</a>
+        <a href="../faq/">FAQ</a>
+        <a href="../#pricing">Pricing</a>
+        <a href="../getstarted/">Get Started</a>
+        <a href="../contactus/">Contact</a>
       </div>
-
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a class="nav-cta" href="tel:9705155740">
+        <span class="dot"></span>
+        970&nbsp;515&nbsp;5740
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" type="button">
+        <span></span><span></span><span></span>
       </button>
-
-      <div class="nav-menu">
-        <a href="/" class="nav-link">Home</a>
-        <div class="nav-dropdown">
-          <button class="nav-link">Services</button>
-          <div class="dropdown-content">
-            <a href="/lifesafer/">Lifesafer</a>
-            <a href="/guardian/">Guardian</a>
-          </div>
-        </div>
-        <a href="/service-areas/" class="nav-link active">Service Areas</a>
-        <a href="/faq/" class="nav-link">FAQ</a>
-        <a href="/getstarted/" class="nav-link">Book Appointment</a>
-        <a href="/contactus/" class="nav-link">Contact</a>
-        <a href="tel:970-515-5740" class="nav-cta">970-515-5740</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </div>
     </div>
   </nav>
 
@@ -438,56 +403,56 @@
     </section>
   </main>
 
-  <!-- === FOOTER === -->
-  <footer class="footer">
+  <a href="tel:9705155740" class="call-float" aria-label="Call InterlockGo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </a>
+
+  <footer>
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>InterlockGo NOCO</h3>
-          <p>Northern Colorado's trusted ignition interlock service provider.</p>
-          <div class="social-links">
-            <a href="tel:970-515-5740">970-515-5740</a>
-          </div>
+      <div class="foot">
+        <div>
+          <a class="brand brand--footer" href="../">
+            <span class="brand-name">Interlockgo <em>NOCO</em></span>
+            <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
+          </a>
+          <div class="tag">Certified ignition interlock. <em>Human service.</em> Northern Colorado.</div>
         </div>
-
-        <div class="footer-section">
-          <h4>Services</h4>
+        <div>
+          <h5>Navigation</h5>
           <ul>
-            <li><a href="/lifesafer/">Lifesafer Devices</a></li>
-            <li><a href="/guardian/">Guardian Interlocks</a></li>
-            <li><a href="/getstarted/">Installation</a></li>
-            <li><a href="/getstarted/">Calibration</a></li>
+            <li><a href="../lifesafer/">Lifesafer</a></li>
+            <li><a href="../guardian/">Guardian</a></li>
+            <li><a href="../forms/">Forms</a></li>
+            <li><a href="../reviews/">Reviews</a></li>
+            <li><a href="../contactus/">Contact</a></li>
           </ul>
         </div>
-
-        <div class="footer-section">
-          <h4>Service Areas</h4>
+        <div>
+          <h5>Service Areas</h5>
           <ul>
-            <li><a href="/greeley/">Greeley</a></li>
-            <li><a href="/fort-collins/">Fort Collins</a></li>
-            <li><a href="/loveland/">Loveland</a></li>
-            <li><a href="/windsor/">Windsor</a></li>
+            <li><a href="../greeley/">Greeley</a></li>
+            <li><a href="../fort-collins/">Fort Collins</a></li>
+            <li><a href="../loveland/">Loveland</a></li>
+            <li><a href="../windsor/">Windsor</a></li>
+            <li><a href="../johnstown/">Johnstown</a></li>
           </ul>
         </div>
-
-        <div class="footer-section">
-          <h4>Resources</h4>
+        <div>
+          <h5>Legal</h5>
           <ul>
-            <li><a href="/faq/">FAQ</a></li>
-            <li><a href="/forms/">Forms</a></li>
-            <li><a href="/contactus/">Contact Us</a></li>
-            <li><a href="/hours/">Hours</a></li>
+            <li><a href="../privacy-policy/">Privacy Policy</a></li>
+            <li><a href="../sms-terms/">SMS Terms</a></li>
+            <li><a href="../faq/">FAQ</a></li>
+            <li><a href="../hours/">Hours</a></li>
+            <li><a href="tel:9705155740">970·515·5740</a></li>
           </ul>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 InterlockGo NOCO. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="/privacy-policy/">Privacy Policy</a>
-          <span>|</span>
-          <a href="/sms-terms/">SMS Terms</a>
-        </div>
+      <div class="foot-base">
+        <span>&copy; InterlockGo NOCO &middot; All rights reserved</span>
+        <span>Authorized Lifesafer &amp; Guardian Installer</span>
       </div>
     </div>
   </footer>
@@ -539,18 +504,22 @@
       radius: 50000 // 50km radius
     }).addTo(map);
 
-    // Theme toggle
-    document.getElementById('theme-toggle').addEventListener('click', function() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
-
-    // Mobile menu toggle
-    document.querySelector('.nav-toggle').addEventListener('click', function() {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    });
+  </script>
+  <script>
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target) }
+      });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if(hamburger && navLinks){
+      hamburger.addEventListener('click', ()=>{
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+    }
   </script>
 </body>
 </html>

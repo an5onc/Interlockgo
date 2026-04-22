@@ -16,8 +16,12 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://interlockgo.io/pricing-calculator/">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="../theme.css">
 
     <style>
         .calculator-container {
@@ -241,31 +245,29 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header-transparent">
-        <nav>
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="/">
-                        <img src="/assets/interlockgo-logo.png" alt="InterlockGo" height="40">
-                    </a>
-                </div>
-                <div class="nav-menu" id="navMenu">
-                    <a href="/">Home</a>
-                    <a href="/service-areas/">Service Areas</a>
-                    <a href="/pricing-calculator/" class="active">Pricing</a>
-                    <a href="/faq/">FAQ</a>
-                    <a href="/reviews/">Reviews</a>
-                    <a href="/appointments/" class="nav-cta">Schedule Service</a>
-                </div>
-                <div class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="../">
+          <span class="brand-name">Interlockgo <em>NOCO</em></span>
+          <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
+        </a>
+        <div class="nav-links">
+          <a href="../lifesafer/">Lifesafer</a>
+          <a href="../guardian/">Guardian</a>
+          <a href="../faq/">FAQ</a>
+          <a href="../#pricing">Pricing</a>
+          <a href="../getstarted/">Get Started</a>
+          <a href="../contactus/">Contact</a>
+        </div>
+        <a class="nav-cta" href="tel:9705155740">
+          <span class="dot"></span>
+          970&nbsp;515&nbsp;5740
+        </a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
     <main>
         <!-- Hero Section -->
@@ -388,41 +390,58 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>InterlockGo NOCO</h3>
-                    <p>Professional ignition interlock services across Northern Colorado.</p>
-                    <p class="footer-contact">
-                        <strong>Call:</strong> <a href="tel:9708660366">(970) 866-0366</a><br>
-                        <strong>Email:</strong> <a href="mailto:info@interlockgo.io">info@interlockgo.io</a>
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/pricing-calculator/">Pricing Calculator</a></li>
-                        <li><a href="/service-areas/">Service Areas</a></li>
-                        <li><a href="/faq/">FAQ</a></li>
-                        <li><a href="/appointments/">Schedule Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Service Locations</h4>
-                    <ul>
-                        <li><a href="/greeley/">Greeley</a></li>
-                        <li><a href="/fort-collins/">Fort Collins</a></li>
-                        <li><a href="/loveland/">Loveland</a></li>
-                        <li><a href="/windsor/">Windsor</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 InterlockGo. All rights reserved.</p>
-            </div>
+    <a href="tel:9705155740" class="call-float" aria-label="Call InterlockGo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </a>
+
+    <footer>
+      <div class="container">
+        <div class="foot">
+          <div>
+            <a class="brand brand--footer" href="../">
+              <span class="brand-name">Interlockgo <em>NOCO</em></span>
+              <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
+            </a>
+            <div class="tag">Certified ignition interlock. <em>Human service.</em> Northern Colorado.</div>
+          </div>
+          <div>
+            <h5>Navigation</h5>
+            <ul>
+              <li><a href="../lifesafer/">Lifesafer</a></li>
+              <li><a href="../guardian/">Guardian</a></li>
+              <li><a href="../forms/">Forms</a></li>
+              <li><a href="../reviews/">Reviews</a></li>
+              <li><a href="../contactus/">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Service Areas</h5>
+            <ul>
+              <li><a href="../greeley/">Greeley</a></li>
+              <li><a href="../fort-collins/">Fort Collins</a></li>
+              <li><a href="../loveland/">Loveland</a></li>
+              <li><a href="../windsor/">Windsor</a></li>
+              <li><a href="../johnstown/">Johnstown</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="../privacy-policy/">Privacy Policy</a></li>
+              <li><a href="../sms-terms/">SMS Terms</a></li>
+              <li><a href="../faq/">FAQ</a></li>
+              <li><a href="../hours/">Hours</a></li>
+              <li><a href="tel:9705155740">970·515·5740</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="foot-base">
+          <span>&copy; InterlockGo NOCO &middot; All rights reserved</span>
+          <span>Authorized Lifesafer &amp; Guardian Installer</span>
+        </div>
+      </div>
     </footer>
 
     <script>
@@ -485,10 +504,22 @@
         // Initial calculation
         calculateCosts();
 
-        // Mobile nav toggle
-        document.getElementById('navToggle').addEventListener('click', function() {
-            document.getElementById('navMenu').classList.toggle('active');
+    </script>
+    <script>
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target) }
         });
+      }, {threshold: 0.08});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+      const hamburger = document.getElementById('nav-hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if(hamburger && navLinks){
+        hamburger.addEventListener('click', ()=>{
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('open');
+        });
+      }
     </script>
 
     <!-- Google Ads -->
