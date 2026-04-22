@@ -633,6 +633,89 @@
         </div>
       </div>
       <p class="pricing__note">Cash, credit, and debit accepted. Prices may vary by program length and requirements. <a href="tel:970-515-5740">Call us</a> for a personalized quote.</p>
+
+      <!-- Interactive Lease Cost Calculator -->
+      <div class="calc" id="lease-calc">
+        <h3 class="calc__title">Lease Cost Calculator</h3>
+        <p class="calc__subtitle">Adjust the number of days to see your total cost before your visit.</p>
+
+        <div class="calc__controls">
+          <div class="calc__field">
+            <label class="calc__label" for="calc-device">Device</label>
+            <select id="calc-device" class="calc__select">
+              <option value="lifesafer">LifeSafer FC100</option>
+              <option value="guardian">Guardian AMS2000</option>
+            </select>
+          </div>
+
+          <div class="calc__field">
+            <label class="calc__label" for="calc-days">Number of Days</label>
+            <div class="calc__days-row">
+              <input type="range" id="calc-days-slider" min="1" max="45" value="28" class="calc__slider" />
+              <input type="number" id="calc-days" min="1" max="45" value="28" class="calc__input" />
+            </div>
+            <div class="calc__presets">
+              <button type="button" class="calc__preset" data-days="7">7 days</button>
+              <button type="button" class="calc__preset" data-days="14">14 days</button>
+              <button type="button" class="calc__preset" data-days="21">21 days</button>
+              <button type="button" class="calc__preset" data-days="28">28 days</button>
+              <button type="button" class="calc__preset" data-days="35">35 days</button>
+              <button type="button" class="calc__preset" data-days="42">42 days</button>
+            </div>
+          </div>
+
+          <div class="calc__field calc__toggle-field">
+            <label class="calc__toggle-label">
+              <input type="checkbox" id="calc-protection" class="calc__checkbox" />
+              <span class="calc__toggle-switch"></span>
+              <span>Daily Loss Protection Plan</span>
+              <span class="calc__optional">(optional)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="calc__breakdown">
+          <div class="calc__line">
+            <span>Daily Monitoring</span>
+            <span class="calc__rate" id="calc-mon-rate"></span>
+            <span class="calc__amt" id="calc-mon-total"></span>
+          </div>
+          <div class="calc__line">
+            <span>Reporting Fee</span>
+            <span class="calc__rate" id="calc-rep-rate"></span>
+            <span class="calc__amt" id="calc-rep-total"></span>
+          </div>
+          <div class="calc__line calc__line--protection" id="calc-prot-row" style="display:none;">
+            <span>Daily Loss Protection</span>
+            <span class="calc__rate" id="calc-prot-rate"></span>
+            <span class="calc__amt" id="calc-prot-total"></span>
+          </div>
+          <div class="calc__line">
+            <span>Calibration Fee</span>
+            <span class="calc__rate" id="calc-cal-note"></span>
+            <span class="calc__amt" id="calc-cal-total"></span>
+          </div>
+          <div class="calc__divider"></div>
+          <div class="calc__line">
+            <span>Subtotal</span>
+            <span></span>
+            <span class="calc__amt" id="calc-subtotal"></span>
+          </div>
+          <div class="calc__line">
+            <span>Tax <span class="calc__tax-note">(7.4%)</span></span>
+            <span></span>
+            <span class="calc__amt" id="calc-tax"></span>
+          </div>
+          <div class="calc__divider"></div>
+          <div class="calc__line calc__line--total">
+            <span>Total Due</span>
+            <span></span>
+            <span class="calc__amt" id="calc-total"></span>
+          </div>
+        </div>
+
+        <p class="calc__disclaimer">Estimate only. Final invoice may vary. Tax applies to monitoring &amp; reporting fees. <a href="tel:970-515-5740">Call us</a> with questions.</p>
+      </div>
     </div>
   </section>
 
@@ -706,6 +789,85 @@
   <!-- Script -->
   <script src="script.js"></script>
   <script src="js/device-switcher.js"></script>
+
+  <!-- Lease Cost Calculator -->
+  <script>
+  (function() {
+    const RATES = {
+      lifesafer:  { monitoring: 3.7850, reporting: 0.2143, protection: 0.5707 },
+      guardian:   { monitoring: 4.5707, reporting: 0.2143, protection: 0.5707 }
+    };
+    const TAX_RATE = 0.074;
+
+    const deviceEl   = document.getElementById('calc-device');
+    const daysInput   = document.getElementById('calc-days');
+    const daysSlider  = document.getElementById('calc-days-slider');
+    const protectionEl = document.getElementById('calc-protection');
+    const presetBtns  = document.querySelectorAll('.calc__preset');
+
+    function fmt(n) { return '$' + n.toFixed(2); }
+
+    function update() {
+      const device = RATES[deviceEl.value];
+      const days   = Math.max(1, Math.min(45, parseInt(daysInput.value) || 28));
+      const prot   = protectionEl.checked;
+
+      const monTotal  = device.monitoring * days;
+      const repTotal  = device.reporting * days;
+      const protTotal = device.protection * days;
+
+      // Calibration fee — tiered by days out
+      var calFee = 25;
+      var calNote = 'up to 30 days';
+      if (days >= 42) { calFee = 35; calNote = '42–45 days'; }
+      else if (days >= 31) { calFee = 30; calNote = '31–41 days'; }
+
+      const subtotal = monTotal + repTotal + (prot ? protTotal : 0) + calFee;
+      const taxable  = monTotal + repTotal;
+      const tax      = taxable * TAX_RATE;
+      const total    = subtotal + tax;
+
+      document.getElementById('calc-mon-rate').textContent  = fmt(device.monitoring) + '/day × ' + days;
+      document.getElementById('calc-mon-total').textContent  = fmt(monTotal);
+      document.getElementById('calc-rep-rate').textContent  = fmt(device.reporting) + '/day × ' + days;
+      document.getElementById('calc-rep-total').textContent  = fmt(repTotal);
+      document.getElementById('calc-prot-rate').textContent = fmt(device.protection) + '/day × ' + days;
+      document.getElementById('calc-prot-total').textContent = fmt(protTotal);
+      document.getElementById('calc-prot-row').style.display = prot ? '' : 'none';
+      document.getElementById('calc-cal-note').textContent  = calNote;
+      document.getElementById('calc-cal-total').textContent = fmt(calFee);
+      document.getElementById('calc-subtotal').textContent  = fmt(subtotal);
+      document.getElementById('calc-tax').textContent       = fmt(tax);
+      document.getElementById('calc-total').textContent     = fmt(total);
+
+      // highlight active preset
+      presetBtns.forEach(function(b) {
+        b.classList.toggle('active', parseInt(b.dataset.days) === days);
+      });
+    }
+
+    daysSlider.addEventListener('input', function() {
+      daysInput.value = this.value;
+      update();
+    });
+    daysInput.addEventListener('input', function() {
+      daysSlider.value = this.value;
+      update();
+    });
+    deviceEl.addEventListener('change', update);
+    protectionEl.addEventListener('change', update);
+    presetBtns.forEach(function(b) {
+      b.addEventListener('click', function() {
+        daysInput.value = this.dataset.days;
+        daysSlider.value = this.dataset.days;
+        update();
+      });
+    });
+
+    update();
+  })();
+  </script>
+
   <script>
     function submitCallback(e) {
       e.preventDefault();
