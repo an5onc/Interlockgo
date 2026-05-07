@@ -35,8 +35,8 @@
   transition: border-color 0.4s ease;
 }
 
-/* Canvas sits behind everything inside the card */
-.hero-canvas {
+/* Remotion video sits behind everything inside the card */
+.hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -46,77 +46,9 @@
   border-radius: inherit;
 }
 
-/* Dark overlay for text readability — fades out as scroll progresses */
-.hero-canvas-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-  border-radius: inherit;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-/* Hero content centered over the canvas */
-.hero--scroll {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-12) var(--space-6);
-  min-height: 70vh;
-  position: relative;
-  z-index: 2;
-}
-
-.hero__content--centered {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-.hero__title--scroll {
-  color: #FFFFFF;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-}
-
-.hero__title--scroll .hero__title--accent {
-  color: var(--lime-accent);
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-}
-
-.hero__subtitle--scroll {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
-  max-width: 60ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero__cta--centered {
-  justify-content: center;
-}
-
 /* When scrolling, the hero card border can glow */
 .main-card--hero.is-playing {
   border-color: rgba(182, 255, 46, 0.2);
-}
-
-/* Ensure buttons stay readable over video */
-.hero--scroll .btn--primary {
-  background: var(--royal-blue);
-  color: #fff;
-  border-color: var(--royal-blue);
-}
-
-.hero--scroll .btn--secondary {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.hero--scroll .btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.7);
 }
 
 /* === VIDEO GRID === */
@@ -216,19 +148,6 @@
 
 /* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 640px) {
-  .hero--scroll {
-    padding: var(--space-8) var(--space-4);
-    min-height: 60vh;
-  }
-
-  .hero__title--scroll {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
-  }
-
-  .hero__subtitle--scroll {
-    font-size: var(--text-base);
-  }
-
   .main-card--hero {
     min-height: 60vh;
   }
@@ -245,23 +164,14 @@
     height: auto;
   }
 
-  .hero-canvas,
-  .hero-canvas-overlay {
+  .hero-video {
     display: none;
-  }
-
-  .hero__content--centered {
-    opacity: 1 !important;
   }
 }
 
 /* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
-  .hero__content--centered {
-    transition: none;
-  }
-
-  .hero-canvas-overlay {
-    transition: none;
+  .hero-video {
+    object-position: center center;
   }
 }

@@ -1,0 +1,24 @@
+{
+  "name": "lifesafer-hero-remotion",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "render:variant-a": "remotion render src/index.ts VariantA ../images/lifesafer-hero-variants/variant-a-precision-launch.mp4 --codec=h264 --crf=18",
+    "render:variant-b": "remotion render src/index.ts VariantB ../images/lifesafer-hero-variants/variant-b-local-trust.mp4 --codec=h264 --crf=18",
+    "render:variant-c": "remotion render src/index.ts VariantC ../images/lifesafer-hero-variants/variant-c-compliance-sprint.mp4 --codec=h264 --crf=18",
+    "render:guardian": "remotion render src/index.ts GuardianLocalTrust ../images/guardian-hero-variants/guardian-local-trust.mp4 --codec=h264 --crf=18",
+    "render:all": "npm run render:variant-a && npm run render:variant-b && npm run render:variant-c"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.345",
+    "@remotion/media-utils": "^4.0.345",
+    "remotion": "^4.0.345",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1"
+  }
+}
