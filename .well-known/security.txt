@@ -1,0 +1,7 @@
+# If you have discovered a security vulnerability affecting interlockgo.io,
+# please report it to the contact below. We appreciate responsible disclosure.
+
+Contact: mailto:interlockgo@gmail.com
+Expires: 2027-05-17T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://interlockgo.io/.well-known/security.txt
