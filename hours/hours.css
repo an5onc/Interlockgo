@@ -206,6 +206,47 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
+  .hours-hero {
+    padding: 4.25rem 0 2.25rem;
+    text-align: left;
+  }
+
+  .hours-hero__title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+
+  .hours-hero__subtitle {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hours-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hours-section {
+    padding: 3rem 0;
+  }
+
+  .hours-table-wrap {
+    border-radius: 14px;
+  }
+
+  .hours-table th,
+  .hours-row th,
+  .hours-row td {
+    padding: 0.875rem 1rem;
+  }
+
   .hours-table th:last-child,
   .hours-row td:last-child { display: none; }
+
+  .hours-info-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hours-note {
+    align-items: flex-start;
+  }
 }

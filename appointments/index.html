@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="../theme.css?v=mobile-20260507c" />
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -75,22 +75,11 @@
       padding: 32px;
       box-shadow: var(--shadow-md);
     }
+    .appt-callback { text-align: center; }
     .appt-callback h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
     .appt-callback p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
-    .appt-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .appt-form input, .appt-form select {
-      padding: 11px 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.9rem;
-      background: var(--bg);
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .appt-form input:focus, .appt-form select:focus { border-color: var(--royal-blue); }
-    .appt-form button { grid-column: 1 / -1; }
-    .appt-success { text-align: center; color: #16a34a; font-weight: 600; padding: 12px 0; display: none; }
+    .appt-cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .appt-cta-row .btn { flex: 1 1 200px; }
     .hours-note {
       max-width: 520px;
       margin: 24px auto 0;
@@ -184,25 +173,14 @@
         </div>
       </div>
 
-      <!-- After-Hours Callback -->
+      <!-- After-Hours Contact -->
       <div class="appt-callback">
-        <h2>After Hours? Leave Your Info</h2>
-        <p>We'll call you back first thing during business hours — usually within the hour when we open.</p>
-        <form class="appt-form" id="apptCallbackForm" onsubmit="submitApptCallback(event)">
-          <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
-          <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" />
-          <select name="service">
-            <option value="" disabled selected>Service needed</option>
-            <option value="installation">New Installation</option>
-            <option value="calibration">Calibration</option>
-            <option value="removal">Device Removal</option>
-            <option value="reset">Violation Reset</option>
-            <option value="question">General Question</option>
-          </select>
-          <input type="text" name="city" placeholder="Your city (optional)" autocomplete="address-level2" />
-          <button type="submit" class="btn btn--primary">Request Callback</button>
-        </form>
-        <p class="appt-success" id="apptSuccess">✅ Got it! We'll call you back when we open. Thank you!</p>
+        <h2>After Hours?</h2>
+        <p>Call or text us anytime — we'll get back to you first thing when we open, usually within the hour.</p>
+        <div class="appt-cta-row">
+          <a href="tel:970-515-5740" class="btn btn--primary btn--lg">Call 970-515-5740</a>
+          <a href="sms:970-239-1354" class="btn btn--secondary btn--lg">Text 970-239-1354</a>
+        </div>
       </div>
 
       <p class="hours-note">
@@ -283,20 +261,6 @@
       });
     }
   </script>
-  <script>
-    function submitApptCallback(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form));
-      fetch('https://interlockgo-admin-production-9759.up.railway.app/api/callback-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).catch(() => {});
-      form.style.display = 'none';
-      document.getElementById('apptSuccess').style.display = 'block';
-    }
-  </script>
-<script src="/js/karly.js"></script>
+<script src="/js/karly.js?v=mobile-20260507"></script>
 </body>
 </html>

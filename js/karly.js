@@ -6,6 +6,40 @@
 (function () {
   'use strict';
 
+  // Keep the shared mobile navigation as a true full-screen drawer on older static pages.
+  function initMobileNav() {
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (!hamburger || !navLinks) return;
+
+    const syncNavState = () => {
+      const isOpen = navLinks.classList.contains('open');
+      document.body.classList.toggle('nav-menu-open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    hamburger.addEventListener('click', syncNavState);
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        syncNavState();
+      });
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      syncNavState();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileNav);
+  } else {
+    initMobileNav();
+  }
+
   const SECRET = 'karly';
 
   const messages = [
