@@ -103,8 +103,21 @@
 }
 
 @media (max-width: 640px) {
+  .hero-scroll-wrapper {
+    height: auto;
+  }
+
+  .hero-scroll-sticky {
+    position: relative;
+    height: auto;
+    min-height: 70vh;
+    padding: 28px 0;
+  }
+
   .main-card--hero {
-    min-height: 60vh;
+    width: calc(100% - 36px);
+    min-height: 58vh;
+    border-radius: 18px;
   }
 }
 

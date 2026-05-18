@@ -207,3 +207,54 @@
   opacity: 1;
   font-weight: 600;
 }
+
+@media (max-width: 640px) {
+  .faq-hero {
+    padding: 4.25rem 0 2.25rem;
+    text-align: left;
+  }
+
+  .faq-hero__title {
+    font-size: clamp(2rem, 10vw, 2.55rem);
+  }
+
+  .faq-hero__subtitle {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .faq-jumpnav {
+    top: 64px;
+    padding: 0.625rem 0;
+  }
+
+  .faq-jumpnav__list {
+    flex-wrap: nowrap;
+    padding-bottom: 0.1rem;
+  }
+
+  .faq-jumpnav__list a {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .faq-section {
+    padding: 3rem 0;
+  }
+
+  .faq-section__title {
+    align-items: flex-start;
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .faq-item__q {
+    padding: 1rem;
+    align-items: flex-start;
+    line-height: 1.4;
+  }
+
+  .faq-item__a {
+    padding: 0 1rem 1rem;
+    line-height: 1.65;
+  }
+}

@@ -184,3 +184,37 @@
   opacity: 0.8;
   transform: translateX(3px);
 }
+
+@media (max-width: 640px) {
+  .forms-hero {
+    padding: 4.25rem 0 2.25rem;
+    text-align: left;
+  }
+
+  .forms-hero__title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+
+  .forms-hero__subtitle {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .forms-section {
+    padding: 3rem 0;
+  }
+
+  .forms-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .forms-card {
+    padding: 1.15rem;
+    border-radius: 14px;
+  }
+
+  .forms-link-card {
+    align-items: flex-start;
+    padding: 1rem;
+  }
+}

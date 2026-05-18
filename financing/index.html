@@ -68,7 +68,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../theme.css?v=mobile-20260507c">
     <style>
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -354,8 +354,18 @@
         }
 
         @media (max-width: 768px) {
+            .hero-section {
+                padding: 64px 18px 42px;
+            }
+
             .hero-section h1 {
-                font-size: 2rem;
+                font-size: clamp(2rem, 10vw, 2.55rem);
+                line-height: 1.05;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+                line-height: 1.55;
             }
 
             .calc-grid,
@@ -366,7 +376,30 @@
             }
 
             .payment-calculator {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem 1.15rem;
+                border-radius: 14px;
+            }
+
+            .financing-container {
+                padding: 0 18px;
+            }
+
+            .payment-amount {
+                font-size: clamp(2.5rem, 14vw, 3.5rem);
+            }
+
+            .option-card,
+            .benefit-card,
+            .apply-section {
+                padding: 1.25rem;
+                border-radius: 14px;
+            }
+
+            .apply-button {
+                width: 100%;
+                justify-content: center;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
         }
     </style>
@@ -655,6 +688,6 @@
         });
       }
     </script>
-<script src="/js/karly.js"></script>
+<script src="/js/karly.js?v=mobile-20260507"></script>
 </body>
 </html>
