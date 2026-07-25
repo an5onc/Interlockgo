@@ -46,6 +46,38 @@
   border-radius: inherit;
 }
 
+.product-intro {
+  padding: 88px 0 48px;
+  text-align: center;
+}
+
+.product-intro .eyebrow {
+  margin: 0 0 14px;
+  color: var(--signal);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.product-intro h1 {
+  max-width: 900px;
+  margin: 0 auto 18px;
+  font-family: var(--f-display);
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 420;
+  letter-spacing: -.04em;
+  line-height: .98;
+}
+
+.product-intro > .container > p:last-child {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--ink-2);
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.6;
+}
+
 /* When scrolling, the hero card border can glow */
 .main-card--hero.is-playing {
   border-color: rgba(182, 255, 46, 0.2);
@@ -163,6 +195,10 @@
     width: calc(100% - 36px);
     min-height: 58vh;
     border-radius: 18px;
+  }
+
+  .product-intro {
+    padding: 58px 0 26px;
   }
 
   .video-card {

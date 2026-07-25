@@ -13,17 +13,23 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Interlock Near Me in Northern Colorado | InterlockGo NOCO</title>
-  <meta name="description" content="Find ignition interlock near me in Northern Colorado. InterlockGo NOCO serves Evans, Greeley, Fort Collins, Loveland, Windsor, Longmont, Johnstown, Timnath, and Ault." />
+  <title>Northern Colorado Ignition Interlock Service | InterlockGo</title>
+  <meta name="description" content="InterlockGo NOCO operates one Evans ignition interlock shop serving drivers from Greeley, Fort Collins, Loveland, Windsor, Longmont, and nearby communities." />
   <link rel="canonical" href="https://interlockgo.io/service-areas/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Interlock Near Me in Northern Colorado | InterlockGo NOCO" />
-  <meta property="og:description" content="Find ignition interlock near me in Northern Colorado. InterlockGo NOCO serves Evans, Greeley, Fort Collins, Loveland, Windsor, Longmont, Johnstown, Timnath, and Ault." />
+  <meta property="og:title" content="Northern Colorado Ignition Interlock Service | InterlockGo" />
+  <meta property="og:description" content="InterlockGo NOCO operates one Evans ignition interlock shop serving drivers from Greeley, Fort Collins, Loveland, Windsor, Longmont, and nearby communities." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://interlockgo.io/service-areas/" />
-  <meta property="og:image" content="https://interlockgo.io/images/Interlockgo.jpeg" />
+  <meta property="og:image" content="https://interlockgo.io/images/interlockgo-social.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="InterlockGo NOCO ignition interlock service center in Evans, Colorado" />
+  <meta name="twitter:card" content="summary_large_image" />
 
+  <meta name="twitter:image" content="https://interlockgo.io/images/interlockgo-social.jpg" />
+  <meta name="twitter:image:alt" content="InterlockGo NOCO ignition interlock service center in Evans, Colorado" />
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,9 +38,6 @@
   <!-- Stylesheet -->
   <link href="../theme.css?v=mobile-20260507c" rel="stylesheet" />
 
-  <!-- Leaflet Map CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
   <style>
     #service-map {
       width: 100%;
@@ -42,6 +45,12 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    #service-map iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .location-grid {
@@ -52,18 +61,30 @@
     }
 
     .location-card {
+      display: block;
       background: var(--card-bg);
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 20px;
       transition: all 0.3s ease;
       cursor: pointer;
+      color: inherit;
+      text-decoration: none;
     }
 
-    .location-card:hover {
+    .location-card:hover,
+    .location-card:focus-visible {
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       border-color: var(--accent);
+    }
+    .location-card:focus-visible {
+      outline: 3px solid var(--signal);
+      outline-offset: 3px;
+    }
+    .location-card--primary {
+      border: 2px solid var(--signal);
+      background: color-mix(in oklab, var(--paper) 88%, white);
     }
 
     .location-card h3 {
@@ -72,10 +93,11 @@
       font-size: 1.2rem;
     }
 
-    .location-card .distance {
+    .location-card .location-kind {
       color: var(--text-secondary);
       font-size: 0.9rem;
       margin-bottom: 12px;
+      font-weight: 600;
     }
 
     .location-card .services {
@@ -93,34 +115,24 @@
       font-size: 0.85rem;
     }
 
-    .map-legend {
-      background: white;
-      padding: 10px;
+    .location-notice {
+      background: color-mix(in oklab, var(--paper) 88%, white);
+      border: 1px solid var(--border);
+      padding: 20px;
       border-radius: 8px;
-      margin-top: 20px;
+      margin: 0 0 20px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
+    .location-notice h3 {
+      margin: 0 0 8px;
     }
-
-    .legend-marker {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid #333;
+    .location-notice address {
+      color: var(--text-secondary);
+      font-style: normal;
+      font-weight: 600;
     }
-
-    .primary-marker {
-      background: #2563eb;
-    }
-
-    .service-marker {
-      background: #10b981;
+    .location-notice p {
+      margin: 10px 0 0;
     }
 
     [data-theme="dark"] .location-card {
@@ -128,7 +140,7 @@
       border-color: rgba(255, 255, 255, 0.1);
     }
 
-    [data-theme="dark"] .map-legend {
+    [data-theme="dark"] .location-notice {
       background: rgba(30, 30, 40, 0.9);
       color: var(--text-primary);
     }
@@ -166,9 +178,9 @@
         border-radius: 14px;
       }
 
-      .map-legend {
+      .location-notice {
         border-radius: 12px;
-        margin-top: 12px;
+        margin-bottom: 12px;
       }
 
       .cta-card .btn,
@@ -190,10 +202,17 @@
       "name": "InterlockGo NOCO",
       "telephone": "970-515-5740",
       "url": "https://interlockgo.io",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3610 35th Avenue Unit 7",
+        "addressLocality": "Evans",
+        "addressRegion": "CO",
+        "postalCode": "80620",
+        "addressCountry": "US"
+      },
       "sameAs": [
-        "https://www.facebook.com/interlockgonoco",
-        "https://www.linkedin.com/company/interlockgo-noco",
-        "https://www.bbb.org/us/co/greeley/profile/ignition-interlock-device/interlockgo-noco-0000-000000"
+        "https://www.facebook.com/profile.php?id=61566824867293",
+        "https://www.bbb.org/us/co/evans/profile/interlock-device/interlock-go-evans-co-0805-46145892"
       ]
     },
     "areaServed": [
@@ -273,7 +292,7 @@
         <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
       </a>
       <div class="nav-links">
-        <a href="../lifesafer/">Lifesafer</a>
+        <a href="../lifesafer/">LifeSafer</a>
         <a href="../guardian/">Guardian</a>
         <a href="../faq/">FAQ</a>
         <a href="../#pricing">Pricing</a>
@@ -297,114 +316,116 @@
       <div class="container">
         <div class="text-center">
           <h1 class="hero-title">Service Areas</h1>
-          <p class="hero-subtitle">Complete Northern Colorado Coverage</p>
+          <p class="hero-subtitle">One Evans shop serving Northern Colorado</p>
           <p class="text-muted" style="max-width: 600px; margin: 20px auto;">
-            InterlockGo NOCO proudly serves all of Northern Colorado with certified ignition interlock installation, calibration, and maintenance services. Find your nearest service location below.
+            InterlockGo NOCO has one service center at 3610 35th Avenue Unit 7 in Evans. The cities below are communities we serve, not additional storefronts.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Interactive Map Section -->
+    <!-- Service Center Map Section -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title text-center">Our Service Coverage Map</h2>
-        <div id="service-map"></div>
-
-        <div class="map-legend">
-          <h4>Map Legend</h4>
-          <div class="legend-item">
-            <div class="legend-marker primary-marker"></div>
-            <span>Primary Service Location (Greeley)</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-marker service-marker"></div>
-            <span>Service Areas</span>
-          </div>
+        <h2 class="section-title text-center">Our Evans Service Center</h2>
+        <div class="location-notice">
+          <h3>InterlockGo NOCO — our only service center</h3>
+          <address>3610 35th Avenue Unit 7, Evans, CO 80620</address>
+          <p>Installation, calibration, service, and removal appointments for every listed service area take place at this Evans shop.</p>
+        </div>
+        <div id="service-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6078.678083893211!2d-104.73667892338965!3d40.37917777144574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876ea123f3d07be1%3A0xe97cbd123a4a6a5f!2s3610%2035th%20Ave%2C%20Evans%2C%20CO%2080620!5e0!3m2!1sen!2sus!4v1756260656934!5m2!1sen!2sus"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map showing the one InterlockGo NOCO service center at 3610 35th Avenue Unit 7 in Evans, Colorado">
+          </iframe>
         </div>
 
-        <!-- Location Cards Grid -->
+        <!-- Service Area Cards Grid -->
         <div class="location-grid">
-          <div class="location-card" onclick="window.location.href='/greeley/'">
-            <h3>Greeley</h3>
-            <div class="distance">Primary Location</div>
-            <p>Full-service ignition interlock installation and maintenance center.</p>
-            <div class="services">
-              <span class="service-tag">Lifesafer</span>
-              <span class="service-tag">Guardian</span>
-              <span class="service-tag">Same Day</span>
-            </div>
-          </div>
-
-          <div class="location-card" onclick="window.location.href='/fort-collins/'">
-            <h3>Fort Collins</h3>
-            <div class="distance">20 miles from Greeley</div>
-            <p>Complete interlock services for Fort Collins residents.</p>
-            <div class="services">
-              <span class="service-tag">Installation</span>
-              <span class="service-tag">Calibration</span>
-            </div>
-          </div>
-
-          <div class="location-card" onclick="window.location.href='/loveland/'">
-            <h3>Loveland</h3>
-            <div class="distance">18 miles from Greeley</div>
-            <p>Professional interlock services for Loveland and surrounding areas.</p>
-            <div class="services">
-              <span class="service-tag">All Devices</span>
-              <span class="service-tag">Quick Service</span>
-            </div>
-          </div>
-
-          <div class="location-card" onclick="window.location.href='/windsor/'">
-            <h3>Windsor</h3>
-            <div class="distance">12 miles from Greeley</div>
-            <p>Convenient interlock installation for Windsor residents.</p>
-            <div class="services">
-              <span class="service-tag">Near You</span>
-              <span class="service-tag">Fast Install</span>
-            </div>
-          </div>
-
-          <div class="location-card" onclick="window.location.href='/longmont/'">
-            <h3>Longmont</h3>
-            <div class="distance">35 miles from Greeley</div>
-            <p>Serving Boulder County with professional interlock services.</p>
-            <div class="services">
-              <span class="service-tag">Boulder County</span>
-              <span class="service-tag">Full Service</span>
-            </div>
-          </div>
-
-          <div class="location-card" onclick="window.location.href='/johnstown/'">
-            <h3>Johnstown</h3>
-            <div class="distance">10 miles from Greeley</div>
-            <p>Quick access to interlock services for Johnstown residents.</p>
-            <div class="services">
-              <span class="service-tag">Nearby</span>
-              <span class="service-tag">All Brands</span>
-            </div>
-          </div>
-
-          <div class="location-card" onclick="window.location.href='/evans/'">
+          <a class="location-card location-card--primary" href="/evans/">
             <h3>Evans</h3>
-            <div class="distance">5 miles from Greeley</div>
-            <p>Closest service location for Evans residents.</p>
+            <div class="location-kind">Only service center</div>
+            <p>Visit our shop at 3610 35th Avenue Unit 7 for installation, calibration, service, or removal.</p>
             <div class="services">
-              <span class="service-tag">5 Minutes</span>
-              <span class="service-tag">Walk-ins OK</span>
+              <span class="service-tag">LifeSafer</span>
+              <span class="service-tag">Guardian</span>
+              <span class="service-tag">View Evans details</span>
             </div>
-          </div>
+          </a>
 
-          <div class="location-card" onclick="window.location.href='/timnath/'">
-            <h3>Timnath</h3>
-            <div class="distance">15 miles from Greeley</div>
-            <p>Professional interlock services for growing Timnath community.</p>
+          <a class="location-card" href="/greeley/">
+            <h3>Greeley</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Greeley residents from our single Evans service center.</p>
             <div class="services">
-              <span class="service-tag">New Area</span>
-              <span class="service-tag">Full Coverage</span>
+              <span class="service-tag">View Greeley guide</span>
             </div>
-          </div>
+          </a>
+
+          <a class="location-card" href="/fort-collins/">
+            <h3>Fort Collins</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Fort Collins residents from our single Evans service center.</p>
+            <div class="services">
+              <span class="service-tag">View Fort Collins guide</span>
+            </div>
+          </a>
+
+          <a class="location-card" href="/loveland/">
+            <h3>Loveland</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Loveland residents from our single Evans service center.</p>
+            <div class="services">
+              <span class="service-tag">View Loveland guide</span>
+            </div>
+          </a>
+
+          <a class="location-card" href="/windsor/">
+            <h3>Windsor</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Windsor residents from our single Evans service center.</p>
+            <div class="services">
+              <span class="service-tag">View Windsor guide</span>
+            </div>
+          </a>
+
+          <a class="location-card" href="/longmont/">
+            <h3>Longmont</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Longmont residents from our single Evans service center.</p>
+            <div class="services">
+              <span class="service-tag">View Longmont guide</span>
+            </div>
+          </a>
+
+          <a class="location-card" href="/johnstown/">
+            <h3>Johnstown</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Johnstown residents from our single Evans service center.</p>
+            <div class="services">
+              <span class="service-tag">View Johnstown guide</span>
+            </div>
+          </a>
+
+          <a class="location-card" href="/timnath/">
+            <h3>Timnath</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Timnath residents from our single Evans service center.</p>
+            <div class="services">
+              <span class="service-tag">View Timnath guide</span>
+            </div>
+          </a>
+
+          <a class="location-card" href="/ault/">
+            <h3>Ault</h3>
+            <div class="location-kind">Service area</div>
+            <p>We serve Ault residents from our single Evans service center.</p>
+            <div class="services">
+              <span class="service-tag">View Ault guide</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -414,7 +435,7 @@
       <div class="container">
         <h2 class="section-title text-center">Extended Service Areas</h2>
         <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-          <p>In addition to our primary service areas, we also serve:</p>
+          <p>We also help residents of these communities at our Evans service center:</p>
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px;">
             <span class="service-tag" style="background: var(--text-secondary);">Milliken</span>
             <span class="service-tag" style="background: var(--text-secondary);">Ault</span>
@@ -438,10 +459,10 @@
       <div class="container">
         <div class="cta-card text-center">
           <h2>Ready to Get Started?</h2>
-          <p>Schedule your ignition interlock installation today at any of our Northern Colorado locations.</p>
+          <p>Schedule your ignition interlock installation at our one service center in Evans.</p>
           <div class="cta-buttons">
             <a href="tel:970-515-5740" class="btn btn-primary">Call 970-515-5740</a>
-            <a href="/getstarted/" class="btn btn-secondary">Book Online</a>
+            <a href="/getstarted/" class="btn btn-secondary">Get Started</a>
           </div>
         </div>
       </div>
@@ -467,7 +488,7 @@
         <div>
           <h5>Navigation</h5>
           <ul>
-            <li><a href="../lifesafer/">Lifesafer</a></li>
+            <li><a href="../lifesafer/">LifeSafer</a></li>
             <li><a href="../guardian/">Guardian</a></li>
             <li><a href="../forms/">Forms</a></li>
             <li><a href="../reviews/">Reviews</a></li>
@@ -497,59 +518,11 @@
       </div>
       <div class="foot-base">
         <span>&copy; InterlockGo NOCO &middot; All rights reserved</span>
-        <span>Authorized Lifesafer &amp; Guardian Installer</span>
+        <span>Authorized LifeSafer &amp; Guardian Installer</span>
       </div>
     </div>
   </footer>
 
-  <!-- Leaflet Map Script -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <script>
-    // Initialize the map
-    const map = L.map('service-map').setView([40.4233, -104.7091], 10);
-
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Service locations with coordinates
-    const locations = [
-      { name: 'Greeley (Main)', coords: [40.4233, -104.7091], primary: true },
-      { name: 'Fort Collins', coords: [40.5853, -105.0844], primary: false },
-      { name: 'Loveland', coords: [40.3978, -105.0750], primary: false },
-      { name: 'Windsor', coords: [40.4775, -104.9011], primary: false },
-      { name: 'Longmont', coords: [40.1672, -105.1019], primary: false },
-      { name: 'Johnstown', coords: [40.3369, -104.9122], primary: false },
-      { name: 'Evans', coords: [40.3763, -104.6922], primary: false },
-      { name: 'Timnath', coords: [40.5292, -104.9847], primary: false }
-    ];
-
-    // Add markers
-    locations.forEach(location => {
-      const markerColor = location.primary ? 'blue' : 'green';
-      const icon = L.divIcon({
-        className: 'custom-marker',
-        html: `<div style="background-color: ${markerColor}; width: 25px; height: 25px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
-        iconSize: [25, 25],
-        iconAnchor: [12, 12]
-      });
-
-      L.marker(location.coords, { icon })
-        .addTo(map)
-        .bindPopup(`<strong>${location.name}</strong>${location.primary ? '<br>Primary Service Location' : ''}`);
-    });
-
-    // Add service area circle
-    L.circle([40.4233, -104.7091], {
-      color: '#2563eb',
-      fillColor: '#2563eb',
-      fillOpacity: 0.1,
-      radius: 50000 // 50km radius
-    }).addTo(map);
-
-  </script>
   <script>
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{

@@ -12,25 +12,101 @@
     const navLinks = document.querySelector('.nav-links');
     if (!hamburger || !navLinks) return;
 
-    const syncNavState = () => {
-      const isOpen = navLinks.classList.contains('open');
+    if (!navLinks.id) {
+      let navId = 'primary-navigation';
+      let suffix = 2;
+      while (document.getElementById(navId)) {
+        navId = `primary-navigation-${suffix}`;
+        suffix += 1;
+      }
+      navLinks.id = navId;
+    }
+
+    hamburger.setAttribute('aria-controls', navLinks.id);
+
+    const menuFocusables = () => [
+      hamburger,
+      ...navLinks.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ].filter((element) => element.getClientRects().length > 0);
+
+    let lastKnownOpen = navLinks.classList.contains('open');
+
+    const syncNavState = (isOpen = navLinks.classList.contains('open')) => {
       document.body.classList.toggle('nav-menu-open', isOpen);
+      hamburger.classList.toggle('active', isOpen);
       hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation menu' : 'Open navigation menu'
+      );
+      lastKnownOpen = isOpen;
     };
 
-    hamburger.addEventListener('click', syncNavState);
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('active');
-        syncNavState();
+    const setNavOpen = (isOpen, { focusMenu = false, returnFocus = false } = {}) => {
+      navLinks.classList.toggle('open', isOpen);
+      syncNavState(isOpen);
+
+      if (isOpen && focusMenu) {
+        const firstLink = navLinks.querySelector('a[href]');
+        if (firstLink) window.requestAnimationFrame(() => firstLink.focus());
+      } else if (!isOpen && returnFocus) {
+        hamburger.focus();
+      }
+    };
+
+    syncNavState(lastKnownOpen);
+
+    // Most static pages already toggle the visual classes inline. Synchronize with
+    // those handlers, while still providing a complete fallback when one is absent.
+    hamburger.addEventListener('click', () => {
+      window.queueMicrotask(() => {
+        const isOpenAfterExistingHandlers = navLinks.classList.contains('open');
+        const nextOpen = isOpenAfterExistingHandlers === lastKnownOpen
+          ? !lastKnownOpen
+          : isOpenAfterExistingHandlers;
+        setNavOpen(nextOpen, {
+          focusMenu: nextOpen,
+          returnFocus: !nextOpen
+        });
       });
     });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+          setNavOpen(false, { returnFocus: true });
+        }
+      });
+    });
+
     document.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape') return;
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('active');
-      syncNavState();
+      if (!navLinks.classList.contains('open')) return;
+
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setNavOpen(false, { returnFocus: true });
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+      const focusables = menuFocusables();
+      if (!focusables.length) return;
+
+      const currentIndex = focusables.indexOf(document.activeElement);
+      const direction = event.shiftKey ? -1 : 1;
+      const nextIndex = currentIndex === -1
+        ? 0
+        : (currentIndex + direction + focusables.length) % focusables.length;
+      event.preventDefault();
+      focusables[nextIndex].focus();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820 && navLinks.classList.contains('open')) {
+        setNavOpen(false);
+      }
     });
   }
 
@@ -133,7 +209,8 @@
   const overlay = document.createElement('div');
   overlay.id = 'karly-overlay';
   overlay.setAttribute('aria-live', 'polite');
-  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.tabIndex = -1;
 
   const card = document.createElement('div');
   card.id = 'karly-card';
@@ -189,6 +266,7 @@
   // --- Show / hide logic ---
   let autoDismissTimer = null;
   let shown = false;
+  let previouslyFocused = null;
 
   function pickRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -198,8 +276,14 @@
     if (shown) return;
     shown = true;
 
+    previouslyFocused = document.activeElement;
     msgEl.textContent = pickRandom(messages);
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', msgEl.id);
+    overlay.setAttribute('aria-hidden', 'false');
     overlay.classList.add('visible');
+    overlay.focus();
     launchPetals();
 
     // Auto-dismiss after 9 seconds
@@ -211,12 +295,21 @@
     shown = false;
 
     overlay.classList.remove('visible');
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.removeAttribute('aria-modal');
+    overlay.removeAttribute('aria-labelledby');
+    overlay.removeAttribute('role');
     clearPetals();
 
     if (autoDismissTimer) {
       clearTimeout(autoDismissTimer);
       autoDismissTimer = null;
     }
+
+    if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
+      previouslyFocused.focus();
+    }
+    previouslyFocused = null;
   }
 
   overlay.addEventListener('click', hideOverlay);

@@ -1,590 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ignition Interlock Cost Calculator in Colorado | InterlockGo</title>
-    <meta name="description" content="Estimate ignition interlock device costs in Colorado for Lifesafer and Guardian breathalyzer service, calibration, monitoring, protection, and appointment fees." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,follow" />
+  <title>Ignition Interlock Pricing Calculator | InterlockGo NOCO</title>
+  <meta name="description" content="Use the current InterlockGo NOCO ignition interlock service estimator for LifeSafer and Guardian appointments at our Evans, Colorado shop." />
+  <link rel="canonical" href="https://interlockgo.io/" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Ignition Interlock Cost Calculator in Colorado | InterlockGo" />
-    <meta property="og:description" content="Estimate ignition interlock device costs in Colorado for Lifesafer and Guardian breathalyzer service, calibration, monitoring, protection, and appointment fees." />
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://interlockgo.io/pricing-calculator/">
-    <meta property="og:image" content="https://interlockgo.io/assets/interlockgo-og.png">
+  <meta property="og:title" content="Current InterlockGo Pricing Estimator" />
+  <meta property="og:description" content="The current ignition interlock service estimator is available on the InterlockGo NOCO homepage." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://interlockgo.io/#pricing" />
+  <meta property="og:image" content="https://interlockgo.io/images/interlockgo-social.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="InterlockGo NOCO ignition interlock service center in Evans, Colorado" />
+  <meta property="og:site_name" content="InterlockGo NOCO" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://interlockgo.io/pricing-calculator/">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" href="../theme.css?v=mobile-20260507c">
-
-    <style>
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .calculator-header {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .calculator-header h2 {
-            margin: 0;
-            font-size: 1.75rem;
-        }
-
-        .calculator-header p {
-            margin: 0.5rem 0 0;
-            opacity: 0.9;
-        }
-
-        .calculator-body {
-            padding: 2rem;
-        }
-
-        .calc-section {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .calc-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .calc-label {
-            display: block;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .calc-sublabel {
-            font-size: 0.875rem;
-            color: #666;
-            margin-bottom: 0.75rem;
-        }
-
-        .calc-input-group {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .calc-input {
-            flex: 1;
-            padding: 0.75rem;
-            border: 2px solid #e5e5e5;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-
-        .calc-input:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-
-        .calc-select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e5e5e5;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: white;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        .calc-select:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .radio-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-        }
-
-        .radio-item input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .cost-breakdown {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .cost-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .cost-line:last-child {
-            border-bottom: none;
-            padding-top: 1rem;
-            margin-top: 0.5rem;
-            border-top: 2px solid #007bff;
-        }
-
-        .cost-label {
-            color: #666;
-        }
-
-        .cost-value {
-            font-weight: 600;
-            color: #333;
-            font-size: 1.125rem;
-        }
-
-        .cost-line.total .cost-label {
-            font-weight: 600;
-            color: #333;
-            font-size: 1.125rem;
-        }
-
-        .cost-line.total .cost-value {
-            font-size: 1.5rem;
-            color: #007bff;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, rgba(0,123,255,0.05) 0%, rgba(0,123,255,0.02) 100%);
-            border-left: 4px solid #007bff;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-        }
-
-        .info-box h4 {
-            margin: 0 0 0.5rem;
-            color: #007bff;
-        }
-
-        .info-box p {
-            margin: 0;
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary, .btn-secondary {
-            flex: 1;
-            min-width: 200px;
-            padding: 1rem;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #007bff;
-            border: 2px solid #007bff;
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding-top: 56px;
-                padding-bottom: 40px;
-            }
-
-            .hero__title {
-                font-size: clamp(2rem, 10vw, 2.55rem);
-            }
-
-            .hero__subtitle {
-                font-size: 1rem;
-                line-height: 1.55;
-            }
-
-            .calculator-container {
-                border-radius: 14px;
-            }
-
-            .calculator-header {
-                padding: 1.5rem 1.25rem;
-            }
-
-            .calculator-header h2 {
-                font-size: 1.45rem;
-            }
-
-            .calculator-body {
-                padding: 1.25rem;
-            }
-
-            .calc-input-group {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .calc-section {
-                margin-bottom: 1.5rem;
-                padding-bottom: 1.5rem;
-            }
-
-            .radio-group {
-                flex-direction: column;
-                gap: 0.85rem;
-            }
-
-            .radio-item {
-                min-height: 44px;
-            }
-
-            .cost-breakdown {
-                padding: 1rem;
-            }
-
-            .cost-line {
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                min-width: 0;
-            }
-        }
-    </style>
+  <meta name="twitter:image" content="https://interlockgo.io/images/interlockgo-social.jpg" />
+  <meta name="twitter:image:alt" content="InterlockGo NOCO ignition interlock service center in Evans, Colorado" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../theme.css?v=mobile-20260507c" />
+  <style>
+    .moved {
+      min-height:72vh;
+      display:grid;
+      place-items:center;
+      padding:120px 0 80px;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(214,76,40,.14), transparent 35%),
+        var(--paper);
+    }
+    .moved__card {
+      max-width:820px;
+      padding:clamp(32px, 6vw, 64px);
+      border:1px solid var(--ink);
+      background:var(--paper);
+      text-align:center;
+    }
+    .moved h1 {
+      margin:16px auto 22px;
+      font-family:var(--f-display);
+      font-size:clamp(42px, 7vw, 72px);
+      font-weight:420;
+      letter-spacing:-.04em;
+      line-height:.98;
+    }
+    .moved p {
+      max-width:640px;
+      margin:0 auto;
+      color:var(--ink-2);
+      font-size:clamp(17px, 2vw, 20px);
+      line-height:1.65;
+    }
+    .moved .cta-row { justify-content:center; margin-top:30px }
+  </style>
 </head>
 <body>
-    <nav class="nav">
-      <div class="nav-inner">
-        <a class="brand" href="../">
-          <span class="brand-name">Interlockgo <em>NOCO</em></span>
-          <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
-        </a>
-        <div class="nav-links">
-          <a href="../lifesafer/">Lifesafer</a>
-          <a href="../guardian/">Guardian</a>
-          <a href="../faq/">FAQ</a>
-          <a href="../#pricing">Pricing</a>
-          <a href="../getstarted/">Get Started</a>
-          <a href="../contactus/">Contact</a>
-        </div>
-        <a class="nav-cta" href="tel:9705155740">
-          <span class="dot"></span>
-          970&nbsp;515&nbsp;5740
-        </a>
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" type="button">
-          <span></span><span></span><span></span>
-        </button>
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-name">Interlockgo <em>NOCO</em></span>
+        <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
+      </a>
+      <div class="nav-links" id="primary-navigation">
+        <a href="../lifesafer/">LifeSafer</a>
+        <a href="../guardian/">Guardian</a>
+        <a href="../faq/">FAQ</a>
+        <a href="../#pricing">Pricing</a>
+        <a href="../getstarted/">Get Started</a>
+        <a href="../contactus/">Contact</a>
       </div>
-    </nav>
+      <a class="nav-cta" href="tel:9705155740"><span class="dot"></span>970&nbsp;515&nbsp;5740</a>
+      <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-section" style="padding-top: 120px; padding-bottom: 2rem;">
-            <div class="container">
-                <div class="text-center">
-                    <h1 class="hero-title">Transparent Pricing Calculator</h1>
-                    <p class="hero-subtitle">Calculate your ignition interlock costs with no hidden fees</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Calculator -->
-        <section class="section" style="padding-top: 2rem;">
-            <div class="container">
-                <div class="calculator-container">
-                    <div class="calculator-header">
-                        <h2>Cost Estimator</h2>
-                        <p>Get an instant quote for your ignition interlock needs</p>
-                    </div>
-
-                    <div class="calculator-body">
-                        <!-- Duration Selection -->
-                        <div class="calc-section">
-                            <label class="calc-label">How long do you need the device?</label>
-                            <p class="calc-sublabel">Most court orders specify 3-12 months</p>
-                            <select class="calc-select" id="duration">
-                                <option value="3">3 months</option>
-                                <option value="6" selected>6 months (most common)</option>
-                                <option value="9">9 months</option>
-                                <option value="12">12 months</option>
-                                <option value="18">18 months</option>
-                                <option value="24">24 months</option>
-                            </select>
-                        </div>
-
-                        <!-- Provider Selection -->
-                        <div class="calc-section">
-                            <label class="calc-label">Select your provider</label>
-                            <p class="calc-sublabel">We work with both major providers in Colorado</p>
-                            <div class="radio-group">
-                                <label class="radio-item">
-                                    <input type="radio" name="provider" value="lifesafer" checked>
-                                    <span>LifeSafer</span>
-                                </label>
-                                <label class="radio-item">
-                                    <input type="radio" name="provider" value="guardian">
-                                    <span>Guardian Interlock</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Optional Services -->
-                        <div class="calc-section">
-                            <label class="calc-label">Additional Services</label>
-                            <p class="calc-sublabel">Select any additional services you need</p>
-                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                                <label class="radio-item">
-                                    <input type="checkbox" id="camera" value="25">
-                                    <span>Camera Unit (+$25/month)</span>
-                                </label>
-                                <label class="radio-item">
-                                    <input type="checkbox" id="gps" value="15">
-                                    <span>GPS Tracking (+$15/month)</span>
-                                </label>
-                                <label class="radio-item">
-                                    <input type="checkbox" id="wireless" value="10">
-                                    <span>Wireless Reporting (+$10/month)</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Cost Breakdown -->
-                        <div class="cost-breakdown">
-                            <h3 style="margin-top: 0; margin-bottom: 1rem;">Estimated Costs</h3>
-                            <div class="cost-line">
-                                <span class="cost-label">Installation Fee</span>
-                                <span class="cost-value" id="installationCost">$100</span>
-                            </div>
-                            <div class="cost-line">
-                                <span class="cost-label">Monthly Monitoring (<span id="monthsDisplay">6</span> months)</span>
-                                <span class="cost-value" id="monthlyCost">$480</span>
-                            </div>
-                            <div class="cost-line">
-                                <span class="cost-label">Additional Services</span>
-                                <span class="cost-value" id="additionalCost">$0</span>
-                            </div>
-                            <div class="cost-line">
-                                <span class="cost-label">Device Removal</span>
-                                <span class="cost-value" id="removalCost">$50</span>
-                            </div>
-                            <div class="cost-line total">
-                                <span class="cost-label">Total Estimated Cost</span>
-                                <span class="cost-value" id="totalCost">$630</span>
-                            </div>
-                        </div>
-
-                        <!-- Info Box -->
-                        <div class="info-box">
-                            <h4>Why Choose InterlockGo?</h4>
-                            <p>• Same-day installation available • Bilingual support • No hidden fees • Flexible payment plans • 24/7 customer support • Multiple Northern Colorado locations</p>
-                        </div>
-
-                        <!-- CTA Buttons -->
-                        <div class="cta-buttons">
-                            <a href="/appointments/" class="btn-primary">Schedule Installation</a>
-                            <a href="tel:9705155740" class="btn-secondary">Call (970) 515-5740</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Additional Info -->
-                <div style="margin-top: 3rem; text-align: center;">
-                    <h3>Payment Options Available</h3>
-                    <p style="color: #666; max-width: 600px; margin: 1rem auto;">
-                        We accept cash, credit/debit cards, and money orders. Payment plans are available for qualified customers. Contact us to discuss your options.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <a href="tel:9705155740" class="call-float" aria-label="Call InterlockGo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-      </svg>
-    </a>
-
-    <footer>
+  <main>
+    <section class="moved">
       <div class="container">
-        <div class="foot">
-          <div>
-            <a class="brand brand--footer" href="../">
-              <span class="brand-name">Interlockgo <em>NOCO</em></span>
-              <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
-            </a>
-            <div class="tag">Certified ignition interlock. <em>Human service.</em> Northern Colorado.</div>
+        <div class="moved__card">
+          <div class="eyebrow">One current rate source</div>
+          <h1>The pricing estimator is now on our homepage.</h1>
+          <p>We retired the older program-cost calculator because its flat monthly assumptions did not match the shop’s current service-interval pricing. Use the current estimator for a clearer preview of your next visit.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="../#pricing">Open current estimator</a>
+            <a class="btn btn-ghost" href="../financing/">Payment &amp; assistance info</a>
           </div>
-          <div>
-            <h5>Navigation</h5>
-            <ul>
-              <li><a href="../lifesafer/">Lifesafer</a></li>
-              <li><a href="../guardian/">Guardian</a></li>
-              <li><a href="../forms/">Forms</a></li>
-              <li><a href="../reviews/">Reviews</a></li>
-              <li><a href="../contactus/">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>Service Areas</h5>
-            <ul>
-              <li><a href="../greeley/">Greeley</a></li>
-              <li><a href="../fort-collins/">Fort Collins</a></li>
-              <li><a href="../loveland/">Loveland</a></li>
-              <li><a href="../windsor/">Windsor</a></li>
-              <li><a href="../johnstown/">Johnstown</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>Legal</h5>
-            <ul>
-              <li><a href="../privacy-policy/">Privacy Policy</a></li>
-              <li><a href="../sms-terms/">SMS Terms</a></li>
-              <li><a href="../faq/">FAQ</a></li>
-              <li><a href="../hours/">Hours</a></li>
-              <li><a href="tel:9705155740">970·515·5740</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="foot-base">
-          <span>&copy; InterlockGo NOCO &middot; All rights reserved</span>
-          <span>Authorized Lifesafer &amp; Guardian Installer</span>
         </div>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script>
-        // Pricing data
-        const pricing = {
-            lifesafer: {
-                installation: 100,
-                monthly: 80,
-                removal: 50
-            },
-            guardian: {
-                installation: 110,
-                monthly: 85,
-                removal: 50
-            }
-        };
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>
+          <a class="brand brand--footer" href="../">
+            <span class="brand-name">Interlockgo <em>NOCO</em></span>
+            <span class="brand-tagline">Drive on the <em>"Right Side"</em> of the law</span>
+          </a>
+          <div class="tag">Certified ignition interlock. <em>Human service.</em> Northern Colorado.</div>
+        </div>
+        <div><h5>Services</h5><ul><li><a href="../lifesafer/">LifeSafer</a></li><li><a href="../guardian/">Guardian</a></li><li><a href="../appointments/">Appointments</a></li></ul></div>
+        <div><h5>Visit</h5><ul><li><a href="../contactus/">Evans location</a></li><li><a href="../service-areas/">Service area</a></li><li><a href="../hours/">Hours</a></li></ul></div>
+        <div><h5>Information</h5><ul><li><a href="../faq/">FAQ</a></li><li><a href="../privacy-policy/">Privacy Policy</a></li><li><a href="tel:9705155740">970·515·5740</a></li></ul></div>
+      </div>
+      <div class="foot-base"><span>&copy; InterlockGo NOCO · All rights reserved</span><span>One service center: Evans, Colorado</span></div>
+    </div>
+  </footer>
 
-        // Calculate costs
-        function calculateCosts() {
-            const duration = parseInt(document.getElementById('duration').value);
-            const provider = document.querySelector('input[name="provider"]:checked').value;
-
-            // Get base costs
-            const installCost = pricing[provider].installation;
-            const monthlyRate = pricing[provider].monthly;
-            const removalCost = pricing[provider].removal;
-
-            // Calculate monthly total
-            let monthlyTotal = duration * monthlyRate;
-
-            // Calculate additional services
-            let additionalMonthly = 0;
-            if (document.getElementById('camera').checked) additionalMonthly += 25;
-            if (document.getElementById('gps').checked) additionalMonthly += 15;
-            if (document.getElementById('wireless').checked) additionalMonthly += 10;
-
-            const additionalTotal = additionalMonthly * duration;
-
-            // Update display
-            document.getElementById('installationCost').textContent = '$' + installCost;
-            document.getElementById('monthsDisplay').textContent = duration;
-            document.getElementById('monthlyCost').textContent = '$' + monthlyTotal;
-            document.getElementById('additionalCost').textContent = '$' + additionalTotal;
-            document.getElementById('removalCost').textContent = '$' + removalCost;
-
-            // Calculate total
-            const total = installCost + monthlyTotal + additionalTotal + removalCost;
-            document.getElementById('totalCost').textContent = '$' + total;
-        }
-
-        // Event listeners
-        document.getElementById('duration').addEventListener('change', calculateCosts);
-        document.querySelectorAll('input[name="provider"]').forEach(radio => {
-            radio.addEventListener('change', calculateCosts);
-        });
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', calculateCosts);
-        });
-
-        // Initial calculation
-        calculateCosts();
-
-    </script>
-    <script>
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target) }
-        });
-      }, {threshold: 0.08});
-      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-      const hamburger = document.getElementById('nav-hamburger');
-      const navLinks = document.querySelector('.nav-links');
-      if(hamburger && navLinks){
-        hamburger.addEventListener('click', ()=>{
-          hamburger.classList.toggle('active');
-          navLinks.classList.toggle('open');
-        });
-      }
-    </script>
-
-    <!-- Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17605887515"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-17605887515');
-    </script>
-<script src="/js/karly.js?v=mobile-20260507"></script>
+  <script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.getElementById('primary-navigation');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  </script>
+  <script src="/js/karly.js?v=mobile-20260507"></script>
 </body>
 </html>

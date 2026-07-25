@@ -1,0 +1,59 @@
+{
+  "topics": [
+    {
+      "id": "how-it-works",
+      "theme": "How an ignition interlock device works",
+      "hint": "Demystify the device in friendly terms: you blow into it, the car starts if you're clear, occasional rolling re-tests. Reassure that it's routine and people adjust quickly."
+    },
+    {
+      "id": "colorado-dmv-basics",
+      "theme": "Colorado DMV interlock requirements",
+      "hint": "Explain one piece of the Colorado interlock/reinstatement process clearly. Point legal/eligibility questions to the DMV or an attorney. No legal advice."
+    },
+    {
+      "id": "calibration-reminder",
+      "theme": "60-day calibration reminders",
+      "hint": "Colorado requires calibration every 60 days. Encourage booking ahead so they never miss a window. Friendly nudge, not scary."
+    },
+    {
+      "id": "reinstatement-steps",
+      "theme": "Path to getting your license back",
+      "hint": "Frame the interlock period as a forward step toward full reinstatement. Encouraging and concrete. Direct legal questions to DMV/attorney."
+    },
+    {
+      "id": "faq-answer",
+      "theme": "Answer a common customer question",
+      "hint": "Pick one real FAQ (cost, install time, what to bring, lockouts, cold weather, sharing the car) and answer it plainly."
+    },
+    {
+      "id": "service-area",
+      "theme": "Service-area spotlight",
+      "hint": "Highlight that we serve a specific Northern Colorado town (rotate: Greeley, Fort Collins, Loveland, Windsor, Johnstown, Longmont, Timnath, Ault, Evans). Local and welcoming."
+    },
+    {
+      "id": "trust-reviews",
+      "theme": "Why customers trust us",
+      "hint": "Lean on real trust signals: 5.0 stars, 47+ reviews, BBB A+, authorized Lifesafer & Guardian, bilingual. Warm, not boastful."
+    },
+    {
+      "id": "same-day",
+      "theme": "Same-day / fast appointments",
+      "hint": "Reassure that we often have same-day or next-day openings, so they can get back on the road quickly."
+    },
+    {
+      "id": "bilingual",
+      "theme": "Bilingual service (English & Spanish)",
+      "hint": "Let Spanish-speaking neighbors know we serve them comfortably. Consider including a short Spanish line."
+    },
+    {
+      "id": "what-to-expect",
+      "theme": "What to expect at your first appointment",
+      "hint": "Walk through the install visit calmly: how long (2-4 hrs), what to bring, what happens. Reduce first-visit anxiety."
+    },
+    {
+      "id": "seasonal",
+      "theme": "Seasonal / weather note",
+      "hint": "Tie to the Colorado season (winter cold starts, summer travel, etc.) with a genuinely useful interlock tip. Keep it helpful, never fear-based."
+    }
+  ]
+}

@@ -6,3 +6,4 @@ pinegrow.json
 *.py
 __pycache__/
 .superpowers/
+_site/

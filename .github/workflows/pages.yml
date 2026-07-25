@@ -1,0 +1,79 @@
+name: GitHub Pages
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate source
+        run: |
+          node scripts/seo-check.mjs
+          node scripts/site-audit.mjs
+          node scripts/media-check.mjs
+          node scripts/guardian-hero-check.mjs
+          node scripts/lifesafer-hero-check.mjs
+          node --check script.js
+          node --check js/karly.js
+          node --check scripts/build-deploy.mjs
+          node --check scripts/media-check.mjs
+          node --check scripts/site-audit.mjs
+
+      - name: Build curated Pages artifact
+        run: node scripts/build-deploy.mjs --out _site
+
+      - name: Validate Pages artifact
+        run: |
+          node scripts/site-audit.mjs _site
+          cd _site
+          node ../scripts/seo-check.mjs
+          test -f .well-known/security.txt
+
+      - name: Configure Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+          include-hidden-files: true
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
