@@ -12,6 +12,7 @@ Last reviewed: July 2026
 - [Pricing estimator](https://interlockgo.io/#pricing): An estimate for the selected service interval; final charges depend on the vehicle, device, program requirements, tax, and current rate sheet.
 - [Payment and assistance information](https://interlockgo.io/financing/): Current payment guidance and a link to Colorado DMV financial-assistance information.
 - [Colorado interlock guide](https://interlockgo.io/getstarted/): A practical overview. The customer’s current Colorado DMV letter controls eligibility, duration, and removal requirements.
+- [Guía de bloqueo de arranque en español](https://interlockgo.io/es/getstarted/): Pasos en español para preparar la instalación y seguir el proceso de restablecimiento del DMV de Colorado.
 - [Frequently asked questions](https://interlockgo.io/faq/): Device, appointment, service, and Colorado program information.
 
 ## Location and service area

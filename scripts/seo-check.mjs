@@ -43,7 +43,7 @@ for (const rel of pages) {
   if (description && descriptions.has(description)) failures.push(`${rel}: duplicate meta description`);
   if (!noindex && canonical && canonicalUrls.has(canonical)) failures.push(`${rel}: duplicate canonical URL`);
   if (!/InterlockGo/i.test(html)) failures.push(`${rel}: missing InterlockGo brand term`);
-  if (!/ignition interlock|interlock device|breathalyzer/i.test(html)) failures.push(`${rel}: missing core ignition interlock topic`);
+  if (!/ignition interlock|interlock device|breathalyzer|bloqueo de arranque|dispositivo de bloqueo|alcoholímetro/i.test(html)) failures.push(`${rel}: missing core ignition interlock topic`);
 
   if (title) titleTexts.add(title);
   if (description) descriptions.add(description);

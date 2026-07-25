@@ -16,6 +16,7 @@ const productionPages = [
   "appointments/index.html",
   "ault/index.html",
   "contactus/index.html",
+  "es/getstarted/index.html",
   "evans/index.html",
   "faq/index.html",
   "financing/index.html",
