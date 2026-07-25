@@ -246,6 +246,170 @@
 .gs-faq summary::-webkit-details-marker { display: none; }
 .gs-faq p { margin: 0.6rem 0 0; opacity: 0.65; line-height: 1.6; }
 
+/* ===== INTAKE FORM LANGUAGE DIALOG ===== */
+.intake-dialog {
+  width: min(560px, calc(100% - 2rem));
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid rgba(11,30,102,0.2);
+  border-radius: 20px;
+  box-shadow: 0 28px 80px rgba(11,30,102,0.24);
+}
+
+.intake-dialog::backdrop {
+  background: rgba(15,18,28,0.62);
+  backdrop-filter: blur(4px);
+}
+
+.intake-dialog__content {
+  position: relative;
+  padding: 2rem;
+}
+
+.intake-dialog__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.intake-dialog__close:hover,
+.intake-dialog__close:focus-visible {
+  color: #0B1E66;
+  border-color: #0B1E66;
+  outline: 0;
+}
+
+.intake-dialog__eyebrow {
+  margin: 0 3.5rem 0.55rem 0;
+  color: #0B1E66;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intake-dialog h2 {
+  margin: 0 3.5rem 0.75rem 0;
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  line-height: 1.1;
+}
+
+.intake-dialog__content > p:last-of-type {
+  max-width: 44ch;
+  margin: 0 0 1.5rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.intake-dialog__choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+}
+
+.intake-dialog__choice {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-height: 92px;
+  padding: 1rem;
+  color: var(--ink);
+  background: rgba(11,30,102,0.04);
+  border: 1px solid rgba(11,30,102,0.14);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.intake-dialog__choice:hover,
+.intake-dialog__choice:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(11,30,102,0.08);
+  border-color: #0B1E66;
+  outline: 0;
+}
+
+.intake-dialog__language {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  color: #fff;
+  background: #0B1E66;
+  border-radius: 11px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.intake-dialog__choice span:last-child {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.intake-dialog__choice strong {
+  font-size: 1rem;
+}
+
+.intake-dialog__choice small {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+[data-theme="dark"] .intake-dialog {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: rgba(182,255,46,0.24);
+}
+
+[data-theme="dark"] .intake-dialog__close,
+[data-theme="dark"] .intake-dialog__choice {
+  color: var(--paper);
+  border-color: rgba(255,255,255,0.15);
+}
+
+[data-theme="dark"] .intake-dialog__eyebrow {
+  color: #B6FF2E;
+}
+
+[data-theme="dark"] .intake-dialog__content > p:last-of-type,
+[data-theme="dark"] .intake-dialog__choice small {
+  color: rgba(255,255,255,0.7);
+}
+
+[data-theme="dark"] .intake-dialog__choice {
+  background: rgba(255,255,255,0.05);
+}
+
+[data-theme="dark"] .intake-dialog__choice:hover,
+[data-theme="dark"] .intake-dialog__choice:focus-visible {
+  background: rgba(182,255,46,0.08);
+  border-color: #B6FF2E;
+}
+
+[data-theme="dark"] .intake-dialog__language {
+  color: #0B1E66;
+  background: #B6FF2E;
+}
+
 @media (max-width: 640px) {
   .gs-hero {
     padding: 4.25rem 0 2.5rem;
@@ -306,4 +470,16 @@
   }
 
   .gs-device-choice img { width: 90px; height: 90px; }
+
+  .intake-dialog__content {
+    padding: 1.35rem;
+  }
+
+  .intake-dialog__choices {
+    grid-template-columns: 1fr;
+  }
+
+  .intake-dialog__choice {
+    min-height: 78px;
+  }
 }

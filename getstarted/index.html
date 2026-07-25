@@ -185,7 +185,7 @@
                   <p>We install <strong><a href="../lifesafer/">LifeSafer L250 and FC100</a></strong> and <strong><a href="../guardian/">Guardian AMS2500</a></strong> devices. Model availability depends on your provider program and vehicle. Most installs take 2–4 hours.</p>
                   <ul>
                     <li>Call us to <a href="tel:970-515-5740">schedule your installation</a>.</li>
-                    <li>Print and complete the <a href="/files/client-intake-form.pdf" target="_blank" rel="noopener">client intake form</a> before you arrive.</li>
+                    <li>Print and complete the <a class="intake-form-trigger" href="/files/client-intake-form.pdf" aria-haspopup="dialog" aria-controls="intake-language-dialog">client intake form</a> before you arrive.</li>
                     <li>Bring: valid ID, vehicle registration, completed intake form, and a payment method. We accept cash, credit, and debit — no American Express.</li>
                     <li>Instructional videos are on our <a href="../lifesafer/">LifeSafer</a> and <a href="../guardian/">Guardian</a> pages. A one-on-one training session is provided before you leave the shop.</li>
                   </ul>
@@ -329,7 +329,7 @@
                   Payment (cash, credit, or debit)
                 </li>
               </ul>
-              <a class="btn btn--secondary btn--sm" href="/files/client-intake-form.pdf" target="_blank" rel="noopener" style="margin-top:1rem">Download Intake Form</a>
+              <a class="btn btn--secondary btn--sm intake-form-trigger" href="/files/client-intake-form.pdf" aria-haspopup="dialog" aria-controls="intake-language-dialog" style="margin-top:1rem">Download Intake Form</a>
             </div>
 
             <div class="gs-card gs-card--device">
@@ -402,6 +402,33 @@
 
   </main>
 
+  <dialog class="intake-dialog" id="intake-language-dialog" aria-labelledby="intake-dialog-title" aria-describedby="intake-dialog-description">
+    <div class="intake-dialog__content">
+      <form method="dialog">
+        <button class="intake-dialog__close" type="submit" aria-label="Close intake form language selection">&times;</button>
+      </form>
+      <p class="intake-dialog__eyebrow">Client intake form</p>
+      <h2 id="intake-dialog-title">Choose your language</h2>
+      <p id="intake-dialog-description">Select the version you would like to download, then print and complete it before your appointment.</p>
+      <div class="intake-dialog__choices">
+        <a class="intake-dialog__choice" href="/files/client-intake-form.pdf" download="InterlockGo-Client-Intake-Form-English.pdf">
+          <span class="intake-dialog__language" aria-hidden="true">EN</span>
+          <span>
+            <strong>English</strong>
+            <small>Download English form</small>
+          </span>
+        </a>
+        <a class="intake-dialog__choice" href="/files/Client-Intake-Form-Spanish.pdf" download="InterlockGo-Client-Intake-Form-Spanish.pdf" lang="es">
+          <span class="intake-dialog__language" aria-hidden="true">ES</span>
+          <span>
+            <strong>Español</strong>
+            <small>Descargar formulario en español</small>
+          </span>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
   <a href="tel:9705155740" class="call-float" aria-label="Call InterlockGo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -469,6 +496,30 @@
       hamburger.addEventListener('click', ()=>{
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('open');
+      });
+    }
+
+    const intakeDialog = document.getElementById('intake-language-dialog');
+    const intakeTriggers = document.querySelectorAll('.intake-form-trigger');
+    let intakeTrigger = null;
+    if(intakeDialog && typeof intakeDialog.showModal === 'function'){
+      intakeTriggers.forEach(trigger=>{
+        trigger.addEventListener('click', event=>{
+          event.preventDefault();
+          intakeTrigger = trigger;
+          intakeDialog.showModal();
+        });
+      });
+      intakeDialog.addEventListener('click', event=>{
+        if(event.target === intakeDialog) intakeDialog.close();
+      });
+      intakeDialog.querySelectorAll('.intake-dialog__choice').forEach(choice=>{
+        choice.addEventListener('click', ()=>{
+          window.setTimeout(()=>intakeDialog.close(), 0);
+        });
+      });
+      intakeDialog.addEventListener('close', ()=>{
+        intakeTrigger?.focus();
       });
     }
   </script>
