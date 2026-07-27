@@ -38,7 +38,7 @@
 
   <!-- === STYLESHEETS === -->
   <link href="../theme.css?v=mobile-20260507c" rel="stylesheet" />
-  <link href="guardian.css" rel="stylesheet" />
+  <link href="guardian.css?v=hero3d-20260727" rel="stylesheet" />
 
   <!-- Structured Data: BreadcrumbList -->
   <script type="application/ld+json">
@@ -132,33 +132,54 @@
   </div>
 </nav>
 
-<!-- SCROLL-ANIMATED HERO -->
-<div class="hero-scroll-wrapper" id="hero-scroll-wrapper">
-  <div class="hero-scroll-sticky" id="hero-scroll-sticky">
-    <div class="main-card main-card--hero" id="main-card-hero">
-      <video
-        id="hero-video"
-        class="hero-video"
-        muted
-        playsinline
-        preload="metadata"
-        poster="../images/guardian-hero-variants/guardian-local-trust-poster.jpg"
-        aria-hidden="true">
-        <source src="../images/guardian-hero-variants/guardian-local-trust.mp4" type="video/mp4" />
-      </video>
+<!-- ===== 3D DEVICE SHOWCASE HERO ===== -->
+<header class="hero" id="guardian-hero" aria-labelledby="page-title">
+  <div class="main-card main-card--hero" id="main-card-hero">
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Authorized local provider · Evans, Colorado</p>
+        <h1 id="page-title">A Guardian ignition interlock no bigger than your phone</h1>
+        <p class="hero__subhead">The compact AMS2500 handset — installed locally, with device training before you leave and scheduled service at the same Evans shop.</p>
+        <div class="hero__ctas">
+          <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            970-515-5740
+          </a>
+          <a href="../appointments/" class="btn btn--secondary btn--lg">Book an Appointment</a>
+        </div>
+      </div>
+
+      <figure class="hero-scene" id="hero-scene">
+        <div class="hero-scene__stage" id="hero-stage">
+          <div class="hero-compare hero-compare--phone" aria-hidden="true">
+            <svg viewBox="0 0 71.6 147.6" fill="none" aria-hidden="true">
+              <rect x="1" y="1" width="69.6" height="145.6" rx="10.5" stroke="currentColor" stroke-width="1.4" />
+              <rect x="22" y="5.5" width="27.6" height="7" rx="3.5" stroke="currentColor" stroke-width="1" />
+            </svg>
+            <span class="hero-compare__label">iPhone 15</span>
+          </div>
+          <div class="hero-device">
+            <img
+              class="hero-device__img"
+              src="../images/guardian-hero-800.webp"
+              width="421" height="800"
+              fetchpriority="high" decoding="async"
+              alt="Guardian AMS2500 ignition interlock handset shown to scale beside a credit card" />
+          </div>
+          <div class="hero-compare hero-compare--card" aria-hidden="true">
+            <span class="hero-compare__chip"></span>
+            <span class="hero-compare__label">Credit card</span>
+          </div>
+        </div>
+        <figcaption class="hero-scene__caption">Shown to scale — AMS2500 handset ≈ 12 cm · credit card 8.6 × 5.4 cm · iPhone 15 14.8 cm</figcaption>
+      </figure>
     </div>
   </div>
-</div>
+</header>
 
 <main id="main-content">
-
-<section class="product-intro" aria-labelledby="page-title">
-  <div class="container">
-    <p class="eyebrow">Authorized local provider · Evans, Colorado</p>
-    <h1 id="page-title">Guardian ignition interlock installation and service</h1>
-    <p>Get the Guardian AMS2500 installed locally, learn the test process before you leave, and return to the same Evans shop for scheduled service.</p>
-  </div>
-</section>
 
 <!-- DEVICE -->
 <section class="services" id="device">
@@ -401,42 +422,34 @@
         navLinks.classList.toggle('open');
       });
     }
+  </script>
 
-    const heroWrapper = document.getElementById('hero-scroll-wrapper');
-    const video = document.getElementById('hero-video');
-    const mainCard = document.getElementById('main-card-hero');
-    let rafId = null;
+  <!-- Hero 3D tilt -->
+  <script>
+  (function() {
+    const scene = document.getElementById('hero-scene');
+    const stage = document.getElementById('hero-stage');
+    if (!scene || !stage) return;
+    const finePointer = window.matchMedia('(pointer: fine)');
+    const motionOK = window.matchMedia('(prefers-reduced-motion: no-preference)');
+    if (!finePointer.matches || !motionOK.matches) return;
 
-    function onHeroScroll(){
-      const rect = heroWrapper.getBoundingClientRect();
-      const scrollableHeight = heroWrapper.offsetHeight - window.innerHeight;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-
-      if(video.duration && Number.isFinite(video.duration)){
-        const targetTime = Math.min(video.duration - 0.04, progress * video.duration);
-        if(Math.abs(video.currentTime - targetTime) > 0.035){
-          video.currentTime = targetTime;
-        }
-      }
-
-      if(progress > 0.05){
-        mainCard.classList.add('is-playing');
-      } else {
-        mainCard.classList.remove('is-playing');
-      }
-    }
-
-    window.addEventListener('scroll', ()=>{
-      if(rafId) return;
-      rafId = requestAnimationFrame(()=>{
-        onHeroScroll();
+    let rafId = null, rx = 0, ry = 0;
+    scene.addEventListener('pointermove', function(e) {
+      const r = scene.getBoundingClientRect();
+      ry = ((e.clientX - r.left) / r.width - 0.5) * 14;
+      rx = ((e.clientY - r.top) / r.height - 0.5) * -10;
+      if (rafId) return;
+      rafId = requestAnimationFrame(function() {
+        stage.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
         rafId = null;
       });
-    }, {passive: true});
-
-    video.addEventListener('loadedmetadata', onHeroScroll);
-    window.addEventListener('load', onHeroScroll);
+    });
+    scene.addEventListener('pointerleave', function() {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      stage.style.transform = '';
+    });
+  })();
   </script>
 <script src="/js/karly.js?v=mobile-20260507"></script>
 </body>

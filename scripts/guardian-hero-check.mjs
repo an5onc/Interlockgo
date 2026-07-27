@@ -5,36 +5,61 @@ const css = fs.readFileSync("guardian/guardian.css", "utf8");
 
 const failures = [];
 
-if (!html.includes('id="hero-video"')) {
-  failures.push('Guardian hero should include a scrubbed video element with id="hero-video".');
+// --- New 3D showcase hero must be present ---
+if (!html.includes('id="hero-scene"') || !html.includes('id="hero-stage"')) {
+  failures.push('Guardian hero should include the 3D scene (id="hero-scene" and id="hero-stage").');
 }
 
-if (!html.includes("../images/guardian-hero-variants/guardian-local-trust.mp4")) {
-  failures.push("Guardian hero should use the Guardian Local Trust MP4.");
+if (!html.includes("../images/guardian-hero-800.webp")) {
+  failures.push("Guardian hero should show the AMS2500 product photo (images/guardian-hero-800.webp).");
 }
 
-if (!html.includes("../images/guardian-hero-variants/guardian-local-trust-poster.jpg")) {
-  failures.push("Guardian hero should use the Guardian Local Trust JPEG poster frame.");
+if (!html.includes("hero-compare--card")) {
+  failures.push("Guardian hero should include the to-scale credit card comparison.");
 }
 
-if (html.includes("hero-frame") || html.includes("hero-grid") || html.includes("hero-meta")) {
-  failures.push("Guardian hero should not keep the old text/stat overlay hero.");
+if (!html.includes("hero-compare--phone")) {
+  failures.push("Guardian hero should include the iPhone outline comparison.");
 }
 
-if (html.includes("hero-video-overlay") || html.includes('id="hero-content"')) {
-  failures.push("Guardian hero should not include page overlay layers over the video.");
+if (!/<h1\b[^>]*id="page-title"/.test(html) || !html.includes('class="hero__copy"')) {
+  failures.push("Guardian hero should contain the page H1 inside the hero copy block.");
 }
 
-if (!html.includes("video.currentTime") || !html.includes("video.duration")) {
-  failures.push("Guardian scroll script should scrub video.currentTime from scroll progress.");
+if (!html.includes('class="hero__ctas"') || !html.includes('href="tel:') || !html.includes('href="../appointments/"')) {
+  failures.push("Guardian hero should include call and appointment CTAs.");
 }
 
-if (!css.includes(".hero-video") || !css.includes(".hero-scroll-wrapper")) {
-  failures.push("Guardian CSS should style the scroll-scrubbed video hero.");
+if (
+  !html.includes("pointer: fine") ||
+  !html.includes("prefers-reduced-motion") ||
+  !html.includes("requestAnimationFrame") ||
+  !html.includes("rotateX")
+) {
+  failures.push("Guardian tilt script should be rAF-throttled and gated on fine pointers and motion preference.");
 }
 
-if (css.includes(".hero-video-overlay")) {
-  failures.push("Guardian CSS should not include a video overlay layer.");
+// --- Old scroll-scrub video hero must be gone ---
+if (
+  html.includes('id="hero-video"') ||
+  html.includes("hero-scroll-wrapper") ||
+  html.includes("video.currentTime") ||
+  html.includes("guardian-hero-variants")
+) {
+  failures.push("Guardian page should not keep the old scroll-scrubbed video hero.");
+}
+
+// --- CSS ---
+if (!css.includes(".hero-scene") || !css.includes(".hero-device") || !css.includes("--mm:") || !css.includes("perspective")) {
+  failures.push("Guardian CSS should style the 3D scene with the shared --mm px-per-mm scale.");
+}
+
+if (!css.includes("prefers-reduced-motion")) {
+  failures.push("Guardian CSS should include a reduced-motion fallback for the hero.");
+}
+
+if (css.includes(".hero-video") || css.includes(".hero-scroll-wrapper")) {
+  failures.push("Guardian CSS should not keep stale video-hero rules.");
 }
 
 if (failures.length) {
@@ -43,4 +68,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Guardian hero uses the Guardian Local Trust scrubbed MP4.");
+console.log("Guardian hero uses the 3D to-scale device showcase.");

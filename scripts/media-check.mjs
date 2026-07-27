@@ -8,9 +8,7 @@ const maxSocialImageBytes = 250 * 1024;
 const expectedDuration = 10.033333;
 const failures = [];
 
-const heroVideos = [
-  "images/guardian-hero-variants/guardian-local-trust.mp4",
-];
+const heroVideos = [];
 const socialImage = "images/interlockgo-social.jpg";
 
 function fail(file, message) {
@@ -212,4 +210,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log("Media check passed: one fast-start 720p H.264 video and one 1200x630 social JPEG.");
+console.log("Media check passed: one 1200x630 social JPEG.");
