@@ -19,7 +19,7 @@ if (!html.includes("hero-compare--card")) {
 }
 
 if (!html.includes("hero-compare--phone")) {
-  failures.push("Guardian hero should include the iPhone outline comparison.");
+  failures.push("Guardian hero should include the cell phone outline comparison.");
 }
 
 if (!/<h1\b[^>]*id="page-title"/.test(html) || !html.includes('class="hero__copy"')) {

@@ -67,7 +67,7 @@
 
 /* --- 3D scene ---------------------------------------------------------
    Every object derives its on-screen size from one px-per-mm scale
-   factor, so the device / credit card / iPhone comparison is to scale.
+   factor, so the device / credit card / cell phone comparison is to scale.
    --device-h-mm: physical L250 handset height (measured: 4.5in = 114mm).
    --device-frac: device alpha-bbox height ÷ image height in ls250 photo. */
 .hero-scene {
@@ -83,7 +83,7 @@
   gap: 40px;
 }
 
-/* The full to-scale row (iPhone 71.6mm + device ~61mm + card 85.6mm + gaps)
+/* The full to-scale row (phone 71.6mm + device ~61mm + card 85.6mm + gaps)
    spans ~236mm, so 0.4cqw keeps it inside the column at any width. */
 @supports (width: 1cqw) {
   .hero-scene {
@@ -145,7 +145,7 @@
   text-transform: uppercase;
 }
 
-/* iPhone 15: 147.6 x 71.6 mm, ghosted outline */
+/* Average cell phone: 147.6 x 71.6 mm, ghosted outline */
 .hero-compare--phone {
   width: calc(71.6 * var(--mm));
   color: var(--ink);
@@ -432,7 +432,7 @@
     display: none;
   }
 
-  /* Without the iPhone the row spans ~157mm, so the scale can grow */
+  /* Without the phone the row spans ~157mm, so the scale can grow */
   @supports (width: 1cqw) {
     .hero-scene {
       --mm: min(2.6px, 0.6cqw);
