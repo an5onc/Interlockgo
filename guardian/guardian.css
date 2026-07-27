@@ -90,12 +90,12 @@
 /* --- 3D scene ---------------------------------------------------------
    Every object derives its on-screen size from one px-per-mm scale
    factor, so the device / credit card / iPhone comparison is to scale.
-   --device-h-mm: physical AMS2500 handset height (approx 12 cm).
+   --device-h-mm: physical AMS2500 handset height (measured: 5in = 127mm).
    --device-frac: device alpha-bbox height ÷ image height in the photo. */
 .hero-scene {
   /* fallback --mm for browsers without container-query units */
   --mm: 2px;
-  --device-h-mm: 120;
+  --device-h-mm: 127;
   --device-frac: 0.988;
   margin: 0;
   container-type: inline-size;
