@@ -301,3 +301,288 @@
     transition: none;
   }
 }
+
+/* ==========================================================================
+   HOMEPAGE EDITORIAL SECTIONS — ported for Guardian
+   These classes (.svc, .steps, .why, .bigcta) come from the homepage's
+   inline <style> block, which never applied here. Accents use Guardian red.
+   ========================================================================== */
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.svc {
+  grid-column: span 4;
+  padding: 36px 28px 28px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+  transition: background .4s ease;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+}
+.svc:hover { background: var(--paper) }
+.svc:last-child { border-right: none }
+.svc.wide { grid-column: span 6 }
+.svc.third { grid-column: span 4 }
+@media(max-width:960px) {
+  .svc, .svc.wide, .svc.third { grid-column: span 6; border-right: 1px solid var(--rule) }
+  .svc:nth-child(2n) { border-right: none }
+}
+@media(max-width:620px) {
+  .svc, .svc.wide, .svc.third { grid-column: span 12; border-right: none; border-bottom: 1px solid var(--rule) }
+  .svc:last-child { border-bottom: none }
+}
+.svc-n {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  color: var(--ink-3);
+}
+.svc h3 {
+  font-family: var(--f-display);
+  font-size: 30px;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  margin: 16px 0 10px;
+  line-height: 1.05;
+}
+.svc h3 em { font-style: italic; color: var(--guardian-red); font-variation-settings: "SOFT" 100, "WONK" 1 }
+.svc p {
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+.svc-tag {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.svc-tag .d {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--guardian-red);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--ink);
+}
+@media(max-width:820px) {
+  .steps { grid-template-columns: 1fr }
+}
+.step {
+  padding: 44px 32px 36px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--paper);
+  transition: background .3s ease;
+}
+.step:last-child { border-right: none }
+@media(max-width:820px) {
+  .step { border-right: none; border-bottom: 1px solid var(--rule) }
+  .step:last-child { border-bottom: none }
+}
+.step:hover { background: var(--paper-2) }
+.step-n {
+  font-family: var(--f-display);
+  font-size: 120px;
+  font-weight: 380;
+  line-height: .85;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+}
+.step-n em { font-style: italic; color: var(--guardian-red); font-variation-settings: "SOFT" 100, "WONK" 1 }
+.step h3 {
+  font-family: var(--f-display);
+  font-size: 26px;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  margin: 20px 0 8px;
+}
+.step p {
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.why {
+  background: var(--forest);
+  color: var(--paper);
+  padding: 130px 0;
+}
+.why .eyebrow { color: #B6AE98 }
+.why .eyebrow::before { background: #B6AE98 }
+.why h2 { color: var(--paper) }
+.why .section-head p { color: #CFC6B2 }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1px;
+  background: #ffffff20;
+  border: 1px solid #ffffff20;
+}
+.why-item {
+  grid-column: span 6;
+  background: var(--forest);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 180px;
+  transition: background .3s ease;
+}
+.why-item:hover { background: #263329 }
+.why-item .k {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #B6AE98;
+}
+.why-item h4 {
+  font-family: var(--f-display);
+  font-weight: 450;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  margin: 8px 0 0;
+  line-height: 1.1;
+}
+.why-item h4 em { font-style: italic; color: var(--guardian-red-light); font-variation-settings: "SOFT" 100, "WONK" 1 }
+.why-item p {
+  color: #CFC6B2;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 6px 0 0;
+}
+@media(max-width:820px) {
+  .why-item { grid-column: span 12 }
+}
+
+.bigcta {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 130px 0;
+  position: relative;
+  overflow: hidden;
+}
+.bigcta::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -50% auto;
+  width: 70%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 50% 50%, var(--guardian-red) 0%, transparent 60%);
+  opacity: .35;
+  filter: blur(20px);
+  pointer-events: none;
+}
+.bigcta .inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr .8fr;
+  gap: 60px;
+  align-items: end;
+}
+@media(max-width:820px) {
+  .bigcta .inner { grid-template-columns: 1fr; gap: 28px }
+}
+.bigcta h2 {
+  font-family: var(--f-display);
+  font-weight: 420;
+  font-size: clamp(52px, 9vw, 128px);
+  line-height: .92;
+  letter-spacing: -0.03em;
+  margin: 16px 0 0;
+  color: var(--paper);
+}
+.bigcta h2 em {
+  font-style: italic;
+  color: var(--guardian-red);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.bigcta .eyebrow { color: #B6AE98 }
+.bigcta .eyebrow::before { background: #B6AE98 }
+.bigcta .side {
+  font-family: var(--f-body);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  color: #CFC6B2;
+}
+.bigcta .phone {
+  font-family: var(--f-display);
+  font-weight: 420;
+  font-size: clamp(40px, 6vw, 68px);
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  line-height: 1;
+}
+.bigcta .phone a:hover { color: var(--guardian-red-light) }
+.bigcta .ctaline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 26px;
+  background: var(--guardian-red);
+  color: var(--paper);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 14px;
+  letter-spacing: .04em;
+  transition: background .2s ease, transform .2s ease;
+  width: fit-content;
+}
+.bigcta .ctaline:hover { background: var(--paper); color: var(--ink); transform: translateY(-2px) }
+.bigcta .ctaline svg { width: 16px; height: 16px }
+
+@media(max-width:820px) {
+  .why,
+  .bigcta {
+    padding: 68px 0;
+  }
+  .svc {
+    min-height: auto;
+    padding: 26px 22px;
+  }
+  .svc h3 { font-size: 27px }
+  .step {
+    min-height: auto;
+    padding: 30px 24px;
+    gap: 18px;
+  }
+  .step-n { font-size: 86px }
+  .why-item {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+  .bigcta .inner { gap: 26px }
+  .bigcta h2 { font-size: clamp(42px, 13vw, 58px) }
+  .bigcta .phone { font-size: clamp(32px, 10vw, 42px) }
+  .bigcta .ctaline {
+    width: 100%;
+    justify-content: center;
+  }
+}
