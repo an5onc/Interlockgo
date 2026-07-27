@@ -57,7 +57,6 @@ const requiredArtifactFiles = [
   ...requiredSeeds,
   "images/interlockgo-social.jpg",
   "images/guardian-hero-variants/guardian-local-trust.mp4",
-  "images/lifesafer-hero-variants/variant-b-local-trust.mp4",
 ];
 
 const forbiddenArtifactPaths = [
@@ -65,7 +64,7 @@ const forbiddenArtifactPaths = [
   /^files\/usermanual\.pdf$/i,
   /^images\/Interlockgo\.jpeg$/,
   /^images\/hero-frames\//i,
-  /^images\/lifesafer-hero-variants\/variant-(?:a|c)-/i,
+  /^images\/lifesafer-hero-variants\//i,
   /^interlockgo-social(?:\/|\.zip$)/i,
   /^lifesafer\/hero-variants\.html$/i,
   /^lifesafer-hero-remotion\//i,
@@ -313,11 +312,6 @@ try {
     maxHeroVideoBytes,
     "Guardian hero video",
   );
-  assertSpecialSize(
-    "images/lifesafer-hero-variants/variant-b-local-trust.mp4",
-    maxHeroVideoBytes,
-    "LifeSafer hero video",
-  );
   assertSpecialSize("images/interlockgo-social.jpg", maxSocialImageBytes, "Social image");
 
   const manifest = [...copied.entries()].sort(([left], [right]) => left.localeCompare(right));
@@ -335,7 +329,6 @@ try {
   console.log("");
   console.log("Size report:");
   console.log(`  Guardian hero video: ${formatBytes(copied.get("images/guardian-hero-variants/guardian-local-trust.mp4"))}`);
-  console.log(`  LifeSafer hero video: ${formatBytes(copied.get("images/lifesafer-hero-variants/variant-b-local-trust.mp4"))}`);
   console.log(`  Social image:         ${formatBytes(copied.get("images/interlockgo-social.jpg"))}`);
   console.log(`  Artifact total:       ${formatBytes(totalBytes)} / ${formatBytes(maxArtifactBytes)}`);
 } catch (error) {

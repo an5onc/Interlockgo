@@ -132,35 +132,54 @@
   </div>
 </nav>
 
-  <!-- ===== SCROLL-ANIMATED HERO ===== -->
-  <div class="hero-scroll-wrapper" id="hero-scroll-wrapper">
-    <div class="hero-scroll-sticky" id="hero-scroll-sticky">
-      <div class="main-card main-card--hero" id="main-card-hero">
+  <!-- ===== 3D DEVICE SHOWCASE HERO ===== -->
+  <header class="hero" id="lifesafer-hero" aria-labelledby="page-title">
+    <div class="main-card main-card--hero" id="main-card-hero">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">Authorized local provider · Evans, Colorado</p>
+          <h1 id="page-title">A LifeSafer ignition interlock smaller than your phone</h1>
+          <p class="hero__subhead">The compact L250 handset — with local installation, scheduled calibrations, device training, and straightforward support from the same Evans shop.</p>
+          <div class="hero__ctas">
+            <a href="tel:970-515-5740" class="btn btn--primary btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              970-515-5740
+            </a>
+            <a href="../appointments/" class="btn btn--secondary btn--lg">Book an Appointment</a>
+          </div>
+        </div>
 
-        <!-- Scroll-scrubbed Remotion video background -->
-        <video
-          id="hero-video"
-          class="hero-video"
-          muted
-          playsinline
-          preload="metadata"
-          poster="../images/lifesafer-hero-variants/variant-b-poster.png"
-          aria-hidden="true">
-          <source src="../images/lifesafer-hero-variants/variant-b-local-trust.mp4" type="video/mp4" />
-        </video>
-
+        <figure class="hero-scene" id="hero-scene">
+          <div class="hero-scene__stage" id="hero-stage">
+            <div class="hero-compare hero-compare--phone" aria-hidden="true">
+              <svg viewBox="0 0 71.6 147.6" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="69.6" height="145.6" rx="10.5" stroke="currentColor" stroke-width="1.4" />
+                <rect x="22" y="5.5" width="27.6" height="7" rx="3.5" stroke="currentColor" stroke-width="1" />
+              </svg>
+              <span class="hero-compare__label">iPhone 15</span>
+            </div>
+            <div class="hero-device">
+              <img
+                class="hero-device__img"
+                src="../images/ls250-hero-800.webp"
+                width="381" height="800"
+                fetchpriority="high" decoding="async"
+                alt="LifeSafer L250 ignition interlock handset shown to scale beside a credit card" />
+            </div>
+            <div class="hero-compare hero-compare--card" aria-hidden="true">
+              <span class="hero-compare__chip"></span>
+              <span class="hero-compare__label">Credit card</span>
+            </div>
+          </div>
+          <figcaption class="hero-scene__caption">Shown to scale — L250 handset 12.5 cm · credit card 8.6 × 5.4 cm · iPhone 15 14.8 cm</figcaption>
+        </figure>
       </div>
     </div>
-  </div>
+  </header>
 
   <main id="main-content">
-  <section class="product-intro" aria-labelledby="page-title">
-    <div class="container">
-      <p class="eyebrow">Authorized local provider · Evans, Colorado</p>
-      <h1 id="page-title">LifeSafer ignition interlock installation and service</h1>
-      <p>Choose a LifeSafer device with local installation, scheduled calibrations, device training, and straightforward support from the same Evans shop.</p>
-    </div>
-  </section>
 
   <!-- ===== DEVICES SECTION ===== -->
   <section class="features" aria-labelledby="devices-title">
@@ -244,6 +263,28 @@
               allowfullscreen loading="lazy"></iframe>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIFESAFER HANDBOOK ===== -->
+  <section class="handbook" aria-labelledby="handbook-title">
+    <div class="container">
+      <h2 id="handbook-title" class="section-title">LifeSafer Handbook</h2>
+      <p class="section-subtitle">The complete L250 user guide — download a copy to keep on your phone or in your glovebox.</p>
+      <div class="handbook__cta">
+        <a class="btn btn--primary btn--lg handbook-download-trigger"
+           href="/files/Lifesafer-Handbook.pdf"
+           download="LifeSafer-Handbook-English.pdf"
+           aria-haspopup="dialog" aria-controls="handbook-language-dialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:18px;height:18px;margin-right:6px;">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download the Handbook
+        </a>
+        <p class="handbook__hint">Available in English and Español</p>
       </div>
     </div>
   </section>
@@ -370,6 +411,33 @@
   </div>
 </footer>
 
+  <dialog class="intake-dialog" id="handbook-language-dialog" aria-labelledby="handbook-dialog-title" aria-describedby="handbook-dialog-description">
+    <div class="intake-dialog__content">
+      <form method="dialog">
+        <button class="intake-dialog__close" type="submit" aria-label="Close handbook language selection">&times;</button>
+      </form>
+      <p class="intake-dialog__eyebrow">LifeSafer handbook</p>
+      <h2 id="handbook-dialog-title">Choose your language</h2>
+      <p id="handbook-dialog-description">Select the version of the L250 user guide you would like to download.</p>
+      <div class="intake-dialog__choices">
+        <a class="intake-dialog__choice" href="/files/Lifesafer-Handbook.pdf" download="LifeSafer-Handbook-English.pdf">
+          <span class="intake-dialog__language" aria-hidden="true">EN</span>
+          <span>
+            <strong>English</strong>
+            <small>Download English handbook</small>
+          </span>
+        </a>
+        <a class="intake-dialog__choice" href="/files/Lifesafer-Handbook-Spanish.pdf" download="LifeSafer-Handbook-Spanish.pdf" lang="es">
+          <span class="intake-dialog__language" aria-hidden="true">ES</span>
+          <span>
+            <strong>Español</strong>
+            <small>Descargar manual en español</small>
+          </span>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
   <a href="tel:9705155740" class="call-float" aria-label="Call InterlockGo">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -392,49 +460,56 @@
         navLinks.classList.toggle('open');
       });
     }
+
+    const handbookDialog = document.getElementById('handbook-language-dialog');
+    const handbookTriggers = document.querySelectorAll('.handbook-download-trigger');
+    let handbookTrigger = null;
+    if(handbookDialog && typeof handbookDialog.showModal === 'function'){
+      handbookTriggers.forEach(trigger=>{
+        trigger.addEventListener('click', event=>{
+          event.preventDefault();
+          handbookTrigger = trigger;
+          handbookDialog.showModal();
+        });
+      });
+      handbookDialog.addEventListener('click', event=>{
+        if(event.target === handbookDialog) handbookDialog.close();
+      });
+      handbookDialog.querySelectorAll('.intake-dialog__choice').forEach(choice=>{
+        choice.addEventListener('click', ()=>{
+          window.setTimeout(()=>handbookDialog.close(), 0);
+        });
+      });
+      handbookDialog.addEventListener('close', ()=>{
+        handbookTrigger?.focus();
+      });
+    }
   </script>
 
-  <!-- Hero Scroll Video Animation -->
+  <!-- Hero 3D tilt -->
   <script>
   (function() {
-    const heroWrapper = document.getElementById('hero-scroll-wrapper');
-    const video = document.getElementById('hero-video');
-    const mainCard = document.getElementById('main-card-hero');
-    let rafId = null;
+    const scene = document.getElementById('hero-scene');
+    const stage = document.getElementById('hero-stage');
+    if (!scene || !stage) return;
+    const finePointer = window.matchMedia('(pointer: fine)');
+    const motionOK = window.matchMedia('(prefers-reduced-motion: no-preference)');
+    if (!finePointer.matches || !motionOK.matches) return;
 
-    function onScroll() {
-      const rect = heroWrapper.getBoundingClientRect();
-      const scrollableHeight = heroWrapper.offsetHeight - window.innerHeight;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-
-      if (video.duration && Number.isFinite(video.duration)) {
-        const targetTime = Math.min(video.duration - 0.04, progress * video.duration);
-        if (Math.abs(video.currentTime - targetTime) > 0.035) {
-          video.currentTime = targetTime;
-        }
-      }
-
-      // Add playing class for border glow when scrolling
-      if (progress > 0.05) {
-        mainCard.classList.add('is-playing');
-      } else {
-        mainCard.classList.remove('is-playing');
-      }
-    }
-
-    window.addEventListener('scroll', function() {
+    let rafId = null, rx = 0, ry = 0;
+    scene.addEventListener('pointermove', function(e) {
+      const r = scene.getBoundingClientRect();
+      ry = ((e.clientX - r.left) / r.width - 0.5) * 14;
+      rx = ((e.clientY - r.top) / r.height - 0.5) * -10;
       if (rafId) return;
       rafId = requestAnimationFrame(function() {
-        onScroll();
+        stage.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
         rafId = null;
       });
-    }, { passive: true });
-
-    video.addEventListener('loadedmetadata', onScroll);
-
-    window.addEventListener('load', function() {
-      onScroll();
+    });
+    scene.addEventListener('pointerleave', function() {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      stage.style.transform = '';
     });
   })();
   </script>

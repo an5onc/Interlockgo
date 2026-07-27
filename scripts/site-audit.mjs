@@ -23,7 +23,6 @@ const ignoredDirectories = new Set([
 const ignoredFiles = new Set([
   "index-old.html",
   "25b687b80068dd6d001afc4ae2abeac6.html",
-  "lifesafer/hero-variants.html",
 ]);
 
 const pages = [];

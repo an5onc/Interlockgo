@@ -10,7 +10,6 @@ const failures = [];
 
 const heroVideos = [
   "images/guardian-hero-variants/guardian-local-trust.mp4",
-  "images/lifesafer-hero-variants/variant-b-local-trust.mp4",
 ];
 const socialImage = "images/interlockgo-social.jpg";
 
@@ -213,4 +212,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log("Media check passed: two fast-start 720p H.264 videos and one 1200x630 social JPEG.");
+console.log("Media check passed: one fast-start 720p H.264 video and one 1200x630 social JPEG.");

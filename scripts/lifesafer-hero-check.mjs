@@ -5,44 +5,70 @@ const css = fs.readFileSync("lifesafer/lifesafer.css", "utf8");
 
 const failures = [];
 
-if (!html.includes('id="hero-video"')) {
-  failures.push("LifeSafer hero should include a scrubbed video element with id=\"hero-video\".");
+// --- New 3D showcase hero must be present ---
+if (!html.includes('id="hero-scene"') || !html.includes('id="hero-stage"')) {
+  failures.push('LifeSafer hero should include the 3D scene (id="hero-scene" and id="hero-stage").');
 }
 
-if (!html.includes("../images/lifesafer-hero-variants/variant-b-local-trust.mp4")) {
-  failures.push("LifeSafer hero should use the approved Variant B Local Trust MP4.");
+if (!html.includes("../images/ls250-hero-800.webp")) {
+  failures.push("LifeSafer hero should show the L250 product photo (images/ls250-hero-800.webp).");
 }
 
-if (!html.includes("../images/lifesafer-hero-variants/variant-b-poster.png")) {
-  failures.push("LifeSafer hero should use the Variant B poster as its fallback frame.");
+if (!html.includes("hero-compare--card")) {
+  failures.push("LifeSafer hero should include the to-scale credit card comparison.");
 }
 
-if (html.includes("hero-frames/frame-") || html.includes("TOTAL_FRAMES")) {
-  failures.push("LifeSafer hero should not preload the old 301 JPEG frame sequence.");
+if (!html.includes("hero-compare--phone")) {
+  failures.push("LifeSafer hero should include the iPhone outline comparison.");
 }
 
-if (html.includes('id="hero-canvas"') || html.includes("getContext('2d')")) {
-  failures.push("LifeSafer hero should not use the old canvas renderer.");
+if (!/<h1\b[^>]*id="page-title"/.test(html) || !html.includes('class="hero__copy"')) {
+  failures.push("LifeSafer hero should contain the page H1 inside the hero copy block.");
 }
 
-if (html.includes('id="hero-content"') || html.includes("hero-video-overlay")) {
-  failures.push("LifeSafer hero should not include text or dark overlay layers over the video.");
+if (!html.includes('class="hero__ctas"') || !html.includes('href="tel:') || !html.includes('href="../appointments/"')) {
+  failures.push("LifeSafer hero should include call and appointment CTAs.");
 }
 
-if (!html.includes("video.currentTime") || !html.includes("video.duration")) {
-  failures.push("LifeSafer scroll script should scrub video.currentTime from scroll progress.");
+if (
+  !html.includes("pointer: fine") ||
+  !html.includes("prefers-reduced-motion") ||
+  !html.includes("requestAnimationFrame") ||
+  !html.includes("rotateX")
+) {
+  failures.push("LifeSafer tilt script should be rAF-throttled and gated on fine pointers and motion preference.");
 }
 
-if (!css.includes(".hero-video")) {
-  failures.push("LifeSafer CSS should style the hero video layer.");
+// --- Old scroll-scrub video hero must be gone ---
+if (
+  html.includes('id="hero-video"') ||
+  html.includes("hero-scroll-wrapper") ||
+  html.includes("video.currentTime") ||
+  html.includes("lifesafer-hero-variants")
+) {
+  failures.push("LifeSafer page should not keep the old scroll-scrubbed video hero.");
 }
 
-if (css.includes(".hero-canvas")) {
-  failures.push("LifeSafer CSS should not keep stale .hero-canvas rules.");
+// --- CSS ---
+if (!css.includes(".hero-scene") || !css.includes(".hero-device") || !css.includes("--mm:") || !css.includes("perspective")) {
+  failures.push("LifeSafer CSS should style the 3D scene with the shared --mm px-per-mm scale.");
 }
 
-if (css.includes(".hero-video-overlay") || css.includes(".hero__title--scroll")) {
-  failures.push("LifeSafer CSS should not keep stale hero text overlay styles.");
+if (!css.includes("prefers-reduced-motion")) {
+  failures.push("LifeSafer CSS should include a reduced-motion fallback for the hero.");
+}
+
+if (css.includes(".hero-video") || css.includes(".hero-scroll-wrapper") || css.includes("182, 255, 46")) {
+  failures.push("LifeSafer CSS should not keep stale video-hero or lime-accent rules.");
+}
+
+// --- Handbook downloads ---
+if (
+  !html.includes('id="handbook-language-dialog"') ||
+  !html.includes("/files/Lifesafer-Handbook.pdf") ||
+  !html.includes("/files/Lifesafer-Handbook-Spanish.pdf")
+) {
+  failures.push("LifeSafer page should offer the EN/ES handbook download dialog.");
 }
 
 if (failures.length) {
@@ -51,4 +77,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("LifeSafer hero uses approved Variant B scrubbed MP4.");
+console.log("LifeSafer hero uses the 3D to-scale device showcase with handbook downloads.");

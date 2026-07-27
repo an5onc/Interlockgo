@@ -3,20 +3,9 @@
    Extends index.css for Lifesafer-specific components
    ========================================================================== */
 
-/* === SCROLL-ANIMATED HERO === */
-.hero-scroll-wrapper {
-  height: 300vh; /* scroll distance controls animation speed */
-  position: relative;
-}
-
-.hero-scroll-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* === 3D DEVICE SHOWCASE HERO === */
+.hero {
+  padding: 32px 0 56px;
 }
 
 .main-card--hero {
@@ -30,28 +19,21 @@
   box-shadow: var(--shadow-lg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  overflow: hidden;
-  min-height: 70vh;
-  transition: border-color 0.4s ease;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
 }
 
-/* Remotion video sits behind everything inside the card */
-.hero-video {
-  position: absolute;
-  inset: 0;
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: center;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  border-radius: inherit;
+  padding: clamp(28px, 5vw, 64px);
 }
 
-.product-intro {
-  padding: 88px 0 48px;
-  text-align: center;
-}
-
-.product-intro .eyebrow {
+.hero__copy .eyebrow {
   margin: 0 0 14px;
   color: var(--signal);
   font-family: var(--f-mono);
@@ -60,27 +42,154 @@
   text-transform: uppercase;
 }
 
-.product-intro h1 {
-  max-width: 900px;
-  margin: 0 auto 18px;
+.hero__copy h1 {
+  margin: 0 0 18px;
   font-family: var(--f-display);
-  font-size: clamp(42px, 7vw, 76px);
+  font-size: clamp(38px, 4.6vw, 64px);
   font-weight: 420;
   letter-spacing: -.04em;
   line-height: .98;
 }
 
-.product-intro > .container > p:last-child {
-  max-width: 720px;
-  margin: 0 auto;
+.hero__subhead {
+  max-width: 52ch;
+  margin: 0 0 28px;
   color: var(--ink-2);
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: clamp(16px, 1.8vw, 19px);
   line-height: 1.6;
 }
 
-/* When scrolling, the hero card border can glow */
-.main-card--hero.is-playing {
-  border-color: rgba(182, 255, 46, 0.2);
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* --- 3D scene ---------------------------------------------------------
+   Every object derives its on-screen size from one px-per-mm scale
+   factor, so the device / credit card / iPhone comparison is to scale.
+   --device-h-mm: physical L250 handset height (LifeSafer spec: 12.52cm).
+   --device-frac: device alpha-bbox height ÷ image height in ls250 photo. */
+.hero-scene {
+  /* fallback --mm for browsers without container-query units */
+  --mm: 2px;
+  --device-h-mm: 125;
+  --device-frac: 0.995;
+  margin: 0;
+  container-type: inline-size;
+  perspective: 1200px;
+  display: grid;
+  justify-items: center;
+  gap: 40px;
+}
+
+/* The full to-scale row (iPhone 71.6mm + device ~61mm + card 85.6mm + gaps)
+   spans ~236mm, so 0.4cqw keeps it inside the column at any width. */
+@supports (width: 1cqw) {
+  .hero-scene {
+    --mm: min(2.6px, 0.4cqw);
+  }
+}
+
+.hero-scene__stage {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: calc(9 * var(--mm));
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+  will-change: transform;
+}
+
+/* Never let flex reshape the to-scale objects */
+.hero-scene__stage > * {
+  flex-shrink: 0;
+}
+
+.hero-device {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(46px);
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+.hero-device__img {
+  display: block;
+  height: calc(var(--device-h-mm) / var(--device-frac) * var(--mm));
+  width: auto;
+  max-width: none;
+  filter: drop-shadow(0 26px 30px rgba(23, 20, 15, .28)) drop-shadow(0 4px 8px rgba(23, 20, 15, .16));
+}
+
+/* CSS float uses `translate` so it never fights the JS tilt `transform` */
+@keyframes hero-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+
+.hero-compare {
+  position: relative;
+}
+
+.hero-compare__label {
+  position: absolute;
+  left: 50%;
+  bottom: -28px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--ink-3);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* iPhone 15: 147.6 x 71.6 mm, ghosted outline */
+.hero-compare--phone {
+  width: calc(71.6 * var(--mm));
+  color: var(--ink);
+  opacity: .38;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
+.hero-compare--phone svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Credit card: ISO ID-1, 85.60 x 53.98 mm, 3.18mm corner radius */
+.hero-compare--card {
+  width: calc(85.6 * var(--mm));
+  aspect-ratio: 85.6 / 53.98;
+  border-radius: calc(3.18 * var(--mm));
+  background: linear-gradient(135deg, rgba(216, 66, 21, .22), rgba(23, 20, 15, .07) 55%, rgba(227, 164, 43, .28));
+  border: 1px solid rgba(23, 20, 15, .22);
+  box-shadow: 0 14px 22px rgba(23, 20, 15, .16);
+  transform: translateZ(14px);
+  z-index: 1;
+}
+
+.hero-compare__chip {
+  position: absolute;
+  top: calc(9 * var(--mm));
+  left: calc(7 * var(--mm));
+  width: calc(11 * var(--mm));
+  height: calc(8 * var(--mm));
+  border-radius: calc(1.5 * var(--mm));
+  background: linear-gradient(135deg, var(--amber), rgba(227, 164, 43, .55));
+  border: 1px solid rgba(23, 20, 15, .18);
+}
+
+.hero-scene__caption {
+  max-width: 46ch;
+  color: var(--ink-3);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-align: center;
 }
 
 /* === VIDEO GRID === */
@@ -114,7 +223,7 @@
   border-radius: var(--radius-xl);
   padding: var(--space-5);
   box-shadow: var(--card-shadow);
-  transition: all var(--transition-normal) ease;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .video-card:hover {
@@ -124,7 +233,7 @@
 }
 
 .video-card h3 {
-  font-size: var(--text-lg);
+  font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: var(--space-4);
   color: var(--text);
@@ -134,7 +243,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: var(--navy-ink);
+  background: var(--ink);
   border-radius: var(--radius-md);
   overflow: hidden;
 }
@@ -145,20 +254,165 @@
   border: 0;
 }
 
+/* === HANDBOOK DOWNLOAD === */
+.handbook {
+  padding: var(--space-12) 0;
+}
+
+.handbook__cta {
+  margin-top: var(--space-6);
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.handbook__hint {
+  margin: 0;
+  color: var(--ink-3);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+/* === HANDBOOK LANGUAGE DIALOG === */
+.intake-dialog {
+  width: min(560px, calc(100% - 2rem));
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  box-shadow: 0 28px 80px rgba(23, 20, 15, 0.24);
+}
+
+.intake-dialog::backdrop {
+  background: rgba(23, 20, 15, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.intake-dialog__content {
+  position: relative;
+  padding: 2rem;
+}
+
+.intake-dialog__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.intake-dialog__close:hover,
+.intake-dialog__close:focus-visible {
+  color: var(--signal-deep);
+  border-color: var(--signal-deep);
+  outline: 0;
+}
+
+.intake-dialog__eyebrow {
+  margin: 0 3.5rem 0.55rem 0;
+  color: var(--signal);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intake-dialog h2 {
+  margin: 0 3.5rem 0.75rem 0;
+  font-family: var(--f-display);
+  font-size: clamp(1.6rem, 5vw, 2.1rem);
+  line-height: 1.1;
+}
+
+.intake-dialog__content > p:last-of-type {
+  max-width: 44ch;
+  margin: 0 0 1.5rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+
+.intake-dialog__choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+}
+
+.intake-dialog__choice {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-height: 92px;
+  padding: 1rem;
+  color: var(--ink);
+  background: rgba(216, 66, 21, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.intake-dialog__choice:hover,
+.intake-dialog__choice:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(216, 66, 21, 0.09);
+  border-color: var(--signal-deep);
+  outline: 0;
+}
+
+.intake-dialog__language {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  color: #fff;
+  background: var(--signal-deep);
+  border-radius: 11px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.intake-dialog__choice span:last-child {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.intake-dialog__choice strong {
+  font-size: 1rem;
+}
+
+.intake-dialog__choice small {
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
 /* === FEATURE CARD DEVICE ICON === */
 .feature-card__icon--device {
   width: 100%;
   height: 120px;
-  background: linear-gradient(135deg, rgba(11, 30, 102, 0.05) 0%, rgba(182, 255, 46, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(216, 66, 21, 0.05) 0%, rgba(227, 164, 43, 0.06) 100%);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-4);
-}
-
-[data-theme="dark"] .feature-card__icon--device {
-  background: linear-gradient(135deg, rgba(15, 20, 36, 0.8) 0%, rgba(11, 30, 102, 0.3) 100%);
 }
 
 .feature-card__icon--device img {
@@ -167,65 +421,82 @@
   object-fit: contain;
 }
 
-/* === ACTIVE NAV LINK === */
-.nav__link--active {
-  color: var(--accent) !important;
-  background: rgba(11, 30, 102, 0.08);
-  border-radius: var(--radius-md);
-}
-
-[data-theme="dark"] .nav__link--active {
-  background: rgba(182, 255, 46, 0.1);
-}
-
 /* === RESPONSIVE ADJUSTMENTS === */
-@media (max-width: 640px) {
-  .hero-scroll-wrapper {
-    height: auto;
+@media (max-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 
-  .hero-scroll-sticky {
-    position: relative;
-    height: auto;
-    min-height: 70vh;
-    padding: 28px 0;
+  .hero-compare--phone {
+    display: none;
+  }
+
+  /* Without the iPhone the row spans ~157mm, so the scale can grow */
+  @supports (width: 1cqw) {
+    .hero-scene {
+      --mm: min(2.6px, 0.6cqw);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 20px 0 36px;
   }
 
   .main-card--hero {
     width: calc(100% - 36px);
-    min-height: 58vh;
+    min-height: 0;
     border-radius: 18px;
   }
 
-  .product-intro {
-    padding: 58px 0 26px;
+  .hero__grid {
+    padding: 28px 20px 36px;
   }
 
   .video-card {
     padding: 1.15rem;
     border-radius: 14px;
   }
+
+  .intake-dialog__content {
+    padding: 1.35rem;
+  }
+
+  .intake-dialog__choices {
+    grid-template-columns: 1fr;
+  }
+
+  .intake-dialog__choice {
+    min-height: 78px;
+  }
 }
 
 /* === PRINT === */
 @media print {
-  .hero-scroll-wrapper {
-    height: auto;
+  .main-card--hero {
+    min-height: 0;
+    box-shadow: none;
   }
 
-  .hero-scroll-sticky {
-    position: relative;
-    height: auto;
-  }
-
-  .hero-video {
-    display: none;
+  .hero-device {
+    animation: none;
   }
 }
 
 /* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
-  .hero-video {
-    object-position: center center;
+  .hero-device {
+    animation: none;
+  }
+
+  .hero-scene__stage {
+    transition: none;
+  }
+
+  .video-card,
+  .intake-dialog__choice {
+    transition: none;
   }
 }
