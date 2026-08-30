@@ -182,9 +182,30 @@
 /* === REVIEWS CONTAINER ================================================== */
 
 .reviews-container {
+  position: relative;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px 60px;
+}
+
+/* Color behind the glass so transparency is actually visible */
+.reviews-container::before {
+  content: "";
+  position: absolute;
+  inset: -80px 0 -40px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 42% at 8% 18%, rgba(232, 65, 66, 0.28), transparent 62%),
+    radial-gradient(ellipse 48% 45% at 92% 42%, rgba(139, 92, 246, 0.22), transparent 64%),
+    radial-gradient(ellipse 42% 38% at 48% 88%, rgba(56, 189, 248, 0.16), transparent 62%);
+}
+
+.reviews-grid,
+.reviews-cta,
+.leave-review {
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -608,54 +629,67 @@
 
 
 /* === LIGHT THEME OVERRIDES ============================================== */
-/* When index.css light theme is active, adapt the dark-designed components  */
+/* Liquid glass: real transparency + blur so page color shows through       */
 
 :root:not([data-theme="dark"]) .review-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(240, 235, 245, 0.7));
-  border-color: rgba(200, 200, 220, 0.4);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  overflow: visible;
 }
 
 :root:not([data-theme="dark"]) .review-card::before {
-  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%);
+  background: linear-gradient(160deg, rgba(255,255,255,0.22) 0%, transparent 52%);
 }
 
 :root:not([data-theme="dark"]) .review-card:hover {
-  box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(232, 65, 66, 0.15);
-  border-color: rgba(232, 65, 66, 0.25);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.88);
 }
 
-/* Featured card keeps the glass magic — don't override its gradient */
 :root:not([data-theme="dark"]) .review-card--featured {
-  background: linear-gradient(145deg, rgba(232, 65, 66, 0.08), rgba(22, 26, 31, 0.95));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
 }
 
-:root:not([data-theme="dark"]) .review-text {
-  color: #4A4A68;
+:root:not([data-theme="dark"]) .review-card--featured .review-glow,
+:root:not([data-theme="dark"]) .review-card--featured::after {
+  display: none;
 }
 
-:root:not([data-theme="dark"]) .review-card--featured .review-text {
-  color: #d0d0d8;
+:root:not([data-theme="dark"]) .review-author,
+:root:not([data-theme="dark"]) .review-date,
+:root:not([data-theme="dark"]) .review-text,
+:root:not([data-theme="dark"]) .review-text strong,
+:root:not([data-theme="dark"]) .review-card--featured .review-author,
+:root:not([data-theme="dark"]) .review-card--featured .review-date,
+:root:not([data-theme="dark"]) .review-card--featured .review-text,
+:root:not([data-theme="dark"]) .review-card--featured .review-text strong {
+  color: #1a1a2e;
 }
 
-:root:not([data-theme="dark"]) .review-card--featured .review-author {
-  color: #f0f0f5;
+:root:not([data-theme="dark"]) .review-text strong,
+:root:not([data-theme="dark"]) .review-card--featured .review-text strong {
+  font-weight: 600;
+  color: #1a1a2e;
 }
 
-:root:not([data-theme="dark"]) .review-card--featured .review-date {
-  color: #a0a0b0;
+:root:not([data-theme="dark"]) .quote-mark {
+  color: rgba(26, 26, 46, 0.16);
 }
 
 :root:not([data-theme="dark"]) .review-tag {
-  color: #16a34a;
-  background: rgba(34, 197, 94, 0.1);
-  border-color: rgba(34, 197, 94, 0.25);
+  color: #166534;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 :root:not([data-theme="dark"]) .reviews-cta {
@@ -703,4 +737,18 @@
 
 :root:not([data-theme="dark"]) .stat-label {
   color: #4A4A68;
+}
+
+.reviews-grid > .review-card-link {
+  display: block;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 20px;
+}
+.reviews-grid > .review-card-link:has(.review-card--featured) {
+  grid-column: 1 / -1;
+}
+.reviews-grid > .review-card-link .review-card {
+  height: 100%;
 }
