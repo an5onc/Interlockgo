@@ -1606,3 +1606,152 @@ footer{
     transition:none !important;
   }
 }
+
+/* ==========================================================================
+   Hero scene: layered Front Range silhouettes with the handsets in front.
+   Layer order (back to front): sky, far ridge, near ridge, handsets, treeline.
+   js/hero-scene.js moves each .hl by data-depth on scroll; CSS owns placement.
+   ========================================================================== */
+.hero-scene{
+  padding:56px 0 0;
+  min-height: clamp(660px, 90vh, 880px);
+  isolation:isolate;
+  /* cream overhead, warming to a golden Front Range horizon */
+  background: linear-gradient(180deg, var(--paper) 0%, #F1E4CB 38%, #F3D4A0 66%, #E9B673 100%);
+}
+.hero-scene .container{position:relative; z-index:3}
+.hero-scene .hero-grid{
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items:start;
+  gap:32px;
+}
+.hero-scene .hero-copy{
+  position:relative;
+  padding-bottom: 190px;   /* room for the treeline below the copy */
+}
+/* soft cream scrim so the copy stays readable where a ridge peak drifts under it */
+.hero-scene .hero-copy::before{
+  content:"";
+  position:absolute;
+  inset:-60px -80px 120px -120px;
+  background: radial-gradient(ellipse at 40% 40%, var(--paper) 0%, #EFE7D6E6 45%, #EFE7D600 78%);
+  z-index:-1;
+  pointer-events:none;
+}
+.hero-scene h1{
+  font-size: clamp(44px, 5.3vw, 82px);
+  max-width: 11ch;
+}
+.hero-scene .hero-side{
+  margin-top:26px;
+  max-width:60ch;
+  gap:16px;
+}
+.hero-scene .hero-side p{color:var(--ink-2)}
+.hero-stage{min-height:1px}
+
+.hero-layers{
+  position:absolute; inset:0;
+  z-index:1;
+  overflow:hidden;
+  pointer-events:none;
+}
+/* Each silhouette SVG is a 1600x900 canvas: ridge line in the top 420 units,
+   solid fill below. Rendered width is --hl-w, so the canvas bottom sits
+   (fill-height / 1600 * --hl-w) below the line we want to land on. The calc()
+   on each layer's bottom pins that line to a fixed offset from the hero's
+   bottom edge regardless of viewport width. */
+.hero-layers{ --hl-w: max(100vw + 48px, 1200px) }
+.hl{
+  position:absolute;
+  left:-24px; right:-24px;
+  height:160%;
+  will-change:transform;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size: var(--hl-w) auto;
+}
+.hl-sky{
+  left:0; right:0; bottom:0; height:100%;
+  background:
+    radial-gradient(58% 48% at 70% 66%, #F0973A66 0%, #E88A2E33 42%, #E88A2E00 74%),
+    radial-gradient(26% 24% at 72% 62%, #FFD98A99 0%, #FFD98A00 70%),
+    linear-gradient(180deg, #EFE7D600 55%, #E4A85C33 100%);
+}
+/* far range: painted Front Range, 1792x870 crop with its top faded to transparent.
+   The mountain base sits 40 image px above the crop bottom; land it 200px above
+   the hero bottom so the foothills and pines stand in front of it. */
+.hl-range{
+  bottom: calc(200px - 0.0223 * var(--hl-w));
+  background-image:url("../images/hero/front-range-1792.webp");
+}
+/* near ridge: lowest point (svg y 400) lands 50px above the hero bottom */
+.hl-ridge-near{ bottom: calc(50px - 0.3125 * var(--hl-w));   background-image:url("../images/hero/ridge-near.svg") }
+/* treeline: ground line (svg y 386) lands 6px below the hero bottom */
+.hl-trees{      bottom: calc(-6px - 0.32125 * var(--hl-w));  background-image:url("../images/hero/treeline.svg") }
+.hl-devices{
+  /* align with .container (1280px max, 28px gutters) without using transform,
+     because the script owns transform on every layer */
+  left: max(28px, calc(50% - 612px));
+  right: max(28px, calc(50% - 612px));
+  height:auto;
+  bottom:5%;
+  aspect-ratio: 16 / 7;
+  background:none;
+  pointer-events:none;
+}
+.device{
+  position:absolute;
+  bottom:0;
+  height:auto;
+  filter: drop-shadow(0 26px 22px rgba(23,20,15,.30)) drop-shadow(0 2px 3px rgba(23,20,15,.25));
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:auto;
+}
+.device-ls{
+  right: 3%;
+  width: clamp(150px, 15vw, 214px);
+  transform: rotate(4deg);
+  z-index:2;
+}
+.device-gd{
+  right: 21%;
+  bottom: 10%;
+  width: clamp(146px, 14.4vw, 200px);
+  transform: rotate(-7deg);
+  z-index:1;
+  filter: drop-shadow(0 22px 18px rgba(23,20,15,.24)) drop-shadow(0 2px 3px rgba(23,20,15,.2)) brightness(.96);
+}
+
+@media(max-width:960px){
+  .hero-scene{padding-top:40px; min-height:0}
+  .hero-scene .hero-grid{grid-template-columns:1fr; gap:0}
+  .hero-stage{display:none}
+  .hero-scene .hero-copy{padding-bottom: 360px}
+  .hero-scene .hero-copy::before{inset:-40px -40px 240px -40px}
+  .hero-scene h1{max-width:none}
+  .hero-layers{ --hl-w: max(100vw + 48px, 1100px) }
+  .hl-range{
+    bottom: calc(165px - 0.0223 * var(--hl-w));
+    background-image:url("../images/hero/front-range-1200.webp");
+  }
+  .hl-ridge-near{ bottom: calc(40px - 0.3125 * var(--hl-w)) }
+  .hl-devices{
+    aspect-ratio:auto;
+    height:270px;
+    bottom:4%;
+  }
+  .device-ls{ right:6%; width: clamp(128px, 34vw, 160px) }
+  .device-gd{ right:38%; bottom:8%; width: clamp(118px, 31vw, 148px) }
+}
+@media(max-width:520px){
+  .hero-scene .hero-copy{padding-bottom: 340px}
+  .hl-devices{height:250px; bottom:4%}
+  .device-ls{ right:4%; width:38vw }
+  .device-gd{ right:44%; width:34vw }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hl{will-change:auto; transform:none !important}
+}

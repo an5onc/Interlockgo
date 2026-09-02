@@ -132,7 +132,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="home.css?v=2026-08-30-outfit" />
+<link rel="stylesheet" href="home.css?v=2026-09-01-hero-scene" />
 </head>
 <body>
 <a class="skip-link" href="#top">Skip to content</a>
@@ -165,19 +165,25 @@
 <main id="top">
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero hero-scene">
+  <div class="hero-layers">
+    <div class="hl hl-sky" data-depth="0.18" aria-hidden="true"></div>
+    <div class="hl hl-range" data-depth="0.14" aria-hidden="true"></div>
+    <div class="hl hl-ridge-near" data-depth="0.08" aria-hidden="true"></div>
+    <div class="hl hl-devices" data-depth="-0.10" data-tilt="1">
+      <img class="device device-gd" src="images/guardian-hero-800.webp" alt="Guardian Interlock handset showing a passed breath test" width="421" height="800" decoding="async" fetchpriority="high" />
+      <img class="device device-ls" src="images/ls250-hero-800.webp" alt="LifeSafer L250 handset showing a passed breath test" width="381" height="800" decoding="async" fetchpriority="high" />
+    </div>
+    <div class="hl hl-trees" data-depth="-0.18" aria-hidden="true"></div>
+  </div>
   <div class="container">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <div class="eyebrow reveal">Evans, Colorado · Northern CO</div>
         <h1 class="display reveal d1">Get through the program. <em>Keep your life.</em></h1>
-      </div>
 
       <aside class="hero-side">
-        <p class="reveal d2">
-          Anson’s shop in Evans. Saturday 8–2. Dual brand. No second trip for the affidavit.
-        </p>
-        <p class="hero-proof reveal d3">LifeSafer + Guardian · notary in the same visit · Anson on the bay · Evans</p>
+        <p class="hero-proof reveal d2">LifeSafer + Guardian · Notary for the Affidavit · Open on Saturday · Evans, CO</p>
         <div class="cta-row reveal d3">
           <a class="btn btn-primary" href="tel:+19705155740">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.8 12.8 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.8 12.8 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -194,6 +200,8 @@
           <span><em>4.6</em> from 34 Google</span>
         </a>
       </aside>
+      </div>
+      <div class="hero-stage" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -572,6 +580,7 @@
   </div>
 </footer>
 
+<script src="js/hero-scene.js?v=2026-09-01" defer></script>
 <script>
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
