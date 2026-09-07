@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlockgo.io/schemas/answer-register.schema.json",
+  "title": "InterlockGo governed answer register",
+  "type": "object",
+  "required": ["schemaVersion", "catalogId", "lastReviewedDate", "answers"],
+  "properties": {
+    "schemaVersion": {"const": "1.0.0"},
+    "catalogId": {"const": "interlockgo-answer-register"},
+    "lastReviewedDate": {"type": "string", "format": "date"},
+    "answers": {
+      "type": "array",
+      "minItems": 30,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "category", "customerWording", "alternateWording", "publicAnswer",
+          "internalStaffAnswer", "sources", "applicability", "classification",
+          "effectiveDate", "lastReviewedDate", "nextReviewDate", "owner", "approver",
+          "approvedOn", "escalationDestination", "warning", "status", "publicationDestinations"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^IG-[A-Z]+-[0-9]{3}$"},
+          "category": {"type": "string", "minLength": 1},
+          "customerWording": {"type": "string", "minLength": 1},
+          "alternateWording": {"type": "array", "items": {"type": "string"}},
+          "publicAnswer": {"type": "string", "minLength": 1},
+          "internalStaffAnswer": {"type": "string", "minLength": 1},
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["title", "url", "authorityLevel", "verifiedOn"],
+              "properties": {
+                "title": {"type": "string", "minLength": 1},
+                "url": {"type": "string", "format": "uri"},
+                "authorityLevel": {"enum": ["1-colorado-dmv", "2-provider", "3-interlockgo-policy", "4-verified-technician", "5-topic-signal"]},
+                "verifiedOn": {"type": "string", "format": "date"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "applicability": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "classification": {"enum": ["public", "staff-only", "restricted"]},
+          "effectiveDate": {"type": "string", "format": "date"},
+          "lastReviewedDate": {"type": "string", "format": "date"},
+          "nextReviewDate": {"type": "string", "format": "date"},
+          "owner": {"type": "string", "minLength": 1},
+          "approver": {"type": ["string", "null"]},
+          "approvedOn": {"type": ["string", "null"], "format": "date"},
+          "escalationDestination": {"type": "string", "minLength": 1},
+          "warning": {"type": "string"},
+          "status": {"enum": ["draft", "approved", "outdated", "retired"]},
+          "publicationDestinations": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

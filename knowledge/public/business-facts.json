@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordId": "interlockgo-business-facts",
+  "catalogReviewedOn": "2026-08-27",
+  "nextCatalogReview": "2026-09-26",
+  "responsibleOwner": "Anson Cordeiro",
+  "publicationRule": "Only public facts with status confirmed are included.",
+  "business": {
+    "publicBusinessName": {
+      "value": "InterlockGo NOCO",
+      "status": "confirmed",
+      "classification": "public",
+      "sources": [
+        {
+          "title": "InterlockGo homepage",
+          "url": "https://interlockgo.io/",
+          "authorityLevel": "3-interlockgo-policy",
+          "verifiedOn": "2026-08-27"
+        }
+      ]
+    },
+    "address": {
+      "streetAddress": "3610 35th Avenue",
+      "unit": "Unit 7",
+      "locality": "Evans",
+      "region": "CO",
+      "postalCode": "80620",
+      "country": "US",
+      "publicDisplay": "3610 35th Avenue, Unit 7, Evans, CO 80620",
+      "arrivalNote": "The garage entrance is at the rear of the building.",
+      "status": "confirmed",
+      "classification": "public",
+      "sources": [
+        {
+          "title": "InterlockGo contact page",
+          "url": "https://interlockgo.io/contactus/",
+          "authorityLevel": "3-interlockgo-policy",
+          "verifiedOn": "2026-08-27"
+        },
+        {
+          "title": "LifeSafer Evans location",
+          "url": "https://www.lifesafer.com/locations/colorado/evans/1939l/",
+          "authorityLevel": "2-provider",
+          "verifiedOn": "2026-08-27"
+        },
+        {
+          "title": "Guardian Evans location",
+          "url": "https://www.guardianinterlock.com/locations/colorado/evans/",
+          "authorityLevel": "2-provider",
+          "verifiedOn": "2026-08-27"
+        }
+      ]
+    },
+    "phones": [
+      {
+        "id": "shop-primary",
+        "numberE164": "+19705155740",
+        "display": "970-515-5740",
+        "channels": [
+          "voice"
+        ],
+        "purpose": "Direct InterlockGo shop line for appointments, local service questions, installation, calibration, and removal scheduling.",
+        "provider": "InterlockGo",
+        "status": "confirmed",
+        "classification": "public",
+        "ownerConfirmedOn": "2026-08-27",
+        "sources": [
+          {
+            "title": "InterlockGo contact page",
+            "url": "https://interlockgo.io/contactus/",
+            "authorityLevel": "3-interlockgo-policy",
+            "verifiedOn": "2026-08-27"
+          },
+          {
+            "title": "Interlock Go BBB Business Profile",
+            "url": "https://www.bbb.org/us/co/evans/profile/interlock-device/interlock-go-evans-co-0805-46145892",
+            "authorityLevel": "5-topic-signal",
+            "verifiedOn": "2026-08-27"
+          }
+        ]
+      },
+      {
+        "id": "shop-text",
+        "numberE164": "+19702391354",
+        "display": "970-239-1354",
+        "channels": [
+          "sms"
+        ],
+        "purpose": "InterlockGo Google Voice text line for scheduling and local service questions.",
+        "provider": "InterlockGo",
+        "status": "confirmed",
+        "classification": "public",
+        "ownerConfirmedOn": "2026-08-27",
+        "sources": [
+          {
+            "title": "InterlockGo contact page",
+            "url": "https://interlockgo.io/contactus/",
+            "authorityLevel": "3-interlockgo-policy",
+            "verifiedOn": "2026-08-27"
+          }
+        ]
+      },
+      {
+        "id": "lifesafer-customer-support",
+        "numberE164": "+18006343077",
+        "display": "800-634-3077",
+        "channels": [
+          "voice"
+        ],
+        "purpose": "LifeSafer provider customer support for device, account, lockout, mechanic-code, and provider-program issues.",
+        "provider": "LifeSafer",
+        "status": "confirmed",
+        "classification": "public",
+        "sources": [
+          {
+            "title": "LifeSafer troubleshooting",
+            "url": "https://www.lifesafer.com/troubleshooting/",
+            "authorityLevel": "2-provider",
+            "verifiedOn": "2026-08-27"
+          }
+        ]
+      },
+      {
+        "id": "guardian-customer-support",
+        "numberE164": "+18004990994",
+        "display": "800-499-0994",
+        "channels": [
+          "voice"
+        ],
+        "purpose": "Guardian 24/7 bilingual provider customer support and enrollment line.",
+        "provider": "Guardian",
+        "status": "confirmed",
+        "classification": "public",
+        "sources": [
+          {
+            "title": "Guardian Evans location",
+            "url": "https://www.guardianinterlock.com/locations/colorado/evans/",
+            "authorityLevel": "2-provider",
+            "verifiedOn": "2026-08-27"
+          }
+        ]
+      }
+    ],
+    "hours": {
+      "timezone": "America/Denver",
+      "status": "confirmed",
+      "classification": "public",
+      "regular": {
+        "Monday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "Tuesday": null,
+        "Wednesday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "Thursday": null,
+        "Friday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "Saturday": {
+          "open": "08:00",
+          "close": "14:00"
+        },
+        "Sunday": null
+      },
+      "appointmentRequired": true,
+      "scheduledExceptions": [
+        {
+          "dayOfWeek": "Tuesday",
+          "service": "Ignition interlock installation only",
+          "availability": "By advance appointment only; not regular open hours",
+          "status": "confirmed"
+        },
+        {
+          "dayOfWeek": "Thursday",
+          "service": "Ignition interlock installation only",
+          "availability": "By advance appointment only; not regular open hours",
+          "status": "confirmed"
+        }
+      ],
+      "ownerConfirmedOn": "2026-08-27",
+      "externalListingConflict": "LifeSafer lists Tuesday and Thursday 8:00 AM-6:00 PM, and Guardian displayed the Evans location open Thursday 8:00 AM-6:00 PM on 2026-08-27. Those listings do not represent InterlockGo's regular hours; Tuesday and Thursday installations are available only by advance appointment.",
+      "sources": [
+        {
+          "title": "InterlockGo hours",
+          "url": "https://interlockgo.io/hours/",
+          "authorityLevel": "3-interlockgo-policy",
+          "verifiedOn": "2026-08-27"
+        },
+        {
+          "title": "LifeSafer Evans location",
+          "url": "https://www.lifesafer.com/locations/colorado/evans/1939l/",
+          "authorityLevel": "2-provider",
+          "verifiedOn": "2026-08-27"
+        },
+        {
+          "title": "Guardian Evans location",
+          "url": "https://www.guardianinterlock.com/locations/colorado/evans/",
+          "authorityLevel": "2-provider",
+          "verifiedOn": "2026-08-27"
+        },
+        {
+          "title": "Interlock Go BBB Business Profile",
+          "url": "https://www.bbb.org/us/co/evans/profile/interlock-device/interlock-go-evans-co-0805-46145892",
+          "authorityLevel": "5-topic-signal",
+          "verifiedOn": "2026-08-27"
+        }
+      ]
+    },
+    "holidayExceptions": [],
+    "supportedProviders": [
+      {
+        "name": "LifeSafer",
+        "status": "confirmed",
+        "classification": "public",
+        "sources": [
+          {
+            "title": "LifeSafer Evans location",
+            "url": "https://www.lifesafer.com/locations/colorado/evans/1939l/",
+            "authorityLevel": "2-provider",
+            "verifiedOn": "2026-08-27"
+          }
+        ]
+      },
+      {
+        "name": "Guardian",
+        "status": "confirmed",
+        "classification": "public",
+        "sources": [
+          {
+            "title": "Guardian Evans location",
+            "url": "https://www.guardianinterlock.com/locations/colorado/evans/",
+            "authorityLevel": "2-provider",
+            "verifiedOn": "2026-08-27"
+          }
+        ]
+      }
+    ],
+    "supportedDeviceModels": [],
+    "services": [
+      {
+        "name": "Ignition interlock installation",
+        "status": "confirmed",
+        "classification": "public"
+      },
+      {
+        "name": "Calibration and scheduled service",
+        "status": "confirmed",
+        "classification": "public"
+      },
+      {
+        "name": "Provider-authorized reset and device support",
+        "status": "confirmed",
+        "classification": "public"
+      },
+      {
+        "name": "Removal after provider and Colorado DMV authorization",
+        "status": "confirmed",
+        "classification": "public"
+      }
+    ],
+    "serviceAreas": [
+      {
+        "name": "Evans",
+        "status": "confirmed",
+        "classification": "public"
+      }
+    ],
+    "appointmentMethods": [
+      {
+        "method": "Call the InterlockGo shop",
+        "destination": "shop-primary",
+        "status": "confirmed",
+        "classification": "public"
+      },
+      {
+        "method": "Text the InterlockGo Google Voice line",
+        "destination": "shop-text",
+        "status": "confirmed",
+        "classification": "public"
+      },
+      {
+        "method": "LifeSafer online enrollment",
+        "destination": "https://signup.lifesafer.com/",
+        "status": "confirmed",
+        "classification": "public"
+      },
+      {
+        "method": "Guardian online enrollment",
+        "destination": "https://enrollment.guardianinterlock.com/",
+        "status": "confirmed",
+        "classification": "public"
+      }
+    ],
+    "pricing": null,
+    "legalAndRegulatoryLimitations": [
+      "The customer's current Colorado DMV notice controls their case.",
+      "Colorado DMV determines eligibility, restriction duration, extensions, and removal authorization.",
+      "InterlockGo is not a law firm and does not provide legal advice.",
+      "Provider rules and device instructions apply to provider-specific operation and service.",
+      "No answer may promise an appointment time, price, eligibility outcome, or removal without current verification."
+    ]
+  }
+}

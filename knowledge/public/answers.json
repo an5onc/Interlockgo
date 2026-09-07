@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0.0",
+  "catalogId": "interlockgo-answer-register",
+  "catalogReviewedOn": "2026-08-27",
+  "publicationRule": "Only public answers with status approved are included.",
+  "answerCount": 0,
+  "answers": []
+}
