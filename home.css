@@ -1083,6 +1083,17 @@ footer{
 @media(max-width:520px){
   .foot-base{flex-direction:column; gap:10px}
 }
+.foot-credit a{
+  color:var(--ink-2);
+  border-bottom:1px solid var(--rule);
+  padding-bottom:1px;
+  transition:color .2s ease, border-color .2s ease;
+}
+.foot-credit a:hover,
+.foot-credit a:focus-visible{color:var(--signal); border-color:var(--signal)}
+@media(min-width:521px){
+  .foot-base{flex-wrap:wrap; gap:10px 28px}
+}
 
 /* ---------- Floating Call Button ---------- */
 .call-float{
@@ -1683,12 +1694,12 @@ footer{
    the hero bottom so the foothills and pines stand in front of it. */
 .hl-range{
   bottom: calc(200px - 0.0223 * var(--hl-w));
-  background-image:url("../images/hero/front-range-1792.webp");
+  background-image:url("images/hero/front-range-1792.webp");
 }
 /* near ridge: lowest point (svg y 400) lands 50px above the hero bottom */
-.hl-ridge-near{ bottom: calc(50px - 0.3125 * var(--hl-w));   background-image:url("../images/hero/ridge-near.svg") }
+.hl-ridge-near{ bottom: calc(50px - 0.3125 * var(--hl-w));   background-image:url("images/hero/ridge-near.svg") }
 /* treeline: ground line (svg y 386) lands 6px below the hero bottom */
-.hl-trees{      bottom: calc(-6px - 0.32125 * var(--hl-w));  background-image:url("../images/hero/treeline.svg") }
+.hl-trees{      bottom: calc(-6px - 0.32125 * var(--hl-w));  background-image:url("images/hero/treeline.svg") }
 .hl-devices{
   /* align with .container (1280px max, 28px gutters) without using transform,
      because the script owns transform on every layer */
@@ -1734,7 +1745,7 @@ footer{
   .hero-layers{ --hl-w: max(100vw + 48px, 1100px) }
   .hl-range{
     bottom: calc(165px - 0.0223 * var(--hl-w));
-    background-image:url("../images/hero/front-range-1200.webp");
+    background-image:url("images/hero/front-range-1200.webp");
   }
   .hl-ridge-near{ bottom: calc(40px - 0.3125 * var(--hl-w)) }
   .hl-devices{
