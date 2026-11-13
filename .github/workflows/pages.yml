@@ -54,6 +54,17 @@ jobs:
           node ../scripts/seo-check.mjs
           test -f .well-known/security.txt
 
+      - name: Verify artifact-based Pages publishing
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pages_build_type="$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.build_type')"
+          if [ "$pages_build_type" != "workflow" ]; then
+            echo "::error::GitHub Pages must use GitHub Actions as its publishing source. Legacy branch publishing exposes repository files outside the curated artifact."
+            exit 1
+          fi
+
       - name: Configure Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5

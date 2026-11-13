@@ -31,6 +31,8 @@ The site audit now checks favicon declarations, matching social/canonical URLs, 
 
 ## Remaining measurement and release work
 
+The release check found that the repository still had GitHub Pages `build_type: legacy`, allowing the automatic branch publisher to compete with the curated workflow. Changed the Pages setting to `workflow`, preserving the custom domain, and added a CI check that rejects legacy publishing. Exclusion verification must request exact internal JSON/development filenames as well as directories; a directory returning 404 does not prove its files are unavailable.
+
 Search Console has no selected property in the available HYPD connection, so clicks, impressions, rankings, and Google-selected canonical URLs were not verified. Select the property at [HYPD sources](https://app.hypd.ai/sources?utm_source=mcp&utm_content=none_selected) for that review. No Business Profile or external listing was changed.
 
 After deployment, verify the live pages, robots.txt, and sitemap, then monitor Search Console. Local checks establish technical readiness; they do not establish Google indexing or ranking gains.
