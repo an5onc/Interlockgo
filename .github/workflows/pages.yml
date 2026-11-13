@@ -69,12 +69,20 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
+      - name: Package Pages artifact with required dotfiles
+        if: github.event_name != 'pull_request'
+        run: |
+          tar --dereference --hard-dereference --directory _site -cf "$RUNNER_TEMP/artifact.tar" .
+          tar --list --file "$RUNNER_TEMP/artifact.tar" ./.well-known/security.txt ./.nojekyll
+
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2, also used by upload-pages-artifact@v4
         with:
-          path: _site
-          include-hidden-files: true
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
   deploy:
     if: github.event_name != 'pull_request'
