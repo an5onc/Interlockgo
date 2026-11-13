@@ -4,44 +4,12 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://interlockgo.io/sitemap.xml
-
 # Private/internal pages
 Disallow: /lilly/
 Disallow: /resume/
 
-# Allow all crawlers to access CSS and JS
-Allow: /*.css$
-Allow: /*.js$
+# One shared group welcomes search and AI crawlers while applying the same
+# exclusions to all of them. CSS, JavaScript, and images remain crawlable.
+# https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec
 
-# AI Search Crawlers — explicitly welcome
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: GoogleOther
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: bingbot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
+Sitemap: https://interlockgo.io/sitemap.xml

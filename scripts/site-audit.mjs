@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { attribute as attr, decodeEntities, metaContent } from "./seo-html.mjs";
 
 const root = path.resolve(process.argv[2] ?? process.cwd());
 if (!fs.existsSync(root) || !fs.statSync(root).isDirectory()) {
@@ -50,16 +51,26 @@ const warnings = [];
 const titles = new Map();
 const descriptions = new Map();
 const canonicals = new Map();
+const inboundLinks = new Set();
+
+function businessRecords(html) {
+  const records = [];
+  for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const data = JSON.parse(match[1]);
+      records.push(...(data["@graph"] ?? [data]).filter((record) =>
+        [record["@type"]].flat().includes("LocalBusiness")));
+    } catch {
+      // Invalid JSON-LD is reported in the page loop below.
+    }
+  }
+  return records;
+}
+
+const homeBusiness = businessRecords(fs.readFileSync(path.join(root, "index.html"), "utf8"))[0];
 
 function addFinding(collection, file, message) {
   collection.push(`${file}: ${message}`);
-}
-
-function attr(tag, attribute) {
-  const match = tag.match(
-    new RegExp(`\\b${attribute}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, "i"),
-  );
-  return match ? (match[1] ?? match[2] ?? match[3] ?? "") : null;
 }
 
 function firstMatch(html, expression) {
@@ -105,11 +116,27 @@ for (const file of pages) {
   );
   const indexable = !/\bnoindex\b/i.test(robots);
 
-  const title = firstMatch(html, /<title>([\s\S]*?)<\/title>/i);
-  const description = firstMatch(
-    html,
-    /<meta\b(?=[^>]*\bname=["']description["'])[^>]*\bcontent=["']([^"']*)["'][^>]*>/i,
-  );
+  const inlineCss = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)]
+    .map((match) => match[1]).join("\n");
+  let pageCss = inlineCss;
+  for (const [tag] of html.matchAll(/<link\b[^>]*>/gi)) {
+    const reference = attr(tag, "href");
+    if (attr(tag, "rel") !== "stylesheet" || !reference || /^(?:https?:)?\/\//i.test(reference)) continue;
+    const target = localTargetFor(file, reference);
+    if (target && fs.existsSync(target) && fs.statSync(target).isFile()) {
+      pageCss += `\n${fs.readFileSync(target, "utf8")}`;
+    }
+  }
+  // Check required inline theme tokens. A removed token can silently make
+  // a hero transparent while leaving its text white, as on /appointments/.
+  const declaredProperties = new Set([...pageCss.matchAll(/(--[\w-]+)\s*:/g)].map((match) => match[1]));
+  const requiredProperties = new Set([...inlineCss.matchAll(/var\(\s*(--[\w-]+)\s*\)/g)].map((match) => match[1]));
+  for (const property of requiredProperties) {
+    if (!declaredProperties.has(property)) addFinding(failures, file, `inline style uses undefined theme property ${property}`);
+  }
+
+  const title = decodeEntities(firstMatch(html, /<title>([\s\S]*?)<\/title>/i));
+  const description = metaContent(html, "description");
   const canonical = firstMatch(
     html,
     /<link\b(?=[^>]*\brel=["']canonical["'])[^>]*\bhref=["']([^"']*)["'][^>]*>/i,
@@ -161,6 +188,11 @@ for (const file of pages) {
   }
 
   if (indexable) {
+    const icon = [...html.matchAll(/<link\b[^>]*>/gi)].find(([tag]) => attr(tag, "rel") === "icon");
+    if (!icon || !attr(icon[0], "href")) addFinding(failures, file, "missing favicon link");
+    if (metaContent(html, "og:url") !== expectedCanonical) {
+      addFinding(failures, file, "og:url must match the canonical page URL");
+    }
     for (const [property, expression] of [
       ["og:title", /<meta\b(?=[^>]*\bproperty=["']og:title["'])[^>]*\bcontent=["']([^"']+)["']/i],
       [
@@ -186,6 +218,54 @@ for (const file of pages) {
       JSON.parse(match[1]);
     } catch (error) {
       addFinding(failures, file, `invalid JSON-LD (${error.message})`);
+    }
+  }
+
+  // All service-area pages describe the same physical Evans shop.
+  for (const business of businessRecords(html)) {
+    if (!homeBusiness) {
+      addFinding(failures, file, "homepage LocalBusiness is missing");
+      continue;
+    }
+    for (const key of ["@id", "name", "url"]) {
+      if (business[key] !== homeBusiness[key]) {
+        addFinding(failures, file, `LocalBusiness ${key} differs from the homepage business identity`);
+      }
+    }
+    if (business.telephone?.replace(/\D/g, "") !== homeBusiness.telephone?.replace(/\D/g, "")) {
+      addFinding(failures, file, "LocalBusiness telephone differs from the homepage");
+    }
+    for (const key of ["streetAddress", "addressLocality", "addressRegion", "postalCode", "addressCountry"]) {
+      if (business.address?.[key] !== homeBusiness.address?.[key]) {
+        addFinding(failures, file, `LocalBusiness address ${key} differs from the Evans shop`);
+      }
+    }
+  }
+
+  const alternates = [...html.matchAll(/<link\b[^>]*>/gi)]
+    .map(([tag]) => ({ language: attr(tag, "hreflang"), url: attr(tag, "href") }))
+    .filter((link) => link.language && link.url);
+  for (const alternate of alternates) {
+    const url = new URL(alternate.url, expectedCanonical);
+    const target = localTargetFor(file, url.pathname);
+    if (url.origin !== siteOrigin || !target || !targetExists(target)) {
+      addFinding(failures, file, `hreflang target is missing or external: ${alternate.url}`);
+      continue;
+    }
+    const alternateHtml = fs.readFileSync(fs.statSync(target).isDirectory() ? path.join(target, "index.html") : target, "utf8");
+    for (const expected of alternates) {
+      const reciprocal = [...alternateHtml.matchAll(/<link\b[^>]*>/gi)].some(([tag]) =>
+        attr(tag, "hreflang") === expected.language && attr(tag, "href") === expected.url);
+      if (!reciprocal) addFinding(failures, file, `hreflang ${alternate.language} lacks reciprocal ${expected.language} link`);
+    }
+  }
+
+  for (const [tag] of html.matchAll(/<a\b[^>]*>/gi)) {
+    const reference = attr(tag, "href");
+    if (!reference) continue;
+    const url = new URL(decodeEntities(reference), expectedCanonical);
+    if (url.origin === siteOrigin && url.pathname !== route) {
+      inboundLinks.add(`${url.origin}${url.pathname}`);
     }
   }
 
@@ -254,6 +334,28 @@ const expectedIndexableUrls = pages
   })
   .map((file) => `${siteOrigin}${routeFor(file)}`);
 
+if (new Set(sitemapUrls).size !== sitemapUrls.length) {
+  addFinding(failures, "sitemap.xml", "contains duplicate URLs");
+}
+for (const [, value] of sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+  const date = new Date(`${value}T00:00:00Z`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== value) {
+    addFinding(failures, "sitemap.xml", `invalid lastmod date: ${value}`);
+  } else if (value > new Date().toISOString().slice(0, 10)) {
+    addFinding(failures, "sitemap.xml", `future lastmod date: ${value}`);
+  }
+}
+
+const robots = fs.readFileSync(path.join(root, "robots.txt"), "utf8");
+const agents = [...robots.matchAll(/^User-agent:\s*(\S+)/gmi)].map((match) => match[1]);
+// Named crawler groups override '*' rather than inheriting its exclusions.
+if (agents.length !== 1 || agents[0] !== "*") {
+  addFinding(failures, "robots.txt", "use one shared wildcard group so exclusions apply to every crawler");
+}
+if (!/^Sitemap:\s*https:\/\/interlockgo\.io\/sitemap\.xml\s*$/mi.test(robots)) {
+  addFinding(failures, "robots.txt", "missing canonical sitemap declaration");
+}
+
 for (const url of sitemapUrls) {
   if (!expectedIndexableUrls.includes(url)) {
     addFinding(failures, "sitemap.xml", `contains a non-indexable or unknown URL: ${url}`);
@@ -261,6 +363,9 @@ for (const url of sitemapUrls) {
 }
 for (const url of expectedIndexableUrls) {
   if (!sitemapUrls.includes(url)) addFinding(failures, "sitemap.xml", `is missing ${url}`);
+  if (url !== `${siteOrigin}/` && !inboundLinks.has(url)) {
+    addFinding(failures, "internal links", `indexable page has no incoming HTML link: ${url}`);
+  }
 }
 
 console.log(`Audited ${pages.length} HTML pages.`);

@@ -30,7 +30,9 @@ jobs:
 
       - name: Validate source
         run: |
+          node --test scripts/seo-html.test.mjs
           node scripts/seo-check.mjs
+          node scripts/top-page-seo-check.mjs
           node scripts/site-audit.mjs
           node scripts/media-check.mjs
           node scripts/guardian-hero-check.mjs
@@ -47,6 +49,7 @@ jobs:
       - name: Validate Pages artifact
         run: |
           node scripts/site-audit.mjs _site
+          node scripts/top-page-seo-check.mjs _site
           cd _site
           node ../scripts/seo-check.mjs
           test -f .well-known/security.txt

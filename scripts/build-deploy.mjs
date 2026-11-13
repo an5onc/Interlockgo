@@ -18,6 +18,7 @@ const productionPages = [
   "es/getstarted/index.html",
   "evans/index.html",
   "faq/index.html",
+  "faq/installers/index.html",
   "financing/index.html",
   "forms/index.html",
   "fort-collins/index.html",

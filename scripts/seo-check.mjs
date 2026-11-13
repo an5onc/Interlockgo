@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { decodeEntities, metaContent } from "./seo-html.mjs";
 
 const root = process.cwd();
 const ignoredHtml = new Set(["index-old.html", "25b687b80068dd6d001afc4ae2abeac6.html"]);
@@ -28,8 +29,8 @@ const descriptions = new Set();
 for (const rel of pages) {
   const html = fs.readFileSync(path.join(root, rel), "utf8");
   const page = rel === "index.html" ? "/" : `/${path.dirname(rel)}/`;
-  const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.replace(/\s+/g, " ").trim();
-  const description = html.match(/<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["']/i)?.[1]?.replace(/\s+/g, " ").trim();
+  const title = decodeEntities(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? "").replace(/\s+/g, " ").trim();
+  const description = metaContent(html, "description");
   const canonical = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
   const h1 = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1]?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   const noindex = /<meta\b(?=[^>]*\bname=["']robots["'])[^>]*\bcontent=["'][^"']*\bnoindex\b/i.test(html);

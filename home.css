@@ -556,6 +556,10 @@ section{padding:120px 0; position:relative}
 .process{
   background:var(--paper);
 }
+.local-service .section-head{margin-bottom:0; align-items:start}
+.local-service h2{scroll-margin-top:100px}
+.local-service .section-head p{margin-top:18px}
+.local-service .section-head a{text-decoration:underline; text-underline-offset:3px}
 .steps{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
